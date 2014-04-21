@@ -1,2 +1,2 @@
 talk.pdf : talk.tex
-	pdflatex talk.tex
+	pdflatex -halt-on-error talk.tex
