@@ -40,7 +40,7 @@
 
 % If you wish to uncover everything in a step-wise fashion, uncomment
 % the following command: 
-\beamerdefaultoverlayspecification{<+->}
+%\beamerdefaultoverlayspecification{<+->}
 
 \begin{document}
 
@@ -51,11 +51,62 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{This is the first slide}
+  \frametitle{Outline}
+  \tableofcontents[pausesections]
+\end{frame}
+
+\section{$\mathbb{R}^1$}
+\subsection{BST}
+
+\begin{frame}
+  \frametitle{Binary Search Trees}
   \begin{itemize}
-  \item One
-  \item Two
-  \item Three
+  \item Is $p\in S$?
+  \item Given $x$, what is closest point $p\in S$?
+  \item Find $\{x\,|\,x\in (p_1,p_2)\}$.
+  \item Given $\delta$, find $\{x\,|\,\mathrm{d}(x,p) < \delta\}$.
+  \end{itemize}
+  \pause
+  \bigskip
+  \textcolor{blue}{This is easy in $\mathbb{R}^1$.  What about $\mathbb{R}^d$?}
+\end{frame}
+\end{document}
+
+\section{$\mathbb{R}^d$}
+\subsection{Quadtrees}
+
+\begin{frame}
+  \dots
+\end{frame}
+
+\subsection{kd-trees}
+
+\begin{frame}
+  \dots
+\end{frame}
+
+\subsection{Range trees}
+
+\begin{frame}
+  \dots
+\end{frame}
+
+\subsection{More}
+
+\begin{frame}
+  \begin{itemize}
+  \item Voronoi diagrams
+  \item \dots
+  \item database range searches
+  \item curse of dimensionality, volume of unit cube $\plusminus\epsilon$, number of cubes covering unit cube, distance from $(0,0,\ldots,0)$ to $(1,1,\ldots,1)$.
+  \item What if we want to insert or delete points?
   \end{itemize}
 \end{frame}
+
+\section*{Summary}
+
+\begin{frame}
+  \dots
+\end{frame}
+
 \end{document}
