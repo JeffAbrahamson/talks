@@ -1,0 +1,20 @@
+Lost in Space: binary search trees beyond dimension one
+
+BST's are a great general-purpose tool for locating points on the
+line.  But in higher dimensions, we have to do more work.  In this
+talk, we'll look at a handful of algorithms that let us search for
+points, ranges of points, and nearest points in higher dimensions --
+just like with BST's.  We'll also touch on some surprising
+applications of these algorithms and even have a quick chat about the
+Curse of Dimensionality.  The talk keeps evolving, but it's a safe bet
+that we'll at least discuss range trees, kd-trees, and higher
+dimensional Voronoi diagrams.
+
+Bio: Jeff Abrahamson collects advanced degrees while roaming the globe
+doing computer science and writing software.  He currently hangs his
+(virtual) hat at Google London, where he is tagged site reliability
+engineer.
+
+
+When this bio is appears in a context with hrefs, the href on "Jeff
+Abrahamson" should be to http://jeff.purple.com/qr/ .
