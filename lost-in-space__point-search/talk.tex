@@ -63,39 +63,209 @@
   \begin{itemize}
   \item Is $p\in S$?
   \item Given $x$, what is closest point $p\in S$?
-  \item Find $\{x\,|\,x\in (p_1,p_2)\}$.
+  \item Find $\{x\,|\,x \textrm{ is in the interval between } p_1 \textrm{ and } p_2\}$.
   \item Given $\delta$, find $\{x\,|\,\mathrm{d}(x,p) < \delta\}$.
   \end{itemize}
   \pause
   \bigskip
   \textcolor{blue}{This is easy in $\mathbb{R}^1$.  What about $\mathbb{R}^d$?}
 \end{frame}
+\note{Everyone knows about BST's?}
+\note{How do we interpret these statements in $\mathbb{R}^d$?}
 
 \section{$\mathbb{R}^d$}
 \subsection{What could go wrong?}
 
 \begin{frame}
-  \frametitle{The Curse of Dimensionality}
+  \frametitle{What could go wrong?}
+  \textcolor{red}{The Curse of Dimensionality}\\
+  \bigskip
   \pause
   Some things to think about:
   \begin{itemize}
   \item Volume of unit cube $\pm\epsilon$
   \item Distance from $(0,0,\ldots,0)$ to $(1,1,\ldots,1)$
   \end{itemize}
+  \pause
+  \bigskip
+  \textcolor{blue}{It's easy to get lost.}
 \end{frame}
+\note{In Hilbert space, you can't even scream.}
 
 \subsection{Quadtrees}
 
 \begin{frame}
-  \frametitle{Quad trees, Octrees}
-  \dots
+  \frametitle{Quadtrees in Words}
+  Properties
+  \begin{itemize}
+  \item Rooted tree
+  \item Internal nodes have four children
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Quadtrees in Pictures}
+  % Rather than xfig, probably I should use TikZ and PGF.
+  % Cf. http://www.texample.net/tikz/examples/
+  \textbf{\Huge Two images here.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Quadtrees in Mathematics}
+  \begin{itemize}
+  \item Find a bounding box: $O(n)$
+  \item Then,
+    \begin{itemize}
+    \item Divide in four quadrants: $O(1)$
+    \item Partition the points: $O(n)$
+    \item Recursively build a quad tree: ??
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Quadtrees in Equations}
+  
+  \begin{itemize}
+  \item Depth is at most $\delta = \left\lceil
+      \log\left(\frac{s}{c}\right) +
+      \frac{3}{2}\right\rceil$\textcolor{gray}{, where $c$ is the
+      smallest inter-point distance and $s$ is the side length of the
+      initial square.} \\[2mm]
+    
+  \item \textcolor{gray}{A quadtree of depth $\delta$ storing $n$ points has}
+    $O((\delta+1)n)$ nodes and requires $O((\delta+1)n)$ time to
+    construct. \\[2mm]
+    
+  \item Finding neighbors \textcolor{gray}{in a given direction takes}
+    time $O(\delta+1)$ \\[2mm]
+
+  \item Balancing \textcolor{gray}{a quadtree takes} time
+    $O((\delta+1)m)$\textcolor{gray}{, where $m$ is the number of
+      interior nodes.}
+
+  \end{itemize}
+\end{frame}
+\note{But depth is kinda sorta $\log(n)$, so we're in $n\log(n)$ land.}
+
+\begin{frame}
+  \frametitle{Quadtrees in Popular Culture}
+
+  \begin{itemize}
+  \item One of the first DS's for higher-dimensional data
+  \item Finkel and Bentley, 1974
+    \textcolor{gray}{\small\it(R.~A.~Finkel and J.~L.~Bentley, Quad
+      trees: a data structure for retrieval on composite keys. Acta
+      Inform, 4:1--9, 1974)}
+  \item Still perform relatively well
+  \item Easy to generalize to higher dimensions---called octrees
+  \end{itemize}
+
+  \bigskip \textcolor{gray}{M. de Berg et al., \textit{Computational
+      Geometry: Algorithms and Applications}, second edition, chapter
+    14.  Cf. also chapter end notes.}
 \end{frame}
 
 \subsection{kd-trees}
 
 \begin{frame}
-  \frametitle{kd-trees}
-  \dots
+  \frametitle{Kd-Trees in Words}
+  \begin{itemize}
+  \item Range queries
+    \pause
+  \item Data bases!  Records are points in space.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kd-Trees in SQL}
+
+  Find employees who are past their trial period but in their first
+  year and who are close to hitting the \pounds 100K tax rule start.
+
+  \bigskip
+
+  \texttt{SELECT salary, hire$\_$date\\
+  FROM EMPLOYEES\\
+  WHERE 80000 < salary AND salary < 100000\\
+  AND 3m < hire$\_$date AND hire$\_$date < 12m}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kd-Trees in Pictures}
+
+  \textbf{\Huge Image of db search in 2-D here.}  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kd-Trees in $\mathbb{R}^1$}
+  
+  \begin{itemize}
+  \item Binary search tree
+  \item Find on beginning of range
+  \item Tree walk to end
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kd-Trees in $\mathbb{R}^2$}
+  \begin{itemize}
+  \item At root, start with all points.
+  \item Partition on $x$ value to make level 1 nodes
+  \item Partition those sets on $y$ value to make level 2 nodes
+  \item Repeat
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kd-Trees in Pictures: Root}
+
+  \textbf{\Huge Image of some points in 2-D here.}  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kd-Trees in Pictures: Level 1}
+
+  \textbf{\Huge Image of some points in 2-D here.}  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kd-Trees in Pictures: Level 2}
+
+  \textbf{\Huge Image of some points in 2-D here.}  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kd-Trees in Pictures: Level 3}
+
+  \textbf{\Huge Image of some points in 2-D here.}  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kd-Trees in Pictures: Level 4}
+
+  \textbf{\Huge Image of some points in 2-D here.}  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kd-Trees}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kd-Trees}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kd-Trees}
+  \begin{itemize}
+  \item 
+  \end{itemize}
 \end{frame}
 
 \subsection{Range trees}
