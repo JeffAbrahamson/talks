@@ -96,7 +96,7 @@
 
 \begin{frame}
   \frametitle{Quadtrees in Words}
-  Properties
+  Properties (let's start in $\mathbb{R}^2$)
   \begin{itemize}
   \item Rooted tree
   \item Internal nodes have four children
@@ -107,7 +107,8 @@
   \frametitle{Quadtrees in Pictures}
   % Rather than xfig, probably I should use TikZ and PGF.
   % Cf. http://www.texample.net/tikz/examples/
-  \textbf{\Huge Two images here.}
+  \includegraphics<1->[width=.45\textwidth]{quad-tree-squares.pdf}\hfill
+  \includegraphics<2>[width=.45\textwidth]{quad-tree-tree.pdf}
 \end{frame}
 
 \begin{frame}
@@ -194,7 +195,7 @@
 \begin{frame}
   \frametitle{Kd-Trees in Pictures}
 
-  \textbf{\Huge Image of db search in 2-D here.}  
+  \includegraphics[width=\textwidth]{kd-SQL.pdf}
 \end{frame}
 
 \begin{frame}
@@ -202,8 +203,8 @@
   
   \begin{itemize}
   \item Binary search tree
-  \item Find on beginning of range
-  \item Tree walk to end
+  \item Find beginning of range
+  \item Tree walk to end of range
   \end{itemize}
 \end{frame}
 
@@ -213,38 +214,31 @@
   \item At root, start with all points.
   \item Partition on $x$ value to make level 1 nodes
   \item Partition those sets on $y$ value to make level 2 nodes
-  \item Repeat
+  \item Repeat until done
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Kd-Trees in Pictures: Root}
+  \frametitle{Kd-Trees in Pictures}
 
-  \textbf{\Huge Image of some points in 2-D here.}  
-\end{frame}
-
-\begin{frame}
-  \frametitle{Kd-Trees in Pictures: Level 1}
-
-  \textbf{\Huge Image of some points in 2-D here.}  
-\end{frame}
-
-\begin{frame}
-  \frametitle{Kd-Trees in Pictures: Level 2}
-
-  \textbf{\Huge Image of some points in 2-D here.}  
-\end{frame}
-
-\begin{frame}
-  \frametitle{Kd-Trees in Pictures: Level 3}
-
-  \textbf{\Huge Image of some points in 2-D here.}  
-\end{frame}
-
-\begin{frame}
-  \frametitle{Kd-Trees in Pictures: Level 4}
-
-  \textbf{\Huge Image of some points in 2-D here.}  
+  \includegraphics<1>[width=.45\textwidth]{kd-tree-0.pdf} 
+  \includegraphics<1>[width=.45\textwidth]{kd-tree-graph-0.pdf}
+%
+  \includegraphics<2>[width=.45\textwidth]{kd-tree-1.pdf}
+  \includegraphics<2>[width=.45\textwidth]{kd-tree-graph-1.pdf}
+%
+  \includegraphics<3>[width=.45\textwidth]{kd-tree-2.pdf}
+  \includegraphics<3>[width=.45\textwidth]{kd-tree-graph-2.pdf}
+%
+  \includegraphics<4>[width=.45\textwidth]{kd-tree-3.pdf}
+  \includegraphics<4>[width=.45\textwidth]{kd-tree-graph-3.pdf}
+%
+  \includegraphics<5>[width=.45\textwidth]{kd-tree-4.pdf}
+  \includegraphics<5>[width=.45\textwidth]{kd-tree-graph-4.pdf}
+%
+  \includegraphics<6>[width=.45\textwidth]{kd-tree-full.pdf}
+  \includegraphics<6>[width=.45\textwidth]{kd-tree-graph-5.pdf}
+  
 \end{frame}
 
 \begin{frame}
