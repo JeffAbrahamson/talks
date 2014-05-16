@@ -188,8 +188,10 @@
 
   \texttt{SELECT salary, hire$\_$date\\
   FROM EMPLOYEES\\
-  WHERE 80000 < salary AND salary < 100000\\
-  AND 3m < hire$\_$date AND hire$\_$date < 12m}
+  WHERE 80000 < salary \\
+  \hspace{5mm}AND salary < 100000\\
+  AND now $-$ 12m < hire$\_$date \\
+  \hspace{5mm}AND hire$\_$date < now $-$ 3m}
 \end{frame}
 
 \begin{frame}
@@ -215,6 +217,7 @@
   \item Partition on $x$ value to make level 1 nodes
   \item Partition those sets on $y$ value to make level 2 nodes
   \item Repeat until done
+  \item Result of a query is a forest of subtrees
   \end{itemize}
 \end{frame}
 
@@ -244,21 +247,21 @@
 \begin{frame}
   \frametitle{Kd-Trees in Mathematics}
   \begin{itemize}
-  \item 
+  \item {\huge construction, querying}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Kd-Trees in Equations}
   \begin{itemize}
-  \item 
+  \item {\huge $O()$}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Kd-Trees in Popular Culture}
   \begin{itemize}
-  \item 
+  \item {\huge Who, when, why}
   \end{itemize}
 \end{frame}
 
@@ -266,27 +269,65 @@
 
 \begin{frame}
   \frametitle{Range trees in Words}
-  \dots
+  \begin{itemize}
+  \item<1-> In $\mathbb{R}^1$, a balanced binary search tree
+  \item<2> In $\mathbb{R}^d$, split on dimension 1 with auxiliary
+    range tree on remaining $d-1$ dimensions
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Range trees in Pictures}
-  \dots
+
+  {\huge Image here}
 \end{frame}
 
 \begin{frame}
   \frametitle{Range trees in Mathematics}
-  \dots
+
+  \begin{itemize}
+  \item Partition points in two and build BST on first coordinate:
+    $O(n\log n)$
+  \item Recursively build range trees at each interior node on
+    remaining $d-1$ coordinates: ??
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Range trees in Equations}
-  \dots
+  \begin{itemize}
+  \item Faster query times, $O(\log^d n + k)$
+  \item Worse storage, $O(n \log^{d-1} n)$
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Range trees in Popular Culture}
-  \dots
+  \begin{itemize}
+  \item Bentley, J. L. (1979). "Decomposable searching
+    problems". Information Processing Letters 8 (5): 244–251
+  \item Also: Lueker (1978); Lee, Wong (1980); Willard (1979)
+  \end{itemize}
+
+  \bigskip \textcolor{gray}{ 
+    M. de Berg et al., \textit{Computational Geometry: Algorithms and
+      Applications}, second edition, chapter ??.  Cf. also chapter end
+    notes.}
+
+  %% Also:
+  %
+  % Lueker, G. S. (1978). "A data structure for orthogonal range
+  % queries". 19th Annual Symposium on Foundations of Computer Science
+  % (sfcs 1978). pp. 28–21}
+  %
+  % Lee, D. T.; Wong, C. K. (1980). "Quintary trees: A file structure
+  % for multidimensional database systems". ACM Transactions on
+  % Database Systems 5 (3): 339
+  %
+  % Willard, Dan E. The super-b-tree algorithm (Technical
+  % report). Cambridge, MA: Aiken Computer Lab, Harvard
+  % University. TR-03-79
+
 \end{frame}
 
 \subsection{More}
@@ -301,6 +342,8 @@
   \item What if we want to insert or delete points?
   \end{itemize}
 \end{frame}
+
+%% kNN
 
 \section*{Summary}
 
