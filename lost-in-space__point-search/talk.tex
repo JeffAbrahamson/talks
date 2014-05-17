@@ -85,9 +85,15 @@
   \begin{itemize}
   \item Volume of unit cube $\pm\epsilon$
   \item Distance from $(0,0,\ldots,0)$ to $(1,1,\ldots,1)$
+  \item Physics: $1/r^{d-1}$
   \end{itemize}
   \pause
   \bigskip
+  \textcolor{gray}{Richard Ernest Bellman, Dynamic
+    programming, Princeton University Press, 1957.}
+  
+  \pause
+  \medskip
   \textcolor{blue}{It's easy to get lost.}
 \end{frame}
 \note{In Hilbert space, you can't even scream.}
@@ -286,8 +292,7 @@
   \frametitle{Range trees in Mathematics}
 
   \begin{itemize}
-  \item Partition points in two and build BST on first coordinate:
-    $O(n\log n)$
+  \item Build BST on first coordinate: $O(n\log n)$
   \item Recursively build range trees at each interior node on
     remaining $d-1$ coordinates: ??
   \end{itemize}
@@ -295,6 +300,7 @@
 
 \begin{frame}
   \frametitle{Range trees in Equations}
+  Compared to kd-trees:
   \begin{itemize}
   \item Faster query times, $O(\log^d n + k)$
   \item Worse storage, $O(n \log^{d-1} n)$
@@ -337,6 +343,8 @@
   \begin{itemize}
   \item Voronoi diagrams
   \item database range searches
+  \item kNN
+  \item aNN (locality sensitive hashing)
   \item Trees in the forest
   \item Other applications
   \item What if we want to insert or delete points?
@@ -349,7 +357,13 @@
 
 \begin{frame}
   \frametitle{Summary}  
-  \dots
+
+  \begin{itemize}
+  \item Trade-offs
+  \item Every problem is different
+  \item Dimension matters
+  \item This is all quite simplified
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
