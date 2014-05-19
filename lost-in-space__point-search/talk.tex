@@ -150,7 +150,7 @@
   \item Balancing \textcolor{gray}{a quadtree takes} time
     $O((\delta+1)m)$\textcolor{gray}{, where $m$ is the number of
       interior nodes.}
-
+%% JMA -- how do I balance a quadtree?
   \end{itemize}
 \end{frame}
 \note{But depth is kinda sorta $\log(n)$, so we're in $n\log(n)$ land.}
@@ -255,6 +255,7 @@
   \begin{itemize}
   \item {\huge construction, querying}
   \end{itemize}
+  %% JMA
 \end{frame}
 
 \begin{frame}
@@ -262,6 +263,7 @@
   \begin{itemize}
   \item {\huge $O()$}
   \end{itemize}
+  %% JMA
 \end{frame}
 
 \begin{frame}
@@ -269,6 +271,7 @@
   \begin{itemize}
   \item {\huge Who, when, why}
   \end{itemize}
+  %% JMA
 \end{frame}
 
 \subsection{Range trees}
@@ -276,6 +279,7 @@
 \begin{frame}
   \frametitle{Range trees in Words}
   \begin{itemize}
+  \item<1-> Range queries again %% JMA
   \item<1-> In $\mathbb{R}^1$, a balanced binary search tree
   \item<2> In $\mathbb{R}^d$, split on dimension 1 with auxiliary
     range tree on remaining $d-1$ dimensions
@@ -286,6 +290,7 @@
   \frametitle{Range trees in Pictures}
 
   {\huge Image here}
+  %% JMA
 \end{frame}
 
 \begin{frame}
@@ -305,6 +310,7 @@
   \item Faster query times, $O(\log^d n + k)$
   \item Worse storage, $O(n \log^{d-1} n)$
   \end{itemize}
+  %% JMA -- include actual comparison in <2>
 \end{frame}
 
 \begin{frame}
@@ -319,7 +325,8 @@
     M. de Berg et al., \textit{Computational Geometry: Algorithms and
       Applications}, second edition, chapter ??.  Cf. also chapter end
     notes.}
-
+  %% JMA -- ??=
+  
   %% Also:
   %
   % Lueker, G. S. (1978). "A data structure for orthogonal range
@@ -349,9 +356,8 @@
   \item Other applications
   \item What if we want to insert or delete points?
   \end{itemize}
+  %% JMA -- thoughts on each
 \end{frame}
-
-%% kNN
 
 \section*{Summary}
 
@@ -370,20 +376,20 @@
   \frametitle{Questions}  
 \end{frame}
 
+%% JMA -- voronoi
 \begin{frame}
   \frametitle{Voronoi Diagrams in Words}
 
   \begin{itemize}
-  \item 
+  \item 1-nearest-neighbour
+  \item Grass fire function
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Voronoi Diagrams in Pictures}
 
-  \begin{itemize}
-  \item 
-  \end{itemize}
+  {\Huge image here}
 \end{frame}
 
 \begin{frame}
