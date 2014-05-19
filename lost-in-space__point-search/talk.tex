@@ -325,23 +325,24 @@
   \begin{itemize}
   \item Faster query times, $O(\log^d n + k)$
   \item Worse storage, $O(n \log^{d-1} n)$
+  \item Worse construction,  $O(n\log^{d-1} n)$
   \end{itemize}
-  %% JMA -- include actual comparison in <2>
 \end{frame}
 
 \begin{frame}
   \frametitle{Range trees in Popular Culture}
   \begin{itemize}
-  \item Bentley, J. L. (1979). "Decomposable searching
-    problems". Information Processing Letters 8 (5): 244–251
+  \item Bentley, 1979
+    \textcolor{gray}{\small\it J.~L.~Bentley, Decomposable
+      searching problems, Information Processing Letters 8 (5):
+      244–251, 1979}
   \item Also: Lueker (1978); Lee, Wong (1980); Willard (1979)
   \end{itemize}
 
   \bigskip \textcolor{gray}{ 
     M. de Berg et al., \textit{Computational Geometry: Algorithms and
-      Applications}, second edition, chapter ??.  Cf. also chapter end
+      Applications}, second edition, chapter 5.  Cf. also chapter end
     notes.}
-  %% JMA -- ??=
   
   %% Also:
   %
@@ -356,6 +357,25 @@
   % Willard, Dan E. The super-b-tree algorithm (Technical
   % report). Cambridge, MA: Aiken Computer Lab, Harvard
   % University. TR-03-79
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Comparison}
+
+  \begin{tabular}{|l|l|l|l|}
+    \hline
+    & Space & Time & Query \\
+    \hline
+    \hline
+    quadtree & $O\left(n\log \left(\frac sc\right)\right)$ & $O\left(n\log \left(\frac
+      sc\right)\right)$ & $O\left(m\log \left(\frac sc\right)\right)$ \\
+    \hline
+    kd-tree & $O(n)$ & $O(n\log n)$ & $O(\sqrt n + k)$ \\
+    \hline
+    range-tree &  $O(n\log^{d-1} n)$ &  $O(n\log^{d-1} n)$ & $O(\log^d n + k)$ \\
+    \hline
+  \end{tabular}
 
 \end{frame}
 
