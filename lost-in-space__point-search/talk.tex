@@ -150,7 +150,6 @@
   \item Balancing \textcolor{gray}{a quadtree takes} time
     $O((\delta+1)m)$\textcolor{gray}{, where $m$ is the number of
       interior nodes.}
-%% JMA -- how do I balance a quadtree?
   \end{itemize}
 \end{frame}
 \note{But depth is kinda sorta $\log(n)$, so we're in $n\log(n)$ land.}
@@ -179,6 +178,8 @@
   \frametitle{Kd-Trees in Words}
   \begin{itemize}
   \item Range queries
+  \item Partial match queries
+  \item But not exact match queries (too easy)
     \pause
   \item Data bases!  Records are points in space.
   \end{itemize}
@@ -253,25 +254,36 @@
 \begin{frame}
   \frametitle{Kd-Trees in Mathematics}
   \begin{itemize}
-  \item {\huge construction, querying}
+  \item Split the points into two equal sets with a horizontal separator
+  \item If the set has only one point, return a leaf with that point
+  \item Else recursively construct a kd-tree on each set, but splitting vertically
   \end{itemize}
-  %% JMA
+  \pause
+  \bigskip
+  More precisely, split horizontally at odd depth, vertically at even depth.
 \end{frame}
 
 \begin{frame}
   \frametitle{Kd-Trees in Equations}
   \begin{itemize}
-  \item {\huge $O()$}
+  \item $O(n)$ storage
+  \item $O(n\log n)$ to build
+  \item $O(\sqrt{n}+k)$ to query axis-parallel rectangles
   \end{itemize}
-  %% JMA
 \end{frame}
 
 \begin{frame}
   \frametitle{Kd-Trees in Popular Culture}
   \begin{itemize}
-  \item {\huge Who, when, why}
+  \item Better worst-case behaviour than quadtrees
+  \item Bentley, 1975
+    \textcolor{gray}{\small\it(J.~L.~Bentley, Multidimensional binary
+      search trees used fo rassociative searching, Communications of
+      the ACM, 18:509--517, 1975)}
   \end{itemize}
-  %% JMA
+  \bigskip \textcolor{gray}{M. de Berg et al., \textit{Computational
+      Geometry: Algorithms and Applications}, second edition, chapter
+    5.  Cf. also chapter end notes.}
 \end{frame}
 
 \subsection{Range trees}
@@ -281,16 +293,20 @@
   \begin{itemize}
   \item<1-> Range queries again %% JMA
   \item<1-> In $\mathbb{R}^1$, a balanced binary search tree
-  \item<2> In $\mathbb{R}^d$, split on dimension 1 with auxiliary
+  \item<2-> In $\mathbb{R}^d$, split on dimension 1 with auxiliary
     range tree on remaining $d-1$ dimensions
+  \item<3-> Faster but bigger
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Range trees in Pictures}
 
-  {\huge Image here}
-  %% JMA
+  \includegraphics<1>[width=\textwidth]{range-tree-0.pdf} 
+  \includegraphics<2>[width=\textwidth]{range-tree-1.pdf} 
+  \includegraphics<3>[width=\textwidth]{range-tree-2.pdf} 
+  \includegraphics<4>[width=\textwidth]{range-tree-3.pdf} 
+
 \end{frame}
 
 \begin{frame}
