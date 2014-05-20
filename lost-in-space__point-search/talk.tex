@@ -13,6 +13,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage{times}
 \usepackage[T1]{fontenc}
+\usepackage{url}
+
+\newcommand\topstrut{\rule{0pt}{2.6ex}}
+\newcommand\bottomstrut{\rule[-1.2ex]{0pt}{0pt}}
+\newcommand\doublestrut{\rule[-1.2ex]{0pt}{3.6ex}}
+
+\newcommand\gray[1]{\textcolor{gray}{#1}}
+\newcommand\smallgray[1]{\textcolor{gray}{\small\it #1}}
 
 \title[Lost!] % (optional, only for long titles)
 {Lost in Space}
@@ -63,7 +71,7 @@
   \begin{itemize}
   \item Is $p\in S$?
   \item Given $x$, what is closest point $p\in S$?
-  \item Find $\{x\,|\,x \textrm{ is in the interval between } p_1 \textrm{ and } p_2\}$.
+  \item Find $\{x\,|\,x\in[p_1, p_2]\}$.
   \item Given $\delta$, find $\{x\,|\,\mathrm{d}(x,p) < \delta\}$.
   \end{itemize}
   \pause
@@ -87,10 +95,12 @@
   \item Distance from $(0,0,\ldots,0)$ to $(1,1,\ldots,1)$
   \item Physics: $1/r^{d-1}$
   \end{itemize}
+
   \pause
   \bigskip
-  \textcolor{gray}{Richard Ernest Bellman, Dynamic
-    programming, Princeton University Press, 1957.}
+
+  \gray{Richard Ernest Bellman, Dynamic programming,
+    Princeton University Press, 1957.}
   
   \pause
   \medskip
@@ -136,23 +146,24 @@
   \begin{itemize}
   \item Depth is at most $\delta = \left\lceil
       \log\left(\frac{s}{c}\right) +
-      \frac{3}{2}\right\rceil$\textcolor{gray}{, where $c$ is the
+      \frac{3}{2}\right\rceil$\gray{, where $c$ is the
       smallest inter-point distance and $s$ is the side length of the
       initial square.} \\[2mm]
     
-  \item \textcolor{gray}{A quadtree of depth $\delta$ storing $n$ points has}
+  \item \gray{A quadtree of depth $\delta$ storing $n$ points has}
     $O((\delta+1)n)$ nodes and requires $O((\delta+1)n)$ time to
     construct. \\[2mm]
     
-  \item Finding neighbors \textcolor{gray}{in a given direction takes}
+  \item Finding neighbors \gray{in a given direction takes}
     time $O(\delta+1)$ \\[2mm]
 
-  \item Balancing \textcolor{gray}{a quadtree takes} time
-    $O((\delta+1)m)$\textcolor{gray}{, where $m$ is the number of
+  \item Balancing \gray{a quadtree takes} time
+    $O((\delta+1)m)$\gray{, where $m$ is the number of
       interior nodes.}
   \end{itemize}
 \end{frame}
 \note{But depth is kinda sorta $\log(n)$, so we're in $n\log(n)$ land.}
+\note{OTOH, performance depends a lot on the distribution of the data.}
 
 \begin{frame}
   \frametitle{Quadtrees in Popular Culture}
@@ -160,14 +171,14 @@
   \begin{itemize}
   \item One of the first DS's for higher-dimensional data
   \item Finkel and Bentley, 1974
-    \textcolor{gray}{\small\it(R.~A.~Finkel and J.~L.~Bentley, Quad
+    \smallgray{(R.~A.~Finkel and J.~L.~Bentley, Quad
       trees: a data structure for retrieval on composite keys. Acta
       Inform, 4:1--9, 1974)}
   \item Still perform relatively well
   \item Easy to generalize to higher dimensions---called octrees
   \end{itemize}
 
-  \bigskip \textcolor{gray}{M. de Berg et al., \textit{Computational
+  \bigskip \gray{M. de Berg et al., \textit{Computational
       Geometry: Algorithms and Applications}, second edition, chapter
     14.  Cf. also chapter end notes.}
 \end{frame}
@@ -277,11 +288,12 @@
   \begin{itemize}
   \item Better worst-case behaviour than quadtrees
   \item Bentley, 1975
-    \textcolor{gray}{\small\it(J.~L.~Bentley, Multidimensional binary
-      search trees used fo rassociative searching, Communications of
+    \smallgray{(J.~L.~Bentley, Multidimensional binary
+      search trees used for associative searching, Communications of
       the ACM, 18:509--517, 1975)}
+  \item kNN \smallgray{(for small dimension)}
   \end{itemize}
-  \bigskip \textcolor{gray}{M. de Berg et al., \textit{Computational
+  \bigskip \gray{M. de Berg et al., \textit{Computational
       Geometry: Algorithms and Applications}, second edition, chapter
     5.  Cf. also chapter end notes.}
 \end{frame}
@@ -333,13 +345,13 @@
   \frametitle{Range trees in Popular Culture}
   \begin{itemize}
   \item Bentley, 1979
-    \textcolor{gray}{\small\it J.~L.~Bentley, Decomposable
+    \smallgray{J.~L.~Bentley, Decomposable
       searching problems, Information Processing Letters 8 (5):
       244–251, 1979}
   \item Also: Lueker (1978); Lee, Wong (1980); Willard (1979)
   \end{itemize}
 
-  \bigskip \textcolor{gray}{ 
+  \bigskip \gray{ 
     M. de Berg et al., \textit{Computational Geometry: Algorithms and
       Applications}, second edition, chapter 5.  Cf. also chapter end
     notes.}
@@ -367,12 +379,12 @@
     \hline
     & Space & Time & Query \\
     \hline
-    \hline
+    \hline\doublestrut
     quadtree & $O\left(n\log \left(\frac sc\right)\right)$ & $O\left(n\log \left(\frac
       sc\right)\right)$ & $O\left(m\log \left(\frac sc\right)\right)$ \\
-    \hline
+    \hline\doublestrut
     kd-tree & $O(n)$ & $O(n\log n)$ & $O(\sqrt n + k)$ \\
-    \hline
+    \hline\doublestrut
     range-tree &  $O(n\log^{d-1} n)$ &  $O(n\log^{d-1} n)$ & $O(\log^d n + k)$ \\
     \hline
   \end{tabular}
@@ -386,33 +398,29 @@
   \begin{itemize}
   \item Voronoi diagrams
   \item database range searches
-  \item kNN
+  \item kNN \smallgray{\small\it (Use kd-trees for small $d$)}
   \item aNN (locality sensitive hashing)
-  \item Trees in the forest
-  \item Other applications
   \item What if we want to insert or delete points?
   \end{itemize}
-  %% JMA -- thoughts on each
 \end{frame}
 
-\section*{Summary}
-
 \begin{frame}
-  \frametitle{Summary}  
+  \frametitle{aNN and LSH}
 
   \begin{itemize}
-  \item Trade-offs
-  \item Every problem is different
-  \item Dimension matters
-  \item This is all quite simplified
+  \item $N$ points
+  \item $h$ hyperplanes, $h \ll N$
+  \item planes are oriented
+  \item Hamming distance, e.g.
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Questions}  
+  \frametitle{aNN and LSH}
+
+  \includegraphics[width=\textwidth]{LSH.pdf}
 \end{frame}
 
-%% JMA -- voronoi
 \begin{frame}
   \frametitle{Voronoi Diagrams in Words}
 
@@ -425,14 +433,35 @@
 \begin{frame}
   \frametitle{Voronoi Diagrams in Pictures}
 
-  {\Huge image here}
+  \includegraphics[width=.6\textwidth]{Euclidean_Voronoi_Diagram.png}
+
+  \smallgray{\url{https://en.wikipedia.org/wiki/File:Euclidean_Voronoi_Diagram.png}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Voronoi Diagrams in Pictures}
+
+  \includegraphics[width=.6\textwidth]{Manhattan_Voronoi_Diagram.png}
+
+  \smallgray{\url{https://en.wikipedia.org/wiki/File:Manhattan_Voronoi_Diagram.png}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Voronoi Diagrams in Pictures}
+
+  \includegraphics[width=.6\textwidth]{Coloured_Voronoi_3D_slice.png}
+
+  A slice of a 3D voronoi diagram on random points.
+
+  \smallgray{\url{https://en.wikipedia.org/wiki/File:Coloured_Voronoi_3D_slice.svg.png}}
 \end{frame}
 
 \begin{frame}
   \frametitle{Voronoi Diagrams in Mathematics}
 
   \begin{itemize}
-  \item 
+  \item Sweep line algorithm
+  \item We don't have enough time today\dots
   \end{itemize}
 \end{frame}
 
@@ -452,5 +481,21 @@
   \end{itemize}
 \end{frame}
 
+\section*{Summary}
+
+\begin{frame}
+  \frametitle{Summary}  
+
+  \begin{itemize}
+  \item Trade-offs
+  \item Every problem is different
+  \item Dimension matters
+  \item This is all quite simplified
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Questions}  
+\end{frame}
 
 \end{document}
