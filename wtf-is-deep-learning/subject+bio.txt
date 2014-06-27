@@ -1,0 +1,29 @@
+WTF is Deep Learning?
+
+Neither machine learning nor deep learning are new topics, but they
+have both seen remarkable advancement in the last decade.  As is often
+the case in a rapidly advancing field, new vocabulary is born.
+
+In this talk we'll look at what we now call deep learning, its
+origins, and its applications.  The talk strives to present the
+subject to a technical audience with little to no knowledge of deep
+learning.  As adult viewers of Saturday morning cartoons would expect,
+the presentation will nonetheless strive to provide some amusement and
+maybe enlightenment for experienced practitioners.
+
+
+Bio: Jeff Abrahamson collects advanced degrees while roaming the globe
+doing computer science and writing software.  He currently hangs his
+(virtual) hat at Google London, where he is called site reliability
+engineer.  In autumn 2014 he embarks on a new chapter in his
+professional life based mostly in France.  Want to know about the road
+shows?  Check out.purple.com/talks.
+
+
+
+
+When this bio appears in a context with hrefs, the href on "Jeff
+Abrahamson" should be to http://jeff.purple.com/qr/ .
+
+The href the last sentence should be to
+http://www.purple.com/talks/index.html .
