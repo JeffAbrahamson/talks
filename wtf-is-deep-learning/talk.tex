@@ -21,6 +21,7 @@
 
 \newcommand\gray[1]{\textcolor{gray}{#1}}
 \newcommand\smallgray[1]{\textcolor{gray}{\small\it #1}}
+\newcommand\prevwork[1]{\smallgray{#1}}
 
 \title[WTF?] % (optional, only for long titles)
 {WTF is Deep Learning}
@@ -61,10 +62,250 @@
 \subsection{Subsection}
 
 \begin{frame}
-  \frametitle{WTF is Deep Learning?}
+  \frametitle{Roughly, wtf is Deep Learning?}
+  \begin{itemize}
+  \item<1-> Machine learning
+  \item<1-> Model high-level abstraction by using multiple non-linear
+    transformations.
+  \item<2-> Example: Image: pixels, edges, shapes, faces.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some architectures}
+  \begin{itemize}
+  \item Deep neural networks
+  \item Convolutional deep neural networks
+  \item Deep belief networks
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some successful applications}
+  \begin{itemize}
+  \item Computer vision (CV)
+  \item Speech recognition (ASR)
+  \item Natural language processing (NLP)
+  \item Music and audio recognition
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some famous data sets}
+  \begin{itemize}
+  \item TIMIT (ASR)
+  \item MNIST (image classification)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some successful hardware}
+  \begin{itemize}
+  \item GPU's
+  \item Data centers
+  \end{itemize}
+  
+  \prevwork{Luiz André Barroso and Urs Hölzle, The Datacenter as a
+    Computer: An Introduction to the Design of Warehouse-Scale
+    Machines, 2009.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some inspirations}
+  \begin{itemize}
+  \item Biology: David H. Hubel and Torsten Wiesel (1959) found two
+    types of cells in the visual primary cortex: simple and complex.
+  \item Cascading models
+  \end{itemize}
+
+\prevwork{M Riesenhuber, T Poggio. Hierarchical models of object
+  recognition in cortex. Nature neuroscience, 1999(11) 1019–1025.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{History}
+  \begin{itemize}
+  \item<1-> ANN's exist pre-1980.  Backpropagation since 1974.
+  \item<2-> Neocognitron (Kunihiko Fukushima, 1980), partially unsupervised
+    % https://en.wikipedia.org/wiki/Neocognitron
+  \item<3-> Yann LeCun et al. recognize handwritten postal codes (backpropagation)
+  \end{itemize}
+\note{LeCun: But it took 3 days to train, so was not practical for
+  general use.}
+
+  \visible<1>{\prevwork{P. Werbos., ``Beyond Regression: New Tools for
+    Prediction and Analysis in the Behavioral Sciences,'' PhD thesis,
+    Harvard University, 1974.}}
+
+\visible<2>{\prevwork{K. Fukushima., ``Neocognitron: A self-organizing
+    neural network model for a mechanism of pattern recognition
+    unaffected by shift in position,'' Biol. Cybern., 36, 193–202,
+    1980.}}
+
+\visible<3>{\prevwork{LeCun et al., ``Backpropagation Applied to
+    Handwritten Zip Code Recognition,'' Neural Computation, 1,
+    pp. 541–551, 1989.}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Paradise glimpsed, paradise lost}
+  \begin{itemize}
+  \item ANN's were slow.
+  \item Vanishing gradient problem (Sepp Hochreiter)
+  \item Support vector machines (SVN) were faster
+  \end{itemize}
+  \note{For two decades from 1990 or so, the world preferred SVN's.}
+
+\prevwork{S. Hochreiter., ``Untersuchungen zu dynamischen neuronalen
+  Netzen,'' Diploma thesis. Institut f. Informatik, Technische
+  Univ. Munich. Advisor: J. Schmidhuber, 1991.}
+
+\prevwork{S. Hochreiter et al., ``Gradient flow in recurrent nets: the
+  difficulty of learning long-term dependencies,'' In S. C. Kremer and
+  J. F. Kolen, editors, A Field Guide to Dynamical Recurrent Neural
+  Networks. IEEE Press, 2001.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{And then there was Hinton}
+  \begin{itemize}
+  \item Geoffrey Hinton and Ruslan Salakhutdinov
+  \item Train many-layered feedforward NN's one layer at a time
+  \item Treat layers as unsupervised restricted Bltzmann machines
+  \item Use supervised backprogagation for fine-tuning
+  \item \gray{Also: Schmidhuber and recurrent NN's}
+  \end{itemize}
+
+\prevwork{G. E. Hinton., ``Learning multiple layers of
+  representation,'' Trends in Cognitive Sciences, 11, pp. 428–434,
+  2007.}
+
+\prevwork{J. Schmidhuber., ``Learning complex, extended sequences using
+  the principle of history compression,'' Neural Computation, 4,
+  pp. 234–242, 1992.}
+
+\prevwork{J. Schmidhuber., ``My First Deep Learning System of 1991 +
+  Deep Learning Timeline 1962–2013.''}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some progress}
+  \begin{itemize}
+  \item<1-> Multi-level hierarchy of networks (pre-train by level,
+    unsupervised, backpropagation) (1992)
+  \item<2-> Long short term memory network (LSTM) (1997)
+  \item<3-> Deep multidimensional LSTM networks win three ICDAR
+    competitions in handwriting recognition without prior language knowledge (2009)
+  \end{itemize}
+
+\visible<1>{\prevwork{J. Schmidhuber., ``Learning complex, extended
+    sequences using the principle of history compression,'' Neural
+    Computation, 4, pp. 234–242, 1992.}}
+
+\visible<2>{\prevwork{Hochreiter, Sepp; and Schmidhuber, Jürgen; Long
+    Short-Term Memory, Neural Computation, 9(8):1735–1780, 1997.}}
+
+\visible<3>{\prevwork{Graves, Alex; and Schmidhuber, Jürgen; Offline
+    Handwriting Recognition with Multidimensional Recurrent Neural
+    Networks, in Bengio, Yoshua; Schuurmans, Dale; Lafferty, John;
+    Williams, Chris K. I.; and Culotta, Aron (eds.), Advances in
+    Neural Information Processing Systems 22 (NIPS'22), December
+    7th–10th, 2009, Vancouver, BC, Neural Information Processing
+    Systems (NIPS) Foundation, 2009, pp. 545–552.}}
+
+\visible<3>{\prevwork{A. Graves, M. Liwicki, S. Fernandez,
+    R. Bertolami, H. Bunke, J. Schmidhuber. A Novel Connectionist
+    System for Improved Unconstrained Handwriting Recognition. IEEE
+    Transactions on Pattern Analysis and Machine Intelligence,
+    vol. 31, no. 5, 2009.}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Basic ideas}
+  \begin{itemize}
+  \item Distributed representations: observed data is organized at
+    multiple levels of abstraction or composition
+  \item Higher level concepts learned from lower level concepts
+    (hierarchical explanatory factors)
+  \item Often can frame problems as unsupervised.  (Labeling is
+    expensive.)
+  \end{itemize}
+  
+  \prevwork{Y. Bengio, A. Courville, and P. Vincent., ``Representation
+    Learning: A Review and New Perspectives,'' IEEE Trans. PAMI,
+    special issue Learning Deep Architectures, 2013.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
   \begin{itemize}
   \item 
   \end{itemize}
 \end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+
 
 \end{document}
