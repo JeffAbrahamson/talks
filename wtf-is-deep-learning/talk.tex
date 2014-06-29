@@ -15,6 +15,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{url}
 
+\parskip=8 pt
+
 \newcommand\topstrut{\rule{0pt}{2.6ex}}
 \newcommand\bottomstrut{\rule[-1.2ex]{0pt}{0pt}}
 \newcommand\doublestrut{\rule[-1.2ex]{0pt}{3.6ex}}
@@ -172,7 +174,6 @@
   Multi-level hierarchy of networks (pre-train by level, unsupervised,
   backpropagation) (1992)
 
-  \bigskip
   \prevwork{J. Schmidhuber., ``Learning complex, extended sequences
     using the principle of history compression,'' Neural Computation,
     4, pp. 234–242, 1992.}
@@ -183,7 +184,6 @@
     
   Long short term memory network (LSTM) (1997)
 
-  \bigskip 
   \prevwork{Hochreiter, Sepp; and Schmidhuber, Jürgen; Long
     Short-Term Memory, Neural Computation, 9(8):1735–1780, 1997.}
 \end{frame}
@@ -194,7 +194,6 @@
   Deep multidimensional LSTM networks win three ICDAR competitions in
   handwriting recognition without prior language knowledge (2009)
 
-  \bigskip
   \prevwork{Graves, Alex; and Schmidhuber, Jürgen; Offline Handwriting
     Recognition with Multidimensional Recurrent Neural Networks, in
     Bengio, Yoshua; Schuurmans, Dale; Lafferty, John; Williams, Chris
@@ -203,7 +202,6 @@
     Vancouver, BC, Neural Information Processing Systems (NIPS)
     Foundation, 2009, pp. 545–552.}
 
-  \medskip
   \prevwork{A. Graves, M. Liwicki, S. Fernandez, R. Bertolami,
     H. Bunke, J. Schmidhuber. A Novel Connectionist System for
     Improved Unconstrained Handwriting Recognition. IEEE Transactions
@@ -217,7 +215,6 @@
   Use sign of gradient (Rprop) for image reconstruction and face
   localization (2003)
 
-  \bigskip
   \prevwork{Sven Behnke (2003). Hierarchical Neural Networks for Image
     Interpretation.. Lecture Notes in Computer Science
     2766. Springer.}
@@ -242,18 +239,15 @@
   representation,'' Trends in Cognitive Sciences, 11, pp. 428–434,
   2007.}
 
-\medskip
 \prevwork{J. Schmidhuber., ``Learning complex, extended sequences using
   the principle of history compression,'' Neural Computation, 4,
   pp. 234–242, 1992.}
 
-\medskip
 \prevwork{J. Schmidhuber., ``My First Deep Learning System of 1991 +
   Deep Learning Timeline 1962–2013.''}
 
-\medskip
-\prevwork{Smolensky, P. (1986). "Information processing in dynamical
-  systems: Foundations of harmony theory.". In D. E. Rumelhart,
+\prevwork{Smolensky, P. (1986). ``Information processing in dynamical
+  systems: Foundations of harmony theory.''. In D. E. Rumelhart,
   J. L. McClelland, and the PDP Research Group, Parallel Distributed
   Processing: Explorations in the Microstructure of
   Cognition. 1. pp. 194–281.}
@@ -262,13 +256,94 @@
 \begin{frame}
   \frametitle{And then there was Hinton (bibliography)}
 
-\prevwork{Hinton, G. E.; Osindero, S.; Teh, Y. (2006). "A fast
-  learning algorithm for deep belief nets". Neural Computation 18 (7):
+\prevwork{Hinton, G. E.; Osindero, S.; Teh, Y. (2006). ``A fast
+  learning algorithm for deep belief nets''. Neural Computation 18 (7):
   1527–1554. doi:10.1162/neco.2006.18.7.1527. PMID 16764513.}
 
-\medskip
-\prevwork{Hinton, G. (2009). "Deep belief networks". Scholarpedia 4
+\prevwork{Hinton, G. (2009). ``Deep belief networks''. Scholarpedia 4
   (5): 5947. doi:10.4249/scholarpedia.5947. edit}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Yet more progress}
+
+  Google Brain project (Andrew Ng, Jeff Dean) recognized cats in
+  youtube videos.
+
+  \prevwork{Ng, Andrew; Dean, Jeff (2012). ``Building High-level
+    Features Using Large Scale Unsupervised Learning''.}
+
+  \prevwork{John Markoff (25 June 2012). ``How Many Computers to
+    Identify a Cat? 16,000.''. New York Times.}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{More progress}
+  Brute force!
+
+  Dan Ciresan et al. (IDSIA, 2010) use lots of GPU's to
+  bulldoze the vanishing gradient problem and outperform LeCun (and
+  everyone else) on MNIST.
+
+  \prevwork{D. C. Ciresan et al., ``Deep Big Simple Neural Nets for
+    Handwritten Digit Recognition,'' Neural Computation, 22,
+    pp. 3207–3220, 2010.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{State of the art, 2011}
+
+  Deep learning feedforward networks
+  \begin{itemize}
+  \item Convolutional layers
+  \item Max-pooling layers
+  \item Plus pure classification layers
+  \end{itemize}
+
+  \prevwork{D. C. Ciresan, U. Meier, J. Masci, L. M. Gambardella,
+    J. Schmidhuber. Flexible, High Performance Convolutional Neural
+    Networks for Image Classification. International Joint Conference
+    on Artificial Intelligence (IJCAI-2011, Barcelona), 2011.}
+
+  \prevwork{Martines, H., Bengio, Y., and Yannakakis,
+    G. N. (2013). Learning Deep Physiological Models of Affect. I EEE
+    Computational Intelligence, 8(2), 20.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{State of the art, post-2011}
+  
+  Lots of GPU's.  Sometimes human-competitive performance!
+  \begin{itemize}
+  \item IJCNN 2011 Traffic Sign Recognition Competition
+  \item ISBI 2012 Segmentation of neuronal structiosn in EM stacks challenge
+  \item and more
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{State of the art, post-2011}
+  
+  \prevwork{D. C. Ciresan, U. Meier, J. Masci, L. M. Gambardella,
+    J. Schmidhuber. Flexible, High Performance Convolutional Neural
+    Networks for Image Classification. International Joint Conference
+    on Artificial Intelligence (IJCAI-2011, Barcelona), 2011}
+
+  \prevwork{D. C. Ciresan, U. Meier, J. Masci,
+    J. Schmidhuber. Multi-Column Deep Neural Network for Traffic Sign
+    Classification. Neural Networks, 2012.}
+
+  \prevwork{D. Ciresan, A. Giusti, L. Gambardella,
+    J. Schmidhuber. Deep Neural Networks Segment Neuronal Membranes in
+    Electron Microscopy Images. In Advances in Neural Information
+    Processing Systems (NIPS 2012), Lake Tahoe, 2012.}
+
+  \prevwork{D. C. Ciresan, U. Meier, J. Schmidhuber. Multi-column Deep
+    Neural Networks for Image Classification. IEEE Conf. on Computer
+    Vision and Pattern Recognition CVPR 2012.}
+
 \end{frame}
 
 \begin{frame}
