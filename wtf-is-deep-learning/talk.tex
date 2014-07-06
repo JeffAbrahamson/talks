@@ -59,7 +59,7 @@
 
 \begin{frame}
   \frametitle{Outline}
-  \tableofcontents[pausesections]
+  \tableofcontents
 \end{frame}
 
 \section{Overview}
@@ -71,7 +71,58 @@
   \item<1-> Machine learning
   \item<1-> Model high-level abstraction by using multiple non-linear
     transformations.
-  \item<2-> Example: Image: pixels, edges, shapes, faces.
+  \item<2-> Example: \blue{Image:}
+  \end{itemize}
+  \only<2>{\centerline{\blue{pixels $\Rightarrow$ edges $\Rightarrow$ shapes
+    $\Rightarrow$ faces.}}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Review}
+  Broadly, ML comes in three flavors:
+  \begin{itemize}
+  \item \blue{Supervised learning:} Predict output given input
+  \item \blue{Reinforcement learning:} Select action to maximize payoff
+  \item \blue{Unsupervised learning:} Discover a good internal
+    representation of input
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Review}
+  Supervised learning comes in two flavors:
+  \begin{itemize}
+  \item \blue{Regression:} real-valued output
+  \item \blue{Classification:} labeled output
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Review}
+  The idea behind supervised learning is often written thus:
+  \begin{displaymath}
+    y = f(x,W)
+  \end{displaymath}
+  \only<2>{
+    where
+    \begin{align*}
+      y &= \text{predicted output} \\[2mm]
+      x &= \text{input} \\[2mm]
+      W &= \text{parameters}
+    \end{align*}
+    \blue{and our goal is to adjust parameters to minimize loss (error)}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Review}
+  Unsupervised learning
+  \begin{itemize}
+  \item<1-> Historically, it's clustering
+  \item<1-> Now we can do more
+  \item<2-> \blue{Create an internal representation of the input that
+      is useful for later supervised or reinforcement learning}
+  \item<2->\blue{Find a compact, low-dimensional representation of the input}
   \end{itemize}
 \end{frame}
 
@@ -125,6 +176,18 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{What is Hello World for GPU's?}
+  Some things to look at.  \gray{(Disclaimer: I haven't.)}
+  \begin{itemize}
+  \item CUDA (but only nvidia) \hspace{3mm}\gray{\url{www.nvidia.com/object/cuda_home_new.html}}
+  \item OpenCL (originally Apple) \hspace{3mm}\gray{\url{https://en.wikipedia.org/wiki/OpenCL}}
+  \item GPU++ / GPGPU \hspace{3mm}\gray{\url{http://gpgpu.org/}}
+  \item libSh \hspace{3mm}\gray{\url{http://libsh.org/}}
+  \item OpenACC \hspace{3mm}\gray{\url{http://www.openacc-standard.org/}}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
   \frametitle{Data Centers}
   \includegraphics[width=.9\textwidth]{google-dc.png}
 
@@ -148,6 +211,12 @@
   \item Special kind of parallelism
   \item Power (but we're not there yet)
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Neurons}
+  \vspace{2cm}
+  \centerline{\huge A brief tour of some neurons}
 \end{frame}
 
 \begin{frame}
@@ -249,6 +318,12 @@
 
 \begin{frame}
   \frametitle{Example: handwriting recognition of digits}
+  \vspace{2cm}
+  \centerline{\huge A (too) quick example}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: handwriting recognition of digits}
   \begin{itemize}
   \item<1-> Input neurons: pixels
   \item<1-> Output neurons: classes (digits)
@@ -268,55 +343,6 @@
   \only<2->{When it's right, nothing happens.  This is good.}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Review}
-  Broadly, ML comes in three flavors:
-  \begin{itemize}
-  \item \blue{Supervised learning:} Predict output given input
-  \item \blue{Reinforcement learning:} Select action to maximize
-  \item \blue{Unsupervised learning:} Discover a good internal
-    representation of input
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Review}
-  Supervised learning comes in two flavors:
-  \begin{itemize}
-  \item \blue{Regression:} real-valued output
-  \item \blue{Classification:} labeled output
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Review}
-  The idea behind supervised learning is often written thus:
-  \begin{displaymath}
-    y = f(x,W)
-  \end{displaymath}
-  \only<2>{
-    where
-    \begin{align*}
-      y &= \text{predicted output} \\[2mm]
-      x &= \text{input} \\[2mm]
-      W &= \text{parameters}
-    \end{align*}
-    \blue{and our goal is to adjust parameters to minimize loss (error)}
-  }
-\end{frame}
-
-\begin{frame}
-  \frametitle{Review}
-  Unsupervised learning
-  \begin{itemize}
-  \item<1-> Historically, it's clustering
-  \item<1-> Now we can do more.
-  \item<2-> \blue{Create an internal representation of the input that
-      is useful for later supervised or reinforcement learning}
-  \item<2->\blue{Find a compact, low-dimensional representation of the input}
-  \end{itemize}
-\end{frame}
-
 \section{History}
 
 \begin{frame}
@@ -327,8 +353,8 @@
   \item Cascading models
   \end{itemize}
 
-\prevwork{M Riesenhuber, T Poggio. Hierarchical models of object
-  recognition in cortex. Nature neuroscience, 1999(11) 1019–1025.}
+  \prevwork{M Riesenhuber, T Poggio. Hierarchical models of object
+    recognition in cortex. Nature neuroscience, 1999(11) 1019–1025.}
 \end{frame}
 
 \begin{frame}
@@ -339,21 +365,21 @@
     % https://en.wikipedia.org/wiki/Neocognitron
   \item<3-> Yann LeCun et al. recognize handwritten postal codes (backpropagation)
   \end{itemize}
-\note{LeCun: But it took 3 days to train, so was not practical for
-  general use.}
-
-  \visible<1>{\prevwork{P. Werbos., ``Beyond Regression: New Tools for
-    Prediction and Analysis in the Behavioral Sciences,'' PhD thesis,
-    Harvard University, 1974.}}
-
-\visible<2>{\prevwork{K. Fukushima., ``Neocognitron: A self-organizing
-    neural network model for a mechanism of pattern recognition
-    unaffected by shift in position,'' Biol. Cybern., 36, 193–202,
-    1980.}}
-
-\visible<3>{\prevwork{LeCun et al., ``Backpropagation Applied to
-    Handwritten Zip Code Recognition,'' Neural Computation, 1,
-    pp. 541–551, 1989.}}
+  \note{LeCun: But it took 3 days to train, so was not practical for
+    general use.}
+  
+  \only<1>{\prevwork{P. Werbos., ``Beyond Regression: New Tools for
+      Prediction and Analysis in the Behavioral Sciences,'' PhD thesis,
+      Harvard University, 1974.}}
+  
+  \only<2>{\prevwork{K. Fukushima., ``Neocognitron: A self-organizing
+      neural network model for a mechanism of pattern recognition
+      unaffected by shift in position,'' Biol. Cybern., 36, 193–202,
+      1980.}}
+  
+  \only<3>{\prevwork{LeCun et al., ``Backpropagation Applied to
+      Handwritten Zip Code Recognition,'' Neural Computation, 1,
+      pp. 541–551, 1989.}}
 \end{frame}
 
 \begin{frame}
