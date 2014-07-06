@@ -252,14 +252,68 @@
   \begin{itemize}
   \item<1-> Input neurons: pixels
   \item<1-> Output neurons: classes (digits)
+  \item<1-> Connect them all! \textit{(bipartite)}
+  \item<2-> Initialize input weights to random
   \end{itemize}
+  \includegraphics<3>[width=.4\textwidth]{input-weights.jpg}
 \end{frame}
 
 \begin{frame}
   \frametitle{Example: handwriting recognition of digits}
+  To train this ANN:
   \begin{itemize}
-  \item<1-> Input neurons: pixels
-  \item<1-> Output neurons: classes (digits)
+  \item<1-> Increment weights from active pixels going to correct class
+  \item<1-> Decrement weights from active pixels going to predicted class
+  \end{itemize}
+  \only<2->{When it's right, nothing happens.  This is good.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Review}
+  Broadly, ML comes in three flavors:
+  \begin{itemize}
+  \item \blue{Supervised learning:} Predict output given input
+  \item \blue{Reinforcement learning:} Select action to maximize
+  \item \blue{Unsupervised learning:} Discover a good internal
+    representation of input
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Review}
+  Supervised learning comes in two flavors:
+  \begin{itemize}
+  \item \blue{Regression:} real-valued output
+  \item \blue{Classification:} labeled output
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Review}
+  The idea behind supervised learning is often written thus:
+  \begin{displaymath}
+    y = f(x,W)
+  \end{displaymath}
+  \only<2>{
+    where
+    \begin{align*}
+      y &= \text{predicted output} \\[2mm]
+      x &= \text{input} \\[2mm]
+      W &= \text{parameters}
+    \end{align*}
+    \blue{and our goal is to adjust parameters to minimize loss (error)}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Review}
+  Unsupervised learning
+  \begin{itemize}
+  \item<1-> Historically, it's clustering
+  \item<1-> Now we can do more.
+  \item<2-> \blue{Create an internal representation of the input that
+      is useful for later supervised or reinforcement learning}
+  \item<2->\blue{Find a compact, low-dimensional representation of the input}
   \end{itemize}
 \end{frame}
 
