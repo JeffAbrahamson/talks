@@ -23,6 +23,7 @@
 \newcommand\doublestrut{\rule[-1.2ex]{0pt}{3.6ex}}
 
 \newcommand\blue[1]{\textcolor{blue}{#1}}
+\newcommand\red[1]{\textcolor{red}{#1}}
 \newcommand\gray[1]{\textcolor{gray}{#1}}
 \newcommand\smallgray[1]{\textcolor{gray}{\small\it #1}}
 \newcommand\prevwork[1]{\smallgray{#1}}
@@ -362,7 +363,6 @@
   \item No loops
   \item Output at output neurons
   \end{itemize}
-  \includegraphics<2>[width=.6\textwidth]{neural-network.pdf}
 \end{frame}
 
 \begin{frame}
@@ -371,29 +371,36 @@
   \item Cycles
   \item Memory
   \item Oscillations
-  \item Hard to train
+  \item More powerful
+  \item Hard to train \gray{(research interest)}
+  \item More biologically realistic
+  \end{itemize}
+  \only<2>{\blue{Deep RNN is just a special case of a general recurrent NN with
+  some hidden links missing.}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Layers}
+  \begin{itemize}
+  \item Each layer computes a representation of its input
+  \item Can change similarity
+  \item<2-> \gray{Example:}
+    \begin{itemize}
+    \item (different speakers, same word) should become more similar
+    \item (same speaker, different words) should
+      become more dissimilar
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Layers}
   \begin{itemize}
-  \item 
+  \item \red{If more than two hidden layers, then we call it deep}
+  \item Neuron activity at each layer must be a non-linear function of
+    previous layer
   \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-  \begin{itemize}
-  \item 
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-  \begin{itemize}
-  \item 
-  \end{itemize}
+  \includegraphics[width=.6\textwidth]{neural-network.pdf}
 \end{frame}
 
 \section{History}
@@ -433,6 +440,47 @@
   \only<3>{\prevwork{LeCun et al., ``Backpropagation Applied to
       Handwritten Zip Code Recognition,'' Neural Computation, 1,
       pp. 541–551, 1989.}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{History}
+  Aside: statistical pattern recognition looks like this:
+  \begin{enumerate}
+  \item Convert raw input vector into a vector of feature activations \gray{(hand-written)}
+  \item Learn weights on feature activation to get single scalar quantity
+  \item If scalar quantity exceeds some threshold, then decide that
+    input vector is an example of the target
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Perceptron}
+  \begin{itemize}
+  \item Perceptron is an example of SPR for image recognition
+  \item Initially very promising
+  \item<2> IBM 704 \gray{(software implementation of algorithm)}
+  \item<2> Mark 1 Perceptron at the Smithsonian Institution
+  \item<2> 400 photocells randomly connected to neurons.
+  \item<2> Weights encoded in potentiometers, updated during learning
+    by electric motors
+  \end{itemize}
+  \prevwork{Frank Rosenblatt, The Perceptron: A Probabilistic Model
+    for Information Storage and Organization in the Brain, Cornell
+    Aeronautical Laboratory, Psychological Review, v65, No. 6,
+    pp. 386–-408, 1958. doi:10.1037/h0042519}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Perceptron}
+  \begin{itemize}
+  \item Minksy and Papert showed perceptrons incapable of recognizing
+    certain classes of images
+  \item AI community mistakenly over-generalized to all NN's
+  \item So NN research stagnated for some time
+  \end{itemize}
+  \prevwork{M. L. Minsky and S.~A.~Papert, Perceptrons. Cambridge, MA:
+    MIT Press. 1969.}
+\note{Couldn't learn an XOR function.}
 \end{frame}
 
 \begin{frame}
