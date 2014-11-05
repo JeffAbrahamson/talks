@@ -445,7 +445,7 @@
 
   \only<2>{
     \vspace{1cm}
-    \gray{Et puis, partitionnement de données (\textit{clustering}),
+    \gray{Et puis, partitionnement de données (regroupement, \textit{clustering}),
       etc.}
   }
 \end{frame}
@@ -582,35 +582,64 @@
   \item Proposer d'utilisateurs basés sur des objets
   \end{itemize}
 
-  Mais,
+  \only<2>{Mais, par exemple : 2 objets similaire $\,\centernot\equiv\,$ 2 utilisateurs
+      similaires.}
+  \only<3>{
+      Pour estimer $m_{u,i}$,
+      \begin{itemize}
+      \item Trouver $k$ utilisateur comme $U_u$
+      \item Trouver $k$ objets comme $I_i$
+      \end{itemize}
+    }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Utility Matrix : Estimer $m_{u,i}$}
+
+  \vspace{1cm}
+  \centerline{\begin{tabular}{l|ccccc}
+      & $I_1$ & $I_2$ & $I_3$ & $I_4$ & $I_5$ \\
+      \hline
+      $U_1$ & 3 & & 4 & 2 & \fcolorbox{blue}{white}{\rule{0pt}{.9ex}\ }\\
+      $U_2$ & & & 5 & 1 & 4 \\
+      $U_3$ & & 2 & & 2 & 3
+    \end{tabular}}
+
+  \bigskip
   \begin{itemize}
-  \item Exemple : 2 objets similaire / 2 utilisateurs similaires)
+  \item Trouver $k$ utilisateur comme $U_u$, prendre $\frac{1}{k}
+    \sum_{j=1}^k m_{u_j,i}$
+  \item Trouver $k$ objets comme $I_i$, prendre $\frac{1}{k}
+    \sum_{j=1}^k m_{u,i_j}$
   \end{itemize}
 
+  \only<2>{
+    \gray{Il faut calculer la ligne complète (ou la partie qui est
+      susceptible d'être important)}
+  }
+  \only<3>{
+    \gray{Une fois pour $U_u$, les $k$ autres nous donne un
+      raccourcis.}
+
+    \gray{Pour $I_i$, il faut calculer presque tous les $I_j$ avant de
+      pouvoir remplir une seule ligne.  Par contre, objet-objet
+      souvent plus fiable (exemple de genre d'objet / genre de personne).}
+  }
+  \only<4>{
+    \gray{En tout cas, on fait la plupart en avance.}
+  }
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Utility Matrix}
 
-\end{frame}
+  La matrice est creuse.
 
-\begin{frame}
-  \frametitle{}
+  $\implies$ clustering $\implies$ matrice réduites
 
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
+  \only<2>{\gray{Estimation sur la matrice réduite, puis prendre
+      d'objets représentatif dans le \textit{cluster} (paquet).
+    }
 
 \end{frame}
 
@@ -785,11 +814,12 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Partitionnement de données \textit{(clustering)}}
+  \frametitle{Clustering}
 
   \begin{itemize}
   \item kNN \only<2>{\gray{$k$-Nearest Neighbor}}
-  \item Fléau de la dimension \only<2>{\gray{malédiction, \textit{curse}}}
+  \item Curse of Dimensionality \only<2>{\gray{Fléau (ou :
+        malédiction) de la dimension}}
   \item Scalabilité \only<2>{\gray{$10^7$ clients, $10^6$ objets}}
   \end{itemize}
 \end{frame}
