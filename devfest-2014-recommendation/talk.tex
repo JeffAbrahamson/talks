@@ -14,6 +14,7 @@
 \usepackage{times}
 \usepackage[T1]{fontenc}
 \usepackage{url}
+\usepackage[]{algorithm2e}
 \usepackage{amsmath}
 \usepackage{centernot}
 \usepackage{xcolor}
@@ -130,7 +131,9 @@
   \item On va beaucoup sauter
   \item Il restera des trous
   \item Trop de matériel, rien n'est vrai tout le temp
-  \item Objectif : plus de perspectif
+  \item<2> \gray{Tout projet est un projet de recherche}
+  \item<3> Tout projet est un projet de recherche
+  \item<3> \blue{Objectif : plus de perspectif}
   \end{itemize}
 \end{frame}
 
@@ -638,8 +641,9 @@
   $\implies$ clustering $\implies$ matrice réduites
 
   \only<2>{\gray{Estimation sur la matrice réduite, puis prendre
-      d'objets représentatif dans le \textit{cluster} (paquet).
-    }
+      d'objets et d'utilisateurs représentatif dans le
+      \textit{cluster} (paquet).
+    }}
 
 \end{frame}
 
@@ -648,23 +652,52 @@
 % Amazon's Item-Item Filter
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Amazon : Item-to-Item Collaborative Filtering}
+
+  Observations :
+  \vspace{1cm}
+
+  \centerline{
+    \only<1>{\textit{Clustering} coûte cher, diminue qualité}
+    \only<2>{\textit{Dimension reduction} diminue qualité}
+    \only<3>{Utilisateurs touchent peu d'objets}
+    \only<4>{Réponse rapide désirable}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Amazon : Item-to-Item Collaborative Filtering}
+
+  Scale indépendemment du nombre d'utilisateur et du nombre d'objets
+  \begin{itemize}
+  \item Online
+  \item Offline
+  \end{itemize}
+
+  \bigskip
+  \gray{G.~Linden, B.~Smith, J.~York, \textit{Amazon.com
+      Recommendations: Item-to-Item Collaborative Filtering}, Internet
+  Computing (7, 1), 22 Jan 2003.}
 
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Amazon : Item-to-Item Collaborative Filtering}
+  Offline (Precomputation)
 
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
+  \DontPrintSemicolon
+  \begin{algorithm}[H]
+    \For{chaque objet $I_1$ à vendre}{
+      \For{chaque utilisateur $C$ qui a acheté $I_1$}{
+        \For{chaque objet $I_2$ acheté par $C$}{
+          $(I_1,I_2)$++\;
+        }
+      }
+      \For{chaque object $I_2$}{
+        $S_{I_1,I_2} \gets S(I_1,I_2)$\;
+      }
+    }
+  \end{algorithm}
 \end{frame}
 
 
@@ -672,17 +705,84 @@
 % Slope One
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Slope One}
+
+  \vspace{1cm}
+  Régression linéaire sur les avis des utilisateurs.
+  \vspace{1cm}
+  
+  \gray{Daniel Lemire and Anna Maclachlan, \textit{Slope One
+      Predictors for Online Rating-Based Collaborative
+      Filtering},Proceedings of SIAM Data Mining (SDM) 2005.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Slope One : Régression}
+
+  \vspace{1cm}
+  \centerline{\includegraphics[height=.4\textheight]{regression.png}}
+
+  \only<2>{
+    \begin{displaymath}
+      \min \sum (y_i-(ax_i+b))^2
+    \end{displaymath}
+    \vspace{1mm}
+  }
+  \vspace{1cm}
+  \centerline{\gray{\footnotesize \url{http://www.upa.pdx.edu/IOA/newsom/pa551/Image255.gif}}}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Slope One : Régression}
+  
+  \vspace{1cm}
+  \centerline{\includegraphics[height=.4\textheight]{linear-regression.png}}
+
+  \vspace{1cm}
+  \gray{\small "Linear regression" by Sewaqu - Own work. Licensed
+    under Public domain via Wikimedia Commons -
+    {\footnotesize\url{http://commons.wikimedia.org/wiki/File:Linear\_regression.svg\#mediaviewer/File:Linear_regression.svg}}}
 
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Slope One : algorithme}
+
+  \DontPrintSemicolon
+  Offline :\;
+  \begin{algorithm}[H]
+    \For{chaque $I_i$, $I_j$}{
+      $\mathcal{U} \gets \{\mbox{utilisateurs qui ont exprimé un avis
+        sur } I_i, I_j \} $\;
+      $\mbox{dev}_{i,j} \gets \frac{1}{\parallel\mathcal{U}\parallel}
+      \sum_{u\in\mathcal{U}} (r_u(i) - r_u(j))$ \;
+    }
+    \bigskip
+    Online\;
+    
+  \end{algorithm}
+
 
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Slope One}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Slope One}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Slope One}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Slope One}
 
 \end{frame}
 
@@ -771,31 +871,6 @@
     \end{displaymath}
   }
   
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
 \end{frame}
 
 \begin{frame}
