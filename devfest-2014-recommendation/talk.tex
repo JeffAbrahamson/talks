@@ -468,52 +468,6 @@
   \end{itemize}
 \end{frame}
 
-%% TODO : Model-based filters
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-
-% ======================================================================
-% User-User Filters
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
 
 % ======================================================================
 % Collaborative Filters
@@ -734,6 +688,32 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Slope One : algorithme}
+
+  Offline :
+  \DontPrintSemicolon
+  \begin{algorithm}[H]
+    \For{chaque $I_i$, $I_j$}{
+      $\mathcal{U} \gets \{\mbox{utilisateurs qui ont exprimé un avis
+        sur } I_i, I_j \} $\;
+      $\mbox{dev}_{i,j} \gets \frac{1}{\parallel\mathcal{U}\parallel}
+      \sum_{u\in\mathcal{U}} (r_u(i) - r_u(j))$ \;
+    }
+  \end{algorithm}
+  \bigskip
+    Online (pour $u$) :
+  \DontPrintSemicolon
+  \begin{algorithm}[H]
+    $\mathcal{V} \gets \{ j \mid u \mbox{ a exprimé un avis
+      sur } I_j \} $\;
+    $r_u(i) \gets \frac{1}{\parallel\mathcal{V}\parallel}
+    \sum_{u\in\mathcal{V}} (\mbox{dev}_{i,j} - r_u(j))$ \;
+  \end{algorithm}
+
+
+\end{frame}
+
+\begin{frame}
   \frametitle{Slope One : Régression}
   
   \vspace{1cm}
@@ -747,47 +727,10 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Slope One : algorithme}
-
-  \DontPrintSemicolon
-  Offline :\;
-  \begin{algorithm}[H]
-    \For{chaque $I_i$, $I_j$}{
-      $\mathcal{U} \gets \{\mbox{utilisateurs qui ont exprimé un avis
-        sur } I_i, I_j \} $\;
-      $\mbox{dev}_{i,j} \gets \frac{1}{\parallel\mathcal{U}\parallel}
-      \sum_{u\in\mathcal{U}} (r_u(i) - r_u(j))$ \;
-    }
-    \bigskip
-    Online\;
-    
-  \end{algorithm}
-
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{Slope One}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{Slope One}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{Slope One}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{Slope One}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
+  \frametitle{Slope One : Régression}
+  
+  \vspace{1cm}
+  \centerline{\includegraphics[height=.4\textheight]{linear-regression-2.png}}
 
 \end{frame}
 
@@ -874,12 +817,6 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-
-\begin{frame}
   \frametitle{Problèmes particuliers}
 
   \begin{itemize}
@@ -899,6 +836,22 @@
   \end{itemize}
 \end{frame}
 
+
+% ======================================================================
+% End
+
+\begin{frame}
+  \frametitle{Questions ?}
+
+  \vspace{1cm}
+  \centerline{Sondage : \url{purple.com/devfest}}
+
+  \vspace{1cm}
+  \centerline{Et si vous êtes de la région, rdv sur meetup.com :}
+
+  \bigskip
+  \centerline{Nantes Machine Learning Meetup}
+\end{frame}
 
 
 \end{document}
