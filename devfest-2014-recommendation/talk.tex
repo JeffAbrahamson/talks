@@ -332,6 +332,16 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Mathématiques}
+
+  \vspace{1cm}
+  \centerline{Vecteurs}
+
+  \vspace{1cm}
+  \centerline{Similarité}
+\end{frame}
+
+\begin{frame}
   \frametitle{Similarité : Indice de Jaccard}
 
   ou : \textit{Jaccard index}, \textit{Jaccard similarity coefficient}
@@ -393,15 +403,18 @@
 \begin{frame}
   \frametitle{Textes : TF-IDF}
 
-  \begin{displaymath}
-        TF_{ij} = \frac{f_{ij}}{\max_k f_{kj}} \qquad\qquad
-        IDF_I = \log_2\left( \frac{N}{n_i} \right)
-  \end{displaymath}
+  \blue{
+    \begin{displaymath}
+      TF_{ij} = \frac{f_{ij}}{\max_k f_{kj}} \qquad\qquad
+      IDF_I = \log_2\left( \frac{N}{n_i} \right)
+    \end{displaymath}
+  }
+  \blue{
+    \begin{displaymath}
+      TF\mbox{-}IDF_{ij} = TF_{ij} \cdot IDF_i
+    \end{displaymath}
+  }
   
-  \begin{displaymath}
-        TF\mbox{-}IDF_{ij} = TF_{ij} \cdot IDF_i
-  \end{displaymath}
-
   avec :
   \begin{align*}
     f_{ij} &= \mbox{fréquence de mot $i$ dans document $j$} \\
@@ -844,13 +857,13 @@
   \frametitle{Questions ?}
 
   \vspace{1cm}
-  \centerline{Sondage : \url{purple.com/devfest}}
+  \centerline{\blue{Sondage : \url{purple.com/devfest}}}
 
   \vspace{1cm}
   \centerline{Et si vous êtes de la région, rdv sur meetup.com :}
 
   \bigskip
-  \centerline{Nantes Machine Learning Meetup}
+  \centerline{\blue{Nantes Machine Learning Meetup}}
 \end{frame}
 
 
