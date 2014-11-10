@@ -1,0 +1,14 @@
+Suggestions for improvement:
+
+- Talk about libraries that exist, at least giving pointers.  Make
+  clear that the point is to give intuition, that one is rarely
+  obliged to program these things.
+
+- For a talk at this level, I probably could have skipped much
+  discussion of Amazon Item-to-Item and Slope One in favour of more
+  intuition on the others.
+
+- It would be interesting to work some examples with real data and
+  show visualisations.  Say one pixel per datum and ten highlight what
+  data are being selected at each step, for example.
+
