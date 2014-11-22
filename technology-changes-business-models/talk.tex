@@ -1,4 +1,5 @@
 \documentclass{beamer}
+%\documentclass[notes=only]{beamer}
 
 \mode<presentation>
 {
@@ -21,6 +22,18 @@
 
 \newcommand\gray[1]{\textcolor{gray}{#1}}
 \newcommand\smallgray[1]{\textcolor{gray}{\small\it #1}}
+
+\newcommand {\framedgraphic}[2] {
+  \begin{frame}{#1}
+    \begin{center}
+      \includegraphics[width=\textwidth,height=0.89 \textheight,keepaspectratio]{#2}
+    \end{center}
+  \end{frame}
+}
+\newcommand {\graphic}[2] {
+  %\centerline{\includegraphics<#1>[width=\textwidth,height=0.8\textheight,keepaspectratio]{#2}}
+  \only<#1>{\centerline{\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{#2}}}
+}
 
 \title{Business Models and Technology}
 \subtitle{Change}
@@ -59,12 +72,44 @@
 \section{}
 \subsection{}
 
-\begin{frame}
-  \frametitle{}
-\end{frame}
+\frame[plain]{
+  \frametitle{Light}
+  \graphic{1}{lamplighter-1.jpg}\graphic{2}{lamplighter-2.jpg}\graphic{3}{lamplighter-3.jpg}
+}
 \note{}
 
+\note{ \small Topics:
+  
+  \begin{itemize}
+  \item Risk (freddie, IrisDB, cptyr)
+  \item Advertising -> waste product : newspapers -> internet, phones, maps, search, socializing (facebook)
+  \item AWS -> startup startup cost
+  \item Self-driving cars (taxis, car dealers (ownership), data, urban infrastructure)
+  \item Drones (cameramen, volcanos)
+  \item From zero to one
 
+  \item lightbulbs (lamp lighters)
+  \item cars (horses, caretakers, drivers, cleaners)
+  \item refrigeration (ice houses, ice delivery)
+  \item real estate (leboncoin.fr, redfin.com)
+  \item uber (taxis)
+  \item amazon
+  \item travel agents
+  \item ebooks (self publishing, long tail)
+  \item translation - mostly machine, internet delivery (non-local clients), TZ shift)
+  \item photography (DSLR, CK loss of revenue)
+  \item Mobile phones (3rd world businesses, lune, gliders, wires)
+  \item crowd sourced biological inventories, accessible aerial imagery, GPS, GIS, have changed ecological sciences)
+  \item LP -> CD -> iTunes -> spotify
+  \item Rupert Murdoch and typesetters union
+  \item recruiters - automatic document collectin, text analysis, job market transparency
+  \item roomba - cleaners
+  \item video rental -> netflix
+  \item micropublishing -> niche audiences, print on demand, electronic delivery
+  \item Universities -> Coursera
+  \item Security - e.g., Boston Marathon bomber
+  \end{itemize}
+}
 
 \section*{Summary}
 
