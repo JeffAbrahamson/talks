@@ -30,14 +30,33 @@
     \end{center}
   \end{frame}
 }
+% A full-page graphic.
 \newcommand {\graphic}[2] {
   \only<#1>{\centerline{\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{#2}}}
 }
+% A graphic with a text caption.
 \newcommand {\graphicT}[3] {
-  %\centerline{\includegraphics<#1>[width=\textwidth,height=0.8\textheight,keepaspectratio]{#2}}
   \only<#1>{\centerline{\includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{#2}}
   \centerline{#3}}
 }
+% A box measuring one quarter the page.
+\newcommand\boxQ[1] {
+  \vbox to .45\textheight{\vfill\hbox to .5\textwidth{\hfill{#1}\hfill}\vfill}
+}
+% A quad box of graphics.
+\newcommand\graphicQ[5] {
+  \only<#1>{
+    \centerline{\boxQ{\includegraphics[width=.5\textwidth,height=0.45\textheight,keepaspectratio]{#2}}
+      \boxQ{\includegraphics[width=.5\textwidth,height=0.45\textheight,keepaspectratio]{#3}}}
+    \centerline{\boxQ{\includegraphics[width=.5\textwidth,height=0.45\textheight,keepaspectratio]{#4}}
+      \boxQ{\includegraphics[width=.5\textwidth,height=0.45\textheight,keepaspectratio]{#5}}}
+  }}
+% A split page, two images.
+\newcommand\graphicD[3] {
+  \only<#1>{
+    \centerline{\boxQ{\includegraphics[width=.5\textwidth,height=0.9\textheight,keepaspectratio]{#2}}
+      \boxQ{\includegraphics[width=.5\textwidth,height=0.9\textheight,keepaspectratio]{#3}}}
+  }}
 
 \title{Business Models and Technology}
 \subtitle{Change}
@@ -140,6 +159,24 @@
 }
 
 \frame[plain]{
+  \frametitle{Cleaning}
+  \graphicQ{1}{man-baby-cleaning.jpg}{man-vacuuming.jpg}{nil.png}{nil.png}
+  \graphicQ{2}{man-baby-cleaning.jpg}{man-vacuuming.jpg}{man-vacuuming-2.jpg}{nil.png}
+  \graphicQ{3}{man-baby-cleaning.jpg}{man-vacuuming.jpg}{roomba.jpg}{nil.png}
+  \graphicQ{4}{man-baby-cleaning.jpg}{man-vacuuming.jpg}{roomba.jpg}{man-cleaning.jpg}
+}
+\note{
+  \begin{itemize}
+  \item Cleaning takes time
+  \item Or hire someone
+  \item Or a machine does it
+  \item Maybe a bit left to do by hand
+  \end{itemize}
+  end: guy with bucket
+}
+
+
+\frame[plain]{
   \frametitle{Real Estate}
   \graphic{1}{estate-agent-1.jpg}
   \graphic{2}{estate-agent-leboncoin.png}
@@ -172,9 +209,54 @@
   \item One rebranding effort
   \item outside cities, ride sharing (more efficient than decades past)
   \end{itemize}
-  end: 
+  end: blablacar
+
+  transition: want to make a phone call, 30 years ago became possible
 }
 
+\frame[plain]{
+  \frametitle{Mobile communication}
+  \graphic{1}{first-car-phone.jpg}
+  \graphic{2}{nokia.jpg}
+  \graphic{3}{iphone-6.png}
+  \graphic{4}{N5-4G.png}
+  \graphic{5}{4G.png}
+  \graphic{6}{wifi.png}
+  \graphicT{7}{dozendp_1.jpg}{Gongkai, \$12}
+  \graphicQ{8}{loon-2.png}{loon-1.jpg}{loon-3.png}{loon-4.jpg}
+  \graphic{9}{facebook-drone-1.jpg}
+}
+\note{
+  \begin{itemize}
+  \item Initially, filling non-existent need
+  \item Disruption 1 (and running out of phone numbers)
+  \item Disruption 2 (iPhone 29 Jun 2007)
+  \item iphone (30-50m sold per quarter); android (50-90m sold per quarter)
+  \item Instagram (10/2010 release; 4/2012 1e8 active users  and fb purchase at \$1e9)
+  \item Phone now tcp/ip device
+  \item Democratization, ubiquitous networks; non-wiring the third world
+  \end{itemize}
+  end: fb drone
+
+  transition: what pays for this?
+}
+
+\frame[plain]{
+  \frametitle{Advertising}
+  \graphic{1}{newspaper-1.jpg}
+  \graphicQ{2}{search.jpg}{gmaps.png}{news.jpg}{facebook-share.jpg}
+  \graphicQ{3}{wapping-1.jpg}{wapping-2.jpg}{wapping-3.jpg}{wapping-4.jpg}
+%  \graphic{4}{}
+%  \graphic{5}{}
+}
+\note{
+  \begin{itemize}
+  \item Newspapers sell copies, but mostly sell advertising. News is the waste product.
+  \item Now waste product is search, maps, news, social, email
+  \item Meanwhile, newspapers ripe for disruption; 24 Jan 1986 typesetters strike; Musée de l'Imprimerie
+  \end{itemize}
+  end: 
+}
 
 
 
@@ -188,16 +270,12 @@
   \item Drones (cameramen, volcanos)
   \item From zero to one
 
-  \item uber (taxis)
   \item amazon
-  \item travel agents
   \item ebooks (self publishing, long tail)
   \item translation - mostly machine, internet delivery (non-local clients), TZ shift)
   \item photography (DSLR, CK loss of revenue)
-  \item Mobile phones (3rd world businesses, lune, gliders, wires)
   \item crowd sourced biological inventories, accessible aerial imagery, GPS, GIS, have changed ecological sciences)
   \item LP -> CD -> iTunes -> spotify
-  \item Rupert Murdoch and typesetters union
   \item recruiters - automatic document collectin, text analysis, job market transparency
   \item roomba - cleaners
   \item video rental -> netflix
