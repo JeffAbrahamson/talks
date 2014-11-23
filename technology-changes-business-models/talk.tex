@@ -41,21 +41,37 @@
 }
 % A box measuring one quarter the page.
 \newcommand\boxQ[1] {
-  \vbox to .45\textheight{\vfill\hbox to .5\textwidth{\hfill{#1}\hfill}\vfill}
+  \vbox to .42\textheight{\vfill\hbox to .5\textwidth{\hfill{#1}\hfill}\vfill}
 }
 % A quad box of graphics.
 \newcommand\graphicQ[5] {
   \only<#1>{
-    \centerline{\boxQ{\includegraphics[width=.5\textwidth,height=0.45\textheight,keepaspectratio]{#2}}
-      \boxQ{\includegraphics[width=.5\textwidth,height=0.45\textheight,keepaspectratio]{#3}}}
-    \centerline{\boxQ{\includegraphics[width=.5\textwidth,height=0.45\textheight,keepaspectratio]{#4}}
-      \boxQ{\includegraphics[width=.5\textwidth,height=0.45\textheight,keepaspectratio]{#5}}}
+    \centerline{\boxQ{\includegraphics[width=.5\textwidth,height=0.42\textheight,keepaspectratio]{#2}}
+      \boxQ{\includegraphics[width=.5\textwidth,height=0.42\textheight,keepaspectratio]{#3}}}
+    \centerline{\boxQ{\includegraphics[width=.5\textwidth,height=0.42\textheight,keepaspectratio]{#4}}
+      \boxQ{\includegraphics[width=.5\textwidth,height=0.42\textheight,keepaspectratio]{#5}}}
   }}
+% A quad box of graphics with a caption.
+\newcommand\boxQT[2] {
+  \boxQ{
+    \vbox{
+      \hbox{\includegraphics[width=.5\textwidth,height=0.36\textheight,keepaspectratio]{#1}}
+      \hbox{#2}
+    }
+  }
+}
 % A split page, two images.
 \newcommand\graphicD[3] {
   \only<#1>{
-    \centerline{\boxQ{\includegraphics[width=.5\textwidth,height=0.9\textheight,keepaspectratio]{#2}}
-      \boxQ{\includegraphics[width=.5\textwidth,height=0.9\textheight,keepaspectratio]{#3}}}
+    \centerline{\includegraphics[width=.5\textwidth,height=0.9\textheight,keepaspectratio]{#2}
+      \includegraphics[width=.5\textwidth,height=0.9\textheight,keepaspectratio]{#3}}
+  }}
+% A split page, two images, with subtitle
+\newcommand\graphicDT[4] {
+  \only<#1>{
+    \centerline{\includegraphics[width=.5\textwidth,height=0.85\textheight,keepaspectratio]{#2}
+      \includegraphics[width=.5\textwidth,height=0.85\textheight,keepaspectratio]{#3}}
+    \centerline{#4}
   }}
 
 \title{Business Models and Technology}
@@ -173,6 +189,48 @@
   end: 
 }
 
+\frame[plain]{
+  \frametitle{Photography}
+  \graphic{1}{plate-camera}
+  \graphicQ{2}{shackleton-1.jpg}{shackleton-2.jpg}{shackleton-3.jpg}{shackleton-4.jpg}
+  \graphic{3}{land-camera.jpg}
+  \graphicDT{4}{edwin-land-young.jpg}{edwin-land-old.jpg}{Edwin H. Land}
+  \only<5>{
+    \centerline{
+      \boxQT{kodak_instamatic_100.jpg}{1970's}
+      \boxQT{quicktake.jpg}{early 1990's}
+    }
+    \centerline{
+      \boxQT{pas-camera.jpg}{2000's}
+      \boxQT{EOS-300D.jpg}{2000's}
+    }
+  }
+  \only<6>{
+    \centerline{
+      \boxQT{kodak_instamatic_100.jpg}{1970's}
+      \boxQT{nikon-coolpix-800.jpg}{late 1990's}
+    }
+    \centerline{
+      \boxQT{pas-camera.jpg}{2000's}
+      \boxQT{EOS-300D.jpg}{2000's}
+    }
+  }
+  \graphicD{7}{iphone.jpg}{EOS-5D.jpg}
+}
+\note{
+  \begin{itemize}
+  \item Ernest Shackleton's ship, the Endurance. Slowly
+    crushed. Photographer Frank Hurley dove for plates.
+  \item Edwin Land, 1947 camera. First instant camera. Niche market compared to roll film.
+  \item MIT story, Columbia lab, 9th floor (U.S.) window, first
+    inexpensive polarizing film, led to founding Polaroid
+    Corporation.
+  \item Evolution of technology (quicktake only Si Valley, really)
+  \item Now two main markets left, and photographers get paid less, due also to internet stock photography
+  \end{itemize}
+  end: 
+}
+
 
 \frame[plain]{
   \frametitle{Cleaning}
@@ -227,7 +285,7 @@
   \item One rebranding effort
   \item Outside cities, ride sharing (more efficient than decades past)
   \item Self-driving cars (taxis, car dealers (ownership), data, urban
-    infrastructure (parking, safety margins); public health)
+    infrastructure (parking, safety margins); public health; Cars-as-a-Service)
   \end{itemize}
   end: Google car
 
@@ -284,7 +342,6 @@
   
   \begin{itemize}
   \item Risk (freddie, IrisDB, cptyr)
-  \item Advertising -> waste product : newspapers -> internet, phones, maps, search, socializing (facebook)
   \item AWS -> startup startup cost
   \item Drones (cameramen, volcanos)
   \item From zero to one
@@ -292,7 +349,6 @@
   \item amazon
   \item ebooks (self publishing, long tail)
   \item translation - mostly machine, internet delivery (non-local clients), TZ shift)
-  \item photography (DSLR, CK loss of revenue)
   \item crowd sourced biological inventories, accessible aerial imagery, GPS, GIS, have changed ecological sciences)
   \item recruiters - automatic document collectin, text analysis, job market transparency
   \item micropublishing -> niche audiences, print on demand, electronic delivery
