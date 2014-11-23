@@ -31,8 +31,12 @@
   \end{frame}
 }
 \newcommand {\graphic}[2] {
-  %\centerline{\includegraphics<#1>[width=\textwidth,height=0.8\textheight,keepaspectratio]{#2}}
   \only<#1>{\centerline{\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{#2}}}
+}
+\newcommand {\graphicT}[3] {
+  %\centerline{\includegraphics<#1>[width=\textwidth,height=0.8\textheight,keepaspectratio]{#2}}
+  \only<#1>{\centerline{\includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{#2}}
+  \centerline{#3}}
 }
 
 \title{Business Models and Technology}
@@ -68,15 +72,89 @@
   \frametitle{Outline}
   \tableofcontents[pausesections]
 \end{frame}
+\note{
+  \begin{itemize}
+  \item I'm CS
+  \item Technology and business (not models)
+  \item History for context
+  \end{itemize}
+}
 
 \section{}
 \subsection{}
 
+
 \frame[plain]{
   \frametitle{Light}
-  \graphic{1}{lamplighter-1.jpg}\graphic{2}{lamplighter-2.jpg}\graphic{3}{lamplighter-3.jpg}
+  \graphic{1}{lamplighter-1.jpg}
+  \graphic{2}{lamplighter-3.jpg}
 }
-\note{}
+\note{
+  \begin{itemize}
+  \item Lamp lighters out of work
+  \item Different install/repair skills
+  \item Fewer bulb changers
+  \end{itemize}
+}
+
+\frame[plain]{
+  \frametitle{Transport}
+  \graphic{1}{horse_carriage-1.jpg}
+  \graphic{2}{horse-bus-1.jpg}
+  \graphic{3}{horse-bus-2.jpg}
+  \graphic{4}{horses-american-cities.jpg}
+  \graphic{5}{horse-street-cleaner.jpg}
+}
+\note{
+  \begin{itemize}
+  \item cars, buses, cities, infrastructure (cleaning)
+  \end{itemize}
+  end: street cleaner
+
+  Looks hot out, cold drink? Plan in advance\dots
+}
+
+\frame[plain]{
+  \frametitle{Refrigeration}
+  \graphic{1}{ice-cutter.jpg}
+  \graphic{2}{ice-cutters.jpg}
+  \graphic{3}{ice-house-1.jpg}
+  \graphic{4}{ice-house-2.jpg}
+  \graphic{5}{ice-house-3.jpg}
+  \graphic{6}{ice-house-florence.jpg}
+  \graphic{7}{ice-house-chennai.jpg}
+  \graphicT{8}{frederick-tudor.jpg}{Frederick Tudor, Ice King}
+  \graphicT{9}{world-ice-trade_1856.png}{New England ice trade, 1856}
+}
+\note{
+  \begin{itemize}
+  \item Cut and store; scale up; luxury
+  \item Indian - built 1842 - business collapsed in 1880 from steam process
+  \item Frederick Tudor, Ice King of the World; American, established
+    the ice trade; shipped ice to Caribbean, Europe, India from Boston
+    (100 days); first ship went to Martinique
+  \item Legal squabbles - ownership of ice sources
+  \item Plant ice; steam process; refrigeration systems
+  \end{itemize}
+  end: NE ice trade
+}
+
+\frame[plain]{
+  \frametitle{Real Estate}
+  \graphic{1}{estate-agent-1.jpg}
+  \graphic{2}{estate-agent-leboncoin.png}
+  \graphic{3}{estate-agent-redfin.png}
+}
+\note{
+  \begin{itemize}
+  \item 
+  \end{itemize}
+  end: 
+}
+
+
+
+
 
 \note{ \small Topics:
   
@@ -88,10 +166,6 @@
   \item Drones (cameramen, volcanos)
   \item From zero to one
 
-  \item lightbulbs (lamp lighters)
-  \item cars (horses, caretakers, drivers, cleaners)
-  \item refrigeration (ice houses, ice delivery)
-  \item real estate (leboncoin.fr, redfin.com)
   \item uber (taxis)
   \item amazon
   \item travel agents
