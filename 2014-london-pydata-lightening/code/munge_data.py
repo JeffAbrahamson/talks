@@ -13,7 +13,7 @@ def get_data():
 
     It has been prepared with the shell script get-data."""
     # Read the data.
-    df = pd.read_csv('resultats-clean-final.txt', delimiter='\t', header=None, names=['index','boat','team','club','captain','time','offset'])
+    df = pd.read_csv('resultats-clean-final.txt', delimiter='\t', header=None, names=['index','boat','category','club','captain','time','offset'])
 
     # Make time and offset be proper dateime.time values.
     df.time = pd.Series([datetime.time(0, int(val[:2]), int(val[3:5]), int(val[6:])*100000)
@@ -22,6 +22,17 @@ def get_data():
                            for val in df.offset], index = df.index)
     return df
 
+def filename(entity, zero):
+    """Create a descriptive filename.
+
+    Entity is club or category.
+    Zero is True if origin is at 0, False if left edge of plot is at min."""
+    if zero:
+        origin = ''
+    else:
+        origin = '-zero'
+    return 'jn8-{0}{1}.png'.format(entity, origin)
+    
 def plot_by_club(df, live):
     """Plot a histogram of number of boats entered by club."""
     # Histogram of club representation.
@@ -29,12 +40,12 @@ def plot_by_club(df, live):
     plt.xlabel("Participation par club")
     render_plot(8, 6, live, 'jn8-clubs.png')
 
-def plot_by_team(df, live):
-    """Plot a histogram of number of boats entered by team type."""
-    # Histogram of team representation.
-    df.team.value_counts().plot(kind='bar')
+def plot_by_category(df, live):
+    """Plot a histogram of number of boats entered by category type."""
+    # Histogram of category representation.
+    df.category.value_counts().plot(kind='bar')
     plt.xlabel("Participation par type d'équipe")
-    render_plot(8, 6, live, 'jn8-teams.png')
+    render_plot(8, 6, live, 'jn8-categories.png')
 
 def plot_times_by_club(df, live, zero):
     """Plot the times for each club.
@@ -51,7 +62,7 @@ def plot_times_by_club(df, live, zero):
         ax[index].set_ybound(0.5, 1.5)
         ax[index].set_position([0.1, 0.1, 8.0, 1.0])
         ax[index].set_yticks([])
-    ax[0].set_title('Temps vu par club')
+    ax[0].set_title('Temps, vu par club')
     min_tick = ax[0].get_xticks().min()
     if zero:
         min_tick = 0.0
@@ -59,28 +70,30 @@ def plot_times_by_club(df, live, zero):
     max_tick = ax[0].get_xticks().max()
     ax[0].set_xticks(np.linspace(min_tick, max_tick, 6))
     fig.subplots_adjust(hspace=0)
-    render_plot(8, 6, live, 'jn8-club-{0}.png'.format(zero))
+    render_plot(8, 6, live, filename('club', zero))
 
-def plot_times_by_team(df, live, zero):
-    """Plot the times for each team.
+def plot_times_by_category(df, live, zero):
+    """Plot the times for each category.
 
     If zero is True, then set first x-tick at 0 seconds (beginning of
     race).
 
     This is almost identical to plot_times_by_club.  They should be the
     same function."""
-    times = df.loc[:, ['time', 'team']]
-    teams = times.team.unique()
-    fig, ax = plt.subplots(len(teams), sharex=True, sharey=True)
-    for index, team in enumerate(teams):
-        these_times = times[times.team == team]
-        ax[index].plot(these_times.time.as_matrix(), np.ones(len(these_times)), 'o')
-        ax[index].set_ylabel(team, rotation='horizontal', labelpad=30)
+    times = df.loc[:, ['time', 'category', 'club']]
+    categories = times.category.unique()
+    fig, ax = plt.subplots(len(categories), sharex=True, sharey=True)
+    for index, category in enumerate(categories):
+        others_times = times[(times.category == category) & (times.club != 'UNA')]
+        our_times = times[(times.category == category) & (times.club == 'UNA')]
+        ax[index].plot(others_times.time.as_matrix(), np.ones(len(others_times)), 'bo')
+        ax[index].plot(our_times.time.as_matrix(), np.ones(len(our_times)), 'ro')
+        ax[index].set_ylabel(category, rotation='horizontal', labelpad=30)
         ax[index].set_yticks([])
         ax[index].set_ybound(0.5, 1.5)
         ax[index].set_position([0.1, 0.1, 8.0, 1.0])
         ax[index].set_yticks([])
-    ax[0].set_title('Temp vu par équipe')
+    ax[0].set_title('Temps, vu par catégorie (UNA=rouge)')
     min_tick = ax[0].get_xticks().min()
     if zero:
         min_tick = 0.0
@@ -88,7 +101,7 @@ def plot_times_by_team(df, live, zero):
     max_tick = ax[0].get_xticks().max()
     ax[0].set_xticks(np.linspace(min_tick, max_tick, 6))
     fig.subplots_adjust(hspace=0)
-    render_plot(8, 6, live, 'jn8-team-{0}.png'.format(zero))
+    render_plot(8, 6, live, filename('category', zero))
 
 def render_plot(xdim, ydim, live, filename):
     """Display or save the plot image.
@@ -110,11 +123,11 @@ def main():
         live = False
     df = get_data()
     plot_by_club(df, live)
-    plot_by_team(df, live)
+    plot_by_category(df, live)
     plot_times_by_club(df, live, True) 
     plot_times_by_club(df, live, False) 
-    plot_times_by_team(df, live, True) 
-    plot_times_by_team(df, live, False) 
+    plot_times_by_category(df, live, True) 
+    plot_times_by_category(df, live, False) 
 
 if __name__ == "__main__":
     main()
