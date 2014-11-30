@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# The -raw gives me rows instead of each column one at a time.
+#pdftotext -raw 2014_ResultatsJourneeHuit.pdf
+
+# Club names have spaces, bother.
+sed 's/Cercle Aviron de Nantes/CAN/; s/Université Nantes Aviron/UNA/; s/Club Léo-Lagrange Nantes/Léo/i;
+     s/Rennes Etudiant Club/REC/; s/Aviron 85/Aviron_85/;' < 2014_ResultatsJourneeHuit.txt > resultats-clean-1.txt
+# Strip non-data lines.
+egrep '^[0-9]' < resultats-clean-1.txt > resultats-clean-2.txt
+
+# Fix names of people, boats.
+sed 's/ LE / LE_/;' < resultats-clean-2.txt | sed 's/H Mixte/H_Mixte/;' > resultats-clean-3.txt
+
+# A one-off bad line: missing captain name.
+sed '/^45 / s/INDRE/INDRE personne/;' < resultats-clean-3.txt > resultats-clean-4.txt
+
+# Provide tab delimiter.
+# Use period rather than comma for decimal point.
+tr ' ' '\t' < resultats-clean-4.txt | tr , . > resultats-clean-5.txt
+
+/bin/cp resultats-clean-5.txt resultats-clean-final.txt
