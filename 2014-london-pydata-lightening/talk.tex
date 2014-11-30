@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[t]{beamer}
 
 \mode<presentation>
 {
@@ -60,7 +60,7 @@
 
 \frame[plain]{
   \frametitle{What I want}
-  \only<1>{\centerline{How did we do by club/by category?}}
+  \only<1>{\vspace{1cm}\centerline{How did we do by club/by category?}}
   \graphic{2}{club-1.png}
   \graphic{3}{cat-1.png}
 }
@@ -73,6 +73,20 @@
   \only<4>{\lstinputlisting[language=Python]{code-4.py}}
 }
 
+\frame[plain]{
+  \frametitle{I want more!}
+  \graphic{1}{cat-2.png}
+  \only<2>{\vspace{1cm}Remember when we said this?
+
+    \vspace{1cm}
+    \lstinputlisting[language=Python]{code-5.py}}
+  \only<3>{\vspace{1cm}So instead say this:
+
+    \vspace{1cm}
+    \lstinputlisting[language=Python]{code-6.py}}
+}
+
+
 % ======================================================================
 % End
 
@@ -82,9 +96,5 @@
   \vspace{2cm}
   \centerline{github.com/JeffAbrahamson/talks/}
 \end{frame}
-
-\frame{
-
-}
 
 \end{document}
