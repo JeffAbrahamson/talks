@@ -1,0 +1,81 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{default}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{footline}[frame number]
+  \setbeamertemplate{items}[circle]
+  \usecolortheme{seahorse}
+}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage[]{algorithm2e}
+\usepackage{amsmath}
+\usepackage{centernot}
+\usepackage{xcolor}
+
+\parskip=8 pt
+
+\newcommand\topstrut{\rule{0pt}{2.6ex}}
+\newcommand\bottomstrut{\rule[-1.2ex]{0pt}{0pt}}
+\newcommand\doublestrut{\rule[-1.2ex]{0pt}{3.6ex}}
+
+\newcommand\blue[1]{\textcolor{blue}{#1}}
+\newcommand\red[1]{\textcolor{red}{#1}}
+\newcommand\gray[1]{\textcolor{gray}{#1}}
+\newcommand\smallgray[1]{\textcolor{gray}{\small\it #1}}
+\newcommand\prevwork[1]{\smallgray{#1}}
+
+% A full-page graphic.
+\newcommand {\graphic}[2] {
+  \only<#1>{\centerline{\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{#2}}}
+}
+
+\title
+{Visualizing Categorical Time Series}
+\subtitle{a simple hard thing in matplotlib}
+
+\author[Abrahamson] {Jeff Abrahamson}\institute{Jellybooks}
+
+\date[2 December 2014]
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\frame[plain]{
+  \frametitle{It's a race!}
+  \graphic{1}{8X+.jpg}
+  \graphic{2}{jeff.png}
+}
+
+\frame[plain]{
+  \frametitle{What I want}
+  \only<1>{\centerline{How did we do by club/by category?}}
+  \graphic{2}{club-1.png}
+  \graphic{3}{cat-1.png}
+}
+
+% ======================================================================
+% End
+
+\begin{frame}
+  \frametitle{Questions ?}
+
+  \vspace{2cm}
+  \centerline{github.com/JeffAbrahamson/talks/}
+\end{frame}
+
+\frame{
+
+}
+
+\end{document}
