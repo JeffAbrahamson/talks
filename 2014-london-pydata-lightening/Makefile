@@ -1,2 +1,2 @@
-talk.pdf : talk.tex
-	pdflatex -halt-on-error talk.tex
+talk.pdf : talk.tex *.py
+	pdflatex -halt-on-error -shell-escape talk.tex
