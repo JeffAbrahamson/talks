@@ -58,7 +58,6 @@ def plot_times_by_club(df, live, zero):
         these_times = times[times.club == club]
         ax[index].plot(these_times.time.as_matrix(), np.ones(len(these_times)), 'o')
         ax[index].set_ylabel(club, rotation='horizontal', labelpad=30)
-        ax[index].set_yticks([])
         ax[index].set_ybound(0.5, 1.5)
         ax[index].set_position([0.1, 0.1, 8.0, 1.0])
         ax[index].set_yticks([])
@@ -89,7 +88,6 @@ def plot_times_by_category(df, live, zero):
         ax[index].plot(others_times.time.as_matrix(), np.ones(len(others_times)), 'bo')
         ax[index].plot(our_times.time.as_matrix(), np.ones(len(our_times)), 'ro')
         ax[index].set_ylabel(category, rotation='horizontal', labelpad=30)
-        ax[index].set_yticks([])
         ax[index].set_ybound(0.5, 1.5)
         ax[index].set_position([0.1, 0.1, 8.0, 1.0])
         ax[index].set_yticks([])
