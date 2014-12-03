@@ -10,6 +10,16 @@ xdg-open https://rawgit.com/JeffAbrahamson/talks/master/2014-london-pydata-light
 xdg-open talk.pdf
 ```
 
+## Code
+
+The code is in code/ .
+The race data is in code/2014_ResultatsJourneeHuit.pdf .
+The script code/get-data extracts the data to a suitable format to be read by pandas.
+The script code/munge_data.py manipulates the data and makes the plots.
+
+The talk itself builds by typing make.
+
+
 ## Feedback
 
 Pull requests are always welcome.
