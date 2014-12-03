@@ -14,3 +14,6 @@ xdg-open talk.pdf
 
 Pull requests are always welcome.
 
+My own self-feedback is that I need to find a better way of presenting
+code so I can easily highlight things (and maybe get better syntax
+highlighting).
