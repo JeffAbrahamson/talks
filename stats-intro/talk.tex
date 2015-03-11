@@ -78,6 +78,7 @@
   \frametitle{Counting}
 
   Example: two children, what is $P(\exists \mathrm{boy}) = P(\exists b)$?
+
   \only<2>{graphic of bb, bg, gb, gg with prob 1/4}
   \only<3->{graphic of bb, bg, gb, gg with prob 1/4 with circled if $\exists$ b}
   \only<4->{What about $P(\exists b \mid \exists g)$?}
@@ -201,76 +202,180 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Simple random sample}
+  \frametitle{Study Types}
+
+  \begin{itemize}
+  \item Observational
+  \item Experimental
+  \end{itemize}
+  
+  \note {
+    
+  }
+
+  \only<2>{
+    The possible gremlins:
+    \begin{itemize}
+    \item Association $\ne$ causation
+    \item Randomness
+    \item Confounding variables
+    \item 
+    \end{itemize}
+  }
+  \note {
+    Example:  Sunscreen use associated with skin cancer.  But sun
+    exposure is a confounding variable.
+
+    Observational studies: prospective (identify individuals, collect
+    information) and retrospective.  (Can combine the two.)
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Simple random sampling}
 
   Uniform and independent.
 
-  The gremlins:
+  \note{
+    \begin{itemize}
+    \item Each case has the same probability of being included.
+    \item Knowing that a particular case is included provides no useful information about other cases.
+    \end{itemize}
+
+    Example: Footballers in Europe, put all the names in a bucket.
+  }
+
+  \only<2>{
+    The possible gremlins:
+    \begin{itemize}
+    \item Not actually random
+    \item Convenience sample
+    \item Non-response bias
+    \end{itemize}
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Stratified Sampling}
+
+  Group like with like, then usually simple random sampling of each stratum.
+  
+  \note{
+    Divide and conquer.
+
+    Example:  Footballers in Europe, sample $k$ from each team.
+    (Hypothesis:  footballers are paid about the same within a team.)
+  }
+
+  \only<2>{
+    The guaranteed gremlin: harder to analyse than simple random sampling.
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cluster Sampling}
+
+  Simple random sampling to form clusters, then simple random
+  sampling.
+
+  \note{
+    Example:  Sample $k$ from each village.  Works if villages have high
+    diversity, not so much if villages are substantially different from
+    one another.
+
+    Example:  Ebola.  SRS expensive (census of each village, then
+    maybe have to visit them all).  So select $n$ villages and sample
+    $k$ within each.  Hope that villages are similar enough that this
+    is valid as a first step.
+  }
+
+  \only<2>{
+    The guaranteed gremlin: harder to analyse than simple random sampling.
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Experiment}
+
+  We do stuff.  Maybe randomised experiment.
+  
+  \note{
+    Example: Phase 0 (10 people) and phase 1 (20-100 people) clinical trials are not randomised.
+
+    Phase 0:  Pharmacodynamics and pharmacokinetics, particularly oral
+    bioavailability and half-life of the drug.  Very small,
+    subtherapeutic doses.
+
+    Phase 1:  Testing of drug on healthy volunteers for dose-ranging.
+    Often subtherapeutic, but with ascending doses.  Determine whether
+    a drug is safe to check for efficacy in phase 2.
+  }
+
+  \only<2>{
+    \begin{itemize}
+    \item Controlling
+    \item Randomisation
+    \item Replication
+    \item Blocking \gray{(optional, advanced)}
+    \end{itemize}
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mean}
+
   \begin{itemize}
-  \item Not actually random
-  \item Convenience sample
-  \item Non-response bias
+  \item Weighted and unweighted
+  \item Centroid to physicists
   \end{itemize}
 
+  \note{
+    Sample mean vs true (population) mean.
+  }
+
+  \only<2-> {
+    \centerline{\includegraphics[width=.8\textwidth]{teeter-totter.png}}
+  }
+  \only<3>{
+    \begin{displaymath}
+      \sum w_i x_i = \mathbf{w\cdot x}
+    \end{displaymath}
+
+    \prevwork{\url{http://telescopes.stardate.org/images/research/teeter-totter/TT4.gif}}
+  }
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Variation}
+  \begin{itemize}
+  \item Deviation is distance from mean.
+  \item Variance is mean square of deviations
+  \item Standard deviation is square root of variance
+  \end{itemize}
+  
+  \note{
+    Sample standard deviation ($s$) and sample variance ($s^2$),
+    divide by $n-1$.
 
-\end{frame}
+    Population standard deviation ($\sigma$) and population variance ($\sigma^2$),
+    divide by $n$.
 
-\begin{frame}
-  \frametitle{}
+    Population statistics may not be feasible or possible to compute.
+  }
 
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
+  \only<2>{
+    \begin{displaymath}
+      s^2 = \frac{(\overline x - x_1)^2 + \dotsb (\overline x - x_n)^2}{n-1}
+    \end{displaymath}
+  }
+  \only<3>{
+    \begin{displaymath}
+      \sigma^2 = \frac{(\overline x - x_1)^2 + \dotsb (\overline x - x_MN)^2}{N}
+    \end{displaymath}
+  }
 
 \end{frame}
 
@@ -282,46 +387,145 @@
 \begin{frame}
   \frametitle{}
 
+  \note{
+
+  }
+  
 \end{frame}
 
 \begin{frame}
   \frametitle{}
 
+  \note{
+
+  }
+  
 \end{frame}
 
 \begin{frame}
   \frametitle{}
 
+  \note{
+
+  }
+  
 \end{frame}
 
 \begin{frame}
   \frametitle{}
 
+  \note{
+
+  }
+  
 \end{frame}
 
 \begin{frame}
   \frametitle{}
 
+  \note{
+
+  }
+  
 \end{frame}
 
 \begin{frame}
   \frametitle{}
 
+  \note{
+
+  }
+  
 \end{frame}
 
 \begin{frame}
   \frametitle{}
 
+  \note{
+
+  }
+  
 \end{frame}
 
 \begin{frame}
   \frametitle{}
 
+  \note{
+
+  }
+  
 \end{frame}
 
 \begin{frame}
   \frametitle{}
 
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
 \end{frame}
 
 \begin{frame}
