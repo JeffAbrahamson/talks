@@ -34,15 +34,6 @@
 
 \author[Abrahamson] {Jeff Abrahamson}
 
-% Delete this, if you do not want the table of contents to pop up at
-% the beginning of each subsection:
-\AtBeginSubsection[]
-{
-  \begin{frame}<beamer>{Outline}
-    \tableofcontents[currentsection,currentsubsection]
-  \end{frame}
-}
-
 % If you wish to uncover everything in a step-wise fashion, uncomment
 % the following command: 
 %\beamerdefaultoverlayspecification{<+->}
@@ -54,8 +45,17 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Outline}
-  \tableofcontents
+  \frametitle{Useful facts}
+
+  \only<1>{\centerline{I am a computer scientist.}}
+  \only<2>{\centerline{Python is a useful tool.}}
+
+  \note{
+    My goal is to understand computer science and machine learning.
+
+    Our goal this week is to understand statistics and to use python
+    to help us.  Not to learn anything in particular about python.
+  }
 \end{frame}
 
 \section{Probability}
@@ -232,6 +232,54 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Observational studies}
+
+  TODO
+
+  Can't generally conclude causation.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Experiment}
+
+  We do stuff.  Maybe randomised experiment.
+  
+  \note{
+    If well-designed, can conclude causation.
+
+    Experiments to generate hypotheses vs experiments to demonstrate
+    hypotheses.  (Don't use the same data!)
+
+    Example: Phase 0 (10 people) and phase 1 (20-100 people) clinical trials are not randomised.
+
+    Phase 0:  Pharmacodynamics and pharmacokinetics, particularly oral
+    bioavailability and half-life of the drug.  Very small,
+    subtherapeutic doses.
+
+    Phase 1:  Testing of drug on healthy volunteers for dose-ranging.
+    Often subtherapeutic, but with ascending doses.  Determine whether
+    a drug is safe to check for efficacy in phase 2.
+  }
+
+  \only<2>{
+    \begin{itemize}
+    \item Controlling
+    \item Randomisation
+    \item Replication
+    \item Blocking \gray{(optional, advanced)}
+    \end{itemize}
+  }
+
+  \only<3>{
+    \begin{itemize}
+    \item $H_0$: Independent (or null) hypothesis
+    \item $H_A$: Alternative hypothesis
+    \end{itemize}
+  }
+
+\end{frame}
+
+\begin{frame}
   \frametitle{Simple random sampling}
 
   Uniform and independent.
@@ -297,34 +345,6 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Experiment}
-
-  We do stuff.  Maybe randomised experiment.
-  
-  \note{
-    Example: Phase 0 (10 people) and phase 1 (20-100 people) clinical trials are not randomised.
-
-    Phase 0:  Pharmacodynamics and pharmacokinetics, particularly oral
-    bioavailability and half-life of the drug.  Very small,
-    subtherapeutic doses.
-
-    Phase 1:  Testing of drug on healthy volunteers for dose-ranging.
-    Often subtherapeutic, but with ascending doses.  Determine whether
-    a drug is safe to check for efficacy in phase 2.
-  }
-
-  \only<2>{
-    \begin{itemize}
-    \item Controlling
-    \item Randomisation
-    \item Replication
-    \item Blocking \gray{(optional, advanced)}
-    \end{itemize}
-  }
-  
-\end{frame}
-
-\begin{frame}
   \frametitle{Mean}
 
   \begin{itemize}
@@ -380,24 +400,82 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Experimental design}
+  \only<1>{A telephone survey company dials digits at random (some of
+    them aren't valid telephone numbers) rather than using a phone directory.
+  }
+  \only<2>{A statistics student wants to determine if social network
+    usage among his peers (students at his school) affects academic
+    performance.  Possibilities:
+    \begin{itemize}
+    \item He messages his class snapchat group.
+    \item He posts paper fliers at his university.
+    \item He gets a list of students from the registrar.  (What about
+      opt-in/opt-out policies?  What if he doesn't know how many have
+      opted out/failed to opt in?
+    \item Other)
+    \end{itemize}
+
+  }
+  \only<3>{Due to a flu epidemic, 10\% of students in a class miss the
+    (final) exam.  The professor decides to offer a make-up exam but
+    to require 11\% of the students who took the original exam to take
+    the make-up exam as well in order to calibrate the new exam and
+    make results comparable.
+  }
+  \only<4>{
+  }
+  \only<5>{
+  }
+  
+  \note{
+    Discuss.  Explain flaws.  Discuss what researcher should have done differently.
+  }
 
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Reasoning about data}
+
+  \only<1>{Students at an elementary school are given a questionnaire
+    that they are required to return after their parents have
+    completed it. One of the questions asked is, “Do you find that
+    your work schedule makes it difficult for you to spend time with
+    your kids after school?” Of the parents who replied, 85\% said
+    “no”. Based on these results, the school officials conclude thata
+    great majority of the parents have no difficulty spending time
+    with their kids after school.
+  }
+  \only<2>{A survey is conducted on a simple random sample of 1,000
+    women who recently gave birth, asking them about whether or not they
+    smoked during pregnancy. A follow-up survey asking if the children
+    have respiratory problems is conducted 3 years later, however, only
+    567 of these women are reached at the same address. The researcher
+    reports that these 567 women are representative of all mothers.
+  }
+  \only<3>{An orthopedist administers a questionnaire to 30 of his
+    patients who do not have any joint problems and finds that 20 of
+    them regularly go running. He concludes that running decreases the
+    risk of joint problems.
+  }
+  \only<4>{
+  }
+  \only<5>{
+  }
 
   \note{
-
+    Explain flaws.  Discuss what researcher should have done differently.
   }
   
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Example}
+
+  \centerline{\includegraphics[width=.8\textwidth]{mammal-gestation.png}}
 
   \note{
-
+    Discuss.  Are the variables independent?
   }
   
 \end{frame}
@@ -536,3 +614,19 @@
 
 
 \end{document}
+
+%% ToDo:
+%%
+%%   Box plots
+%%   Side-by-side box plots
+%%   Hollow histograms
+%%   Robust vs non-robust statistics (cf. log. p. 30 / phys. p. 40 in OS)
+%%   Example: non-random sample before U.S. presidential, company tanked
+%%     (rise of Nielson?)
+%%   Example: 4 distributions with same mean, std dev
+%%   
+%%   Visualisation and intuition
+%%   http://xkcd.com/552/
+%%
+%%   Tufte space shuttle data/visualisation
+%%   Marathon time plots (OS, physical 70)
