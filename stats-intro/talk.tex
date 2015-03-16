@@ -28,6 +28,12 @@
 \newcommand\smallgray[1]{\textcolor{gray}{\small\it #1}}
 \newcommand\prevwork[1]{\smallgray{#1}}
 
+% The differential in an integral.
+% After a function or a fraction, the \, may not be desired, see \DD.
+% It is as much art, taste, and consistency as norms and science.
+\newcommand\D[1]{\,\mathrm{d}{#1}}
+\newcommand\DD[1]{\mathrm{d}{#1}}
+
 \title
 {Statistics for Machine Learning and Big Data}
 \subtitle{An Introduction}
@@ -47,8 +53,10 @@
 \begin{frame}
   \frametitle{Useful facts}
 
+  \vfill
   \only<1>{\centerline{I am a computer scientist.}}
   \only<2>{\centerline{Python is a useful tool.}}
+  \vfill
 
   \note{
     My goal is to understand computer science and machine learning.
@@ -70,8 +78,97 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Words}
 
+  \begin{itemize}
+  \item Disjoint (mutually exclusive)
+  \item Complement of an event (set)
+  \item Independence
+  \item Conditional probability
+  \item Marginal probability
+  \item Joint probability
+  \end{itemize}
+
+  \note {
+    Addition rule:  We can add probabilities if the events are
+    disjoint: $\Pr(A\cup B) = \Pr(A) + \Pr(B)$.
+
+    General addition rule:  Think of Venn diagrams.
+    \begin{displaymath}
+      \Pr(A\cup B) = \Pr(A) + \Pr(B) - \Pr(A\cap B)
+    \end{displaymath}
+
+    Two events are independent of knowing the outcome of one gives no
+    useful information about the outcome of the other and vice versa.
+
+    Multiplication rule for independent processes: $\Pr(A\cap B) =
+    \Pr(A) \Pr(B)$
+
+    \textbf{Conditional probability} means prior is a smaller space, so just
+    normalise to the smaller space.
+
+    Said differently, \textbf{conditional probability} $\Pr(A\mid B)$ is the
+    probability of some event $B$ conditioned on some event $A$.
+
+    The \textbf{marginal probability} is when we don't condition.
+    It's just a single variable, but implicitly there are other
+    variables.
+
+    \textbf{Joint probability} is taking multiple variables into
+    account together.
+
+    So general multiplication rule: $\Pr(A\cap B) = \Pr(A\mid B)
+    \Pr(B)$.
+
+    TODO: Show addition and multiplication rules somewhere here.
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Conditional Probability}
+
+  TODO
+
+  Side by side minipage: figure and equation
+
+  \begin{displaymath}
+    \Pr(A\mid B) = \frac{\Pr(A\cap B)}{\Pr(B)}
+  \end{displaymath}
+  First show plot, then show equation, then highlight $B$, then
+  highlight intersection, then highlight none.
+
+  Then show that if $B=\cup_i B_i$, then the sum is 1 (because sum was
+  $\Pr(B)$).
+
+  Show that conditioning on an independent variabDot'sas no effect.
+  Intuition, then picture, then formula with trivial cancellation.
+
+  And then use this to show Bayes Theorem in pictures.
+
+  \begin{displaymath}
+    P(A_1 \mid B) = \frac{\Pr(B\mid A_1) \Pr(A_1)}{\Pr(B\mid A_1)\Pr(A_1) + \dots +
+      \Pr(B\mid A_k)\Pr(A_k)}
+  \end{displaymath}
+
+  Go through example 2.55 from OS with comment on misleading positive
+  results in rare cases.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Probability Density Function}
+
+  plot
+
+  \note { The pdf describes the distribution. }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cumulative Density Function}
+
+  plot
+
+  \note { The cdf also describes the distribution.  It's the integral
+    of the pdf.}
 \end{frame}
 
 \begin{frame}
@@ -84,6 +181,30 @@
   \only<4->{What about $P(\exists b \mid \exists g)$?}
   \only<5->{same graphic, fade bb, circles, show 2/3}
   \only<6->{Events have probabilities summing to 1, cover, and are disjoint.}
+
+  \note {
+    Counting:
+    Count all possibilities (which are equally likely), then
+    probability is the fraction of the collection.
+
+    Random processes:
+
+    {\it A random variable (roughly) is a variable that has some
+    probability of taking on different sets of events  ($X : \Omega
+    \rightarrow E$).  That use of ``probability'' is circular.  A
+    random process is the time evolution of a random variable.}
+  
+    The probability is the proportion of times the outcome occurs if
+    we observe the random process infinitely long.
+
+    It's sometimes useful to model things as random that aren't:
+    traffic, human behaviour, \dots
+
+    Law of Large Numbers:  The larger the sample, the closer to the
+    actual probability.  Still deviations, but less.
+
+    Example:  Brownian motion.  Vacuum on one side of the room.
+  }
 \end{frame}
 
 \begin{frame}
@@ -124,6 +245,20 @@
   \item Same constraints: sum of areas is unity.  Cover and disjoint.
   \item Zero probability events!
   \end{itemize}
+
+  \note {
+    Discrete:  throwing darts at a checker board.
+    \begin{itemize}
+    \item What's the probability of hitting a white square?
+    \item P(white square in bottom left quadrant)
+    \end{itemize}
+
+    Continuous:  throwing darts at the same board but no colour borders.
+    \begin{itemize}
+    \item P(region with colour of reddish hue)
+    \item P(region with reddish hue and within 2 cm of blue region)
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}
@@ -356,15 +491,35 @@
     Sample mean vs true (population) mean.
   }
 
-  \only<2-> {
+  \only<2-4> {
     \centerline{\includegraphics[width=.8\textwidth]{teeter-totter.png}}
   }
   \only<3>{
     \begin{displaymath}
-      \sum w_i x_i = \mathbf{w\cdot x}
+      \mu = E(X) = \sum w_i x_i = \mathbf{w\cdot x}
     \end{displaymath}
 
     \prevwork{\url{http://telescopes.stardate.org/images/research/teeter-totter/TT4.gif}}
+  }
+  \only<4>{
+    \begin{displaymath}
+      \mu = E(X) = \sum \Pr(X=x_i) x_i
+    \end{displaymath}
+
+    \prevwork{\url{http://telescopes.stardate.org/images/research/teeter-totter/TT4.gif}}
+  }
+  \only<5>{
+    \begin{displaymath}
+      \mu = E(X) = \int xf(x) \D{x}
+    \end{displaymath}
+
+    \prevwork{\url{http://telescopes.stardate.org/images/research/teeter-totter/TT4.gif}}
+  }
+  \only<6>{
+    \centerline{\includegraphics[width=.8\textwidth]{centroid-hanging-discrete.png}}
+  }
+  \only<7>{
+    \centerline{\includegraphics[width=.8\textwidth]{centroid-balance-continuous.png}}
   }
 \end{frame}
 
@@ -471,6 +626,8 @@
 
 \begin{frame}
   \frametitle{Example}
+
+  \centerline{Mammals}
 
   \centerline{\includegraphics[width=.8\textwidth]{mammal-gestation.png}}
 
