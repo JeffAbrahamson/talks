@@ -33,6 +33,10 @@
 % It is as much art, taste, and consistency as norms and science.
 \newcommand\D[1]{\,\mathrm{d}{#1}}
 \newcommand\DD[1]{\mathrm{d}{#1}}
+\newcommand\E[0]{\mathbf{E}}
+\newcommand\var[0]{\mathbf{Var}}
+\newcommand\N[0]{\mathcal{N}}
+\newcommand\R[0]{\mathbb{R}}
 
 \title
 {Statistics for Machine Learning and Big Data}
@@ -140,7 +144,7 @@
   Then show that if $B=\cup_i B_i$, then the sum is 1 (because sum was
   $\Pr(B)$).
 
-  Show that conditioning on an independent variabDot'sas no effect.
+  Show that conditioning on an independent variable has no effect.
   Intuition, then picture, then formula with trivial cancellation.
 
   And then use this to show Bayes Theorem in pictures.
@@ -548,10 +552,80 @@
   }
   \only<3>{
     \begin{displaymath}
-      \sigma^2 = \frac{(\overline x - x_1)^2 + \dotsb (\overline x - x_MN)^2}{N}
+      \sigma^2 = \frac{(\overline x - x_1)^2 + \dotsb (\overline x - x_n)^2}{n}
+    \end{displaymath}
+  }
+  \only<4>{
+    \begin{displaymath}
+      \mbox{Var}(X) = \sigma^2 = (\overline x - x_1)^2 \Pr(X=x_1) + \dotsb
+        (\overline x - x_n)^2 \Pr(X=x_n)
     \end{displaymath}
   }
 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Linear combinations of random variables}
+
+  Assuming $X$ and $Y$ are independent:
+  
+  \begin{displaymath}
+    \E(aX+bY) = a\E(X) + b\E(Y)
+  \end{displaymath}
+
+  \begin{displaymath}
+    \var(aX+bY) = a^2\var(X) + b^2\var(Y)
+  \end{displaymath}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Games}
+
+  \only<1-3> {
+    Multiple choice exam, 10 questions, all have four choices of which
+    precisely one is correct.  Guess at random.
+    \begin{itemize}
+    \item Probability of getting 100\%? \only<2--5>{$\left(\frac 14\right)^{10}$}
+    \item Probability of getting 0\%? \only<3--5>{$\left(\frac 14\right)^{10}$}
+    \item Expected score? \only<4--5>{$10\left(\frac 14\right) = \frac
+        52$}
+    \item Standard deviation \only<5>{$\var(X) = \frac 14 \frac 34 = \frac 3{16}$}\only<6>{$10\left(\frac 3{16}\right) = \fr-ac {15}{8}$}
+    \end{itemize}
+    We'll come back to: if student gets 9 of 10 correct, do we really
+    believe that they guessed at random?
+  }
+
+  \only<6> {
+    
+  }
+  \only<7> {
+    
+  }
+
+  \note{Anyone in the room worked in finance?}
+  \only<8> {
+    You pay \pounds 1 to turn a coin.  If it's heads, you win \pounds
+    2.  If it's tails, you lose but may play again for \pounds 2.  The
+    game keeps doubling: pay \pounds 2 to lose or win \pounds 4.  Pay
+    \pounds 4 to lose or win \pounds 8.  Etc.
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: testing for rare diseases}
+
+  A disease with incidence $D$ (i.e., probability that a randomly
+  selected person has it is $D$) has a test that reliably detects
+  positives (sick people) with probability $p^+$ and negatives with
+  probability $p^-$.
+
+  You test positive.  What is the probability that you have the disease?
+
+  You test negative.  What is the probability that you have the
+  disease?
+
+  TODO: math
 \end{frame}
 
 \begin{frame}
@@ -637,9 +711,23 @@
   
 \end{frame}
 
-\begin{frame}
-  \frametitle{}
+\section{Distributions}
 
+\begin{frame}
+  \frametitle{Bernoulli distribution}
+
+  Takes value 1 with probability $p$ and 0 with probability $1-p$.
+  \bigskip
+  
+  \begin{tabular}{ll}
+    Model & turning coins\\[1mm]
+    Parameters & $p\in [0,1]$\\[1mm]
+    Mean & $p$\\[1mm]
+    Variance & $p(1-p)$
+  \end{tabular}
+
+  TODO: need a picture of pdf, cdf
+  
   \note{
 
   }
@@ -647,8 +735,22 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Poisson distribution}
 
+  Probability of a given number of events occurring in a fixed
+  interval of time and/or space if these events occur with a known
+  average rate and independently of the time since the last event.
+  \bigskip
+  
+  \begin{tabular}{ll}
+    Model & radioactive decay, network packets\\[1mm]
+    Parameters & $\lambda\in \R^+$\\[1mm]
+    Mean & $\lambda$\\[1mm]
+    Variance & $\lambda$
+  \end{tabular}
+
+  TODO: need a picture of pdf, cdf
+  
   \note{
 
   }
@@ -656,10 +758,45 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Binomial distribution}
 
+  $\mathbf{B}(n,p) = $ Number of successes in a sequence of $n$ independent bernoulli
+  trials (yes/no experiments), each of which yields success with
+  probability $p$.
+  \bigskip
+
+  \begin{tabular}{ll}
+    Model & sequences of coin tosses\\[1mm]
+    Parameters & $n$, $p$\\[1mm]
+    Mean & $np$\\[1mm]
+    Variance & $np(1-p)$
+  \end{tabular}
+
+  TODO: Pictures of pdf, cdf.
+  
   \note{
 
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Normal distribution}
+
+  $\N(\mu,\sigma^2)$, about which we will say a great deal over the
+  next hour and the rest of the day.
+  \bigskip
+  
+  \begin{tabular}{ll}
+    Model & cf. CLT\\[1mm]
+    Parameters & $\mu$, $\sigma^2$\\[1mm]
+    Mean & $\mu$\\[1mm]
+    Variance & $\sigma^2$
+  \end{tabular}
+
+  TODO: Pictures of pdf, cdf.
+  \note{
+    Note that unimodal and roughly symmetric does not necessarily mean normal.
   }
   
 \end{frame}
