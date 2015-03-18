@@ -1,0 +1,269 @@
+\documentclass[t]{beamer}
+
+\mode<presentation>
+{
+  \usetheme{default}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{footline}[frame number]
+  \setbeamertemplate{items}[circle]
+  \usecolortheme{seahorse}
+}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{amsmath}
+
+\parskip=8 pt
+
+\newcommand\topstrut{\rule{0pt}{2.6ex}}
+\newcommand\bottomstrut{\rule[-1.2ex]{0pt}{0pt}}
+\newcommand\doublestrut{\rule[-1.2ex]{0pt}{3.6ex}}
+
+\newcommand\blue[1]{\textcolor{blue}{#1}}
+\newcommand\red[1]{\textcolor{red}{#1}}
+\newcommand\gray[1]{\textcolor{gray}{#1}}
+\newcommand\smallgray[1]{\textcolor{gray}{\small\it #1}}
+\newcommand\prevwork[1]{\smallgray{#1}}
+
+% The differential in an integral.
+% After a function or a fraction, the \, may not be desired, see \DD.
+% It is as much art, taste, and consistency as norms and science.
+\newcommand\D[1]{\,\mathrm{d}{#1}}
+\newcommand\DD[1]{\mathrm{d}{#1}}
+\newcommand\E[0]{\mathbf{E}}
+\newcommand\var[0]{\mathbf{Var}}
+\newcommand\N[0]{\mathcal{N}}
+\newcommand\R[0]{\mathbb{R}}
+
+\title
+{Statistics for Machine Learning and Big Data}
+\subtitle{An Introduction}
+
+\author[Abrahamson] {Jeff Abrahamson}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\section{Distributions}
+
+\begin{frame}
+  \frametitle{Bernoulli distribution}
+
+  Takes value 1 with probability $p$ and 0 with probability $1-p$.
+  \bigskip
+  
+  \begin{tabular}{ll}
+    Model & turning coins\\[1mm]
+    Parameters & $p\in [0,1]$\\[1mm]
+    Mean & $p$\\[1mm]
+    Variance & $p(1-p)$
+  \end{tabular}
+
+  TODO: need a picture of pdf, cdf
+  
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Poisson distribution}
+
+  Probability of a given number of events occurring in a fixed
+  interval of time and/or space if these events occur with a known
+  average rate and independently of the time since the last event.
+  \bigskip
+  
+  \begin{tabular}{ll}
+    Model & radioactive decay, network packets\\[1mm]
+    Parameters & $\lambda\in \R^+$\\[1mm]
+    Mean & $\lambda$\\[1mm]
+    Variance & $\lambda$
+  \end{tabular}
+
+  TODO: need a picture of pdf, cdf
+  
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Binomial distribution}
+
+  $\mathbf{B}(n,p) = $ Number of successes in a sequence of $n$ independent bernoulli
+  trials (yes/no experiments), each of which yields success with
+  probability $p$.
+  \bigskip
+
+  \begin{tabular}{ll}
+    Model & sequences of coin tosses\\[1mm]
+    Parameters & $n$, $p$\\[1mm]
+    Mean & $np$\\[1mm]
+    Variance & $np(1-p)$
+  \end{tabular}
+
+  TODO: Pictures of pdf, cdf.
+  
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Normal distribution}
+
+  $\N(\mu,\sigma^2)$, about which we will say a great deal over the
+  next hour and the rest of the day.
+  \bigskip
+  
+  \begin{tabular}{ll}
+    Model & cf. CLT\\[1mm]
+    Parameters & $\mu$, $\sigma^2$\\[1mm]
+    Mean & $\mu$\\[1mm]
+    Variance & $\sigma^2$
+  \end{tabular}
+
+  TODO: Pictures of pdf, cdf.
+  \note{
+    Note that unimodal and roughly symmetric does not necessarily mean normal.
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+  \note{
+
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Questions?}
+  \vspace{3cm}
+  \centerline{\large\url{purple.com/talk-feedback}}
+\end{frame}
+
+
+\end{document}
+
+%% ToDo:
+%%
+%%   Box plots
+%%   Side-by-side box plots
+%%   Hollow histograms
+%%   Robust vs non-robust statistics (cf. log. p. 30 / phys. p. 40 in OS)
+%%   Example: non-random sample before U.S. presidential, company tanked
+%%     (rise of Nielson?)
+%%   Example: 4 distributions with same mean, std dev
+%%   
+%%   Visualisation and intuition
+%%   http://xkcd.com/552/
+%%
+%%   Tufte space shuttle data/visualisation
+%%   Marathon time plots (OS, physical 70)
