@@ -27,6 +27,9 @@
 \newcommand\gray[1]{\textcolor{gray}{#1}}
 \newcommand\smallgray[1]{\textcolor{gray}{\small\it #1}}
 \newcommand\prevwork[1]{\smallgray{#1}}
+\newcommand\cimg[1]{\centerline{\includegraphics[width=.9\textwidth]{#1}}}
+\newcommand\cimgg[1]{\centerline{\includegraphics[width=.8\textwidth]{#1}}}
+\newcommand\cimggg[1]{\centerline{\includegraphics[width=.7\textwidth]{#1}}}
 
 % The differential in an integral.
 % After a function or a fraction, the \, may not be desired, see \DD.
@@ -40,7 +43,7 @@
 
 \title
 {Statistics for Machine Learning and Big Data}
-\subtitle{An Introduction}
+\subtitle{An Introduction\\[6mm] Part 2: distributions and inference}
 
 \author[Abrahamson] {Jeff Abrahamson}
 
@@ -56,6 +59,28 @@
 
 \section{Distributions}
 
+\begin{frame}
+  \frametitle{Uniform distribution}
+
+  Takes value 1 with probability 1.
+  \bigskip
+  
+  \begin{tabular}{ll}
+    Model & identical events\\[1mm]
+    Parameters & none\\[1mm]
+    Mean & $\frac 12$\\[1mm]
+    Variance & $1{12}$
+  \end{tabular}
+
+  TODO: need a picture of pdf, cdf
+  
+  \note{
+    Does this mean I have probability 1 of picking any number on the unit interval?
+  }
+  
+  TODO: show picture on $[0,n]$.
+
+\end{frame}
 \begin{frame}
   \frametitle{Bernoulli distribution}
 
@@ -137,45 +162,91 @@
     Variance & $\sigma^2$
   \end{tabular}
 
-  TODO: Pictures of pdf, cdf.
+  TODO: Pictures of pdf, cdf.  Effects of varying parameters (do it live and note the commands here?).
+  
   \note{
+    Bell curve.  Carl Friedrich Gauss.
+    
     Note that unimodal and roughly symmetric does not necessarily mean normal.
+
+    Nonetheless, normal is often a good approximation.
   }
   
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Z score}
 
+  \begin{displaymath}
+    Z = \frac{x-\mu}{\sigma}
+  \end{displaymath}
   \note{
+     We compute the $Z$ score for each observation.
 
+     $Z$ scores are a coordinate transform to $\N(0,1)$.
+
+     So we can use to compute percentiles.
   }
   
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Example}
 
+  The scores on an exam are approximately $\N(1500, 300)$.  What is
+  the probability a random exam taker (one about whom we know nothing
+  a priori) scores above 1630?
+
+  \only<2>{
+    \cimg{normal-SAT-1.png}
+  }
+  \only<3>{
+    \begin{displaymath}
+      Z = \frac{1630-1500}{300} = .43
+    \end{displaymath}
+  }
+  \only<4>{
+    \cimg{normal-SAT-2.png}
+  }
+  
   \note{
+    TODO:  Demo this with scipy, too.
 
+    We can also go backwards, from percentile to $Z$ score to values.
   }
   
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{65-95-99.7 Rule}
 
+  \cimg{normal-RoT.png}
   \note{
+    TODO:  Demo with scipy that $Z=1,2,3$ correspond to the rule.
 
+    TODO:  Demo with scipy probabilities of falling outside $n\sigma$
+    for $n=1,\dotsc,7$.
   }
   
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Evaluating Normal Approximations}
+
+  \only<1>{Easy technique 1: visually compare to normal plot.
+
+    \cimg{normal-plot.png}
+  }
 
   \note{
+    Demo this in matplotlib.
+  }
 
+  \only<2> {Easy technique 2: normal probability plot.
+
+    \cimggg{normal-quantile.png}
+
+    Also known as a quantile-quantile plot.
   }
   
 \end{frame}
