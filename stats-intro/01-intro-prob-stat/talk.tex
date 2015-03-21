@@ -27,6 +27,15 @@
 \newcommand\gray[1]{\textcolor{gray}{#1}}
 \newcommand\smallgray[1]{\textcolor{gray}{\small\it #1}}
 \newcommand\prevwork[1]{\smallgray{#1}}
+\newcommand\cimg[1]{\centerline{\includegraphics[width=.9\textwidth]{#1}}}
+\newcommand\cimgg[1]{\centerline{\includegraphics[width=.8\textwidth]{#1}}}
+\newcommand\cimggg[1]{\centerline{\includegraphics[width=.7\textwidth]{#1}}}
+
+\newcommand\talksection[1]{\section{#1}
+\begin{frame}
+  \vfill\Huge\bf\blue{\centerline{#1}}
+\end{frame}
+}
 
 % The differential in an integral.
 % After a function or a fraction, the \, may not be desired, see \DD.
@@ -70,7 +79,8 @@
   }
 \end{frame}
 
-\section{Probability}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\talksection{Probability}
 
 \begin{frame}
   \frametitle{Review}
@@ -272,8 +282,8 @@
 \end{frame}
 
 
-\section{Statistics}
-%\subsection{Subsection}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\talksection{Statistics}
 
 \begin{frame}
   \frametitle{What is statistics?}
@@ -318,7 +328,7 @@
   \item A \textbf{variable} is a characteristic of an observational
     unit.  E.g., number of lines, mean line length, number of words.
   \end{itemize}
-  \includegraphics[width=.9\textwidth]{variable-types.png}
+  \cimg{variable-types.png}
 
   Notes:  Categorical is sometimes called nominal.  Categorical
   variables with logical ordering (empty, half, full) or called ordinal.
@@ -496,7 +506,7 @@
   }
 
   \only<2-4> {
-    \centerline{\includegraphics[width=.8\textwidth]{teeter-totter.png}}
+    \cimgg{teeter-totter.png}
   }
   \only<3>{
     \begin{displaymath}
@@ -520,10 +530,10 @@
     \prevwork{\url{http://telescopes.stardate.org/images/research/teeter-totter/TT4.gif}}
   }
   \only<6>{
-    \centerline{\includegraphics[width=.8\textwidth]{centroid-hanging-discrete.png}}
+    \cimgg{centroid-hanging-discrete.png}
   }
   \only<7>{
-    \centerline{\includegraphics[width=.8\textwidth]{centroid-balance-continuous.png}}
+    \cimgg{centroid-balance-continuous.png}
   }
 \end{frame}
 
@@ -703,7 +713,7 @@
 
   \centerline{Mammals}
 
-  \centerline{\includegraphics[width=.8\textwidth]{mammal-gestation.png}}
+  \cimgg{mammal-gestation.png}
 
   \note{
     Discuss.  Are the variables independent?
@@ -717,6 +727,7 @@
   \centerline{\large\url{purple.com/talk-feedback}}
 \end{frame}
 
+\talksection{Break}
 
 \end{document}
 

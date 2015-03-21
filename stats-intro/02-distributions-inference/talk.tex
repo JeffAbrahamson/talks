@@ -31,6 +31,12 @@
 \newcommand\cimgg[1]{\centerline{\includegraphics[width=.8\textwidth]{#1}}}
 \newcommand\cimggg[1]{\centerline{\includegraphics[width=.7\textwidth]{#1}}}
 
+\newcommand\talksection[1]{\section{#1}
+\begin{frame}
+  \vfill\Huge\bf\blue{\centerline{#1}}
+\end{frame}
+}
+
 % The differential in an integral.
 % After a function or a fraction, the \, may not be desired, see \DD.
 % It is as much art, taste, and consistency as norms and science.
@@ -57,7 +63,8 @@
   \titlepage
 \end{frame}
 
-\section{Distributions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\talksection{Distributions}
 
 \begin{frame}
   \frametitle{Uniform distribution}
@@ -245,13 +252,14 @@
 \begin{frame}
   \frametitle{Comparing discrete distributions}
 
-  \begin{itemize}
-  \item[Binomial distribution.]  Fixed number of trials, measures probability of success.
-  \item[Negative binomial distribution.] Fixed number of successes, measures
-    probable number of trials.
-  \item[Poisson distribution.]  Fixed number of trials, measures
-    probable number of successes.
-  \end{itemize}
+  \begin{description}
+  \item[Binomial distribution.] \hfill \\
+    Fixed number of trials, measures probability of success.
+  \item[Negative binomial distribution.] \hfill \\
+    Fixed number of successes, measures probable number of trials.
+  \item[Poisson distribution.] \hfill \\
+    Fixed number of trials, measures probable number of successes.
+  \end{description}
 
 \end{frame}
 
@@ -363,8 +371,22 @@
 
 \end{frame}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\talksection{Inference}
+
 \begin{frame}
-  \frametitle{}
+  \frametitle{Inference}
+
+  \only<1>{\vfill\centerline{\bf This is the important part.}}
+  \only<2->{Goal: Understand the quality of parameter estimates.}
+
+  \only<3>{
+    Examples:
+    \begin{itemize}
+    \item How close is $\overline x$ to $\mu$?
+    \end{itemize}
+  }
 
   \note{
 
@@ -432,6 +454,7 @@
   \centerline{\large\url{purple.com/talk-feedback}}
 \end{frame}
 
+\talksection{Lunch}
 
 \end{document}
 
