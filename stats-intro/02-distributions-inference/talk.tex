@@ -103,6 +103,42 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Geometric distribution}
+
+  Two definitions:
+  \begin{itemize}
+  \item The probability distribution of the number $X$ of Bernoulli
+    trials needed to get one success, supported on the set $\{1, 2, 3,
+    \dotsc \}$
+  \item The probability distribution of the number $Y = X - 1$ of
+    failures before the first success, supported on the set $\{ 0, 1,
+    2, 3, \dotsc \}$
+  \end{itemize}
+
+  \only<1>{\prevwork{Wikipedia, geometric distribution}}
+  \only<2>{
+    \begin{tabular}{ll}
+      Model & \dots \\[1mm]
+      Parameters & $p\in (0, 1]$ \\[1mm]
+      Mean & $\frac 1p$ or $\frac{1-p}{p}$ \\[1mm]
+      Variance & $\frac{1-p}{p^2}$
+    \end{tabular}
+    
+  }
+
+  TODO: need a picture of pdf, cdf
+  
+  \note{
+    No canonical example of model.  Attempts to succeed at a task, for
+    example.  Time to die from your daily commute.
+    
+    Does this model Russian roulette?  (No, not independent.)
+  }
+    
+\end{frame}
+
+
+\begin{frame}
   \frametitle{Poisson distribution}
 
   Probability of a given number of events occurring in a fixed
@@ -120,7 +156,8 @@
   TODO: need a picture of pdf, cdf
   
   \note{
-
+    Examples:  Deaths in Greater London, $\lambda$ is the mean rate
+    of deaths per day.
   }
   
 \end{frame}
@@ -143,9 +180,79 @@
   TODO: Pictures of pdf, cdf.
   
   \note{
+    TODO: Use matplotlib to show distributions for successive values
+    of n.
 
+    Often convenient to use the normal distribution as an approximation.
   }
   
+\end{frame}
+
+\begin{frame}
+  \frametitle{Binomial distribution: Example}
+
+  \only<1>{
+    19\% of the British public smokes.  A study of 500 people reports 90
+    smokers.  What is the probability of finding 90 or fewer smokers in
+    a sample of 500 UK residents chosen at random?
+
+    \prevwork{\url{http://en.wikipedia.org/wiki/Smoking_in_the_United_Kingdom}}
+  }
+  \only<2-3> {
+    \red{20\%} of the British public smokes.  A study of 500 people
+    reports 90~smokers.  What is the probability of finding 90 or
+    fewer smokers in a sample of 500 UK residents chosen at random?
+  }
+  \only<3>{
+    TODO: solution, first with binomial, then with normal.
+    Show mathematically, then with scipy.
+
+    The normal approximation is reasonable, since $(.2)(500) = 100
+    >10$ and $(1-.2)(500) = 400 > 10$.
+
+    Use $\mu=np=100$, $\sigma=\sqrt{80} \approx 8.9$, $\N(100, 8.9)$.
+    Then $Z=\frac{59-100}{8.9} \approx -4.6$.  So probability is TODO.
+  }
+
+  \only<4>{
+    \cimg{normal-binomial-discrepancy.png}
+  }
+  \note{
+    Rule of thumb:  The binomial distribution is reasonably
+    approximated by the normal distribution when both $np$ and
+    $n(1-p)$ are greater than about 10.  Also a sufficient range
+    (i.e., not just a couple values).  Can mitigate by decreasing
+    lower cutoff by 0.5 and increasing upper cutoff by 0.5.
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Negative binomial distribution}
+
+  How many Bernoulli trials with parameter $p$ until we have $r$
+  successes?
+
+  \begin{tabular}{ll}
+    Model & \\[1mm]
+    Parameters & $p$, $r$\\[1mm]
+    Mean & $\frac{pr}{1-p}$\\[1mm]
+    Variance & $\frac{pr}{(1-p)^2}$
+  \end{tabular}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Comparing discrete distributions}
+
+  \begin{itemize}
+  \item[Binomial distribution.]  Fixed number of trials, measures probability of success.
+  \item[Negative binomial distribution.] Fixed number of successes, measures
+    probable number of trials.
+  \item[Poisson distribution.]  Fixed number of trials, measures
+    probable number of successes.
+  \end{itemize}
+
 \end{frame}
 
 \begin{frame}
@@ -248,7 +355,12 @@
 
     Also known as a quantile-quantile plot.
   }
-  
+
+  \note{
+    TODO:  Demo these in matplotlib, both prepared distributions (normal and
+    not) and with norm() and different values of n.
+  }
+
 \end{frame}
 
 \begin{frame}
