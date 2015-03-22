@@ -491,10 +491,36 @@
     \end{itemize}
 
   }
+
+  \only<4>{
+    Given $n$ observations, the standard error of the sample means is
+    \begin{displaymath}
+      \text{S.E.} = \frac{\sigma}{\sqrt n}
+    \end{displaymath}
+  }
+  \note{
+    Cf. $\var(aX+bY) = a^2 \var(X) + b^2 \var(Y)$
+
+    Usually use $\overline s$ instead of $\sigma$.
+  }
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Rules of Thumb}
+
+  When is the preceding a good approximation?
+
+  \begin{itemize}
+  \item $n>30$
+  \item The population is not too skewed.
+  \end{itemize}
+
+  When is the sample likely to be independent?
+
+  \begin{itemize}
+  \item Use simple random sampling.
+  \item $n < $ 10\% of the population.
+  \end{itemize}
 
   \note{
 
@@ -502,7 +528,13 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Summary}
+
+  \begin{itemize}
+  \item Point estimates estimate population parameters.
+  \item Point estimates have error and vary among samples.
+  \item The standard error quantifies the variation among point estimates.
+  \end{itemize}
 
   \note{
 
@@ -510,10 +542,21 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Confidence intervals}
+
+  Sample $n$ points, choose an interval around the sample mean.
+
+  A 95\% confidence interval means if we sample repeatedly, about 95\%
+  of the samples will contain the population mean.
+
+  \only<2>{95\% confidence means $\pm 2$ S.E.}
+
+  \only<3>{
+    \cimg{confidence-intervals.png}
+  }
 
   \note{
-
+    Sampling is usually expensive.
   }
 
 \end{frame}
