@@ -425,7 +425,7 @@
   }
 
   \only<4->{\textbf{Sampling distribution.}  The distribution of
-    possible samples.
+    possible point samples of a fixed size from a given population.
   }
 
   \vspace{5mm}
@@ -448,13 +448,47 @@
 
     Think of sampling distribution as the set of subsets from which
     all samples come.
+
+    Understanding sampling distributions is central to understanding inference.
   }
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Sampling distribution}
+
+  \only<1>{\vfill\cimg{sampling-distribution.png}}
 
   \note{
+    \begin{itemize}
+    \item Sampling mean is unimodal and approximately symmetric.
+    \item It is centred at population mean.
+    \item The standard deviation of the sample mean tells us how far a
+      point sample's mean is likely to be from the population mean.
+      In other words, how much error we are likely to have in the
+      point estimate's mean.  \textbf{Standard error.}
+    \end{itemize}
+
+  }
+
+  \only<2>{TODO: python code to generate uniform population, sample,
+    and plot sampling distribution.}
+
+  \only<3>{TODO: python code to generate highly skewed population, sample,
+    and plot sampling distribution.}
+
+  \note{
+    In real life, we don't have access to the population parameters.
+    We have to \textit{estimate} them from samples.  So we can't
+    \textit{know} the standard error.
+
+    Easy exercise:
+    \begin{itemize}
+    \item Would you rather have a small sample or a large sample when
+      estimating a parameter?
+    \item Would you expect a point sample based on a small sample to
+      have smaller or larger standard error than a point sample based
+      on a large sample?
+    \end{itemize}
 
   }
 \end{frame}
