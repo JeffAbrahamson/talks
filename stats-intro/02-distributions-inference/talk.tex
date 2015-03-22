@@ -551,37 +551,223 @@
 
   \only<2>{95\% confidence means $\pm 2$ S.E.}
 
-  \only<3>{
+  \only<3>{95\% confidence means $\pm 1.96$ S.E.}
+
+  \only<4>{
     \cimg{confidence-intervals.png}
+  }
+
+  \only<5>{
+    \cimg{confidence-intervals-2.png}
   }
 
   \note{
     Sampling is usually expensive.
+
+    Reminder:  Independent random samples!
+
+    We call $z^*$ S.E. the \textit{margin of error}.
+
+    Correct language: ``We are 95\% confident that the population
+    parameter is between\dots''
+    
+    Incorrect language: describe the confidence interval as capturing
+    the population parameter with a certain probability.
+
+    This is one of the most common errors: while it might be useful to
+    think of it as a probability, the confidence level only quantifies
+    how plausible it is that the parameter is in the interval.
+
+    Another especially important consideration of confidence intervals
+    is that they only try to capture the population parameter. Our
+    intervals say \textit{nothing} about the confidence of
+    \begin{itemize}
+    \item capturing individual observations
+    \item a proportion of the observations
+    \item about capturing point estimates
+    \end{itemize}
+    Confidence intervals only attempt to capture population
+    parameters.
   }
 
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{$p$-value}
+
+  \only<1>{
+    Do people die later now than 10 years ago?
+
+    Compute the mean death age from 10 years ago.\\
+    Compute a sample mean now and confidence interval.
+
+    \begin{quote}
+      $H_0$: no\\
+      $H_A$: yes
+    \end{quote}
+
+    If the mean is within the confidence interval, we reject $H_A$.\\
+    If the mean is outside the confidence interval, we accept $H_A$.
+  }
+
+  \note{$H_0$ should usually be  an equality.
+
+    But maybe the mean falls near the edge, or way outside.  How
+    to hint?
+  }
+
+  \only<2>{
+    The $p$-value is a way of quantifying the strength of the evidence
+    against the null hypothesis and in favor of the alternative.
+  }
+
+  \only<3>{
+    The $p$-value is the probability of observing data at least as
+    favorable to the alternative hypothesis as our current data set,
+    if the null hypothesis is true.
+  }
 
   \note{
+    The $p$-value is a conditional probability.
 
+    It answers ``what is the probability of the observed value if
+    $H_0$ is true, assuming a normal sample distribution?''
+
+    So it is the area under a bit of the tail of a Gaussian.
   }
 
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Example: $p$-value}
+
+  \only<1-2>{
+    
+    Googlers gain on average 7~kgs within one year of working at the
+    company.  \only<2>{\red{\textit{(This may not be true, but it's a
+          common joke.)}}}
+
+    Facebook thinks their food is better, they say their employees
+    gain more weight in the first year.  \only<2>{\red{\textit{This
+          would be a perverse argument for joining facebook.}}}
+
+    \begin{quote}
+      $H_0$: $\mu=7$\\
+      $H_A$: $\mu>7$      
+    \end{quote}
+
+    Sample $n=110$ facebookers, $\overline x = 7.42$ and $s = 1.75$.
+
+    \only<2>{$\text{S.E.} = \frac{s}{\sqrt n} =
+      \frac{1.75}{\sqrt 110} \approx 0.17$}
+  }
 
   \note{
+    $\mu>7$ is a one-sided hypothesis.  Use two-sided usually.  Decide
+    before data collection.
 
+    Check that normal approximation is ok:
+    \begin{itemize}
+    \item simple random sample, $<$ 10\%, so independent
+    \item sample size $>30$
+    \item moderate skew, outliers not too extreme
+    \end{itemize}
+
+  }
+
+  \only<3>{
+    \vfill
+    \cimg{facebook-1.png}
+  }
+
+  \only<4>{
+    \vfill
+    \cimg{facebook-2.png}
+  }
+
+  \note{Shaded tail represents chance of observing $\overline x$
+    conditional on $H_0$ being true.
+
+    That is, it's the $p$-value.
+  }
+
+  \only<5>{
+    \vfill
+    \begin{displaymath}
+      Z = \frac{\overline x - \mu}{\text{S.E.}} = \frac{7.42 -
+        7}{0.17} \approx 2.47
+    \end{displaymath}
+
+    \vspace{1cm}
+    \centerline{$\Pr(\overline x < 7.42) = .993$, so $p=1-.993=.007$.}
+  }
+
+  \note{
+    So reject $H_0$.
+
+    Note that $p<.05$ is very arbitrary and now often unacceptable in
+    science.
+
+    What is the cost of a Type I error (incorrectly rejecting a true $H_0$)?
+
+    What is the cost of a Type II error (failure to reject a false $H_0$)?
+
+    Useful to restate hypothesis in plain language so people understand.
+  }
+
+  \only<6>{
+    \vfill
+    \cimg{facebook-3.png}
+  }
+  \only<7>{
+    \vfill
+    \cimg{facebook-4.png}
   }
 
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Central Limit Theorem (CLT)}
 
+  \only<1>{
+    The distribution of $\overline x$ is approximately normal. The
+    approximation can be poor if the sample size is small, but it
+    improves with larger sample sizes.
+
+    \prevwork{Open Statistics}
+  }
+  
+  \only<2>{
+    Given certain conditions, the arithmetic mean of a sufficiently
+    large number of iterates of independent random variables, each
+    with a well-defined expected value and well-defined variance, will
+    be approximately normally distributed, regardless of the
+    underlying distribution.
+
+    \prevwork{\url{http://en.wikipedia.org/wiki/Central_limit_theorem}}
+  }
+
+  \only<3>{
+    Suppose $\{X_1, X_2, \dotsc\}$ is a sequence of i.i.d. random
+    variables with $\E[X_i] = \mu$ and $\var[X_i] = \sigma^2 <
+    \infty$. Then as $n$ approaches infinity, the random variables
+    $\sqrt n(S_n - \mu)$ converge in distribution to a normal $\N(0, \sigma^2)$:
+
+    \begin{displaymath}
+      \sqrt{n}\bigg(\bigg(\frac{1}{n}\sum_{i=1}^n X_i\bigg) - \mu\bigg)\ \xrightarrow{d}\ N(0,\;\sigma^2). 
+    \end{displaymath}
+
+    \prevwork{\url{http://en.wikipedia.org/wiki/Central_limit_theorem}}
+  }
+  
+  \only<4>{
+
+  }
+  
+  \only<4>{
+
+  }
+  
   \note{
 
   }
