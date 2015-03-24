@@ -15,6 +15,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{url}
 \usepackage{amsmath}
+\usepackage{relsize}
 
 \parskip=8 pt
 
@@ -41,6 +42,8 @@
 % The differential in an integral.
 % After a function or a fraction, the \, may not be desired, see \DD.
 % It is as much art, taste, and consistency as norms and science.
+\newcommand\corr[0]{\mathbf{Corr}}
+\newcommand\cov[0]{\mathbf{Cov}}
 \newcommand\D[1]{\,\mathrm{d}{#1}}
 \newcommand\DD[1]{\mathrm{d}{#1}}
 \newcommand\E[0]{\mathbf{E}}
@@ -71,7 +74,7 @@
   \frametitle{Linear models}
 
   \textbf{Problem:}  We have a set of points $\{(x_i, y_i)\}$.  Given a new $x$
-  value, we'd like to predict $y$.
+  value, we'd like to predict $\hat y$.
 
   \textbf{Linear model:}  We'll assume there exists a linear relationship
   $y=\beta_0 + \beta_1 x$ that offers a good approximation to the data.
@@ -108,7 +111,183 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Residuals}
+
+  What's left over.
+
+  \only<1>{
+    \vspace{1cm}
+    \begin{displaymath}
+      \text{data} = \text{fit} + \text{residual}      
+    \end{displaymath}
+  }
+  \only<2>{
+    \vspace{1cm}
+    \begin{displaymath}
+      y_i = \hat y_i + e_i
+    \end{displaymath}
+  }
+
+  \note{Goal: small residuals!}
+  
+  \only<3>{\vfill\cimg{residuals-1.png}}
+  \only<4>{\vfill\cimg{residuals-2.png}}
+  
+  \only<5>{
+    Goal: small residuals.
+
+    \vspace{1cm}
+    \begin{displaymath}
+      \sum \mid e_i\mid
+    \end{displaymath}
+  }
+  \only<6>{
+    Goal: small residuals.
+
+    \vspace{1cm}
+    \begin{displaymath}
+      \sum e_i^2
+    \end{displaymath}
+  }
+
+  \note{
+    Residuals are what's left over after accounting for model fit.
+
+    A normal distribution of residuals is a good sign.  And
+    conversely.
+
+    Not rules: rule of thumb.
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Correlation}
+
+  \only<1>{
+    Population correlation.
+    \vspace{15mm}
+    \begin{displaymath}
+      \rho_{X,Y}
+      = \corr(X,Y)
+      = \frac{\cov(X,Y)}{\sigma_X \sigma_Y}
+      = \frac{\E[(X-\mu_X)(Y-\mu_Y)]}{\sigma_X\sigma_Y}
+    \end{displaymath}
+  }
+  \note{
+    Correlation measures dependence between two random variables.
+
+    Pearson's product-moment coefficient.\\
+    Pearson's coefficient\\
+    Pearson's correlation\\
+    Correlation
+
+    (But there are others.)\\
+    Pearson's correlation is sensitive to linear relationships.
+
+    If $\rho=1$, we say perfect (increasing) correlation.\\
+    If $\rho=-1$, we say perfect (decreasing) correlation or perfect
+    anticorrelation.
+
+    Otherwise, indicates the degree of linear dependence.
+
+    Independent $\Rightarrow$ Pearson's correlation coefficient is zero.\\
+    Converse not true.  E.g., $y=x^2$ has zero correlation.
+
+    If $X$ and $Y$ are \textit{jointly normal}, then zero correlation
+    $\Rightarrow$ independent.
+
+    (\textit{multivariate normal distribution}, \textit{multivariate
+      Gaussian distribution})
+  }
+  \only<2>{
+    Sample correlation.
+    \vspace{15mm}
+    \begin{displaymath}
+      r_{x,y}
+      = \frac{1}{n-1}
+      \mathlarger{\mathlarger{\sum}}_{i=1}^{n}
+      \left(\frac{x_i - \overline x}{s_x}\right)
+      \left(\frac{y_i - \overline y}{s_y}\right)
+    \end{displaymath}
+  }
+
+  \only<3>{\vfill\cimg{correlations-1.png}}
+  \only<4>{\vfill\cimg{correlations-2.png}}
+  \only<5>{Anscombe's Quartet
+    
+    \vfill\cimg{anscombe_quartet.png}
+  }
+  \only<6>{Anscombe's Quartet
+    
+    \vfill\cimgg{anscombe_quartet.png}
+
+    \prevwork{\url{http://en.wikipedia.org/wiki/File:Anscombe\%27s_quartet_3.svg}}
+  }
+
+  \note{
+    Created by Francis Anscombe.
+
+    \begin{itemize}
+    \item mean = 7.5
+    \item variance = 4.12
+    \item correlation = 0.816
+    \item regression line = $y=3+0.5x$
+    \end{itemize}
+
+    Summary statistics don't replace visualising data.
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Correlation does not imply causation}
+
+  \only<1>{
+    \vfill
+    \cimg{xkcd-552-correlation.png}
+
+    \prevwork{\url{https://xkcd.com/552/}}
+  }
+
+  \only<2>{
+    Tufte:
+
+    \vspace{1cm}
+
+    \begin{quote}
+      "Empirically observed covariation is a necessary but not sufficient condition for causality."
+    \end{quote}
+
+    \vspace{1cm}
+    \prevwork{\url{http://en.wikipedia.org/wiki/Correlation\_does\_not\_imply\_causation}}
+  }
+  \only<3>{
+    Tufte:
+
+    \vspace{1cm}
+
+    \begin{quote}
+      "Correlation is not causation but it sure is a hint."
+    \end{quote}
+
+    \vspace{1cm}
+    \prevwork{\url{http://en.wikipedia.org/wiki/Correlation\_does\_not\_imply\_causation}}
+  }
+
+  \note{
+
+    In the xkcd, the salient point is that the character who didn't
+    take the statistics class can't validly make that conclusion.
+
+    The character who took the statistics class, of course, probably can.
+
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Granger causality}
 
   \note{
 
@@ -117,34 +296,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
-
-  \note{
-
-  }
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-  \note{
-
-  }
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-  \note{
-
-  }
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
+  \frametitle{Convergent cross-mapping}
 
   \note{
 
