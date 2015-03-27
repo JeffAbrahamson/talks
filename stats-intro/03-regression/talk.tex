@@ -106,6 +106,11 @@
     In the real world, there's nearly always noise.
 
     Sometimes there are other lesser effects as well.
+
+    Talk about meaning of slope
+
+    Dangers of extrapolation.  Example: global warming (a few data
+    points in a few places at a few times)
   }
 
 \end{frame}
@@ -194,6 +199,8 @@
 
     If a point, omitted, would fall much further from the regression
     line, it is certainly influential.
+
+    If not enough data points, they might be all or mostly influential!
   }
 
 \end{frame}
@@ -254,7 +261,16 @@
   }
 
   \only<7>{
-    \vfill\centerline{\Huge Don't ignore outliers.}
+    \vfill\centerline{\huge Don't ignore outliers.}
+  }
+
+  \only<8>{
+    \vfill
+    \cimg{outliers-important.png}
+  }
+
+  \note{
+    Data about shuttle O-ring damage.
   }
 
 \end{frame}
@@ -297,6 +313,9 @@
 
     (\textit{multivariate normal distribution}, \textit{multivariate
       Gaussian distribution})
+
+    $r²$ describes amount of variation in the response explained by
+    the least squares line.  It's called the \textit{coefficient of determination.}
   }
   \only<2>{
     Sample correlation.
@@ -310,13 +329,29 @@
     \end{displaymath}
   }
 
-  \only<3>{\vfill\cimg{correlations-1.png}}
-  \only<4>{\vfill\cimg{correlations-2.png}}
-  \only<5>{Anscombe's Quartet
+  \only<3>{
+    Coefficient of determination
+    \vspace{15mm}
+    \begin{displaymath}
+      r^2 = \frac{\var e_i}{\var y_i}
+    \end{displaymath}
+  }
+
+  \note{
+    This is (usually) true in one dimension under common conditions.
+    In higher dimensions, we still call it $r^2$ but it's not longer
+    the Pearson's correlation coefficient.
+
+    $r^2$ measures goodness of fit.
+  }
+
+  \only<4>{\vfill\cimg{correlations-1.png}}
+  \only<5>{\vfill\cimg{correlations-2.png}}
+  \only<6>{Anscombe's Quartet
     
     \vfill\cimg{anscombe_quartet.png}
   }
-  \only<6>{Anscombe's Quartet
+  \only<7>{Anscombe's Quartet
     
     \vfill\cimgg{anscombe_quartet.png}
 
@@ -385,6 +420,64 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Code lab: linear regression}
+
+  \note{
+    TODO: prepare data
+
+    TODO: do this myself
+  }
+
+  \only<1> {
+    Data set 1: \url{...} TODO
+
+    Tasks:
+    \begin{itemize}
+    \item Visualise the data
+    \item Compute mean, variance, standard deviation, correlation
+    \item Compute linear regression and visualise
+    \item Compute residuals and visualise
+    \item Discuss what the data tells you
+    \end{itemize}
+  }
+
+  \only<2> {
+    Data set 2: \url{...} TODO
+
+    Tasks:
+    \begin{itemize}
+    \item Visualise the data
+    \item Compute mean, variance, standard deviation, correlation
+    \item Compute linear regression and visualise
+    \item Compute residuals and visualise
+    \item Discuss what the data tells you
+    \end{itemize}
+  }
+
+  \only<3> {
+    Data set 3: \url{...} TODO
+
+    Tasks:
+    \begin{itemize}
+    \item Visualise the data
+    \item Compute mean, variance, standard deviation, correlation
+    \item Compute linear regression and visualise
+    \item Compute residuals and visualise
+    \item Discuss what the data tells you
+    \end{itemize}
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Linear regression and inference}
+
+  TODO.  Talk about standard error and $p$ values.  Probably talk
+  about $t$ tests.  Probably use sklearn and demo.
+  
+\end{frame}
+
+\begin{frame}
   \frametitle{Granger causality}
 
   \note{
@@ -403,19 +496,53 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Multiple regression}
+
+  One response $\hat y$ but many predictors $x_1, \dotsc, x_n$.
+
+  \begin{displaymath}
+    \hat y = \beta_0 + \beta_1 x_1 + \dotsb + \beta_n x_n
+  \end{displaymath}
 
   \note{
-
+    We fit all predictors simultaneously.\\
+    Fitting individually is not valid.
   }
 
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Logistic regression}
+
+  \only<1>{
+    Also: \textit{logit regression}, \textit{logit model}
+
+    Dependent variable ($y$) is binary.
+  }
 
   \note{
+    Dependent variable ($y$) is binary $\Rightarrow$ logistic
+    regression is a classifier.
 
+    Logistic regression is an example of a \textit{generalized linear
+      model} (GLM).
+
+    Example: probability of dying given some non-boolean measure
+    (e.g., size of tumour, time unconscious, etc.).
+
+    If $y$ is binary, we can say \textit{binary} or \textit{binomial
+      logistic regression}.\\
+    If $y$ may take on 3 or more discrete values, we speak of
+    \textit{multinomial logistic regression}.
+  }
+
+  \only<2>{
+    \vfill
+    \cimg{logistic-function.png}
+  }
+
+  \note{
+    We compute residuals the same way: predicted value less observed value.
   }
 
 \end{frame}
