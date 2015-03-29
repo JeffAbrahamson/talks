@@ -18,6 +18,19 @@
   \titlepage
 \end{frame}
 
+\begin{frame}
+  \cimgh{bayesian-frequentist-xkcd.png}
+
+  \note{
+    Our goal is to understand this.
+    
+    Note that betting is not just probability, but also utility.
+    If the sun exploded, money no longer has value, so one should
+    always make this bet.
+    
+  }
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \talksection{Frequentists}
 
@@ -264,12 +277,12 @@
 \begin{frame}
   \frametitle{Example: medical testing}
 
-  A disease affects .1\% of the population.\\
+  A disease affects 0.1\% of the population.\\
   The test is not perfect:
   \begin{center}
     \begin{tabular}[c]{|l|r|r|}
       \hline
-      Test & + & $-$\\
+      & + & $-$\\
       \hline
       Sick & .95 & .05\\
       Healthy & .01 & .99 \\
@@ -279,7 +292,7 @@
 
   \only<2>{
     \vspace{1cm}
-    \centerline{\large Exercise}
+    \centerline{\Large\bf Exercise}
   }
 
   \only<3>{
@@ -359,11 +372,12 @@
 \begin{frame}
   \frametitle{Flipping coins, Bayesian view}
 
-  We saw 10 heads in 14 tosses.  What's the probability of the next two tosses are both heads?
+  \gray{We saw 10 heads in 14 tosses.  What's the probability of the
+    next two tosses are both heads?}
 
   \vspace{1cm}
   
-  \only<1>{This is going to hurt.
+  \only<1>{\red{This is going to hurt.}
     \note{Bayesian inference became popular with greater computing power.}
   }
 
@@ -460,7 +474,12 @@
   The Bayesian bets against $HH$, $\Pr(HH) \approx .49$.
 
   \note{
+    Both viewpoints have their place.  The topic extends well beyond
+    this course.  Knowing when to use Bayesian vs frequentist methods
+    is an advanced topic.
 
+    Humans might be more Bayesian than frequentist when not being scientists.
+    
   }
 \end{frame}
 
