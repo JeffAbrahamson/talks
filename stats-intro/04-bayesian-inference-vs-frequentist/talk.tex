@@ -68,69 +68,25 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\talksection{Bayesians}
-
-\begin{frame}
-  \frametitle{}
-
-  \note{
-
-  }
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-  \note{
-
-  }
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-  \note{
-
-  }
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-  \note{
-
-  }
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-  \note{
-
-  }
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-  \note{
-
-  }
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-  \note{
-
-  }
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \talksection{Frequentists}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Flipping coins}
+
+  You have a coin that when flipped ends up head with probability $p$
+  and ends up tail with probability $1-p$. (The value of $p$ is
+  unknown.)
+
+  Trying to estimate $p$, you flip the coin \textbf{14} times. It ends
+  up headss \textbf{10} times.
+
+  Then you have to decide on the following event: ``In the next two
+  tosses we will get two heads in a row.''
+
+  Would you bet that the event will happen or that it will not happen?
+
+  \vfill
+  \prevwork{\url{http://www.behind-the-enemy-lines.com/2008/01/are-you-bayesian-or-frequentist-or.html}}
 
   \note{
 
@@ -138,50 +94,58 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Flipping coins, frequentist view}
+
+  We saw 10 heads in 14 tosses.  What's the probability of the next two tosses are both heads?
+
+  \begin{eqnarray*}
+    p & = & \frac{10}{14} \approx .714\\[5mm]
+    \Pr(HH) & = & p^2 \approx .51
+  \end{eqnarray*}
 
   \note{
+    We say that this is the best or \textit{maximum likelihood} estimate for $p$.
 
-  }
-\end{frame}
+    This is the probability we learn in school.
 
-\begin{frame}
-  \frametitle{}
-
-  \note{
-
-  }
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-  \note{
-
-  }
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-  \note{
-
-  }
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-  \note{
-
+    (Not to say that frequentists have it easy.)
   }
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\talksection{Bayesian vs Frequentist}
+\talksection{Bayesians}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Review: conditional probability}
+
+  \only<1>{
+    \begin{eqnarray*}
+      \Pr(A\mid B) & &
+    \end{eqnarray*}
+  }
+
+  \only<2>{
+    \begin{eqnarray*}
+      \Pr(A\mid B) & = & \frac{\Pr(A\cap B)}{\Pr(B)}
+    \end{eqnarray*}
+  }
+
+  \only<3>{
+    \begin{eqnarray*}
+      \Pr(A\mid B) \Pr(B) & = & \Pr(A\cap B)
+    \end{eqnarray*}
+  }
+
+  \only<4>{
+    \begin{eqnarray*}
+      \Pr(A\mid B) \Pr(B) & = & \Pr(A\cap B) \\[2mm]
+      & = & \Pr(B\mid A) \Pr(A)
+    \end{eqnarray*}
+  }
+
+  \vfill
+  \cimggg{conditional-ab.png}
+  \vfill
 
   \note{
 
@@ -189,7 +153,102 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Review: Bayes theorem}
+
+  \only<1>{
+    \begin{eqnarray*}
+      \Pr(A\mid B) & = & \frac{\Pr(A\cap B)}{\Pr(B)} \\[3mm]
+      & = & \frac{\Pr(B\mid A)\Pr(A)}{\Pr(B)}
+    \end{eqnarray*}
+  }
+
+  \only<2>{
+    \begin{eqnarray*}
+      \Pr(A_j\mid B) & = & \frac{\Pr(A_j\cap B)}{\Pr(B)} \\[3mm]
+      & = & \frac{\Pr(B\mid A_j)\Pr(A_j)}{\Pr(B)}
+    \end{eqnarray*}
+
+    \blue{\it if $A = \cup_i A_i$ covers $A\cup B$ and is a non-overlapping cover of $A$}
+  }
+
+  \only<3>{
+    \begin{eqnarray*}
+      \Pr(A_j\mid B) & = & \frac{\Pr(A_j\cap B)}{\Pr(B)} \\[3mm]
+      & = & \frac{\Pr(B\mid A_j)\Pr(A_j)}{\Pr(B)} \\[3mm]
+      & = & \frac{\Pr(B\mid A_j)\Pr(A_j)}{\sum_i \Pr(B\cap A_i)} \\[3mm]
+      & = & \frac{\Pr(B\mid A_j)\Pr(A_j)}{\sum_i \Pr(B\mid A_i) \Pr(A_i)}
+    \end{eqnarray*}
+
+    \blue{\it if $A = \cup_i A_i$ covers $A\cup B$ and is a non-overlapping cover of $A$}
+  }
+
+  \only<4>{
+    \begin{eqnarray*}
+      \Pr(A\mid B) & = & \frac{\Pr(A\cap B)}{\Pr(B)} \\[3mm]
+      & = & \frac{\Pr(B\mid A)\Pr(A)}{\Pr(B)}
+    \end{eqnarray*}
+  }
+
+  \only<5>{
+    \begin{displaymath}
+      \Pr(H\mid E) = \frac{\Pr(E\mid H)\Pr(H)}{\Pr(E)}
+    \end{displaymath}
+
+  }
+
+  \only<6>{
+    \begin{displaymath}
+      \Pr(H\mid E) \gray{= \frac{\Pr(E\mid H)\Pr(H)}{\Pr(E)}} = \frac{\Pr(E\mid H)}{\Pr(E)} \cdot \Pr(H)
+    \end{displaymath}
+
+    \vspace{10mm}
+    \centerline{\blue{Here $H$ is the hypothesis and $E$ is evidence.}}
+  }
+
+  \only<7>{
+    \begin{displaymath}
+      \Pr(H\mid E) = \frac{\Pr(E\mid H)}{\Pr(E)} \cdot \blue{\Pr(H)}
+    \end{displaymath}
+
+    \vspace{10mm}
+    \centerline{\blue{\textit{Prior probability} of $H$}}
+  }
+
+  \only<8>{
+    \begin{displaymath}
+      \Pr(H\mid E) = \blue{\frac{\Pr(E\mid H)}{\Pr(E)}} \cdot \Pr(H)
+    \end{displaymath}
+
+    \vspace{10mm}
+    \centerline{\blue{Impact of $E$ on $H$}}
+  }
+
+  \only<9>{
+    \begin{displaymath}
+      \Pr(H\mid E) = \frac{\blue{\Pr(E\mid H)}}{\Pr(E)} \cdot \Pr(H)
+    \end{displaymath}
+
+    \vspace{10mm}
+    \centerline{\blue{Likelihood of observing $E$ given $H$}}
+  }
+
+  \only<10>{
+    \begin{displaymath}
+      \Pr(H\mid E) = \frac{\Pr(E\mid H)}{\blue{\Pr(E)}} \cdot \Pr(H)
+    \end{displaymath}
+
+    \vspace{10mm}
+    \centerline{\blue{\textit{Marginal likelihood} or \textit{model evidence}}}
+  }
+
+  \only<11>{
+    \begin{displaymath}
+      \blue{\Pr(H\mid E)} = \frac{\Pr(E\mid H)}{\Pr(E)} \cdot \Pr(H)
+    \end{displaymath}
+
+    \vspace{10mm}
+    \centerline{\blue{\textit{Posterior probability} of $H$}}
+  }
 
   \note{
 
@@ -197,7 +256,54 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Using Bayes theorem}
+
+  If the evidence $E$ doesn't fit $H$, we reject $H$.
+
+  \only<2>{If the evidence $E$ is extremely unlikely, we also reject $H$.}
+
+  \note{
+    
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: a baby!}
+
+  \only<1-2>{
+    A friend had a baby, but we don't know more.\\
+    A mutual friend says it's a boy and shows us a picture of a baby boy.
+
+    \only<1>{\vfill
+      \prevwork{\url{http://en.wikipedia.org/wiki/Bayesian_inference}}}
+
+    \only<2>{
+      $E$: picture of a baby boy\\
+      $H$: the baby is a boy
+
+      \begin{eqnarray*}
+        \Pr(H\mid E) & = & \frac{\Pr(E\mid H) \Pr(H)}{\Pr(E)} \\[3mm]
+        &=& \frac{(1)(\frac 12)}{\frac 12} \\[3mm]
+        &=& 1
+      \end{eqnarray*}
+    }
+  }
+
+  \only<3-4>{
+    A friend had a baby, but we don't know more.\\
+    A mutual friend says it's a dog and shows us a picture to prove it.
+
+    \only<4>{
+      $E$: picture of a puppy\\
+      $H$: the baby is a boy
+
+      \begin{eqnarray*}
+        \Pr(H\mid E) & = & \frac{\Pr(E\mid H) \Pr(H)}{\Pr(E)} \\[3mm]
+        &=& \frac{(1)(0)}{\epsilon} \\[3mm]
+        &=& 0
+      \end{eqnarray*}
+    }
+  }
 
   \note{
 
@@ -205,7 +311,71 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Example: medical testing}
+
+  A disease affects .1\% of the population.\\
+  The test is not perfect:
+  \begin{center}
+    \begin{tabular}[c]{|l|r|r|}
+      \hline
+      Test & + & $-$\\
+      \hline
+      Sick & .95 & .05\\
+      Healthy & .01 & .99 \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  \only<2>{
+    \vspace{1cm}
+    \centerline{\large Exercise}
+  }
+
+  \only<3>{
+    \begin{center}
+      \begin{tabular}[c]{|l|r|}
+        \hline
+        $\Pr(S\mid -)$ & .005\%\\[1mm]
+        $\Pr(S\mid +)$ & 8.6\%\\[4mm]
+
+        $\Pr(H\mid -)$ & 99.9\%\\[1mm]
+        $\Pr(H\mid +)$ & 91.3\%\\[1mm]
+        \hline
+      \end{tabular}
+    \end{center}
+  }
+
+  \only<4>{
+    \begin{eqnarray*}
+      \Pr(S\mid -) & = & \frac{\Pr(-\mid S) \Pr(S)}{\Pr(-)} \\[3mm]
+      & = & \frac{\Pr(-\mid S) \Pr(S)}{\Pr(-\mid H)\Pr(H) + \Pr(-\mid S)\Pr(S)} \\[3mm]
+      &=& \frac{(.05)(.001)}{(.95)(.999) + (.05)(.001)} = .005\%
+    \end{eqnarray*}
+  }
+
+  \only<5>{
+    \begin{eqnarray*}
+      \Pr(S\mid +) & = & \frac{\Pr(+\mid S) \Pr(S)}{\Pr(+)} \\[3mm]
+      & = & \frac{\Pr(+\mid S) \Pr(S)}{\Pr(+\mid H)\Pr(H) + \Pr(+\mid S)\Pr(S)} \\[3mm]
+      &=& \frac{(.95)(.001)}{(.01)(.999) + (.95)(.001)} = 8.6\%
+    \end{eqnarray*}
+  }
+
+  \only<6>{
+    \begin{eqnarray*}
+      \Pr(H\mid -) & = & \frac{\Pr(-\mid H) \Pr(H)}{\Pr(-)} \\[3mm]
+      & = & \frac{\Pr(-\mid H) \Pr(H)}{\Pr(-\mid H)\Pr(H) + \Pr(-\mid S)\Pr(S)} \\[3mm]
+      &=& \frac{(.99)(.999)}{(.99)(.999) + (.05)(.001)} = 99.9\%
+    \end{eqnarray*}
+  }
+
+  \only<7>{
+    \begin{eqnarray*}
+      \Pr(H\mid +) & = & \frac{\Pr(+\mid H) \Pr(H)}{\Pr(+)} \\[3mm]
+      & = & \frac{\Pr(+\mid H) \Pr(H)}{\Pr(+\mid H)\Pr(H) + \Pr(+\mid S)\Pr(S)} \\[3mm]
+      &=& \frac{(.01)(.999)}{(.01)(.999) + (.95)(.001)} = 91.3\%
+    \end{eqnarray*}
+  }
 
   \note{
 
@@ -213,7 +383,22 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Flipping coins}
+
+  You have a coin that when flipped ends up head with probability $p$
+  and ends up tail with probability $1-p$. (The value of $p$ is
+  unknown.)
+
+  Trying to estimate $p$, you flip the coin \textbf{14} times. It ends
+  up headss \textbf{10} times.
+
+  Then you have to decide on the following event: ``In the next two
+  tosses we will get two heads in a row.''
+
+  Would you bet that the event will happen or that it will not happen?
+
+  \vfill
+  \prevwork{\url{http://www.behind-the-enemy-lines.com/2008/01/are-you-bayesian-or-frequentist-or.html}}
 
   \note{
 
@@ -221,7 +406,107 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Flipping coins, Bayesian view}
+
+  We saw 10 heads in 14 tosses.  What's the probability of the next two tosses are both heads?
+
+  \vspace{1cm}
+  
+  \only<1>{This is going to hurt.
+    \note{Bayesian inference became popular with greater computing power.}
+  }
+
+  \only<2>{
+    $p$ is now a distribution instead of a value.
+
+    Instead of ML estimate of $p$, we consider $p$ as a random variable.
+  }
+
+  \only<3>{
+    \begin{displaymath}
+      \Pr(p\mid\text{data}) = \frac{\Pr(\text{data}\mid p) \Pr(p)}{\Pr(\text{data})}
+    \end{displaymath}
+  }
+
+  \only<4>{
+    \begin{displaymath}
+      \Pr(p\mid\text{data}) = \frac{\blue{\Pr(\text{data}\mid p)} \Pr(p)}{\Pr(\text{data})}
+    \end{displaymath}
+  }
+
+  \only<5>{
+    \begin{displaymath}
+      \Pr(\text{data}\mid p) = {14 \choose 10} p^{10} (1-p)^4
+    \end{displaymath}
+  }
+
+  \only<6>{
+    Ignoring constants,
+    
+    \begin{displaymath}
+      \Pr(p\mid\text{data}) \propto p^{10} (1-p)^4 \Pr(p)
+    \end{displaymath}
+  }
+
+  \only<7>{
+    What is $\Pr(p)$?
+
+    Convenient to use the Beta distribution (a.k.a. the conjugate prior to the binomial distribution).
+
+    \begin{displaymath}
+      \text{Beta}(p; a, b) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} p^{a-1} (1-p)^{b-1}
+    \end{displaymath}
+
+    For us, that means
+
+    \begin{displaymath}
+      \Pr(p) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} p^{a-1} (1-p)^{b-1}
+    \end{displaymath}
+  }
+
+  \only<8>{
+    \begin{eqnarray*}
+          \Pr(p\mid\text{data}) & \propto & p^{10} (1-p)^4 p^{a-1} (1-p)^{b-1} \\[2mm]
+          & \propto & p^{10+a-1} (1-p)^{4+b-1} \\[2mm]
+          & \propto & \text{Beta}(p; a+10, b+4)
+    \end{eqnarray*}
+  }
+
+  \only<9>{
+    If we assume we know nothing about $p$, then let's say the prior is uniform, which is $a=b=1$.
+
+    \begin{displaymath}
+          \Pr(p\mid\text{data}) \propto \text{Beta}(p; a+10, b+4) = \text{Beta}(p; 11; 5)
+    \end{displaymath}
+  }
+
+  \only<10>{
+    We can at least plot $\text{Beta}(p; 11; 5)$.
+
+    \vfill
+    \cimgsm{beta.png}
+  }
+
+  \only<11>{
+    And let's just jump to the solution,
+
+    \begin{eqnarray*}
+      \Pr(HH\mid\text{data}) &=& \int_0^1 \Pr(HH\mid p) \Pr(p\mid \text{data}) \D{p} \\[2mm]
+      &=& \frac{B(13, 5)}{B(11, 5)} \approx .485
+    \end{eqnarray*}
+  }
+
+  \note{
+    The equivalent of a confidence interval is a credible interval.
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Summary}
+
+  The frequentist bets on $HH$, $\Pr(HH) \approx .51$.
+
+  The Bayesian bets against $HH$, $\Pr(HH) \approx .49$.
 
   \note{
 
@@ -229,11 +514,13 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Confidence interval vs credible interval}
 
-  \note{
+  \vspace{1cm}
+  \cimg{bayesian-frequentist-1.png}
 
-  }
+  \vfill
+  \prevwork{\url{http://www.stat.ufl.edu/archived/casella/Talks/BayesRefresher.pdf}}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
