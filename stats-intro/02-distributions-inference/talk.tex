@@ -27,13 +27,15 @@
   Takes value 1 with probability 1.
   \bigskip
   
-  \begin{tabular}{ll}
-    Model & identical events\\[1mm]
-    Parameters & none\\[1mm]
-    Mean & $\frac 12$\\[1mm]
-    Variance & $1{12}$
-  \end{tabular}
-
+  \purple{
+    \begin{tabular}{ll}
+      Model & identical events\\[1mm]
+      Parameters & none\\[1mm]
+      Mean & $\frac 12$\\[1mm]
+      Variance & $\frac{1}{12}$
+    \end{tabular}
+  }
+  
   TODO: need a picture of pdf, cdf
   
   \note{
@@ -158,6 +160,7 @@
     smokers.  What is the probability of finding 90 or fewer smokers in
     a sample of 500 UK residents chosen at random?
 
+    \vfill
     \prevwork{\url{http://en.wikipedia.org/wiki/Smoking_in_the_United_Kingdom}}
   }
   \only<2-3> {
@@ -274,6 +277,8 @@ plt.plot(range, norm.pdf(range,0,2))
 \begin{frame}
   \frametitle{Z score}
 
+  \vspace{1cm}
+  
   \begin{displaymath}
     Z = \frac{x-\mu}{\sigma}
   \end{displaymath}
@@ -317,6 +322,8 @@ plt.plot(range, norm.pdf(range,0,2))
 \begin{frame}
   \frametitle{65-95-99.7 Rule}
 
+  \vspace{1cm}
+  
   \cimg{normal-RoT.png}
   \note{
     TODO:  Demo with scipy that $Z=1,2,3$ correspond to the rule.
@@ -716,6 +723,7 @@ plt.plot(range, norm.pdf(range,0,2))
     approximation can be poor if the sample size is small, but it
     improves with larger sample sizes.
 
+    \vfill
     \prevwork{Open Statistics}
   }
   
@@ -726,6 +734,7 @@ plt.plot(range, norm.pdf(range,0,2))
     be approximately normally distributed, regardless of the
     underlying distribution.
 
+    \vfill
     \prevwork{\url{http://en.wikipedia.org/wiki/Central_limit_theorem}}
   }
 
