@@ -1,51 +1,6 @@
 \documentclass[t]{beamer}
 
-\mode<presentation>
-{
-  \usetheme{default}
-  \setbeamertemplate{navigation symbols}{}
-  \setbeamertemplate{footline}[frame number]
-  \setbeamertemplate{items}[circle]
-  \usecolortheme{seahorse}
-}
-
-\usepackage[english]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage{times}
-\usepackage[T1]{fontenc}
-\usepackage{url}
-\usepackage{amsmath}
-
-\parskip=8 pt
-
-\newcommand\topstrut{\rule{0pt}{2.6ex}}
-\newcommand\bottomstrut{\rule[-1.2ex]{0pt}{0pt}}
-\newcommand\doublestrut{\rule[-1.2ex]{0pt}{3.6ex}}
-
-\newcommand\blue[1]{\textcolor{blue}{#1}}
-\newcommand\red[1]{\textcolor{red}{#1}}
-\newcommand\gray[1]{\textcolor{gray}{#1}}
-\newcommand\smallgray[1]{\textcolor{gray}{\small\it #1}}
-\newcommand\prevwork[1]{\smallgray{#1}}
-\newcommand\cimg[1]{\centerline{\includegraphics[width=.9\textwidth]{#1}}}
-\newcommand\cimgg[1]{\centerline{\includegraphics[width=.8\textwidth]{#1}}}
-\newcommand\cimggg[1]{\centerline{\includegraphics[width=.7\textwidth]{#1}}}
-
-\newcommand\talksection[1]{\section{#1}
-\begin{frame}
-  \vfill\Huge\bf\blue{\centerline{#1}}
-\end{frame}
-}
-
-% The differential in an integral.
-% After a function or a fraction, the \, may not be desired, see \DD.
-% It is as much art, taste, and consistency as norms and science.
-\newcommand\D[1]{\,\mathrm{d}{#1}}
-\newcommand\DD[1]{\mathrm{d}{#1}}
-\newcommand\E[0]{\mathbf{E}}
-\newcommand\var[0]{\mathbf{Var}}
-\newcommand\N[0]{\mathcal{N}}
-\newcommand\R[0]{\mathbb{R}}
+\input ../setup.tex
 
 \title
 {Statistics for Machine Learning and Big Data}
