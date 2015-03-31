@@ -486,6 +486,95 @@
     is an advanced topic.
 
     Humans might be more Bayesian than frequentist when not being scientists.
+
+    A Bayesian, strictly speaking, it’s incorrect to say ``I predict
+    that there’s a 30\% chance of P'', but rather ``Based on the
+    current state of my knowledge, I am 30\% certain that P will
+    occur.''
+
+    Bayesian methods are certainly far more elegant theoretically, but
+    generally far, far more difficult to apply in practice, due to
+    computational issues and the necessity of identifying an
+    appropriate prior (a fundamentally non-mathematical problem, and
+    often intractable). Also, scientists find (or think they find)
+    p-values easier to understand than posterior distributions. This
+    is why the medical literature (for instance) is full of
+    frequentism.
+
+    \prevwork{\url{http://scienceblogs.com/goodmath/2008/04/07/schools-of-thought-in-probabil/\#comment-15371}}
+
+    Beware bogus science by using bogus priors!  \textbf{Example:}
+    Physics seems to be finely tuned to support human live, so God
+    must have created us.  But we have no information on the prior
+    (what the universe would be like with different constants).
+
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fair coins}
+
+  \vspace{1cm}
+  Suppose we flip 20 coins and get $12H+8T$.
+
+  \note{
+
+    \begin{displaymath}
+      \Pr(12H+8T) = {20\choose 12} \left(\frac 12\right)^{20} \approx .12
+    \end{displaymath}
+
+    \texttt{scipy.misc.comb(20, 12) * .5**20}
+
+    \begin{displaymath}
+      \Pr(11H+9T) + \Pr(10H+10T) + \Pr(9H+11T) \approx .50
+    \end{displaymath}
+
+    \texttt{sum([scipy.misc.comb(20, i) * .5**20 for i in [9, 10, 11]])}
+
+    So 50\% chance of being ``closer to the truth'', but still 50\%
+    chance of being this far away
+
+    \begin{displaymath}
+      \Pr(13H+7T) \approx .074
+    \end{displaymath}
+
+    So now 74\% chance of being closer to the expected population
+    mean.
+
+    Suppose $p=\frac{13}{20}$.  Then
+    \begin{displaymath}
+      \Pr(13H+7T) = {20\choose 13} p^{13} (1-p)^7 \approx .18
+    \end{displaymath}
+    which is about $2.5\times$ better odds.
+
+    What's the probability that the coin is not fair?
+
+    Frequentists can't help here.\\
+    Bayesians see an experiment and tests the hypothesis:\\
+    ``What is the probability that the coin is fair given the
+    experimental results?''
+
+    \begin{displaymath}
+      \Pr(\text{fair}\mid 13H+7T) = \frac{\Pr(13H+7T\mid \text{fair}
+        \Pr(\text{fair}}{\Pr(13H+7T)}
+      = \frac{\Pr(13H+7T\mid \text{fair} \Pr(\text{fair}}{\sum_i
+        \Pr(13H+7T\mid i) \Pr(i)}
+    \end{displaymath}
+    where we are summing over all alternative realities $i$.
+    
+    Added complexity, not clear we've helped.\\
+    But we have made clear what assumptions we'd need.
+
+    \textbf{Frequentist:} Probability of observing a particular event
+    given the the truth.\\
+    This is the basis of significance testing.
+
+    \textbf{Bayesian:} Probability of the truth given an event.
+
+    Frequentists compute precisely but maybe not we want.\\
+    Bayesians compute often approximately but maybe what we want.
+
+    \prevwork{\url{http://www.met.reading.ac.uk/~sws97mha/Publications/Bayesvsfreq.pdf}}
     
   }
 \end{frame}
