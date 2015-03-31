@@ -1,0 +1,7 @@
+# virtual venv
+# . venv/bin/activate
+ipython
+numpy
+scipy
+scikit-learn
+# sklearn-pandas
