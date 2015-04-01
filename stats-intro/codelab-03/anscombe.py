@@ -51,4 +51,4 @@ plot([0, xmax], [intercept, slope * xmax + intercept])
 print("{0:.3f} {1:.2f} {2:.3f} {3:.3f} {4:.3f}".format(slope, intercept, r_value, p_value, std_err))
  
 axis([0, xmax, 0, ymax])
-# show()
+show()
