@@ -481,6 +481,64 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Fitting polynomials}
+
+  \begin{itemize}
+  \item Under/over-fitting
+  \item Test is not validation
+  \end{itemize}
+
+  \note{
+    There exists a unique polynomial of minimum degree that fits a given (finite) set of points.
+    \begin{displaymath}
+      S = \{ (x_0, y_0), \dotsc, (x_k, y_k) \}
+    \end{displaymath}
+
+    Uniqueness proof is by counterexample: suppose $p(x)$ and $q(x)$
+    are minimal degree and fit $S$.  Suppose further highest order
+    coefficient is 1.  Subtract.  Zero at the $k+1$ points of $S$, so
+    has degree at least $k+1$.  But has degree at most $k$, since
+    highest order term is now zero.  So $p=q$.
+
+    The \textbf{Newton form} of the interpolation polynomial is a linear
+    combination of Newton basis polynomials:
+    \begin{displaymath}
+      N(x) = \sum_{j=0}^k a_j n_j(x)
+    \end{displaymath}
+    \begin{displaymath}
+      n_j(x) = \prod_i=0^{j-1}(x-x_i)
+    \end{displaymath}
+    for $j>0$ and $n_0(x)\equiv 1$ and $a_j$ is defined in terms of
+    divided differences..
+
+    \bigskip
+
+    The \textbf{Lagrange form} is a linear combination of Lagrange
+    basis polynomials:
+    \begin{displaymath}
+      L(x) = \sum_{j=0}^k y_j l_j(x)
+    \end{displaymath}
+    \begin{displaymath}
+      l_j(x) = \prod_{m\in [0,k], m\ne j} \frac{x-x_m}{x_j-x_0}
+    \end{displaymath}
+
+    Subject to Runge's phenomenon (oscillation near the interval
+    edges).\\
+    Higher degrees doesn't always improve accuracy.
+
+    \bigskip
+
+    We need a test set and a different validation set.  (Typically, we
+    leave some data out for validation.)
+
+    Barrier functions (e.g., sum of absolute values of coefficients)
+    can help avoid over-fitting.  There are other techniques.  It
+    depends on context.
+
+  }
+\end{frame}
+
+\begin{frame}
   \frametitle{Questions?}
   \vspace{3cm}
   \centerline{\large\url{purple.com/talk-feedback}}
