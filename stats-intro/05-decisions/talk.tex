@@ -1,0 +1,97 @@
+\documentclass[t]{beamer}
+
+\input ../setup.tex
+
+\title
+{Statistics for Machine Learning and Big Data}
+\subtitle{An Introduction\\[6mm] Part 5: Decision algorithms}
+
+\author[Abrahamson] {Jeff Abrahamson}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{$k$-means}
+
+  \cimg{k-means.jpg}
+
+  \prevwork{\url{mathworks.com}}
+  
+  \note{
+
+    Note that this is not related to kNN.
+
+    Explain:
+    \begin{itemize}
+    \item Choose $k$
+    \item Choose $k$ centroids
+    \item Compute distances and assign each point to closest centroid
+    \item Now re-compute centroids based on classes
+    \item Now re-assign based on closest
+    \item Converges because distances get smaller
+    \end{itemize}
+
+    Parameter sweep is a possibility for choosing $k$.
+
+    Assumes roughly spherical clusters.
+
+    Assignment:
+    \begin{itemize}
+    \item Pick $k$ random centroids from sample (\textit{Forgy} method).
+    \item Assign to $k$ random clusters (\textit{random partitions} method).
+    \end{itemize}
+
+    Uses
+    \begin{itemize}
+    \item Vector quantization (picking hopefully prototypical samples)
+    \end{itemize}
+
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples}
+
+  \vfill
+  \centerline{\huge{\bf Code time}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Discussion}
+
+  When should we use $k$-means vs logistic regression?
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\talksection{\dots}
+
+\begin{frame}
+  \frametitle{}
+
+
+  \note{
+
+  }
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\talksection{Break}
+
+\begin{frame}
+  \frametitle{Questions?}
+  \vspace{3cm}
+  \centerline{\large\url{purple.com/talk-feedback}}
+\end{frame}
+
+\end{document}
