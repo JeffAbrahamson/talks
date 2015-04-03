@@ -33,14 +33,13 @@
 \begin{frame}
   \frametitle{Words}
 
-  \begin{itemize}
-  \item Disjoint (mutually exclusive)
-  \item Complement of an event (set)
-  \item Independence
-  \item Conditional probability
-  \item Marginal probability
-  \item Joint probability
-  \end{itemize}
+  \soloo{1}{Disjoint (mutually exclusive)}
+  \soloo{2}{Complement of an event (set)}
+  \soloo{3}{Independence}
+  \soloo{4}{Conditional probability}
+  \soloo{5}{Marginal probability}
+  \soloo{6}{Joint probability}
+  \soloo{7}{Conditional probability}
 
   \note {
     Addition rule:  We can add probabilities if the events are
@@ -73,44 +72,87 @@
     So general multiplication rule: $\Pr(A\cap B) = \Pr(A\mid B)
     \Pr(B)$.
 
-    TODO: Show addition and multiplication rules somewhere here.
-  }
+    \textbf{Draw addition and multiplication rules somewhere here.}
+
+    \textbf{Conditional probability}
+
+    \begin{quote}
+      \begin{displaymath}
+        \Pr(A\mid B) = \frac{\Pr(A\cap B)}{\Pr(B)}
+      \end{displaymath}
+      First show plot, then show equation, then highlight $B$, then
+      highlight intersection, then highlight none.
+      
+      Then show that if $B=\cup_i B_i$, then the sum is 1 (because sum was
+      $\Pr(B)$).
+      
+      Show that conditioning on an independent variable has no effect.
+      Intuition, then picture, then formula with trivial cancellation.
+      
+      \begin{displaymath}
+        P(A_1 \mid B) = \frac{\Pr(B\mid A_1) \Pr(A_1)}{\Pr(B\mid A_1)\Pr(A_1) + \dots +
+          \Pr(B\mid A_k)\Pr(A_k)}
+      \end{displaymath}
+    }
 \end{frame}
 
 \begin{frame}
-  \frametitle{Conditional Probability}
+  \frametitle{Example}
 
-  TODO
+  In any year, about .35\% of the population is diagnosed with dread disease $D$.
 
-  Side by side minipage: figure and equation
+  The test for $D$ isn't perfect:
+  \begin{itemize}
+  \item For people with $D$, 11\% receive a (false) negative test result.
+  \item For people without $D$, 7\% receive a (false) positive test result.
+  \end{itemize}
 
-  \begin{displaymath}
-    \Pr(A\mid B) = \frac{\Pr(A\cap B)}{\Pr(B)}
-  \end{displaymath}
-  First show plot, then show equation, then highlight $B$, then
-  highlight intersection, then highlight none.
+  We test person $\lambda$ at random.  The test says positive.  What
+  is the probability that $\lambda$ has $D$?
 
-  Then show that if $B=\cup_i B_i$, then the sum is 1 (because sum was
-  $\Pr(B)$).
+  \note {
+    What we know:
+    \begin{itemize}
+    \item $\Pr(D) = .0035$.
+    \item $\Pr(-\mid D) = .011$ (and so $\Pr(+\mid D) = .089$).
+    \item $\Pr(+\mid \lnot D) = .07$ (and so $\Pr(-\mid \lnot D) = .093$).
+    \end{itemize}
 
-  Show that conditioning on an independent variable has no effect.
-  Intuition, then picture, then formula with trivial cancellation.
+    \begin{eqnarray*}
+      \Pr(D\mid +) & = & \frac{\Pr(D \cap +)}{\Pr(+)} \\
+      & = & \Pr(+\mid D) \Pr(D) \\
+      & = & .89 \times .0035 = .00312
+    \end{eqnarray*}
 
-  And then use this to show Bayes Theorem in pictures.
+    Note that $\Pr(+) = \Pr(+\mid D) + \Pr(+\mid \lnot D)$.
 
-  \begin{displaymath}
-    P(A_1 \mid B) = \frac{\Pr(B\mid A_1) \Pr(A_1)}{\Pr(B\mid A_1)\Pr(A_1) + \dots +
-      \Pr(B\mid A_k)\Pr(A_k)}
-  \end{displaymath}
-
-  Go through example 2.55 from OS with comment on misleading positive
-  results in rare cases.
+    \begin{displaymath}
+      \Pr(D\mid -) = \frac{\Pr(D \cap -)}{\Pr(-)} = .00038
+    \end{displaymath}
+    
+    \begin{displaymath}
+      \Pr(\lnot D\mid +) = \frac{\Pr(\lnot D \cap +)}{\Pr(+)} = ..06976
+    \end{displaymath}
+    
+    \begin{displaymath}
+      \Pr(\lnot D\mid -) = \frac{\Pr(\lnot D \cap -)}{\Pr(-)} = ..92675
+    \end{displaymath}
+    
+  }
 \end{frame}
 
 \begin{frame}
   \frametitle{Probability Density Function}
 
-  plot
+  \vspace{1cm}
+  \begin{quote}
+    \tt
+    import scipy.stats\\
+    x = np.linspace(ss.norm.ppf(.01), \\
+    \hspace{1cm}ss.norm.ppf(.99), 100)\\
+    plt.plot(x, ss.norm.pdf(x))\\
+    plt.show()
+  \end{quote}
 
   \note { The pdf describes the distribution. }
 \end{frame}
@@ -118,7 +160,15 @@
 \begin{frame}
   \frametitle{Cumulative Density Function}
 
-  plot
+  \vspace{1cm}
+  \begin{quote}
+    \tt
+    import scipy.stats\\
+    x = np.linspace(ss.norm.ppf(.01), \\
+    \hspace{1cm}ss.norm.ppf(.99), 100)\\
+    plt.plot(x, ss.norm.cdf(x))\\
+    plt.show()
+  \end{quote}
 
   \note { The cdf also describes the distribution.  It's the integral
     of the pdf.}
@@ -127,15 +177,22 @@
 \begin{frame}
   \frametitle{Counting}
 
+  \vspace{1cm}
   Example: two children, what is $P(\exists \mathrm{boy}) = P(\exists b)$?
 
-  \only<2>{graphic of bb, bg, gb, gg with prob 1/4}
-  \only<3->{graphic of bb, bg, gb, gg with prob 1/4 with circled if $\exists$ b}
-  \only<4->{What about $P(\exists b \mid \exists g)$?}
-  \only<5->{same graphic, fade bb, circles, show 2/3}
-  \only<6->{Events have probabilities summing to 1, cover, and are disjoint.}
+  \note{
+    Draw graphic of bb, bg, gb, gg with prob 1/4.
 
-  \note {
+    Draw graphic of bb, bg, gb, gg with prob 1/4 with circled if $\exists$ b.
+
+    What about $P(\exists b \mid \exists g)$?
+    
+    Same graphic, fade bb, circles, show 2/3.
+    
+    Events have probabilities summing to 1, cover, and are disjoint.
+
+    \bigskip
+    
     Counting:
     Count all possibilities (which are equally likely), then
     probability is the fraction of the collection.
@@ -217,7 +274,7 @@
 \begin{frame}
   \frametitle{Distributions}
 
-  Sneak preview of some common distributions, what they look like, and processes giving rise to them.
+  \solo{Soon\dots}
 \end{frame}
 
 
@@ -250,9 +307,7 @@
 
   (Exercise: Is this the same question as the last slide?)
 
-  \only<1>{\vfill\prevwork{\url{http://simplystatistics.org/2015/03/17/data-science-done-well-looks-easy-and-that-is-a-big-problem-for-data-scientists/}}}
-  
-  \only<2>{
+  \only<1>{
     \begin{enumerate}
     \item Define the question of interest
     \item Get the data
@@ -264,7 +319,7 @@
     \end{enumerate}
   }
 
-  \only<3>{
+  \only<2>{
     \begin{enumerate}
     \item Define the question of interest
     \item Get the data
@@ -278,7 +333,7 @@
     \blue{What the public thinks.}
   }
 
-  \only<4>{
+  \only<3>{
     \begin{enumerate}
     \item Define the question of interest
     \item \blue{Get the data}
@@ -292,7 +347,7 @@
     \blue{Where we spend most of our time.}
   }
 
-  \only<5>{
+  \only<4>{
     \begin{enumerate}
     \item \blue{Define the question of interest}
     \item Get the data
@@ -306,6 +361,8 @@
     \blue{The easiest part to forget.}
   }
 
+  \only<5>{\vfill\prevwork{\url{http://simplystatistics.org/2015/03/17/data-science-done-well-looks-easy-and-that-is-a-big-problem-for-data-scientists/}}}
+  
   \note{
 
     Good statistical models are often relatively simple.
@@ -322,31 +379,41 @@
   \item Congress/parliament has $N$ members of whom $m$ are male.  Do
     we discriminate against women?
   \item Do we discriminate against women more or less than we
-    discriminate against blacks?
+    discriminate against immigrants?
   \item Email classification: spam or not?
-  \item Careful about what we conclude.  Here we can't conclude
-    anything about cause or source.
+  \item<2> \red{Careful about what we conclude.  Here we can't
+      conclude anything about cause or source.}
   \end{itemize}
 
-  % TODO: This needs supporting slides with computations.  We'll also
-  % have to come back to it when we understand about $p$ values and
-  % the like.
+  \note {
+    
+    TODO: This needs supporting slides with computations.  We'll also
+    have to come back to it when we understand about $p$ values and
+    the like.
+
+  }
   
 \end{frame}
 
 \begin{frame}
-  \frametitle{Terminology}
+  \frametitle{Words}
 
-  \begin{itemize}
-  \item A \textbf{case} or {observational unit} is an observation or a
-    single sample.  E.g., an email.
-  \item A \textbf{variable} is a characteristic of an observational
-    unit.  E.g., number of lines, mean line length, number of words.
-  \end{itemize}
-  \cimg{variable-types.png}
+  \soloopb{1}{A \textbf{case} or {observational unit} is an
+    observation or a single sample.  E.g., an email.}
+  
+  \soloopb{2}{A \textbf{variable} is a characteristic of an
+    observational unit.  E.g., number of lines, mean line length,
+    number of words.}
 
-  Notes:  Categorical is sometimes called nominal.  Categorical
-  variables with logical ordering (empty, half, full) or called ordinal.
+  \only<3>{
+
+    \vspace{1cm}
+    \cimg{variable-types.png}
+
+    Categorical is sometimes called nominal.  Categorical
+    variables with logical ordering (empty, half, full) or called ordinal.
+  }
+  
 \end{frame}
 
 \begin{frame}
@@ -378,12 +445,11 @@
   }
 
   \only<2>{
-    The possible gremlins:
+    What can go wrong?
     \begin{itemize}
-    \item Association $\ne$ causation
-    \item Randomness
+    \item Forgetting that association $\ne$ causation
+    \item Not random
     \item Confounding variables
-    \item 
     \end{itemize}
   }
   \note {
@@ -398,9 +464,12 @@
 \begin{frame}
   \frametitle{Observational studies}
 
-  TODO
-
   Can't generally conclude causation.
+
+  \note {
+    TODO: Discuss.
+  }
+  
 \end{frame}
 
 \begin{frame}
@@ -409,7 +478,7 @@
   We do stuff.  Maybe randomised experiment.
   
   \note{
-    If well-designed, can conclude causation.
+    If properly designed, can conclude causation.
 
     Experiments to generate hypotheses vs experiments to demonstrate
     hypotheses.  (Don't use the same data!)
@@ -434,6 +503,19 @@
     \end{itemize}
   }
 
+  \note {
+
+    Control: hold other variables constant.  E.g., drinking pill with
+    full glass of water even if we don't care.
+
+    Random: Cancel out effects we can't control.
+
+    Replication: Enough participants.
+
+    Blocking: Subsections if we think some variable influences response.
+
+  }
+
   \only<3>{
     \begin{itemize}
     \item $H_0$: Independent (or null) hypothesis
@@ -450,15 +532,17 @@
 
   \note{
     \begin{itemize}
-    \item Each case has the same probability of being included.
-    \item Knowing that a particular case is included provides no useful information about other cases.
+    \item Uniform: Each case has the same probability of being included.
+    \item Independent: Knowing that a particular case is included
+      provides no useful information about other cases.
     \end{itemize}
 
     Example: Footballers in Europe, put all the names in a bucket.
   }
 
+  \vspace{5mm}
   \only<2>{
-    The possible gremlins:
+    What can go wrong:
     \begin{itemize}
     \item Not actually random
     \item Convenience sample
@@ -481,7 +565,11 @@
   }
 
   \only<2>{
-    The guaranteed gremlin: harder to analyse than simple random sampling.
+    What will go wrong:
+    \begin{itemize}
+    \item  Harder to analyse than simple random sampling.
+    \end{itemize}
+
   }
 
 \end{frame}
@@ -504,7 +592,11 @@
   }
 
   \only<2>{
-    The guaranteed gremlin: harder to analyse than simple random sampling.
+    What will go wrong:
+    \begin{itemize}
+    \item  Harder to analyse than simple random sampling.
+    \end{itemize}
+
   }
 \end{frame}
 
@@ -557,11 +649,11 @@
 
 \begin{frame}
   \frametitle{Variation}
-  \begin{itemize}
-  \item Deviation is distance from mean.
-  \item Variance is mean square of deviations
-  \item Standard deviation is square root of variance
-  \end{itemize}
+
+  \soloo{1}{\textbf{Deviation} is distance from mean.}
+  \soloo{2}{\textbf{Variance} is mean square of deviations}
+  \soloo{3}{\textbf{Standard deviation} is square root of variance}
+
   
   \note{
     Sample standard deviation ($s$) and sample variance ($s^2$),
@@ -573,17 +665,20 @@
     Population statistics may not be feasible or possible to compute.
   }
 
-  \only<2>{
+  \only<4>{
+    \vfill
     \begin{displaymath}
       s^2 = \frac{(\overline x - x_1)^2 + \dotsb (\overline x - x_n)^2}{n-1}
     \end{displaymath}
   }
-  \only<3>{
+  \only<5>{
+    \vfill
     \begin{displaymath}
       \sigma^2 = \frac{(\overline x - x_1)^2 + \dotsb (\overline x - x_n)^2}{n}
     \end{displaymath}
   }
-  \only<4>{
+  \only<6>{
+    \vfill
     \begin{displaymath}
       \mbox{Var}(X) = \sigma^2 = (\overline x - x_1)^2 \Pr(X=x_1) + \dotsb
         (\overline x - x_n)^2 \Pr(X=x_n)
