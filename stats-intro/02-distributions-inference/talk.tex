@@ -26,42 +26,105 @@
 
   Takes value 1 with probability 1.
   \bigskip
-  
-  \purple{
-    \begin{tabular}{ll}
-      Model & identical events\\[1mm]
-      Parameters & none\\[1mm]
-      Mean & $\frac 12$\\[1mm]
-      Variance & $\frac{1}{12}$
-    \end{tabular}
+
+  \begin{tabular}{l|l}
+    Model & identical events\\[1mm]
+    Parameters & none\\[1mm]
+    Mean & $\frac 12$\\[1mm]
+    Variance & $\frac{1}{12}$
+  \end{tabular}
+
+  \vspace{6mm}
+  \only<2> {
+    \begin{quote}
+      \tt
+      import scipy.stats as ss\\
+      x = np.linspace(ss.uniform.ppf(.01), \\
+      \hspace{1cm}ss.uniform.ppf(.99), 100)\\
+      plt.plot(x, ss.uniform.pdf(x))\\
+      plt.show()
+    \end{quote}
+
+    \note { The pdf describes the distribution. }
   }
-  
-  TODO: need a picture of pdf, cdf
+
+  \only<3>{
+    \begin{quote}
+      \tt
+      \gray{x = np.linspace(ss.norm.ppf(.01), \\
+      \hspace{1cm}ss.norm.ppf(.99), 100)\\}
+      plt.plot(x, ss.norm.cdf(x))\\
+      plt.show()
+    \end{quote}
+  }
+  \only<4>{
+    \begin{quote}
+      \tt
+      r = uniform.rvs(size=1000)
+    \end{quote}
+  }
   
   \note{
     Does this mean I have probability 1 of picking any number on the unit interval?
+
+     \prevwork{\url{http://docs.scipy.org/doc/scipy/reference/stats.html\#continuous-distributions}}
+
+     \prevwork{\url{http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.uniform.html\#scipy.stats.uniform}}
   }
-  
-  TODO: show picture on $[0,n]$.
 
 \end{frame}
+
 \begin{frame}
   \frametitle{Bernoulli distribution}
 
   Takes value 1 with probability $p$ and 0 with probability $1-p$.
   \bigskip
   
-  \begin{tabular}{ll}
+  \begin{tabular}{l|l}
     Model & turning coins\\[1mm]
     Parameters & $p\in [0,1]$\\[1mm]
     Mean & $p$\\[1mm]
     Variance & $p(1-p)$
   \end{tabular}
 
-  TODO: need a picture of pdf, cdf
+  \vspace{6mm}
+  \only<2> {
+    \begin{quote}
+      \tt
+      p = .5\\
+      mean, var, skew, kurt = ss.bernoulli.stats(p, moments='mvsk')
+    \end{quote}
+    \note{TODO: Define skew, kurtosis.}
+  }
+  \only<3> {
+    \begin{quote}
+      \tt
+      p = .5\\
+      x = np.linspace(ss.bernoulli.ppf(.01, p), \\
+      \hspace{1cm}ss.bernoulli.ppf(.99, p), 100)\\
+      plt.plot(x, ss.bernoulli.pmf(x, p))\\
+      plt.show()
+    \end{quote}
+
+    \note { The pmf$(k)$ (mass function) is $1-p$ if $k=0$ and $p$ if $k=1$. }
+  }
+
+  \only<4>{
+    \begin{quote}
+      \tt
+      \gray{p = .5\\
+      x = np.linspace(ss.bernoulli.ppf(.01, p), \\
+      \hspace{1cm}ss.bernoulli.ppf(.99, p), 100)}\\
+      plt.plot(x, ss.bernoulli.cdf(x, p))\\
+      plt.show()
+    \end{quote}
+  }
+  \only<5>{
+    r = ss.bernoulli.rvs(p, size=1000)
+  }
   
   \note{
-
+    \prevwork{\url{http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bernoulli.html\#scipy.stats.bernoulli}}
   }
   
 \end{frame}
@@ -81,7 +144,7 @@
 
   \only<1>{\prevwork{Wikipedia, geometric distribution}}
   \only<2>{
-    \begin{tabular}{ll}
+    \begin{tabular}{l|l}
       Model & \dots \\[1mm]
       Parameters & $p\in (0, 1]$ \\[1mm]
       Mean & $\frac 1p$ or $\frac{1-p}{p}$ \\[1mm]
@@ -90,13 +153,49 @@
     
   }
 
-  TODO: need a picture of pdf, cdf
+  \vspace{6mm}
+  \only<3> {
+    \begin{quote}
+      \tt
+      p = .5\\
+      mean, var, skew, kurt = ss.geom.stats(p, moments='mvsk')
+    \end{quote}
+  }
+  \only<4> {
+    \begin{quote}
+      \tt
+      x = np.linspace(ss.geom.ppf(.01, p), \\
+      \hspace{1cm}ss.geom.ppf(.99, p), 100)\\
+      plt.plot(x, ss.geom.pmf(x, p))\\
+      plt.show()
+    \end{quote}
+
+    \note {  }
+  }
+
+  \only<5>{
+    \begin{quote}
+      \tt
+      \gray{x = np.linspace(ss.geom.ppf(.01, p), \\
+      \hspace{1cm}ss.geom.ppf(.99, p), 100) } \\
+      plt.plot(x, ss.geom.cdf(x, p)) \\
+      plt.show()
+    \end{quote}
+  }
+  \only<6>{
+    \tt
+    r = geom.rvs(p, size=1000)
+  }
   
   \note{
     No canonical example of model.  Attempts to succeed at a task, for
     example.  Time to die from your daily commute.
     
     Does this model Russian roulette?  (No, not independent.)
+
+    \prevwork{\url{http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.geom.html\#scipy.stats.geom}}
+
+    TODO: which of the two definitions is this???
   }
     
 \end{frame}
@@ -110,18 +209,61 @@
   average rate and independently of the time since the last event.
   \bigskip
   
-  \begin{tabular}{ll}
+  \begin{tabular}{l|l}
     Model & radioactive decay, network packets\\[1mm]
     Parameters & $\lambda\in \R^+$\\[1mm]
     Mean & $\lambda$\\[1mm]
     Variance & $\lambda$
   \end{tabular}
 
-  TODO: need a picture of pdf, cdf
+  \vspace{6mm}
+  \only<1> { (Sometimes we say $\mu$ instead of $\lambda$.) }
+
+  \only<2> {
+    \tt
+    mu = .6\\
+    mean, var, skew, kurt = ss.poisson.stats(mu, moments='mvsk')
+
+    \note{
+      \begin{displaymath}
+        \text{pmf}(k) = e^{-/lambda} \frac{/lambda^k}{k!}
+      \end{displaymath}
+    }
+  }
+  \only<3> {
+    \begin{quote}
+      \tt
+      x = np.linspace(ss.poisson.ppf(.01, mu), \\
+      \hspace{1cm} ss.poisson.ppf(.99, mu), 100) \\
+      plt.plot(x, ss.poisson.pmf(x, mu)) \\
+      plt.show()
+    \end{quote}
+
+    \note {  }
+  }
+
+  \only<4>{
+    \begin{quote}
+      \tt
+      \gray{x = np.linspace(ss.poisson.ppf(.01, mu), \\
+      \hspace{1cm}ss.poisson.ppf(.99, mu), 100) }\\
+      plt.plot(x, ss.poisson.cdf(x, mu))\\
+      plt.show()
+    \end{quote}
+  }
+  \only<5>{
+    \begin{quote}
+      r = ss.poisson.rvs(mu, size=1000)
+    \end{quote}
+
+    \note{Sample random variable.  Exercise: histogram.}
+  }
   
   \note{
     Examples:  Deaths in Greater London, $\lambda$ is the mean rate
     of deaths per day.
+
+    \prevwork{\url{http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.poisson.html\#scipy.stats.poisson}}
   }
   
 \end{frame}
@@ -134,19 +276,58 @@
   probability $p$.
   \bigskip
 
-  \begin{tabular}{ll}
+  \begin{tabular}{l|l}
     Model & sequences of coin tosses\\[1mm]
     Parameters & $n$, $p$\\[1mm]
     Mean & $np$\\[1mm]
     Variance & $np(1-p)$
   \end{tabular}
 
-  TODO: Pictures of pdf, cdf.
+  \vspace{6mm}
+  \only<2> {
+    \tt
+    n = 5\\
+    p = .4\\
+    mean, var, skew, kurt = ss.binom.stats(n, p, moments='mvsk')
+
+    \note{
+      \begin{displaymath}
+        \text{pmf}(k) = {n \choose k} p^k (1-p)^{n-k}
+      \end{displaymath}
+      for $k\in \{0, 1, \dotsc, n\}$.
+    }
+  }
+  \only<3> {
+    \begin{quote}
+      \tt
+      x = np.linspace(ss.binom.ppf(.01, n, p), \\
+      \hspace{1cm} ss.binom.ppf(.99, n, p), 100) \\
+      plt.plot(x, ss.binom.pmf(x, n, p)) \\
+      plt.show()
+    \end{quote}
+
+    \note {  }
+  }
+
+  \only<4>{
+    \begin{quote}
+      \tt
+      \gray{x = np.linspace(ss.binom.ppf(.01, n, p), \\
+      \hspace{1cm}ss.binom.ppf(.99, n, p), 100) }\\
+      plt.plot(x, ss.binom.cdf(x, n, p)) \\
+      plt.show()
+    \end{quote}
+  }
+  \only<5>{
+    \begin{quote}
+      r = ss.binom.rvs(n, p, size=1000)
+    \end{quote}
+
+    \note{Sample random variable.  Exercise: histogram.}
+  }
+
   
   \note{
-    TODO: Use matplotlib to show distributions for successive values
-    of n.
-
     Often convenient to use the normal distribution as an approximation.
   }
   
@@ -169,6 +350,10 @@
     fewer smokers in a sample of 500 UK residents chosen at random?
   }
   \only<3>{
+    Exercise
+  }
+
+  \note {
     TODO: solution, first with binomial, then with normal.
     Show mathematically, then with scipy.
 
@@ -177,6 +362,8 @@
 
     Use $\mu=np=100$, $\sigma=\sqrt{80} \approx 8.9$, $\N(100, 8.9)$.
     Then $Z=\frac{59-100}{8.9} \approx -4.6$.  So probability is TODO.
+
+    TODO: I haven't introduced $Z$ value, put off to then?
   }
 
   \only<4>{
@@ -195,16 +382,62 @@
 \begin{frame}
   \frametitle{Negative binomial distribution}
 
-  How many Bernoulli trials with parameter $p$ until we have $r$
+  How many Bernoulli trials with parameter $p$ until we have $n$
   successes?
 
-  \begin{tabular}{ll}
+  \begin{tabular}{l|l}
     Model & \\[1mm]
-    Parameters & $p$, $r$\\[1mm]
-    Mean & $\frac{pr}{1-p}$\\[1mm]
-    Variance & $\frac{pr}{(1-p)^2}$
+    Parameters & $p$, $n$\\[1mm]
+    Mean & $\frac{pn}{1-p}$\\[1mm]
+    Variance & $\frac{pn}{(1-p)^2}$
   \end{tabular}
 
+  \vspace{6mm}
+  \only<2> {
+    \begin{quote}
+      \tt
+      n = 4\\
+      p = .4\\
+      mean, var, skew, kurt = ss.nbinom.stats(n, p, moments='mvsk')
+    \end{quote}
+    
+    \note{
+      \begin{displaymath}
+        \text{pmf}(k) = {k+n-1 \choose n-1} p^n (1-p)^k
+      \end{displaymath}
+      for $k\ge 0$.
+    }
+  }
+  \only<3> {
+    \begin{quote}
+      \tt
+      x = np.linspace(ss.nbinom.ppf(.01, n, p), \\
+      \hspace{1cm} ss.nbinom.ppf(.99, n, p), 100) \\
+      plt.plot(x, ss.nbinom.pmf(x, n, p)) \\
+      plt.show()
+    \end{quote}
+
+    \note {  }
+  }
+
+  \only<4>{
+    \begin{quote}
+      \tt
+      \gray{x = np.linspace(ss.nbinom.ppf(.01, n, p), \\
+      \hspace{1cm}ss.nbinom.ppf(.99, n, p), 100) }\\
+      plt.plot(x, ss.nbinom.cdf(x, n, p)) \\
+      plt.show()
+    \end{quote}
+  }
+  \only<5>{
+    \begin{quote}
+      r = ss.nbinom.rvs(n, p, size=1000)
+    \end{quote}
+  }
+
+  \note {
+    \prevwork{\url{http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.nbinom.html\#scipy.stats.nbinom}}
+  }
 \end{frame}
 
 \begin{frame}
@@ -228,50 +461,98 @@
   next hour and the rest of the day.
   \bigskip
   
-  \begin{tabular}{ll}
+  \begin{tabular}{l|l}
     Model & cf. CLT\\[1mm]
     Parameters & $\mu$, $\sigma^2$\\[1mm]
     Mean & $\mu$\\[1mm]
     Variance & $\sigma^2$
   \end{tabular}
 
-  TODO: Pictures of pdf, cdf.  Effects of varying parameters (do it live and note the commands here?).
+  \vspace{6mm}
+  \only<2> {
+    \tt
+    mean, var, skew, kurt = norm.stats(moments='mvsk')
 
-\note{
-import matplotlib.pyplot as plt
-import numpy as np
-import matplotlib.mlab as mlab
-import math
+    \note{
+      \begin{displaymath}
+        \text{pdf}(x) = \frac{e^{-x^2/2}}{\sqrt{2\pi}}
+      \end{displaymath}
+    }
+  }
+  \only<3> {
+    \begin{quote}
+      \tt
+      x = np.linspace(ss.norm.ppf(.01), \\
+      \hspace{1cm}ss.norm.ppf(.99), 100)\\
+      plt.plot(x, ss.norm.pdf(x)) \\
+      plt.show()
+    \end{quote}
 
-mean = 0
-variance = 1
-sigma = math.sqrt(variance)
-x = np.linspace(-3,3,100)
-plt.plot(x,mlab.normpdf(x,mean,sigma))
+    \note {
+      \begin{displaymath}
+        pmf(k)
+      \end{displaymath}
+    }
+  }
 
-plt.show()
-
-
-
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.stats import norm
-
-\# Plot between -10 and 10 with .001 steps.
-range = np.arange(-10, 10, 0.001)
-\# Mean = 0, SD = 2.
-plt.plot(range, norm.pdf(range,0,2))
-
-}
+  \only<4>{
+    \begin{quote}
+      \tt
+      \gray{x = np.linspace(ss.norm.ppf(.01), \\
+      \hspace{1cm}ss.norm.ppf(.99), 100) }\\
+      plt.plot(x, ss.norm.cdf(x))\\
+      plt.show()
+    \end{quote}
+  }
+  \only<5>{
+    r = norm.rvs(size=1000)
+  }
   
   \note{
+
+    Effects of varying parameters (do
+    
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import matplotlib.mlab as mlab
+    import math
+    
+    mean = 0
+    variance = 1
+    sigma = math.sqrt(variance)
+    x = np.linspace(-3,3,100)
+    plt.plot(x,mlab.normpdf(x,mean,sigma))
+    
+    plt.show()
+
+    
+    
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from scipy.stats import norm
+    
+    \# Plot between -10 and 10 with .001 steps.
+    range = np.arange(-10, 10, 0.001)
+    \# Mean = 0, SD = 2.
+    plt.plot(range, norm.pdf(range,0,2))
+
+    \bigskip
+
     Bell curve.  Carl Friedrich Gauss.
     
     Note that unimodal and roughly symmetric does not necessarily mean normal.
-
+    
     Nonetheless, normal is often a good approximation.
+
+    \prevwork{\url{http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html}}
   }
   
+\end{frame}
+
+\begin{frame}
+  \frametitle{Distribution Show-and-Tell}
+
+  \solo{Exercise}
 \end{frame}
 
 \begin{frame}
@@ -407,6 +688,8 @@ plt.plot(range, norm.pdf(range,0,2))
   \only<2>{
     \bigskip
     \cimgg{running-mean.png}
+
+    \note{\bigskip\Large Exercise!}
   }
 
   \only<3->{\textbf{Sampling variation.}  Change of $\overline x$ from
@@ -439,6 +722,8 @@ plt.plot(range, norm.pdf(range,0,2))
     all samples come.
 
     Understanding sampling distributions is central to understanding inference.
+
+
   }
 \end{frame}
 
@@ -459,10 +744,10 @@ plt.plot(range, norm.pdf(range,0,2))
 
   }
 
-  \only<2>{TODO: python code to generate uniform population, sample,
+  \only<2>{Exercise:  Generate uniform population, sample,
     and plot sampling distribution.}
 
-  \only<3>{TODO: python code to generate highly skewed population, sample,
+  \only<3>{Exercise:  Generate highly skewed population, sample,
     and plot sampling distribution.}
 
   \note{
@@ -483,6 +768,7 @@ plt.plot(range, norm.pdf(range,0,2))
 
   \only<4>{
     Given $n$ observations, the standard error of the sample means is
+
     \begin{displaymath}
       \text{S.E.} = \frac{\sigma}{\sqrt n}
     \end{displaymath}
@@ -778,8 +1064,17 @@ plt.plot(range, norm.pdf(range,0,2))
 \begin{frame}
   \frametitle{Code lab: A/B testing}
 
-  TODO: Get data sets.  Show a/b test.  Question: what is $H_0$,
-  $H_A$?  Should we adopt method B based on the evidence?
+  Exercises:  We have some data sets
+
+  For each,
+  \begin{itemize}
+  \item What are $H_0$ and $H_A$?
+  \item Should we adopt method B based on the evidence?
+  \end{itemize}
+
+  \note {
+    TODO: Get data sets.  Show a/b test.
+  }
 \end{frame}
 
 \begin{frame}
@@ -788,6 +1083,6 @@ plt.plot(range, norm.pdf(range,0,2))
   \centerline{\large\url{purple.com/talk-feedback}}
 \end{frame}
 
-\talksection{Lunch}
+\talksection{Break}
 
 \end{document}

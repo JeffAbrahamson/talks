@@ -147,7 +147,7 @@
   \vspace{1cm}
   \begin{quote}
     \tt
-    import scipy.stats\\
+    import scipy.stats as ss\\
     x = np.linspace(ss.norm.ppf(.01), \\
     \hspace{1cm}ss.norm.ppf(.99), 100)\\
     plt.plot(x, ss.norm.pdf(x))\\
@@ -163,7 +163,7 @@
   \vspace{1cm}
   \begin{quote}
     \tt
-    import scipy.stats\\
+    import scipy.stats as ss\\
     x = np.linspace(ss.norm.ppf(.01), \\
     \hspace{1cm}ss.norm.ppf(.99), 100)\\
     plt.plot(x, ss.norm.cdf(x))\\
@@ -708,17 +708,15 @@
     Multiple choice exam, 10 questions, all have four choices of which
     precisely one is correct.  Guess at random.
     \begin{itemize}
-    \item Probability of getting 100\%? \only<2--5>{$\left(\frac 14\right)^{10}$}
-    \item Probability of getting 0\%? \only<3--5>{$\left(\frac 14\right)^{10}$}
-    \item Expected score? \only<4--5>{$10\left(\frac 14\right) = \frac
-        52$}
-    \item Standard deviation \only<5>{$\var(X) = \frac 14 \frac 34 = \frac 3{16}$}\only<6>{$10\left(\frac 3{16}\right) = \fr-ac {15}{8}$}
+    \item Probability of getting 100\%? \only<2-5>{\blue{$\left(\frac 14\right)^{10}$}}
+    \item Probability of getting 0\%? \only<3-5>{\blue{$\left(\frac 14\right)^{10}$}}
+    \item Expected score? \only<4-5>{\blue{$\E(X) = 10\left(\frac 14\right) = \frac
+        52$}}
+    \item Standard deviation \only<5>{\blue{$\var(X) = \frac 14 \frac 34 = \frac 3{16}$}\only<6>{$10\left(\frac 3{16}\right) = \fr-ac {15}{8}$}}
     \end{itemize}
     We'll come back to: if student gets 9 of 10 correct, do we really
     believe that they guessed at random?
   }
-
-  % TODO - maths hidden above?
 
   \note{Anyone in the room worked in finance?}
   \only<6> {
@@ -726,26 +724,8 @@
     2.  If it's tails, you lose but may play again for \pounds 2.  The
     game keeps doubling: pay \pounds 2 to lose or win \pounds 4.  Pay
     \pounds 4 to lose or win \pounds 8.  Etc.
-
-    TODO - math
   }
 
-\end{frame}
-
-\begin{frame}
-  \frametitle{Example: testing for rare diseases}
-
-  A disease with incidence $D$ (i.e., probability that a randomly
-  selected person has it is $D$) has a test that reliably detects
-  positives (sick people) with probability $p^+$ and negatives with
-  probability $p^-$.
-
-  You test positive.  What is the probability that you have the disease?
-
-  You test negative.  What is the probability that you have the
-  disease?
-
-  TODO: math
 \end{frame}
 
 \begin{frame}
@@ -762,7 +742,7 @@
     \item He gets a list of students from the registrar.  (What about
       opt-in/opt-out policies?  What if he doesn't know how many have
       opted out/failed to opt in?
-    \item Other)
+    \item Other?
     \end{itemize}
 
   }
@@ -802,6 +782,10 @@
     patients who do not have any joint problems and finds that 20 of
     them regularly go running. He concludes that running decreases the
     risk of joint problems.
+  }
+  \only<4>{The news reports that 27 year old Andreas Lubitz, co-pilot
+    of crashed flight 4U~9525, had researched suicide before killing
+    himself.
   }
 
   \note{
