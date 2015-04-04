@@ -1,5 +1,3 @@
-\documentclass[t]{beamer}
-
 \input ../setup.tex
 
 \title
@@ -45,7 +43,7 @@
       plt.show()
     \end{quote}
 
-    \note { The pdf describes the distribution. }
+    \cnote { The pdf describes the distribution. }
   }
 
   \only<3>{
@@ -64,7 +62,7 @@
     \end{quote}
   }
   
-  \note{
+  \cnote{
     Does this mean I have probability 1 of picking any number on the unit interval?
 
      \prevwork{\url{http://docs.scipy.org/doc/scipy/reference/stats.html\#continuous-distributions}}
@@ -94,7 +92,7 @@
       p = .5\\
       mean, var, skew, kurt = ss.bernoulli.stats(p, moments='mvsk')
     \end{quote}
-    \note{TODO: Define skew, kurtosis.}
+    \cnote{TODO: Define skew, kurtosis.}
   }
   \only<3> {
     \begin{quote}
@@ -106,7 +104,7 @@
       plt.show()
     \end{quote}
 
-    \note { The pmf$(k)$ (mass function) is $1-p$ if $k=0$ and $p$ if $k=1$. }
+    \cnote { The pmf$(k)$ (mass function) is $1-p$ if $k=0$ and $p$ if $k=1$. }
   }
 
   \only<4>{
@@ -123,7 +121,7 @@
     r = ss.bernoulli.rvs(p, size=1000)
   }
   
-  \note{
+  \cnote{
     \prevwork{\url{http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bernoulli.html\#scipy.stats.bernoulli}}
   }
   
@@ -170,7 +168,7 @@
       plt.show()
     \end{quote}
 
-    \note {  }
+    \cnote {  }
   }
 
   \only<5>{
@@ -187,7 +185,7 @@
     r = geom.rvs(p, size=1000)
   }
   
-  \note{
+  \cnote{
     No canonical example of model.  Attempts to succeed at a task, for
     example.  Time to die from your daily commute.
     
@@ -224,7 +222,7 @@
     mu = .6\\
     mean, var, skew, kurt = ss.poisson.stats(mu, moments='mvsk')
 
-    \note{
+    \cnote{
       \begin{displaymath}
         \text{pmf}(k) = e^{-/lambda} \frac{/lambda^k}{k!}
       \end{displaymath}
@@ -239,7 +237,7 @@
       plt.show()
     \end{quote}
 
-    \note {  }
+    \cnote {  }
   }
 
   \only<4>{
@@ -256,10 +254,10 @@
       r = ss.poisson.rvs(mu, size=1000)
     \end{quote}
 
-    \note{Sample random variable.  Exercise: histogram.}
+    \cnote{Sample random variable.  Exercise: histogram.}
   }
   
-  \note{
+  \cnote{
     Examples:  Deaths in Greater London, $\lambda$ is the mean rate
     of deaths per day.
 
@@ -290,7 +288,7 @@
     p = .4\\
     mean, var, skew, kurt = ss.binom.stats(n, p, moments='mvsk')
 
-    \note{
+    \cnote{
       \begin{displaymath}
         \text{pmf}(k) = {n \choose k} p^k (1-p)^{n-k}
       \end{displaymath}
@@ -306,7 +304,7 @@
       plt.show()
     \end{quote}
 
-    \note {  }
+    \cnote {  }
   }
 
   \only<4>{
@@ -323,11 +321,11 @@
       r = ss.binom.rvs(n, p, size=1000)
     \end{quote}
 
-    \note{Sample random variable.  Exercise: histogram.}
+    \cnote{Sample random variable.  Exercise: histogram.}
   }
 
   
-  \note{
+  \cnote{
     Often convenient to use the normal distribution as an approximation.
   }
   
@@ -353,7 +351,7 @@
     Exercise
   }
 
-  \note {
+  \cnote {
     TODO: solution, first with binomial, then with normal.
     Show mathematically, then with scipy.
 
@@ -369,7 +367,7 @@
   \only<4>{
     \cimg{normal-binomial-discrepancy.png}
   }
-  \note{
+  \cnote{
     Rule of thumb:  The binomial distribution is reasonably
     approximated by the normal distribution when both $np$ and
     $n(1-p)$ are greater than about 10.  Also a sufficient range
@@ -401,7 +399,7 @@
       mean, var, skew, kurt = ss.nbinom.stats(n, p, moments='mvsk')
     \end{quote}
     
-    \note{
+    \cnote{
       \begin{displaymath}
         \text{pmf}(k) = {k+n-1 \choose n-1} p^n (1-p)^k
       \end{displaymath}
@@ -417,7 +415,7 @@
       plt.show()
     \end{quote}
 
-    \note {  }
+    \cnote {  }
   }
 
   \only<4>{
@@ -435,7 +433,7 @@
     \end{quote}
   }
 
-  \note {
+  \cnote {
     \prevwork{\url{http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.nbinom.html\#scipy.stats.nbinom}}
   }
 \end{frame}
@@ -473,7 +471,7 @@
     \tt
     mean, var, skew, kurt = norm.stats(moments='mvsk')
 
-    \note{
+    \cnote{
       \begin{displaymath}
         \text{pdf}(x) = \frac{e^{-x^2/2}}{\sqrt{2\pi}}
       \end{displaymath}
@@ -488,7 +486,7 @@
       plt.show()
     \end{quote}
 
-    \note {
+    \cnote {
       \begin{displaymath}
         pmf(k)
       \end{displaymath}
@@ -508,7 +506,7 @@
     r = norm.rvs(size=1000)
   }
   
-  \note{
+  \cnote{
 
     Effects of varying parameters (do
     
@@ -563,7 +561,7 @@
   \begin{displaymath}
     Z = \frac{x-\mu}{\sigma}
   \end{displaymath}
-  \note{
+  \cnote{
      We compute the $Z$ score for each observation.
 
      $Z$ scores are a coordinate transform to $\N(0,1)$.
@@ -592,7 +590,7 @@
     \cimg{normal-SAT-2.png}
   }
   
-  \note{
+  \cnote{
     TODO:  Demo this with scipy, too.
 
     We can also go backwards, from percentile to $Z$ score to values.
@@ -606,7 +604,7 @@
   \vspace{1cm}
   
   \cimg{normal-RoT.png}
-  \note{
+  \cnote{
     TODO:  Demo with scipy that $Z=1,2,3$ correspond to the rule.
 
     TODO:  Demo with scipy probabilities of falling outside $n\sigma$
@@ -623,7 +621,7 @@
     \cimg{normal-plot.png}
   }
 
-  \note{
+  \cnote{
     Demo this in matplotlib.
   }
 
@@ -634,7 +632,7 @@
     Also known as a quantile-quantile plot.
   }
 
-  \note{
+  \cnote{
     TODO:  Demo these in matplotlib, both prepared distributions (normal and
     not) and with norm() and different values of n.
   }
@@ -658,7 +656,7 @@
     \end{itemize}
   }
 
-  \note{
+  \cnote{
 
   }
 
@@ -669,7 +667,7 @@
 
   Population mean ($\mu$) $\ne$ sample mean ($\overline x$).
 
-  \note{
+  \cnote{
     We call $\overline x$ the \textit{point estimator} of the
     population mean $\mu$, a parameter of the distribution.
 
@@ -689,7 +687,7 @@
     \bigskip
     \cimgg{running-mean.png}
 
-    \note{\bigskip\Large Exercise!}
+    \cnote{\bigskip\Large Exercise!}
   }
 
   \only<3->{\textbf{Sampling variation.}  Change of $\overline x$ from
@@ -715,7 +713,7 @@
     \prevwork{\url{http://en.wikipedia.org/wiki/David_Wheeler_\%28British_computer_scientist\%29}}
   }
 
-  \note{
+  \cnote{
     Smaller sampling variation means probably more accurate value.
 
     Think of sampling distribution as the set of subsets from which
@@ -732,7 +730,7 @@
 
   \only<1>{\vfill\cimg{sampling-distribution.png}}
 
-  \note{
+  \cnote{
     \begin{itemize}
     \item Sampling mean is unimodal and approximately symmetric.
     \item It is centred at population mean.
@@ -750,7 +748,7 @@
   \only<3>{Exercise:  Generate highly skewed population, sample,
     and plot sampling distribution.}
 
-  \note{
+  \cnote{
     In real life, we don't have access to the population parameters.
     We have to \textit{estimate} them from samples.  So we can't
     \textit{know} the standard error.
@@ -773,7 +771,7 @@
       \text{S.E.} = \frac{\sigma}{\sqrt n}
     \end{displaymath}
   }
-  \note{
+  \cnote{
     Cf. $\var(aX+bY) = a^2 \var(X) + b^2 \var(Y)$
 
     Usually use $\overline s$ instead of $\sigma$.
@@ -797,7 +795,7 @@
   \item $n < $ 10\% of the population.
   \end{itemize}
 
-  \note{
+  \cnote{
 
   }
 \end{frame}
@@ -811,7 +809,7 @@
   \item The standard error quantifies the variation among point estimates.
   \end{itemize}
 
-  \note{
+  \cnote{
 
   }
 \end{frame}
@@ -836,7 +834,7 @@
     \cimg{confidence-intervals-2.png}
   }
 
-  \note{
+  \cnote{
     Sampling is usually expensive.
 
     Reminder:  Independent random samples!
@@ -885,7 +883,7 @@
     If the mean is outside the confidence interval, we accept $H_A$.
   }
 
-  \note{$H_0$ should usually be  an equality.
+  \cnote{$H_0$ should usually be  an equality.
 
     But maybe the mean falls near the edge, or way outside.  How
     to hint?
@@ -902,7 +900,7 @@
     if the null hypothesis is true.
   }
 
-  \note{
+  \cnote{
     The $p$-value is a conditional probability.
 
     It answers ``what is the probability of the observed value if
@@ -942,7 +940,7 @@
       \frac{1.75}{\sqrt 110} \approx 0.17$}
   }
 
-  \note{
+  \cnote{
     $\mu>7$ is a one-sided hypothesis.  Use two-sided usually.  Decide
     before data collection.
 
@@ -965,7 +963,7 @@
     \cimg{facebook-2.png}
   }
 
-  \note{Shaded tail represents chance of observing $\overline x$
+  \cnote{Shaded tail represents chance of observing $\overline x$
     conditional on $H_0$ being true.
 
     That is, it's the $p$-value.
@@ -982,7 +980,7 @@
     \centerline{$\Pr(\overline x < 7.42) = .993$, so $p=1-.993=.007$.}
   }
 
-  \note{
+  \cnote{
     So reject $H_0$.
 
     Note that $p<.05$ is very arbitrary and now often unacceptable in
@@ -1042,7 +1040,7 @@
     \prevwork{\url{http://en.wikipedia.org/wiki/Central_limit_theorem}}
   }
 
-  \note{
+  \cnote{
 
   }
 
@@ -1054,7 +1052,7 @@
   A point estimate is \textbf{unbiased} if the sampling distribution
   of the estimate is centred at the parameter it estimates.
 
-  \note{
+  \cnote{
     An unbiased point estimate does not significantly over- or
     under-estimate the parameter.
   }
@@ -1072,7 +1070,7 @@
   \item Should we adopt method B based on the evidence?
   \end{itemize}
 
-  \note {
+  \cnote {
     TODO: Get data sets.  Show a/b test.
   }
 \end{frame}
