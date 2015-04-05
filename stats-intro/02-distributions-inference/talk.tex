@@ -20,6 +20,44 @@
 \talksection{Distributions}
 
 \begin{frame}
+  \frametitle{Words}
+
+  Given a distribution $X$,
+
+  \only<1> {
+    \textbf{probability distribution function (pdf)} (continuous) or
+    \textbf{probability mass function (pmf)} is the probability that
+    the variate has value $x$:  $\Pr(a\le X \le b)$ or $\Pr(X=a)$.
+  }
+  
+  \only<2> {
+    \textbf{cumulative probability function (cdf)} is the probability
+    that the variate is less than $x$:  $\Pr(X\le x) =
+    \int_{-\infty}^x \text{pdf}(x) D{x}$ or $\sum_{i\le x} \Pr(X = x)$.
+  }
+  
+  \only<3> {
+    \textbf{percent point function (ppf)} is the inverse of the cdf.
+    Given a probability, what's $x$?
+    Also called the \textbf{inverse distribution}.
+  }
+  
+  \only<4> {
+    \textbf{survival function (sf)} is the probability that the
+    variate takes a value greater than $x$: $\text{ss}(x) = \Pr(X > x)
+    = 1-\text{cdf}(x)$.
+  }
+  
+  \only<5> {
+    \textbf{inverse survival function (isf)} is the inverse of the
+    survival function: 
+    $\text{isf}(\alpha) = \text{ppf}(1-\alpha)$.
+    
+  }
+
+\end{frame}
+
+\begin{frame}
   \frametitle{Uniform distribution}
 
   Takes value 1 with probability 1.
@@ -58,7 +96,7 @@
   \only<4>{
     \begin{quote}
       \tt
-      r = uniform.rvs(size=1000)
+      r = ss.uniform.rvs(size=1000)
     \end{quote}
   }
   
@@ -159,6 +197,7 @@
       mean, var, skew, kurt = ss.geom.stats(p, moments='mvsk')
     \end{quote}
   }
+  \cnote{This computes the version with $k-1$ failures and then a success.}
   \only<4> {
     \begin{quote}
       \tt
@@ -182,7 +221,7 @@
   }
   \only<6>{
     \tt
-    r = geom.rvs(p, size=1000)
+    r = ss.geom.rvs(p, size=1000)
   }
   
   \cnote{
@@ -193,7 +232,6 @@
 
     \prevwork{\url{http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.geom.html\#scipy.stats.geom}}
 
-    TODO: which of the two definitions is this???
   }
     
 \end{frame}
@@ -334,34 +372,37 @@
 \begin{frame}
   \frametitle{Binomial distribution: Example}
 
-  \only<1>{
-    19\% of the British public smokes.  A study of 500 people reports 90
-    smokers.  What is the probability of finding 90 or fewer smokers in
-    a sample of 500 UK residents chosen at random?
+  19\% of the British public smokes.  A study of 500 people reports 90
+  smokers.  What is the probability of finding 90 or fewer smokers in
+  a sample of 500 UK residents chosen at random?
 
+  \only<1> {
     \vfill
     \prevwork{\url{http://en.wikipedia.org/wiki/Smoking_in_the_United_Kingdom}}
   }
-  \only<2-3> {
-    \red{20\%} of the British public smokes.  A study of 500 people
-    reports 90~smokers.  What is the probability of finding 90 or
-    fewer smokers in a sample of 500 UK residents chosen at random?
-  }
-  \only<3>{
+
+  \only<2>{
     Exercise
   }
 
   \cnote {
-    TODO: solution, first with binomial, then with normal.
+    
     Show mathematically, then with scipy.
+
+    \texttt{n=500, p=.19}
+    
+    \texttt{ss.binom.cdf(90, n, p)}
 
     The normal approximation is reasonable, since $(.2)(500) = 100
     >10$ and $(1-.2)(500) = 400 > 10$.
 
-    Use $\mu=np=100$, $\sigma=\sqrt{80} \approx 8.9$, $\N(100, 8.9)$.
-    Then $Z=\frac{59-100}{8.9} \approx -4.6$.  So probability is TODO.
+    Use $\mu=np=100$, $\sigma = \sqrt{np(1-p)} = \sqrt{80} \approx 8.9$, $\N(100, 8.9)$.
+    Then $Z=\frac{59-100}{8.9} \approx -4.6$.
 
-    TODO: I haven't introduced $Z$ value, put off to then?
+    \texttt{mu = n*p, sigma = math.sqrt(n*p*(1-p))}
+    \texttt{ss.norm.cdf(90, mu, sigma)}
+
+    We'll talk about $Z$ value soon.
   }
 
   \only<4>{
@@ -503,7 +544,7 @@
     \end{quote}
   }
   \only<5>{
-    r = norm.rvs(size=1000)
+    r = ss.norm.rvs(size=1000)
   }
   
   \cnote{
@@ -591,7 +632,7 @@
   }
   
   \cnote{
-    TODO:  Demo this with scipy, too.
+    Exercise: scipy.
 
     We can also go backwards, from percentile to $Z$ score to values.
   }
@@ -605,9 +646,9 @@
   
   \cimg{normal-RoT.png}
   \cnote{
-    TODO:  Demo with scipy that $Z=1,2,3$ correspond to the rule.
+    Exercise: plot this.
 
-    TODO:  Demo with scipy probabilities of falling outside $n\sigma$
+    Exercise:  Demo with scipy probabilities of falling outside $n\sigma$
     for $n=1,\dotsc,7$.
   }
   
@@ -633,7 +674,7 @@
   }
 
   \cnote{
-    TODO:  Demo these in matplotlib, both prepared distributions (normal and
+    Demo these in matplotlib, both prepared distributions (normal and
     not) and with norm() and different values of n.
   }
 
@@ -1057,6 +1098,23 @@
     under-estimate the parameter.
   }
 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Significance (revisited)}
+
+  \begin{itemize}
+  \item Flip a coin $N$ times.  Get 49\% heads.  Is the coin fair?
+  \item Congress/parliament has $N$ members of whom $m$ are male.  Do
+    we discriminate against women?\\[5mm]
+  \item \red{Careful about what we conclude.  Here we can't
+      conclude anything about cause or source.}
+  \end{itemize}
+
+  \cnote {
+    
+  }
+  
 \end{frame}
 
 \begin{frame}
