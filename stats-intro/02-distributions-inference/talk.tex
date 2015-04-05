@@ -49,9 +49,9 @@
   \only<3>{
     \begin{quote}
       \tt
-      \gray{x = np.linspace(ss.norm.ppf(.01), \\
-      \hspace{1cm}ss.norm.ppf(.99), 100)\\}
-      plt.plot(x, ss.norm.cdf(x))\\
+      \gray{x = np.linspace(ss.uniform.ppf(.01), \\
+      \hspace{1cm}ss.uniform.ppf(.99), 100)\\}
+      plt.plot(x, ss.uniform.cdf(x))\\
       plt.show()
     \end{quote}
   }
@@ -1062,7 +1062,7 @@
 \begin{frame}
   \frametitle{Code lab: A/B testing}
 
-  Exercises:  We have some data sets
+  Exercises:
 
   For each,
   \begin{itemize}
@@ -1071,8 +1071,14 @@
   \end{itemize}
 
   \cnote {
-    TODO: Get data sets.  Show a/b test.
+    
   }
+\end{frame}
+
+\begin{frame}
+  \frametitle{A/B Jeopardy}
+
+  \solo{a game in pairs}
 \end{frame}
 
 \begin{frame}
