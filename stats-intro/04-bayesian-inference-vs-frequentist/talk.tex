@@ -424,9 +424,27 @@
     Convenient to use the Beta distribution (a.k.a. the conjugate prior to the binomial distribution).
 
     \cnote {
-      TODO: What's a conjugate prior?
+      
+      If the posterior distributions $\Pr(\theta \mid x)$ are in the
+      same family as the prior probability distribution $\Pr(\theta)$,
+      then prior and posterior are then called \textbf{conjugate
+        distributions}, and the prior is called a \textbf{conjugate
+        prior} for the likelihood function.
 
-      TODO? What's a beta distribution?
+      The \textbf{beta distribution} is a family of continuous
+      probability distributions with two shape parameters, $\alpha$
+      and $\beta$.
+
+      \begin{displaymath}
+        f(x; \alpha, \beta) = \text{constant} x^{\alpha-1} (1-x)^{\beta-1}
+      \end{displaymath}
+
+      Sometimes $p$ and $q$ instead of $\alpha$ and $\beta$.\\
+      Because approaches Bernoulli when $\alpha, \beta \rightarrow 0$
+
+      \prevwork{\url{http://en.wikipedia.org/wiki/Beta_distribution}}
+
+      {\tt ss.beta} exists.
     }
       
     \begin{displaymath}
