@@ -51,7 +51,7 @@
     \cimg{regression-line-4.png}
   }
 
-  \note{
+  \cnote{
     In the real world, there's nearly always noise.
 
     Sometimes there are other lesser effects as well.
@@ -82,7 +82,7 @@
     \end{displaymath}
   }
 
-  \note{Goal: small residuals!}
+  \cnote{Goal: small residuals!}
   
   \only<3>{\vfill\cimg{residuals-1.png}}
   \only<4>{\vfill\cimg{residuals-2.png}}
@@ -104,7 +104,7 @@
     \end{displaymath}
   }
 
-  \note{
+  \cnote{
     Residuals are what's left over after accounting for model fit.
 
     A normal distribution of residuals is a good sign.  And
@@ -124,7 +124,7 @@
   \vfill
   \cimg{categorical-regression.png}
 
-  \note{
+  \cnote{
     Prices at ebay auctions.
 
     TODO: Is this the same as line connecting means?  If no, demonstrate.
@@ -139,7 +139,7 @@
 
   \textit{Influential points} make their leverage known.
 
-  \note{
+  \cnote{
     Points that fall farther from the regression line have more
     effect.  We call them \textit{high leverage} points.
 
@@ -160,7 +160,7 @@
   \only<1>{
     \vfill
     \cimgsm{outliers-1.png}
-    \note{
+    \cnote{
       There is one outlier far from the other points, though it only
       appears to slightly influence the line.
     }
@@ -169,7 +169,7 @@
   \only<2>{
     \vfill
     \cimgsm{outliers-2.png}
-    \note{There is one outlier on the right, though it is quite close
+    \cnote{There is one outlier on the right, though it is quite close
       to the least squares line, which suggests it wasn’t very influential.
     }
   }
@@ -177,7 +177,7 @@
   \only<3>{
     \vfill
     \cimgsm{outliers-3.png}
-    \note{There is one point far away from the cloud, and this outlier appears to pull the
+    \cnote{There is one point far away from the cloud, and this outlier appears to pull the
       least squares line up on the right; examine how the line around the primary
       cloud doesn’t appear to fit very well.
     }
@@ -186,7 +186,7 @@
   \only<4>{
     \vfill
     \cimgsm{outliers-4.png}
-    \note{There is a primary cloud and then a small secondary cloud of four outliers. The
+    \cnote{There is a primary cloud and then a small secondary cloud of four outliers. The
       secondary cloud appears to be influencing the line somewhat strongly, making
       the least square line fit poorly almost everywhere. There might be an interesting
       explanation for the dual clouds, which is something that could be investigated.
@@ -196,7 +196,7 @@
   \only<5>{
     \vfill
     \cimgsm{outliers-5.png}
-    \note{There is no obvious trend in the main cloud of points and the outlier on the
+    \cnote{There is no obvious trend in the main cloud of points and the outlier on the
       right appears to largely control the slope of the least squares line.
     }
   }
@@ -204,7 +204,7 @@
   \only<6>{
     \vfill
     \cimgsm{outliers-6.png}
-    \note{There is one outlier far from the cloud, however, it falls quite close to the least
+    \cnote{There is one outlier far from the cloud, however, it falls quite close to the least
       squares line and does not appear to be very influential.
     }
   }
@@ -218,7 +218,7 @@
     \cimg{outliers-important.png}
   }
 
-  \note{
+  \cnote{
     Data about shuttle O-ring damage.
   }
 
@@ -237,7 +237,7 @@
       = \frac{\E[(X-\mu_X)(Y-\mu_Y)]}{\sigma_X\sigma_Y}
     \end{displaymath}
   }
-  \note{
+  \cnote{
     Correlation measures dependence between two random variables.
 
     Pearson's product-moment coefficient.\\
@@ -286,7 +286,7 @@
     \end{displaymath}
   }
 
-  \note{
+  \cnote{
     This is (usually) true in one dimension under common conditions.
     In higher dimensions, we still call it $r^2$ but it's not longer
     the Pearson's correlation coefficient.
@@ -307,7 +307,7 @@
     \prevwork{\url{http://en.wikipedia.org/wiki/File:Anscombe\%27s_quartet_3.svg}}
   }
 
-  \note{
+  \cnote{
     Created by Francis Anscombe.
 
     \begin{itemize}
@@ -357,7 +357,7 @@
     \prevwork{\url{http://en.wikipedia.org/wiki/Correlation\_does\_not\_imply\_causation}}
   }
 
-  \note{
+  \cnote{
 
     In the xkcd, the salient point is that the character who didn't
     take the statistics class can't validly make that conclusion.
@@ -371,7 +371,7 @@
 \begin{frame}
   \frametitle{Code lab: linear regression}
 
-  \note{
+  \cnote{
     TODO: ====> prepare data <====
 
     TODO: do this myself
@@ -400,7 +400,7 @@
   \item $p$ values
   \end{itemize}
   
-  \note {
+  \cnote {
     TODO.  Talk about standard error and $p$ values.  Probably talk
     about $t$ tests.  Probably use sklearn and demo.
   }
@@ -416,7 +416,7 @@
     \hat y = \beta_0 + \beta_1 x_1 + \dotsb + \beta_n x_n
   \end{displaymath}
 
-  \note{
+  \cnote{
     We fit all predictors simultaneously.\\
     Fitting individually is not valid.
   }
@@ -432,7 +432,7 @@
     Dependent variable ($y$) is binary.
   }
 
-  \note{
+  \cnote{
     Dependent variable ($y$) is binary $\Rightarrow$ logistic
     regression is a classifier.
 
@@ -453,7 +453,7 @@
     \cimg{logistic-function.png}
   }
 
-  \note{
+  \cnote{
     We compute residuals the same way: predicted value less observed value.
   }
 
@@ -467,7 +467,7 @@
   \item Test is not validation
   \end{itemize}
 
-  \note{
+  \cnote{
     There exists a unique polynomial of minimum degree that fits a given (finite) set of points.
     \begin{displaymath}
       S = \{ (x_0, y_0), \dotsc, (x_k, y_k) \}
