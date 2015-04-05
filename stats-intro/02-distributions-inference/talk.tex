@@ -22,18 +22,26 @@
 \begin{frame}
   \frametitle{Words}
 
-  Given a distribution $X$,
+  Given a distribution $X$, the
 
   \only<1> {
     \textbf{probability distribution function (pdf)} (continuous) or
     \textbf{probability mass function (pmf)} is the probability that
-    the variate has value $x$:  $\Pr(a\le X \le b)$ or $\Pr(X=a)$.
+    the variate has value $x$:
+    
+    \begin{displaymath}
+      \Pr(a\le X \le b) \text{ or } \Pr(X=a)
+    \end{displaymath}
+
   }
   
   \only<2> {
     \textbf{cumulative probability function (cdf)} is the probability
-    that the variate is less than $x$:  $\Pr(X\le x) =
-    \int_{-\infty}^x \text{pdf}(x) D{x}$ or $\sum_{i\le x} \Pr(X = x)$.
+    that the variate is less than $x$:
+
+    \begin{displaymath}
+      \Pr(X\le x) = \int_{-\infty}^x \text{pdf}(x) \D{x} \text{ or } \sum_{i\le x} \Pr(X = x)
+    \end{displaymath}
   }
   
   \only<3> {
@@ -44,17 +52,26 @@
   
   \only<4> {
     \textbf{survival function (sf)} is the probability that the
-    variate takes a value greater than $x$: $\text{ss}(x) = \Pr(X > x)
-    = 1-\text{cdf}(x)$.
+    variate takes a value greater than $x$:
+
+    \begin{displaymath}
+      \text{ss}(x) = \Pr(X > x) = 1-\text{cdf}(x)
+    \end{displaymath}
   }
   
   \only<5> {
     \textbf{inverse survival function (isf)} is the inverse of the
-    survival function: 
-    $\text{isf}(\alpha) = \text{ppf}(1-\alpha)$.
-    
+    survival function:
+
+    \begin{displaymath}
+      \text{isf}(\alpha) = \text{ppf}(1-\alpha)
+    \end{displaymath}
   }
 
+\end{frame}
+
+\begin{frame}
+  \cimgh{boxplot-vs-pdf.png}
 \end{frame}
 
 \begin{frame}
@@ -75,6 +92,12 @@
     \begin{quote}
       \tt
       import scipy.stats as ss\\
+      mean, var, skew, kurt = ss.uniform.stats(moments='mvsk')
+    \end{quote}
+  }
+  \only<3> {
+    \begin{quote}
+      \tt
       x = np.linspace(ss.uniform.ppf(.01), \\
       \hspace{1cm}ss.uniform.ppf(.99), 100)\\
       plt.plot(x, ss.uniform.pdf(x))\\
@@ -84,7 +107,7 @@
     \cnote { The pdf describes the distribution. }
   }
 
-  \only<3>{
+  \only<4>{
     \begin{quote}
       \tt
       \gray{x = np.linspace(ss.uniform.ppf(.01), \\
@@ -93,7 +116,7 @@
       plt.show()
     \end{quote}
   }
-  \only<4>{
+  \only<5>{
     \begin{quote}
       \tt
       r = ss.uniform.rvs(size=1000)
