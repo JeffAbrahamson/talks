@@ -1,1 +1,9 @@
+# virtual venv
+# . venv/bin/activate
+ipython
+matplotlib
+numpy
+scikit-learn
+scipy
+seaborn
 statsmodels
