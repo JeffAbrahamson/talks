@@ -263,7 +263,7 @@
     (\textit{multivariate normal distribution}, \textit{multivariate
       Gaussian distribution})
 
-    $r²$ describes amount of variation in the response explained by
+    $r^2$ describes amount of variation in the response explained by
     the least squares line.  It's called the \textit{coefficient of determination.}
   }
   \only<2>{
@@ -455,6 +455,20 @@
 
   \cnote{
     We compute residuals the same way: predicted value less observed value.
+  }
+
+  \only<3> {
+    Note that $f(-x) = 1 - f(x)$.
+
+    And it satisfies this differential equation:
+    \begin{displaymath}
+      \frac{\DD{}}{\DD{x}}f(x) = f(x)\cdot(1-f(x))
+    \end{displaymath}
+
+    Integrating,
+    \begin{displaymath}
+      f(x) = \frac{e^x}{e^x + 1} = \frac{1}{1 + e^{-x}}
+    \end{displaymath}
   }
 
 \end{frame}
