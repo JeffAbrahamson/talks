@@ -1,0 +1,94 @@
+\input ../setup.tex
+
+\title
+{Statistics for Machine Learning and Big Data}
+\subtitle{An Introduction\\[6mm] Part 5: Spam}
+
+\author[Abrahamson] {Jeff Abrahamson}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Bogofilter}
+
+  \only<1> {
+    \begin{itemize}
+    \item Paul Graham, \textit{A Plan for Spam}
+    \item Bag of words
+    \item Bayes theorem
+    \end{itemize}
+
+    \prevwork{\url{http://www.paulgraham.com/spam.html}}
+  }
+  \cnote{Not Bayesian.  Lexical filter.  Supervised.}
+  \only<2> {
+    \begin{itemize}
+    \item Want: map from word to $\Pr$ email containing it is spam
+    \item Bias to avoid false positives
+    \item Minimum occurrence threshold
+    \item Top 15 spam and ham words
+    \end{itemize}
+  }
+  \cnote{Good weighs twice bad.  At least 5 times to count (3 in spam due to doubling).
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\talksection{\dots}
+
+\begin{frame}
+  \frametitle{}
+
+
+  \cnote{
+
+  }
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\talksection{Break}
+
+\begin{frame}
+  \frametitle{Questions?}
+  \vspace{3cm}
+  \centerline{\large\url{purple.com/talk-feedback}}
+\end{frame}
+
+\end{document}
