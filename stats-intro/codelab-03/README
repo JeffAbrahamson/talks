@@ -1,0 +1,42 @@
+anscombe.py - demo of anscombe's quartet.  Exercise:  suppose data set
+were larger and multidimensional, what are some of the things you
+could do.  Simulate by adding dimensions, e.g. using pandas or numpy.
+
+linear_regression_1.py - guided script for discovering linear
+regression tools.  Exercise:  change noise level and residual
+distribution.
+
+logistic.py - logistic regression example.  Mostly to show linear vs
+logistic regression.
+
+diabetes_regression.py - simple regression example, more a reminder
+that sklearn comes with cool data sets to play with.  Exercise: look
+in the diabetes data and visualize / separate / predict something else.
+
+lr-confidence-numpy.py - confidence intervals in linear regression,
+the hard way.
+
+lr-confidence-scipy.py - confidence intervals in linear regression, a
+bit easier.
+
+lr-seaborn.py - the easy way to do confidence intervals in linear
+regression.  Also an introduction to seaborn.
+
+plot_cv_predict.py - Demonstrate cross validation and how we might
+measure it.  Talk about how cross validation works, the importance of
+not validating on training data, and OVR (OVA) vs one-on-one.
+
+under-over-fitting.py - demonstrate under and over fitting.  Discuss
+first Lagrange's formula and uniqueness of n-1 degree polynomial fit.
+Talk about barrier functions.
+
+
+advanced/iris_logistic.py - Some rather practical examples of linear
+regression on real data.  We'll want to talk about what sklearn's
+bunches are.
+
+advanced/multi_face.py - Some kind of dumb CV algorithms for
+completing faces.  TODO:  Look up Ridge CV etc.
+
+
+lr-seaborn-citation - for after class completeness.

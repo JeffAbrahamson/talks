@@ -1,0 +1,4 @@
+mystery_datasets.py contains some datasets for exploration.
+
+mystery_datasets_gen.py contains the generation mechanisms, not for
+class use, but interesting to see afterwards.
