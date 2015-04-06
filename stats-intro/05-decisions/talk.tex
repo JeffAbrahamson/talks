@@ -86,7 +86,58 @@
   \cnote{
     Discussion:
 
+    Consider the example of dots at [[0, 1], [1, 0]].
+  }
+\end{frame}
+
+%%%% Some later slides...
+
+\begin{frame}
+  \frametitle{Strategies}
+
+  \only<1> {
+    At the beginning, one tends to do this:
+    \begin{itemize}
+    \item Transform data for SVM solver
+    \item Randomly try a few kernels and parameters
+    \item Test
+    \end{itemize}
+  }
+  \only<2> {
+    A better strategy:
+    \begin{itemize}
+    \item Transform
+    \item \blue{Scale data}
+    \item \blue{Consider linear, Gaussian, or RBF kernels}
+    \item \blue{Use cross validation to find the best $C$ and $\gamma$}
+    \item Test
+    \end{itemize}
+  }
+  \cnote{
+    Grid search often works well for $C$ and $\gamma$.  Try
+    exponentially increasing $C$ and decreasing $\gamma$.  E.g.,
+    $2^{-5}, 2^{-3}, \dotsc, 2^{15}$.
+  }
+  \only<3> {
+    Categories usually work better as binary fields than as enums.
+  }
+  \cnote {
     
+    
+    If there are lot of features, linear often works well.
+
+    $n$ features, $m$ training examples.
+    
+    When $n$ (e.g., $10^4$) is much larger $m$ (e.g., 10 to $10^3$),
+    then linear regression or SVM with linear kernel tends to work
+    well.
+
+    When $n$ is small ($n<10^3$) and $m$ medium ($m<10^4$), then
+    Gaussian kernel often works well.
+
+    When $m$ is large ($n < 10^3$ and $m>5\cdot 10^4$), add features
+    and then use linear regression or SVM with a linear kernel.
+
   }
 \end{frame}
 
