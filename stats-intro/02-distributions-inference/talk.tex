@@ -79,6 +79,12 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Code lab}
+
+  \only{ipython notebook}
+\end{frame}
+
+\begin{frame}
   \frametitle{Uniform distribution}
 
   Takes value 1 with probability 1.
@@ -92,40 +98,6 @@
   \end{tabular}
 
   \vspace{6mm}
-  \only<2> {
-    \begin{quote}
-      \tt
-      import scipy.stats as ss\\
-      mean, var, skew, kurt = ss.uniform.stats(moments='mvsk')
-    \end{quote}
-  }
-  \only<3> {
-    \begin{quote}
-      \tt
-      x = np.linspace(ss.uniform.ppf(.01), \\
-      \hspace{1cm}ss.uniform.ppf(.99), 100)\\
-      plt.plot(x, ss.uniform.pdf(x))\\
-      plt.show()
-    \end{quote}
-
-    \cnote { The pdf describes the distribution. }
-  }
-
-  \only<4>{
-    \begin{quote}
-      \tt
-      \gray{x = np.linspace(ss.uniform.ppf(.01), \\
-      \hspace{1cm}ss.uniform.ppf(.99), 100)\\}
-      plt.plot(x, ss.uniform.cdf(x))\\
-      plt.show()
-    \end{quote}
-  }
-  \only<5>{
-    \begin{quote}
-      \tt
-      r = ss.uniform.rvs(size=1000)
-    \end{quote}
-  }
   
   \cnote{
     Does this mean I have probability 1 of picking any number on the unit interval?
@@ -150,46 +122,11 @@
     Variance & $p(1-p)$
   \end{tabular}
 
-  \vspace{6mm}
-  \only<2> {
-    \begin{quote}
-      \tt
-      p = .5\\
-      mean, var, skew, kurt = ss.bernoulli.stats(p, moments='mvsk')
-    \end{quote}
-    \cnote{ }
-  }
-  \only<3> {
-    \begin{quote}
-      \tt
-      p = .5\\
-      x = np.linspace(ss.bernoulli.ppf(.01, p), \\
-      \hspace{1cm}ss.bernoulli.ppf(.99, p), 100)\\
-      plt.plot(x, ss.bernoulli.pmf(x, p))\\
-      plt.show()
-    \end{quote}
-
-    \cnote { The pmf$(k)$ (mass function) is $1-p$ if $k=0$ and $p$ if $k=1$. }
-  }
-
-  \only<4>{
-    \begin{quote}
-      \tt
-      \gray{p = .5\\
-      x = np.linspace(ss.bernoulli.ppf(.01, p), \\
-      \hspace{1cm}ss.bernoulli.ppf(.99, p), 100)}\\
-      plt.plot(x, ss.bernoulli.cdf(x, p))\\
-      plt.show()
-    \end{quote}
-  }
-  \only<5>{
-    r = ss.bernoulli.rvs(p, size=1000)
-  }
+  The pmf$(k)$ (mass function) is $1-p$ if $k=0$ and $p$ if $k=1$.
   
   \cnote{
     \prevwork{\url{http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bernoulli.html\#scipy.stats.bernoulli}}
   }
-  
 \end{frame}
 
 \begin{frame}
@@ -216,42 +153,10 @@
     
   }
 
-  \vspace{6mm}
-  \only<3> {
-    \begin{quote}
-      \tt
-      p = .5\\
-      mean, var, skew, kurt = ss.geom.stats(p, moments='mvsk')
-    \end{quote}
-  }
-  \cnote{This computes the version with $k-1$ failures and then a success.}
-  \only<4> {
-    \begin{quote}
-      \tt
-      x = np.linspace(ss.geom.ppf(.01, p), \\
-      \hspace{1cm}ss.geom.ppf(.99, p), 100)\\
-      plt.plot(x, ss.geom.pmf(x, p))\\
-      plt.show()
-    \end{quote}
-
-    \cnote {  }
-  }
-
-  \only<5>{
-    \begin{quote}
-      \tt
-      \gray{x = np.linspace(ss.geom.ppf(.01, p), \\
-      \hspace{1cm}ss.geom.ppf(.99, p), 100) } \\
-      plt.plot(x, ss.geom.cdf(x, p)) \\
-      plt.show()
-    \end{quote}
-  }
-  \only<6>{
-    \tt
-    r = ss.geom.rvs(p, size=1000)
-  }
-  
   \cnote{
+
+    This computes the version with $k-1$ failures and then a success.
+  
     No canonical example of model.  Attempts to succeed at a task, for
     example.  Time to die from your daily commute.
     
@@ -260,9 +165,7 @@
     \prevwork{\url{http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.geom.html\#scipy.stats.geom}}
 
   }
-    
 \end{frame}
-
 
 \begin{frame}
   \frametitle{Poisson distribution}
@@ -279,49 +182,13 @@
     Variance & $\lambda$
   \end{tabular}
 
+  \begin{displaymath}
+    \text{pmf}(k) = e^{-\lambda} \frac{\lambda^k}{k!}
+  \end{displaymath}
+
   \vspace{6mm}
-  \only<1> { (Sometimes we say $\mu$ instead of $\lambda$.) }
+  (Sometimes we say $\mu$ instead of $\lambda$.) 
 
-  \only<2> {
-    \tt
-    mu = .6\\
-    mean, var, skew, kurt = ss.poisson.stats(mu, moments='mvsk')
-
-    \cnote{
-      \begin{displaymath}
-        \text{pmf}(k) = e^{-/lambda} \frac{/lambda^k}{k!}
-      \end{displaymath}
-    }
-  }
-  \only<3> {
-    \begin{quote}
-      \tt
-      x = np.linspace(ss.poisson.ppf(.01, mu), \\
-      \hspace{1cm} ss.poisson.ppf(.99, mu), 100) \\
-      plt.plot(x, ss.poisson.pmf(x, mu)) \\
-      plt.show()
-    \end{quote}
-
-    \cnote {  }
-  }
-
-  \only<4>{
-    \begin{quote}
-      \tt
-      \gray{x = np.linspace(ss.poisson.ppf(.01, mu), \\
-      \hspace{1cm}ss.poisson.ppf(.99, mu), 100) }\\
-      plt.plot(x, ss.poisson.cdf(x, mu))\\
-      plt.show()
-    \end{quote}
-  }
-  \only<5>{
-    \begin{quote}
-      r = ss.poisson.rvs(mu, size=1000)
-    \end{quote}
-
-    \cnote{Sample random variable.  Exercise: histogram.}
-  }
-  
   \cnote{
     Examples:  Deaths in Greater London, $\lambda$ is the mean rate
     of deaths per day.
@@ -348,47 +215,11 @@
 
   \vspace{6mm}
   \only<2> {
-    \tt
-    n = 5\\
-    p = .4\\
-    mean, var, skew, kurt = ss.binom.stats(n, p, moments='mvsk')
-
-    \cnote{
-      \begin{displaymath}
-        \text{pmf}(k) = {n \choose k} p^k (1-p)^{n-k}
-      \end{displaymath}
-      for $k\in \{0, 1, \dotsc, n\}$.
-    }
+    \begin{displaymath}
+      \text{pmf}(k) = {n \choose k} p^k (1-p)^{n-k}
+    \end{displaymath}
+    for $k\in \{0, 1, \dotsc, n\}$.
   }
-  \only<3> {
-    \begin{quote}
-      \tt
-      x = np.linspace(ss.binom.ppf(.01, n, p), \\
-      \hspace{1cm} ss.binom.ppf(.99, n, p), 100) \\
-      plt.plot(x, ss.binom.pmf(x, n, p)) \\
-      plt.show()
-    \end{quote}
-
-    \cnote {  }
-  }
-
-  \only<4>{
-    \begin{quote}
-      \tt
-      \gray{x = np.linspace(ss.binom.ppf(.01, n, p), \\
-      \hspace{1cm}ss.binom.ppf(.99, n, p), 100) }\\
-      plt.plot(x, ss.binom.cdf(x, n, p)) \\
-      plt.show()
-    \end{quote}
-  }
-  \only<5>{
-    \begin{quote}
-      r = ss.binom.rvs(n, p, size=1000)
-    \end{quote}
-
-    \cnote{Sample random variable.  Exercise: histogram.}
-  }
-
   
   \cnote{
     Often convenient to use the normal distribution as an approximation.
@@ -413,6 +244,7 @@
   }
 
   \cnote {
+    TODO: Make notebook
     
     Show mathematically, then with scipy.
 
@@ -459,47 +291,11 @@
   \end{tabular}
 
   \vspace{6mm}
-  \only<2> {
-    \begin{quote}
-      \tt
-      n = 4\\
-      p = .4\\
-      mean, var, skew, kurt = ss.nbinom.stats(n, p, moments='mvsk')
-    \end{quote}
-    
-    \cnote{
-      \begin{displaymath}
-        \text{pmf}(k) = {k+n-1 \choose n-1} p^n (1-p)^k
-      \end{displaymath}
-      for $k\ge 0$.
-    }
-  }
-  \only<3> {
-    \begin{quote}
-      \tt
-      x = np.linspace(ss.nbinom.ppf(.01, n, p), \\
-      \hspace{1cm} ss.nbinom.ppf(.99, n, p), 100) \\
-      plt.plot(x, ss.nbinom.pmf(x, n, p)) \\
-      plt.show()
-    \end{quote}
-
-    \cnote {  }
-  }
-
-  \only<4>{
-    \begin{quote}
-      \tt
-      \gray{x = np.linspace(ss.nbinom.ppf(.01, n, p), \\
-      \hspace{1cm}ss.nbinom.ppf(.99, n, p), 100) }\\
-      plt.plot(x, ss.nbinom.cdf(x, n, p)) \\
-      plt.show()
-    \end{quote}
-  }
-  \only<5>{
-    \begin{quote}
-      r = ss.nbinom.rvs(n, p, size=1000)
-    \end{quote}
-  }
+  
+  \begin{displaymath}
+    \text{pmf}(k) = {k+n-1 \choose n-1} p^n (1-p)^k
+  \end{displaymath}
+  for $k\ge 0$.
 
   \cnote {
     \prevwork{\url{http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.nbinom.html\#scipy.stats.nbinom}}
@@ -536,44 +332,11 @@
 
   \vspace{6mm}
   \only<2> {
-    \tt
-    mean, var, skew, kurt = norm.stats(moments='mvsk')
-
-    \cnote{
-      \begin{displaymath}
-        \text{pdf}(x) = \frac{e^{-x^2/2}}{\sqrt{2\pi}}
-      \end{displaymath}
-    }
-  }
-  \only<3> {
-    \begin{quote}
-      \tt
-      x = np.linspace(ss.norm.ppf(.01), \\
-      \hspace{1cm}ss.norm.ppf(.99), 100)\\
-      plt.plot(x, ss.norm.pdf(x)) \\
-      plt.show()
-    \end{quote}
-
-    \cnote {
-      \begin{displaymath}
-        pmf(k)
-      \end{displaymath}
-    }
+    \begin{displaymath}
+      \text{pdf}(x) = \frac{e^{-x^2/2}}{\sqrt{2\pi}}
+    \end{displaymath}
   }
 
-  \only<4>{
-    \begin{quote}
-      \tt
-      \gray{x = np.linspace(ss.norm.ppf(.01), \\
-      \hspace{1cm}ss.norm.ppf(.99), 100) }\\
-      plt.plot(x, ss.norm.cdf(x))\\
-      plt.show()
-    \end{quote}
-  }
-  \only<5>{
-    r = ss.norm.rvs(size=1000)
-  }
-  
   \cnote{
 
     Effects of varying parameters (do
@@ -613,12 +376,6 @@
     \prevwork{\url{http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html}}
   }
   
-\end{frame}
-
-\begin{frame}
-  \frametitle{Distribution Show-and-Tell}
-
-  \solo{Exercise}
 \end{frame}
 
 \begin{frame}
