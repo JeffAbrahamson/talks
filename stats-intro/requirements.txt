@@ -7,3 +7,7 @@ scikit-learn
 scipy
 seaborn
 statsmodels
+pyzmq
+jinja2
+tornado
+jsonschema
