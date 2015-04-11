@@ -707,21 +707,14 @@
     precisely one is correct.  Guess at random.
     \begin{itemize}
     \item Probability of getting 100\%? \only<2-5>{\blue{$\left(\frac 14\right)^{10}$}}
-    \item Probability of getting 0\%? \only<3-5>{\blue{$\left(\frac 14\right)^{10}$}}
+    \item Probability of getting 0\%? \only<3-5>{\blue{$\left(\frac 34\right)^{10}$}}
     \item Expected score? \only<4-5>{\blue{$\E(X) = 10\left(\frac 14\right) = \frac
         52$}}
-    \item Standard deviation \only<5>{\blue{$\var(X) = \frac 14 \frac 34 = \frac 3{16}$}\only<6>{$10\left(\frac 3{16}\right) = \frac {15}{8}$}}
+    \item Standard deviation \only<5>{\blue{$\var(X) = 10\left(\frac 14\right)\left(\frac 34\right)
+          = \frac {30}{16} = \frac {15}{8}$}}
     \end{itemize}
     We'll come back to: if student gets 9 of 10 correct, do we really
     believe that they guessed at random?
-  }
-
-  \cnote{Anyone in the room worked in finance?}
-  \only<6> {
-    You pay \pounds 1 to turn a coin.  If it's heads, you win \pounds
-    2.  If it's tails, you lose but may play again for \pounds 2.  The
-    game keeps doubling: pay \pounds 2 to lose or win \pounds 4.  Pay
-    \pounds 4 to lose or win \pounds 8.  Etc.
   }
 
 \end{frame}
