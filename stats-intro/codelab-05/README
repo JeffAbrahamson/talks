@@ -1,5 +1,0 @@
-cluster_iris_examples.py - 
-
-kmeans_digits.py - k-means for recognizing digits.  Explain PCA first.
-
-lena_compress.py - k-means for image compression.
