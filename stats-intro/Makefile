@@ -15,6 +15,6 @@ articles:
 
 package :
 	mkdir /tmp/stats-intro/
-	cp -r *pdf codelab* /tmp/stats-intro/
-	(cd /tmp/ && tar czf stats-intro.tgz stats-intro/)
+	cp -r pdf-slides/*pdf codelab-0[236]/ /tmp/stats-intro/
+	(cd /tmp/ && zip -r stats-intro.zip stats-intro/)
 	rm -rf /tmp/stats-intro/
