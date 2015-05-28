@@ -1,0 +1,213 @@
+\documentclass[t]{beamer}
+
+\mode<presentation>
+{
+  \usetheme{default}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{footline}[frame number]
+  \setbeamertemplate{items}[circle]
+  \usecolortheme{seahorse}
+}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage[]{algorithm2e}
+\usepackage{amsmath}
+\usepackage{centernot}
+\usepackage{xcolor}
+
+\parskip=8 pt
+
+\newcommand\topstrut{\rule{0pt}{2.6ex}}
+\newcommand\bottomstrut{\rule[-1.2ex]{0pt}{0pt}}
+\newcommand\doublestrut{\rule[-1.2ex]{0pt}{3.6ex}}
+
+\newcommand\blue[1]{\textcolor{blue}{#1}}
+\newcommand\red[1]{\textcolor{red}{#1}}
+\newcommand\gray[1]{\textcolor{gray}{#1}}
+\newcommand\purple[1]{\textcolor{purple}{#1}}
+\newcommand\smallgray[1]{\textcolor{gray}{\footnotesize\it #1}}
+\newcommand\prevwork[1]{\smallgray{#1}}
+\newcommand\solo[1]{\vfill\centerline{#1}}
+\newcommand\soloo[2]{\only<#1>{\solo{#2}}}
+\newcommand\solopb[1]{\vfill\centerline{\parbox{.9\textwidth}{#1}}}
+\newcommand\soloopb[2]{\only<#1>{\solopb{#2}}}
+\newcommand\cimgf[1]{\centerline{\includegraphics[width=\textwidth]{#1}}}
+\newcommand\cimg[1]{\centerline{\includegraphics[width=.9\textwidth]{#1}}}
+\newcommand\cimgg[1]{\centerline{\includegraphics[width=.8\textwidth]{#1}}}
+\newcommand\cimggg[1]{\centerline{\includegraphics[width=.7\textwidth]{#1}}}
+\newcommand\cimgsm[1]{\centerline{\includegraphics[width=.4\textwidth]{#1}}}
+\newcommand\cimgh[1]{\centerline{\includegraphics[height=.9\textwidth]{#1}}}
+
+\title
+{Predicting the Future}
+\subtitle{MLaaS}
+
+\author[Abrahamson] {Jeff Abrahamson}\institute{Jellybooks}
+
+\date[6 juin 2015]
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \cimggg{web2day.png}
+  
+  \vfill
+  \centerline{\fcolorbox{purple}{pink}{\blue{ici : Predicting the Future}}}
+  \vfil
+\end{frame}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Notes}
+
+  \texttt
+  
+  Prediction is hard, especially  about the future.  (Source?  Yogi Bera?)
+
+  What's the problem?
+  - bank lending (credit)
+  - image recognition (is this a friend of mine?)
+  - more
+
+  Want a simpler problem.
+  Picture: x and o, then line between
+  Picture: Several x's and o's, then line between
+  Then question mark, is it an x or o?
+  Picture with errors
+
+  Picture with classes
+
+  More dimensions.  How to think of high dimensions
+  Curse of dimensionality.
+  Strange things happen.
+  Almost all vectors at right angles.
+  Almost all mass in the outer shell (plot)
+  exponentially many pairs
+
+  train vs predict
+
+  train - take points, draw line (line is model)
+     or - take points and class (make model)
+
+  predict - new point, which side of line (or which class)
+    maybe - how confident am I?
+
+  Want to evaluate: did I do good?
+
+  Imagine:
+    - rare disease, affects .001\% of the population each year
+    - treatable within 2 days of infection, but expensive and hurts
+    - fatal within 3--4 weeks if untreated
+    - we'll know in a month if infected
+    - train on historical data
+    - evaluate model -- how many right
+    - cross validation
+
+    def has_disease(person):
+        """Simple model, accuracy 99.999%."""
+        return false
+
+    So want to look at false positives and false negatives.
+
+    100\% accurate when healthy
+    0\% accurate when infected
+    
+        
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+%   \prevwork{\url{http://www.louisdorard.com/blog/machine-learning-apis-comparison}}
+%   \prevwork{\url{https://github.com/louisdorard/papiseval}}
+%   \prevwork{\url{http://www.louisdorard.com/about/}}
+%   \prevwork{\url{http://www.rudebaguette.com/2014/06/16/connected-objects-predicting-next-move/}}
+%   \prevwork{\url{http://www.louisdorard.com/blog/building-a-business-around-machine-learning-apis}}
+%   \prevwork{\url{http://www.louisdorard.com/blog/predict-abstention-rates-open-data}}
+%   \prevwork{\url{http://www.louisdorard.com/guest/everyone-can-do-data-science}}
+%   \prevwork{\url{http://www.programmableweb.com/news/6-questions-you-should-ask-about-prediction-apis/analysis/2014/09/12}}
+
+\end{document}
