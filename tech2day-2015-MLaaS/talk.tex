@@ -1,4 +1,4 @@
-\documentclass[t]{beamer}
+\documentclass{beamer}
 
 \mode<presentation>
 {
@@ -31,9 +31,9 @@
 \newcommand\purple[1]{\textcolor{purple}{#1}}
 \newcommand\smallgray[1]{\textcolor{gray}{\footnotesize\it #1}}
 \newcommand\prevwork[1]{\smallgray{#1}}
-\newcommand\solo[1]{\vfill\centerline{#1}}
+\newcommand\solo[1]{\centerline{#1}}
 \newcommand\soloo[2]{\only<#1>{\solo{#2}}}
-\newcommand\solopb[1]{\vfill\centerline{\parbox{.9\textwidth}{#1}}}
+\newcommand\solopb[1]{\centerline{\parbox{.9\textwidth}{#1}}}
 \newcommand\soloopb[2]{\only<#1>{\solopb{#2}}}
 \newcommand\cimgf[1]{\centerline{\includegraphics[width=\textwidth]{#1}}}
 \newcommand\cimg[1]{\centerline{\includegraphics[width=.9\textwidth]{#1}}}
@@ -66,6 +66,7 @@
 \begin{document}
 
 \begin{frame}
+  \vfill
   \cimggg{web2day.png}
   
   \vfill
@@ -80,125 +81,197 @@
 \begin{frame}
   \frametitle{}
 
+  \solopb{Prediction is very difficult, especially about the future.}
+
+  \vspace{1cm}
+  {\small\it Niels Bohr (1970) (or Yogi Bera or Piet Hein, or Steincke
+    (1948)), but probably Markus M. Ronner (1918)}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Notes}
+  \frametitle{What's a simpler problem?}
 
-  \texttt
+  \vfill
+  \only<1>{\cimgsm{k-pts.png}}
+  \only<2>{\cimgsm{k-pts-line.png}}
+  \only<3>{\cimgsm{k-pts-line-plus.png}}
+  \only<4>{\cimgsm{k-pts-line-error.png}}
+
+  \note{
+    Or maybe these are classes: dogs vs cats.
+
+    Problem: high dimension.
+    \begin{itemize}
+    \item Thinking of higher dimensions
+    \item Strange things happen
+    \end{itemize}
+
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Training a Model}
+
+  \solopb{Known points, draw a line.\\ \blue{Model: the line}}
+  \note{There exist more complex models.}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Predict}
+
+  \solopb{New point, \blue{which side of line?}}
+
+  \note {
+    Time series possible, more complex than for today.
+
+    Maybe add confidence.
+  }
+
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Evaluation}
+
+  \vspace{1cm}
+  Example :
+  \begin{itemize}
+  \item Rare illness, .001\% of population each year
+  \item Treatable early, but expensive and hurts
+  \item Or\dots dead in a month
+  \end{itemize}
+
+  \only<2>{
+    \blue{Training: past cases (know outcomes)}
+  }
+  \only<3>{
+    \purple{\tt \# First pass, reliability = 99.999\% }\\
+    \blue{\tt def has\_disease(person): return false}
+    \note{Best to look at false positives and false negatives.}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples}
+
+  \begin{itemize}
+  \item Credit scoring
+  \item Fraud detection
+  \item Personalization
+  \item Spam on website
+  \item Recommend a book, a movie, a holiday
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Services}
+
+  \begin{itemize}
+  \item Amazon Machine Learning (free: 12 months)
+  \item Google Prediction API $\subset$ Cloud Platform (free: 6 months)
+  \item PredicSis
+  \item BigML (free: in development mode)\\[3mm]
+  \item Apache Mahout (free: beer and speech)
+  \item Scikit-learn (free: beer and speech, pipeline sold separately)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Options}
+
+  \vfil
   
-  Prediction is hard, especially  about the future.  (Source?  Yogi Bera?)
+  \begin{itemize}
+  \item Batch Prediction API
+  \item Real-Time API
+  \end{itemize}
 
-  What's the problem?
-  - bank lending (credit)
-  - image recognition (is this a friend of mine?)
-  - more
+  \vspace{1cm}
+  \prevwork{Amazon-speak}
 
-  Want a simpler problem.
-  Picture: x and o, then line between
-  Picture: Several x's and o's, then line between
-  Then question mark, is it an x or o?
-  Picture with errors
+\end{frame}
 
-  Picture with classes
+\begin{frame}
+  \frametitle{Comparison}
 
-  More dimensions.  How to think of high dimensions
-  Curse of dimensionality.
-  Strange things happen.
-  Almost all vectors at right angles.
-  Almost all mass in the outer shell (plot)
-  exponentially many pairs
+  \begin{itemize}
+  \item BigML and PredicSis faster
+  \item Amazon and PredicSis slightly more accurate
+  \item YMMV
+  \end{itemize}
 
-  train vs predict
+  \vfill
+  \prevwork{\url{http://www.louisdorard.com/blog/machine-learning-apis-comparison}}
 
-  train - take points, draw line (line is model)
-     or - take points and class (make model)
+\end{frame}
 
-  predict - new point, which side of line (or which class)
-    maybe - how confident am I?
+\begin{frame}
+  \frametitle{Is it Magic?}
 
-  Want to evaluate: did I do good?
+  \solo{\cimg{log-reg.png}}
 
-  Imagine:
-    - rare disease, affects .001\% of the population each year
-    - treatable within 2 days of infection, but expensive and hurts
-    - fatal within 3--4 weeks if untreated
-    - we'll know in a month if infected
-    - train on historical data
-    - evaluate model -- how many right
-    - cross validation
+\end{frame}
 
-    def has_disease(person):
-        """Simple model, accuracy 99.999%."""
-        return false
+\begin{frame}
+  \frametitle{Is it Magic?}
 
-    So want to look at false positives and false negatives.
+  \begin{itemize}
+  \item Clean data
+  \item Feature engineering
+  \item (Sometimes) Choose a model
+  \item Train model
+  \item Send queries, receive predictions
+  \end{itemize}
 
-    100\% accurate when healthy
-    0\% accurate when infected
-    
-        
+\end{frame}
 
+\begin{frame}
+  \frametitle{Is it Real?}
+
+  \soloo{1}{\cimggg{ads-save.png}}
+  \soloo{2}{\cimggg{ads-prostate.png}}
+  \soloo{3}{\cimg{ads-amazon.png}}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Free as in Beer}
+
+  \solo{\cimgsm{beer.png}}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Free as in Speech}
+
+  \solo{\cimg{freedom.png}}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Reflections}
+
+  \begin{itemize}
+  \item Data is most of the work: clean, select features, understand
+  \item Choosing models requires knowledge
+  \item Big data sets aren't always big
+  \item If you need performance, \textit{maybe}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{More Reading}
+
+  \prevwork{\url{http://www.programmableweb.com/news/6-questions-you-should-ask-about-prediction-apis/analysis/2014/09/12}}
+  
 \end{frame}
 
 \begin{frame}
   \frametitle{}
 
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
+  Questions?
 \end{frame}
 
 %   \prevwork{\url{http://www.louisdorard.com/blog/machine-learning-apis-comparison}}
