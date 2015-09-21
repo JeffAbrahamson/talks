@@ -1,0 +1,368 @@
+\documentclass[t]{beamer}
+
+\mode<presentation>
+{
+  \usetheme{default}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{footline}[frame number]
+  \setbeamertemplate{items}[circle]
+  \usecolortheme{seahorse}
+}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage[]{algorithm2e}
+\usepackage{amsmath}
+\usepackage{centernot}
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{ showstringspaces=false }
+
+\parskip=8 pt
+
+\newcommand\topstrut{\rule{0pt}{2.6ex}}
+\newcommand\bottomstrut{\rule[-1.2ex]{0pt}{0pt}}
+\newcommand\doublestrut{\rule[-1.2ex]{0pt}{3.6ex}}
+
+\newcommand\blue[1]{\textcolor{blue}{#1}}
+\newcommand\red[1]{\textcolor{red}{#1}}
+\newcommand\gray[1]{\textcolor{gray}{#1}}
+\newcommand\purple[1]{\textcolor{purple}{#1}}
+\newcommand\smallgray[1]{\textcolor{gray}{\footnotesize\it #1}}
+\newcommand\prevwork[1]{\smallgray{#1}}
+\newcommand\solo[1]{\centerline{#1}}
+\newcommand\soloo[2]{\only<#1>{\solo{#2}}}
+\newcommand\solopb[1]{\centerline{\parbox{.9\textwidth}{#1}}}
+\newcommand\soloopb[2]{\only<#1>{\solopb{#2}}}
+\newcommand\cimgf[1]{\centerline{\includegraphics[width=\textwidth]{#1}}}
+\newcommand\cimg[1]{\centerline{\includegraphics[width=.9\textwidth]{#1}}}
+\newcommand\cimgg[1]{\centerline{\includegraphics[width=.8\textwidth]{#1}}}
+\newcommand\cimggg[1]{\centerline{\includegraphics[width=.7\textwidth]{#1}}}
+\newcommand\cimgsm[1]{\centerline{\includegraphics[width=.4\textwidth]{#1}}}
+\newcommand\cimgh[1]{\centerline{\includegraphics[height=.9\textwidth]{#1}}}
+
+\title
+{Serialisation: a Comparison}
+%\subtitle{MLaaS}
+
+\author[Abrahamson] {Jeff Abrahamson}\institute{Jellybooks}
+
+\date[21 September 2015]
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+%\AtBeginSubsection[]
+%{
+%  \begin{frame}<beamer>{Outline}
+%    \tableofcontents[currentsection,currentsubsection]
+%  \end{frame}
+%}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{In pace requiescat}
+
+  \vfill
+  \solo{Corba}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Basics}
+
+  \begin{itemize}
+  \item Backwards compatible
+  \item Forwards compatible
+  \item Efficiency (space, time)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Subtleties}
+
+  \begin{itemize}
+  \item Community
+  \item Safety
+  \item Accent
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Frameworks considered}
+
+  Good:
+  \begin{itemize}
+  \item Thrift (Facebook, now Apache)
+  \item Protobuf (Google)
+  \end{itemize}
+
+  Not so good:
+  \begin{itemize}
+  \item Boost Serialisation
+  \item Json
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Don't Even}
+
+  \begin{itemize}
+  \item CORBA (1991) (cf. Vasa, 1628)
+  \item XML-RPC (1998)
+  \item SOAP (1998, successor to XML-RPC)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{RPC}
+
+  \begin{itemize}
+  \item Protobuf (no)
+  \item Thrift (yes)
+  \item Boost (no)
+  \item Json (no)
+  \item Cap'n Proto (yes)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{RPC}
+
+  Some popular RPC communication libraries:
+  \begin{itemize}
+  \item ZMQ
+  \item RabbitMQ
+  \item Etch (?)
+  \item ZeroC ICE (?)
+  \item Apache Qpid and AMQP (?)
+  \end{itemize}
+  But this isn't a talk about RPC.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Protobuf and Thrift}
+
+  \begin{itemize}
+  \item IDL
+  \item Proven scalable
+  \item Community
+  \item Similar efficiency
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Protobuf}
+  \lstinputlisting[language=C++]{proto1.proto} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Protobuf}
+
+  \lstinputlisting[language=C++]{proto2.proto}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Protobuf}
+
+  \lstinputlisting{proto3.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Protobuf}
+
+  \lstinputlisting[language=C++]{proto4.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Protobuf}
+
+  \lstinputlisting[language=C++]{proto5.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Protobuf}
+
+  \lstinputlisting[language=C++]{proto6.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Protobuf}
+
+  \lstinputlisting[language=C++]{proto7.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Thrift}
+
+  \lstinputlisting[language=C++]{thrift1.thrift}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Thrift}
+
+  \lstinputlisting[language=C++]{thrift2.thrift}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Thrift}
+
+  \lstinputlisting[language=C++]{thrift3.thrift}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Thrift}
+
+  \lstinputlisting[language=C++]{thrift4.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Thrift}
+
+  \lstinputlisting[language=C++]{thrift5.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Thrift}
+
+  \lstinputlisting[language=C++]{thrift5a.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Thrift}
+
+  \lstinputlisting[language=C++]{thrift6.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Thrift}
+
+  \lstinputlisting[language=C++]{thrift7.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Thrift}
+
+  \lstinputlisting[language=C++]{thrift8.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Thrift}
+
+  \lstinputlisting[language=C++]{thrift9.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Boost}
+
+  \lstinputlisting[language=C++]{boost1.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Boost}
+
+  \lstinputlisting[language=C++]{boost2.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Boost}
+
+  \lstinputlisting[language=C++]{boost3.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Boost}
+
+  \lstinputlisting[language=C++]{boost4.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Boost}
+
+  \lstinputlisting[language=C++]{boost5.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Boost}
+
+  \lstinputlisting[language=C++]{boost6.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Boost}
+
+  \lstinputlisting[language=C++]{boost7.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Boost}
+
+  \lstinputlisting[language=C++]{boost8.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Boost}
+
+  \lstinputlisting[language=C++]{boost9.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Boost}
+
+  \lstinputlisting[language=C++]{boostA.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Boost}
+
+  \lstinputlisting[language=C++]{boostB.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Boost}
+
+  \lstinputlisting[language=C++]{boostC.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Boost}
+
+  \lstinputlisting[language=C++]{boostD.cc}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Json}
+
+  \begin{itemize}
+  \item Ubiquitous
+  \item Human readable
+  \item No validation or error checking
+  \item Verbose
+  \end{itemize}
+
+  Cf. Bson, MessagePack, \dots
+\end{frame}
+
+\begin{frame}
+  \frametitle{Questions?}
+
+  %\centerline{Feedback: \url{http://purple.com/1}}
+  %\vspace{1.5cm}
+  \centerline{\url{https://github.com/JeffAbrahamson/talks/}}
+  \vspace{1cm}
+  \centerline{\url{jeff@purple.com}}
+\end{frame}
+
+\end{document}
