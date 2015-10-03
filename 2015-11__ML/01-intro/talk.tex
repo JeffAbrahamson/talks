@@ -1,0 +1,80 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{default}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{footline}[frame number]
+  \setbeamertemplate{items}[circle]
+  \usecolortheme{seahorse}
+}
+
+\author[Abrahamson] {Jeff Abrahamson}
+\date{2 novembre 2015}
+%\setbeamertemplate{footline}[text line]{%
+%  \parbox{\linewidth}{\vspace*{-8pt}some text\hfill\insertshortauthor\hfill\insertpagenumber}}
+\setbeamertemplate{footline}[text line]{%
+  \parbox{0.8\linewidth}{
+    %\vspace*{-8pt}\insertshorttitle~(\insertshortauthor)
+    \vspace*{-8pt}Copyright 2015 Jeff Abrahamson, for private use by course students only
+  }
+  \hfill%
+  \parbox{0.15\linewidth}{
+    \vspace*{-8pt}\raggedleft\insertpagenumber
+  }
+}
+
+\newcommand\cnote[1]{}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{relsize}
+
+\parskip=8 pt
+
+\input ../macros.tex
+
+\title
+{ML Week}
+\subtitle{0x01 \hspace{2mm}  Introduction}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+\begin{frame}
+  \phrase{Definition}
+\end{frame}
+
+\begin{frame}
+  \phrase{Supervised}
+\end{frame}
+
+\begin{frame}
+  \phrase{Unsupervised}
+\end{frame}
+
+\begin{frame}
+  \phrase{Reinforcement}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\talksection{Break}
+
+\begin{frame}
+  \frametitle{Questions?}
+  \centerline{\large\url{purple.com/talk-feedback}}
+\end{frame}
+
+\end{document}
