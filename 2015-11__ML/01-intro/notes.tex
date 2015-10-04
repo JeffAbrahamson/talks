@@ -4,7 +4,7 @@
 
 \notetitle{01}{Introduction}
 
-What is ML?
+\textbf{What is ML?}
 \begin{enumerate}
 \item Some algorithms we know how to write
   \begin{enumerate}
@@ -19,7 +19,7 @@ What is ML?
   \end{enumerate}
 \end{enumerate}
 
-Types of ML
+\textbf{Types of ML}
 \begin{enumerate}
 \item Supervised
   \begin{enumerate}
@@ -41,7 +41,7 @@ Types of ML
   \end{enumerate}
 \end{enumerate}
 
-Probability
+\textbf{Probability}
 \begin{enumerate}
 \item Event
 \item Complement of an event
@@ -52,5 +52,115 @@ Probability
 \item Joint probability
 \end{enumerate}
 
+\textbf{Statistics}
+\begin{enumerate}
+\item Goal for a bit: think like a statistician
+\item Define statistics (slide)
+\item Said differently: goal is to compare reality to a model
+\item Or to find a model and then compare.
+\item Good statistical models are often relatively simple.
+\end{enumerate}
+
+\textbf{Study design}
+\begin{enumerate}
+\item Observational studies can't conclude causality
+\item Observational studies can be
+  \begin{itemize}
+  \item prospective: identify individuals, collect information
+  \item retrospective
+  \item we can combine them
+  \end{itemize}
+\item Experimental studies
+  \begin{itemize}
+  \item We do stuff
+  \item Can conclude causation if properly designed
+    \begin{itemize}
+    \item controlling: hold other variables constant (e.g., drink pill
+      with full glass of water even if we don't care)
+    \item randomization: cancel out effects we can't control
+    \item replication: enough participants
+    \end{itemize}
+  \end{itemize}
+\item Study types example
+  \begin{itemize}
+  \item Sunscreen use correlated to skin cancer rates.
+  \item Confounding variable
+  \end{itemize}
+\item Random sampling hazards
+  \begin{itemize}
+  \item Not actually random
+  \item Convenience sample
+  \item Non-response bias
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Statistical concepts}
+\begin{enumerate}
+\item Population statistics
+  \begin{itemize}
+  \item sample mean vs population mean
+  \item Sample standard deviation and variance: divide by $n-1$
+  \end{itemize}
+\item Distributions
+  \begin{itemize}
+  \item Important: pdf (pmf), cdf, ppf
+    \begin{itemize}
+    \item pdf = densité de probabilité
+    \item pmf = fonction de masse
+    \item cdf = fonction de répartition
+    \item ppf = ?
+    \end{itemize}
+  \item The rest: just so you've heard of them
+  \end{itemize}
+\item Normal distributions --- TODO: compare in matplotlib, quantile-quantile plot
+  \begin{itemize}
+  \item Sample mean vs population mean
+  \item How close are they?
+  \item Point estimate: if you have to guess, this is it
+  \item Correction: if I want to be on average weighted right as much possible
+  \end{itemize}
+\item Sampling distributions
+  \begin{itemize}
+  \item Sampling mean is unimodal and approximately symmetric
+  \item It is centred at population mean.
+    \item The standard deviation of the sample mean tells us how far a
+      point sample's mean is likely to be from the population mean.
+      In other words, how much error we are likely to have in the
+      point estimate's mean.  \textbf{Standard error.}
+    \item TODO: Generate uniform population, sample,
+      and plot sampling distribution
+    \item TODO Generate highly skewed population, sample, and plot
+      sampling distribution
+    \item In real life, we don't have access to the population
+      parameters.  We have to \textit{estimate} them from samples.  So
+      we can't \textit{know} the standard error (erreur type).
+  \end{itemize}
+\item{Confidence intervals}
+  \begin{itemize}
+  \item Sampling is usually expensive.
+  \item Reminder:  Independent random samples!
+  \item
+    Correct language: ``We are 95\% confident that the population
+    parameter is between\dots''
+  \item
+    Incorrect language: describe the confidence interval as capturing
+    the population parameter with a certain probability.
+  \item
+    This is one of the most common errors: while it might be useful to
+    think of it as a probability, the confidence level only quantifies
+    how plausible it is that the parameter is in the interval.
+  \item
+    Another especially important consideration of confidence intervals
+    is that they only try to capture the population parameter. Our
+    intervals say \textit{nothing} about the confidence of
+    \begin{itemize}
+    \item capturing individual observations
+    \item a proportion of the observations
+    \item about capturing point estimates
+    \end{itemize}
+    Confidence intervals only attempt to capture population
+    parameters.
+  \end{itemize}
+\end{enumerate}
 
 \end{document}
