@@ -4,7 +4,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{url}
 \usepackage{relsize}
-\usepackage{amsmath}
+\usepackage{amsmath,mathtools}  % Mathtools provides dcase.
 \usepackage{mathabx}            % Provides nicer \land.
 
 \newcommand\topstrut{\rule{0pt}{2.6ex}}
@@ -47,7 +47,12 @@
 \end{frame}
 }
 
+\newcommand\notetitle[2]{\centerline{\large ML Week \hspace{3mm} 0x#1 \hspace{2mm}  #2}\vspace{10mm}}
 \newcommand\phrase[1]{\centerline{\large\bf\blue{#1}}}
+\newcommand\sphrase[1]{\centerline{\large\blue{#1}}}
+\newenvironment{bphrase}
+  {\blue\bgroup}
+  {\egroup}
 \newenvironment{mphrase}
-  {\begin{displaymath}\large\blue\bgroup}
+  {\begin{displaymath}\blue\bgroup}
   {\egroup\end{displaymath}}

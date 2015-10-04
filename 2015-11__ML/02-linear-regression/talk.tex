@@ -13,19 +13,188 @@
   \titlepage
 \end{frame}
 
+\begin{frame}
+  \frametitle{Hypothesis}
+  \begin{mphrase}
+    h_\theta(x) = \theta_0 + \theta_1 x
+  \end{mphrase}
+\end{frame}
 
 \begin{frame}
-  \phrase{}
+  \frametitle{Cost function}
+  \begin{mphrase}
+    J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m (h_\theta(x_i) - y_i)^2
+  \end{mphrase}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Gradient descent}
+
+  \begin{mphrase}
+      \begin{dcases}
+        \theta_0 & \leftarrow\, \theta_0 - \alpha
+        \frac{\partial}{\partial\theta_0}\, J(\theta_0, \theta_1)\\[2mm]
+%
+        \theta_1 & \leftarrow\, \theta_1 - \alpha
+        \frac{\partial}{\partial\theta_1}\, J(\theta_0, \theta_1)
+      \end{dcases}
+  \end{mphrase}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Gradient descent}
+
+  \begin{mphrase}
+    \begin{dcases}
+      \theta_0 & \leftarrow \, \theta_0 - 
+                 \frac{\alpha}{m} \sum_{i=1}^m (h_\theta(x_i) - y_i)
+                 \\[2mm]
+%
+      \theta_1 & \leftarrow \, \theta_1 -
+                 \frac{\alpha}{m} \sum_{i=1}^m (h_\theta(x_i) - y_i)
+    \end{dcases}
+  \end{mphrase}
+\end{frame}
+
+\begin{frame}
+  \fbox{Show image in parameter space, $z$ is cost.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hypothesis again}
+
+  \begin{bphrase}
+    \begin{align*}
+      h_\theta(x) & = \theta_0 + \theta_1 x_1 \\[2mm]
+      & = \theta_0 + \sum_{i=1}^1 \theta_i x_i \\[2mm]
+      & = [\theta_0, \theta_1]
+        \begin{bmatrix}
+          x_0\\ x_1
+        \end{bmatrix} \\[2mm]
+      & = \theta^T x
+    \end{align*}
+  \end{bphrase}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hypothesis (multiple regression)}
+
+  \begin{bphrase}
+    \begin{align*}
+      h_\theta(x) & = \theta_0 + \sum_{i=1}^n \theta_i x_i \\[2mm]
+      & = [\theta_0, \cdots, \theta_n]
+        \begin{bmatrix}
+          x_0\\ x_1 \\ \vdots \\ x_n
+        \end{bmatrix} \\[2mm]
+      & = \theta^T x
+    \end{align*}
+  \end{bphrase}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hypothesis (multiple regression)}
+
+  \begin{bphrase}
+    \begin{align*}
+      h_\theta(x) & = \theta^T x \\[2mm]
+      & = \theta^T x^{(1)}
+    \end{align*}
+  \end{bphrase}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hypothesis (multiple regression)}
+
+  \begin{mphrase}
+    X =
+    \begin{pmatrix}
+      \vline & \vline & \cdots & \vline \\
+      x^{(1)} & x^{(2)} & \cdots & x^{(m)} \\
+      \vline & \vline & \cdots & \vline \\
+    \end{pmatrix} =
+    \begin{pmatrix}
+      x_0^{(1)} & x_0^{(2)} & \cdots & x_0^{(m)} \\[2mm]
+      x_1^{(1)} & x_1^{(2)} & \cdots & x_1^{(m)} \\
+      \vdots & \vdots & \ddots & \vdots \\
+      x_n^{(1)} & x_n^{(2)} & \cdots & x_n^{(m)} \\
+    \end{pmatrix}
+  \end{mphrase}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hypothesis (multiple regression)}
+
+  \begin{bphrase}
+    \begin{align*}
+      h_\theta(X) & = \theta^T X \\[2mm]
+      & =
+        \begin{bmatrix}
+          h_0(x^{(1)}), h_0(x^{(2)}), \cdots, h_0(x^{(m)})
+        \end{bmatrix} \\
+                  & = \theta^T X
+    \end{align*}
+  \end{bphrase}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hypothesis (multiple regression)}
+
+  \sphrase{or $X\theta$ if row vectors\ldots}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cost function (multiple regression)}
+
+  \begin{bphrase}
+    \begin{align*}
+      J(\theta) & = \frac{1}{2m} \sum_{i=1}^m
+                  \left(h_{\theta}(x^{(i)}) - y^{(i)}\right)^2 \\
+      &= \frac{1}{2m} (X\theta - Y)^T (X\theta - Y)
+    \end{align*}
+  \end{bphrase}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Gradient descent (multiple regression)}
+
+  \begin{bphrase}
+    \begin{align*}
+      \theta_j & \leftarrow\, \theta_j - \frac{\alpha}{m} \sum_{i=1}^m
+                 \left(h_{\theta}(x^{(i)}) - y^{(i)}\right) \cdot x_j^{(i)} \\
+    \end{align*}
+    \centerline{for $j=1, \cdots, n$}
+  \end{bphrase}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Gradient descent (multiple regression)}
+
+  \begin{bphrase}
+    \begin{align*}
+      \theta & \leftarrow\, \theta - \nabla J(\theta)
+    \end{align*}
+
+    \begin{displaymath}
+      \mbox{where } \nabla =
+      \begin{bmatrix}
+        \frac{\partial}{\partial\theta_0} \\[2mm]
+        \frac{\partial}{\partial\theta_1} \\[2mm]
+        \vdots\\[2mm]
+        \frac{\partial}{\partial\theta_n} \\
+      \end{bmatrix}
+    \end{displaymath}
+  \end{bphrase}
 \end{frame}
 
 \begin{frame}
   \frametitle{}
 
-  \begin{mphrase}
-
-  \end{mphrase}
 \end{frame}
 
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\talksection{Break}

@@ -2,9 +2,41 @@
 
 \begin{document}
 
-\centerline{\large ML Week: 0x02 \hspace{2mm}  Linear Regression}
-\vspace{10mm}
+\notetitle{02}{Linear Regression}
 
+Linear regression
+\begin{enumerate}
+\item Univariate --- 1 input, 1 continuous output
+\item $h_\theta(x) = \theta_0 + \theta_1 x$
+\item Cost function: $J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m (h_\theta(x_i) - y_i)^2$
+\item $y$ vs $\hat{y}$
+\item Gradient descent
+\item Note assignment is simultaneous
+\end{enumerate}
+
+Linear algebra (review)
+\begin{enumerate}
+\item Vector, matrix, transpose
+\item addition, multiplication
+\item vector space, basis vectors
+\item linear transformation, $u=Av$, think about basis vectors
+\item $A$, $A_{i,j}$
+\end{enumerate}
+
+Notation used in machine learning
+\begin{enumerate}
+\item $x_j^{(i)}$ --- value of feature $j$ in training sample $i$
+\item $x^{(i)}$ --- training sample $i$
+\item $m$ = number of training samples
+\item $n = \mid x^{(i)} \mid$ = number of features
+\item $x_0 = 1$ (often called bias)
+\end{enumerate}
+
+Multiple regression
+\begin{enumerate}
+\item Multiple explanatory variables, 1 continuous output
+\item Fortunately, there are libraries to do this!
+\end{enumerate}
 
 
 \end{document}
