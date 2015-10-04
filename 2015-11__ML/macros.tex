@@ -1,3 +1,6 @@
+\usepackage{amsmath}
+\usepackage{mathabx}            % Provides nicer \land.
+
 \newcommand\topstrut{\rule{0pt}{2.6ex}}
 \newcommand\bottomstrut{\rule[-1.2ex]{0pt}{0pt}}
 \newcommand\doublestrut{\rule[-1.2ex]{0pt}{3.6ex}}
@@ -38,4 +41,7 @@
 \end{frame}
 }
 
-\newcommand\phrase[1]{\centerline{\huge\bf\blue{#1}}}
+\newcommand\phrase[1]{\centerline{\large\bf\blue{#1}}}
+\newenvironment{mphrase}
+  {\begin{displaymath}\large\blue\bgroup}
+  {\egroup\end{displaymath}}

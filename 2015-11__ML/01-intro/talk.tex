@@ -31,7 +31,6 @@
 \usepackage{times}
 \usepackage[T1]{fontenc}
 \usepackage{url}
-\usepackage{amsmath}
 \usepackage{relsize}
 
 \parskip=8 pt
@@ -68,6 +67,53 @@
 \begin{frame}
   \phrase{Reinforcement}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Addition rule: independent events}
+  \phrase{$\Pr(A\cup B) = \Pr(A) + \Pr(B)$}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Addition rule: dependent events}
+  \phrase{$\Pr(A\cup B) = \Pr(A) + \Pr(B) - \Pr(A\cap B)$}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Multiplication rule: independent events}
+  \phrase{\blue{$\Pr(A\cap B) = \Pr(A) \Pr(B)$}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Multiplication rule: dependent events}
+  \phrase{$\Pr(A\cap B) = \Pr(A\mid B) \Pr(B)$}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Conditional probability}
+  \phrase{$\Pr(A\mid B) = \frac{\Pr(A\cap B)}{\Pr(B)}$}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Conditional probability}
+
+  \begin{mphrase}
+    \cup_i A_i = A \quad\land\quad A_i \cap A_j = \emptyset \implies
+  \end{mphrase}
+
+  \begin{mphrase}
+    P(A_1 \mid B) = \frac{\Pr(B\mid A_1) \Pr(A_1)}{\sum_i \Pr(B\mid
+      A_1)\Pr(A_1) + \dots + \Pr(B\mid A_k)\Pr(A_k)}
+  \end{mphrase}
+\end{frame}
+
+\begin{frame}
+  \phrase{}
+\end{frame}
+
+\begin{frame}
+  \phrase{}
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\talksection{Break}
