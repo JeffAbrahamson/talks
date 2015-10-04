@@ -4,17 +4,71 @@
 
 \notetitle{02}{Linear Regression}
 
-Linear regression
+\textbf{Linear regression: the problem}
 \begin{enumerate}
-\item Univariate --- 1 input, 1 continuous output
-\item $h_\theta(x) = \theta_0 + \theta_1 x$
-\item Cost function: $J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m (h_\theta(x_i) - y_i)^2$
-\item $y$ vs $\hat{y}$
-\item Gradient descent
-\item Note assignment is simultaneous
+\item \textbf{Problem:} We have a set of points $\{(x_i, y_i)\}$.
+  Given a new $x$ value, we'd like to predict $\hat y$.
+\item \textbf{Linear model:} We'll assume there exists a linear
+  relationship $y=\theta_0 + \theta_1 x$ that offers a good
+  approximation to the data.
+\item In the real world, there's always noise
+\item Sometimes other effects, too
+\item Talk about meaning of slope
+\item Dangers of extrapolation.  Example: global warming (a few data
+  points in a few places at a few times)
 \end{enumerate}
 
-Linear algebra (review)
+\textbf{Residuals}
+\begin{enumerate}
+\item \textit{résidu}
+\item Goal: small residuals
+\item Residuals are what's left over after accounting for model fit.
+\item A normal distribution of residuals is a good sign.  And
+  conversely.
+\item Not rules: rule of thumb.
+\item Time series often have important underlying structure.
+  Correlation often doesn't model them well.
+\end{enumerate}
+
+\textbf{Outliers}
+\begin{enumerate}
+\item Points that fall farther from the regression line have more
+  effect.  We call them \textit{high leverage} points.
+\item If the effect is noticeable on the regression, we call it an
+  \textit{influential point}.
+\item If a point, omitted, would fall much further from the regression
+  line, it is certainly influential.
+\item If not enough data points, they might be all or mostly
+  influential!
+\item Anscombe's quartet --- summary statistics don't replace visualizing data
+  % http://en.wikipedia.org/wiki/File:Anscombe\%27s_quartet_3.svg
+  \begin{itemize}
+  \item mean $x$ = 9
+  \item variance = 11
+  \item mean $y$ = 7.50
+  \item sample variance $\in (4.122, 4.127)$
+  \item $\corr(x,y) = 0.816$
+  \item linear regression: $y=3 + x/2$
+  \end{itemize}
+\item Correlation does not imply causation---but it's a good hint
+\end{enumerate}
+
+\textbf{Linear regression}
+\begin{enumerate}
+\item Univariate --- 1 input, 1 continuous output
+\item We think there's a linear model
+\item Explanatory or predictor varaible
+\item Response variable
+\item $h_\theta(x) = \theta_0 + \theta_1 x$
+\item Cost function: $J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m (h_\theta(x_i) - y_i)^2$
+\item Cost function = fonction objective?
+\item $y$ vs $\hat{y}$
+\item Gradient descent (algorithme du gradient)
+\item Assignment is simultaneous
+\item Outlier = \textit{donnée aberrante}
+\end{enumerate}
+
+\textbf{Linear algebra (review)}
 \begin{enumerate}
 \item Vector, matrix, transpose
 \item addition, multiplication
@@ -23,7 +77,7 @@ Linear algebra (review)
 \item $A$, $A_{i,j}$
 \end{enumerate}
 
-Notation used in machine learning
+\textbf{Notation used in machine learning}
 \begin{enumerate}
 \item $x_j^{(i)}$ --- value of feature $j$ in training sample $i$
 \item $x^{(i)}$ --- training sample $i$
@@ -32,11 +86,10 @@ Notation used in machine learning
 \item $x_0 = 1$ (often called bias)
 \end{enumerate}
 
-Multiple regression
+\textbf{Multiple regression}
 \begin{enumerate}
 \item Multiple explanatory variables, 1 continuous output
 \item Fortunately, there are libraries to do this!
 \end{enumerate}
-
 
 \end{document}
