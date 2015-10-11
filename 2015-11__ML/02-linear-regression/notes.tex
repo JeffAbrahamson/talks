@@ -95,6 +95,29 @@
 \item Fortunately, there are libraries to do this!
 \end{enumerate}
 
-\fbox{Code lab} : We already did it!  Diabetes example.
+\fbox{Codelab} : We already did it!  Diabetes example.
+
+\textbf{Other notes}
+\begin{itemize}
+\item Overfitting
+\item Regularization (ridge regression, Tikhanov regularization): $-\lambda\sum \mbox{params}$
+\item Polynomial regression
+\item Gradient descent variants
+  \begin{itemize}
+  \item Batch gradient descent (all samples)
+  \item Stochastic gradient descent (single sample each iteration) (faster for very large sets)
+  \item Coordinate gradient descent (one component each iteration)
+  \item Note computational approximation if no derivative (and curse of dimensionality)
+  \end{itemize}
+\item When gradient descent doesn't work,
+  \begin{itemize}
+  \item plot the cost function over iterations
+  \item if cost increasing or oscillating, reduce $\alpha$
+  \item if leveled off, not much future gain
+  \end{itemize}
+
+\item Pandas \fbox{Codelab}
+\end{itemize}
+
 
 \end{document}

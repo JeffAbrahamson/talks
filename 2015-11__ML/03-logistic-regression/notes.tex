@@ -2,6 +2,57 @@
 
 \begin{document}
 
-\notetitle{02}{Linear Regression}
+\notetitle{03}{Logistic Regression}
+
+\fbox{linear vs logistic ($\times 2$)}
+\begin{itemize}
+\item $y$ is discrete: classification
+\item Examples:
+  \begin{itemize}
+  \item spam/non-spam
+  \item transaction: fraud or legitimate
+  \item tumor: malignant or benign
+  \end{itemize}
+\item So 0 or 1
+\item Problems with linear regression here (picture)
+\item \fbox{sigmoid ($\times 2$)}
+\end{itemize}
+
+\fbox{Non-linear decision boundaries ($\times 2$)}
+\begin{itemize}
+\item Still just use gradient descent
+\item This is why we like things to be differentiable
+\item Multinomial (multi-class) classification
+  \begin{itemize}
+  \item one vs all (OvO, OvR) (draw picture, get three classifiers)
+    \begin{itemize}
+    \item At decision time, try $k-1$ classifiers, choose the one with
+      the most $+1$ votes (highest probability)
+    \item Problem: learners see more negatives than positives
+    \item Problem: different confidence for difference decision boundaries
+    \end{itemize}
+  \item one vs one (OvO) (draw picture, get three classifiers)
+    \begin{itemize}
+    \item At decision time, try $k(k-1)/2$ classifiers, choose the one with
+      the most $+1$ votes (highest probability)
+    \end{itemize}
+
+  \end{itemize}
+
+\end{itemize}
+
+\fbox{Cost function ($\times 7$)}
+\begin{itemize}
+\item This is not convex
+\item So potentially many local minima
+\item \fbox{Plot cost} and explain what it means for $y\in\{0,1\}$.
+\item Note that our convex cost function
+  \begin{itemize}
+  \item is differentiable
+  \item can be derived from statistics using the principles of maximum
+    likelihood estimation.
+  \end{itemize}
+\end{itemize}
+
 
 \end{document}
