@@ -1,0 +1,7 @@
+ipython
+notebook
+numpy
+scipy
+scikit-learn
+matplotlib
+# pyopencv
