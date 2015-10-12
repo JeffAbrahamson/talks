@@ -1,0 +1,21 @@
+01 probability code lab:
+
+- (show) Plot data against normal
+- (show) Make quantile-quantile plt
+- (exer) Take a skewed sample, then construct sampling distribution, show that it's normal
+
+- http://www.datarobot.com/blog/classification-with-scikit-learn/
+
+- Pandas code lab --- cf p. 40ff in MMLwSL
+
+- Cross validation (with code lab)
+
+- MMLwSL ch 3 on features
+
+
+03 logistic codelab
+
+- (show) logistic example
+- (exer) plot sigmoid
+
+- fix red-blue example with decision boundary
