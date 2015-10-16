@@ -13,9 +13,16 @@
 - MMLwSL ch 3 on features
 
 
-03 logistic codelab
+03 features
+
+NLTK / stemmer
+
+
+04 logistic codelab
 
 - (show) logistic example
 - (exer) plot sigmoid
 
 - fix red-blue example with decision boundary
+
+

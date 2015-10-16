@@ -1,0 +1,40 @@
+\input ../notes-header.tex
+
+\begin{document}
+
+\notetitle{03}{Feature Extraction}
+
+Categorical variables
+\begin{itemize}
+\item \textit{One of $K$ } or \textit{one-hot} encoding --- one binary feature per possible value
+\item The importance of not encoding order where none exists
+\item Text as explanatory variable $\implies$ encode as feature vectors
+\item \fbox{Bag of words}
+  \begin{itemize}
+  \item Corpus (collection of documents)
+  \item Vocabulary (set of unique words in document)
+  \item Words = dimensions
+  \item Order of words doesn't matter
+  \item Order in vectors encodes words
+  \item Binary: present or not
+  \item \fbox{\tt CountVectorizer}, by default:
+    \begin{itemize}
+    \item converts to lowercase
+    \item tokens
+    \item stop words (mot vide) --- words in most documents don't convey much information
+    \item stemming --- rule-based, drop suffixes\\
+      (racinisation ou désuffixation : transformer des flexions en leur radical or racine)
+    \item lemmatization -- find root form of word\\
+      (lemmatisation : transformer en lemme (forme canonique))
+    \end{itemize}
+  \end{itemize}
+\item \fbox{TF - IDF}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+
+
+\item 
+\end{itemize}
+
+\end{document}
