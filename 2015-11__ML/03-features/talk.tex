@@ -34,7 +34,25 @@
 
 \begin{frame}
   \frametitle{TF - IDF}
+  \blue{
+    \begin{displaymath}
+      TF_{td} = \frac{f_{td}}{\max_k f_{kd}} \qquad\qquad
+      IDF_t = \log_2\left( \frac{N}{n_t} \right)
+    \end{displaymath}
+  }
+  \blue{
+    \begin{displaymath}
+      TF\mbox{-}IDF_{td} = TF_{td} \cdot IDF_t
+    \end{displaymath}
+  }
   
+  with
+  \begin{align*}
+    f_{td} &= \mbox{frequency of word (term) $t$ in document $d$} \\
+    N &= \mbox{number of documents}\\
+    n_t &= \mbox{number of documents containing term $t$}
+  \end{align*}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
