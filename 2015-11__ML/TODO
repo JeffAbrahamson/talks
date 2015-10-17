@@ -1,3 +1,6 @@
+All workbooks: execute fresh to make sure they work (Cell -> Run All)
+
+
 01 probability code lab:
 
 - (show) Plot data against normal
@@ -16,6 +19,8 @@
 03 features
 
 NLTK / stemmer
+
+Talk about pipelines in sklearn
 
 
 04 logistic codelab

@@ -55,9 +55,51 @@ Categorical variables
     \end{itemize}
   \end{itemize}
 
-
-
-\item 
+OCR
+\begin{itemize}
+\item sklearn.digits
+  \begin{itemize}
+  \item over 1700 hand-written digits (0--9)
+  \item $8\times 8$ four bit pixels
+  \item white is most intense and represented by 0
+  \item black is least intense and represented by 16
+  \end{itemize}
+\item Feature vectors
+  \begin{itemize}
+  \item In general, matrices not sparse
+  \item $100\times 100 \implies 1e4$
+  \item $1920\times 1080 \implies 2e6$
+  \item Problems: space, time
+  \item More problems: sensitive to position, rotation, scale
+  \item Even more problems: sensitive to illumination
+  \item We'll come back to this with SVM (machine à vecteurs de support)\dots
+  \end{itemize}
+\item Corners and edges
+  \begin{itemize}
+  \item Basic computer vision techniques
+  \item Define: feature extraction
+  \item Define: feature engineering
+  \item Compression
+  \item Point matching
+  \item Edge detectors are mostly rotation invariant
+  \item So therefore corner detectors are, too
+  \item But scaling can hide corners
+  \end{itemize}
+\item SIFT
+  \begin{itemize}
+  \item Uses scale-space
+  \item Approximates Laplacian of Guassian with Difference of Gaussian for finding scale space
+  \item Maybe a bit slower than we'd like
+  \end{itemize}
+\item SURF
+  \begin{itemize}
+  \item Speeds up SIFT
+  \item Approximates Laplacian of Gaussian wth Box Filter for finding scale space
+  \item \textbf{Example}
+  \item Standardized dataset: zero mean, unit variance (why?)
+  \item $(x-\mu)/\sigma$
+  \end{itemize}
+\end{itemize}
 \end{itemize}
 
 \end{document}
