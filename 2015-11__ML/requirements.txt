@@ -3,5 +3,6 @@ notebook
 numpy
 scipy
 scikit-learn
+scikit-image
 matplotlib
-# pyopencv
+mahotas

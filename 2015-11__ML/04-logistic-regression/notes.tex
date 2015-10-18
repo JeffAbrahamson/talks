@@ -2,7 +2,7 @@
 
 \begin{document}
 
-\notetitle{03}{Logistic Regression}
+\notetitle{04}{Logistic Regression}
 
 \fbox{linear vs logistic ($\times 2$)}
 \begin{itemize}
@@ -20,7 +20,7 @@
 
 \fbox{Non-linear decision boundaries ($\times 2$)}
 \begin{itemize}
-\item Still just use gradient descent
+\item Still just use gradient descent \textit{(algorithme du gradient) (de la plus forte pente) (de la plus profonde descente) (hill climbing)}
 \item This is why we like things to be differentiable
 \item Multinomial (multi-class) classification
   \begin{itemize}
@@ -50,9 +50,44 @@
   \begin{itemize}
   \item is differentiable
   \item can be derived from statistics using the principles of maximum
-    likelihood estimation.
+    likelihood estimation (maximum de vraisemblance)
   \end{itemize}
 \end{itemize}
 
+\textbf{Exercises}
+
+Error types
+\begin{itemize}
+\item Null hypothesis \textit{(hypothèse nulle)}
+\item True/false positive/negative
+\item Type I error = incorrect rejection of null hypothesis (roughly, false positives)
+\item Type II error = failure to reject null hypothesis (roughly, false negatives)
+\item 100\% sensitivity = no false negatives
+\item 100\% specificity = no false positives
+\end{itemize}
+
+
+Performance metrics
+\begin{itemize}
+\item Accuracy
+\item Precision
+\item Recall
+\item F1 measure
+\item ROC (receiver operating characteristics = fonction d’efficacité
+  du récepteur, courbe ROC) AUC (area under curve = l'aire sous la courbe)
+\item Inventé pendant la WWII pour montrer la séparation entre les
+  signaux radar et le bruit de fond.
+\item Confusion matrix \textit{(matrice de confusion)} or contingency
+  table, error matrix. Rows are classes, columns are predicted classes.
+\end{itemize}
+
+ROC
+\begin{itemize}
+\item x-axis is FPR, y-axis is TPR
+\item Plots cdf of TPR against cdf of FPR
+\item Really, plotting both against some classifier parameter
+\item Random guessing gives point on diagonal line.  Coin flipping evolves towards $(.5, .5)$.
+\item Want: just an upper left point
+\end{itemize}
 
 \end{document}
