@@ -33,4 +33,7 @@ Talk about pipelines in sklearn
 
 - fix red-blue example with decision boundary
 
+- possibly add (cf. p.80)
+  - F1 measure
+  - grid search
 
