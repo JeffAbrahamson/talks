@@ -1,0 +1,70 @@
+\input ../notes-header.tex
+
+\begin{document}
+
+\notetitle{08}{PCA}
+
+L'analyse en composantes principales (ACP)
+
+Also known as\dots
+\begin{itemize}
+\item Discrete Kosambi-Karhunen–Loève transform (KLT) (signal processing)
+\item Hotelling transform (multivariate quality control)
+\item Proper orthogonal decomposition (POD) (ME)
+\item Singular value decomposition (SVD), Eigenvalue decomposition (EVD) (linear algebra)
+\item Etc.
+\end{itemize}
+
+Uses
+\begin{itemize}
+\item Exploratory data analysis
+\item Compression
+\end{itemize}
+
+Think of it as fitting an $n$-dimensional ellipsoid to the data.
+\begin{itemize}
+\item Each access is a principle component
+\item Think about linear transformations as mapping basis vectors
+\end{itemize}
+
+Eigenfaces
+\begin{itemize}
+\item Sirovich and Kirby (1987)
+\begin{itemize}
+\item searching for low-dimensional representation of face images
+\item PCA to get set of basis vectors (eigenpictures)
+\end{itemize}
+\item Turk and Pentland (1991)
+\begin{itemize}
+\item Actually worked on computers of the time
+\item PCA on face space was too expensive
+\item So compute eigenvectors of a covariance matrix instead
+\item Matrices sized by the number of images rather than number of pixels
+\end{itemize}
+\item Each component represents some abstract features
+\item Also used in
+\begin{itemize}
+\item handwriting recognition
+\item lip reading
+\item voice recognition
+\item sign language/gesture interpretation
+\item medical image analysis
+\end{itemize}
+\item Advantages
+\begin{itemize}
+\item Easy, relatively inexpensive
+\item Preprocessing more expensive than recognition
+\item A reasonably large database is possible
+\end{itemize}
+\item Disadvantages
+\begin{itemize}
+\item Sensitive to lighting, scale, translation; requires controlled environment
+\item Sensitive to expression changes
+\item The most significant eigenfaces (basis vectors) encore more about lighting than about the faces
+\item Head-on view
+\end{itemize}
+\end{itemize}
+
+
+
+\end{document}
