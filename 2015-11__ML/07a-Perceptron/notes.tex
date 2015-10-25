@@ -1,0 +1,38 @@
+\input ../notes-header.tex
+
+\begin{document}
+
+\notetitle{07a}{Perception}
+
+Controversy
+\begin{itemize}
+\item Led to AI stagnating, though not immediately nor only because of this
+\item Minsky and Papert book showed impossible to learn XOR
+\item Often believed (incorrectly) that they claimed same result for multi-layer perceptron
+\item ANN research resurgence in the 1980's
+\end{itemize}
+
+Algorithm
+\begin{itemize}
+\item Talk about binary classifier
+\item Talk about bias term meaning
+\item Talk about weights meaning
+\item Talk about decision boundary
+  \vspace{2mm}
+\item Algorithm doesn't terminate if not linearly separable
+\item Perceptron is the simplest instance of a feedforward neural network
+  \vspace{2mm}
+\item Initialize weights randomly (or to zero)
+\item For each input, compute output
+\item Update weights by adding $\alpha$ if correct
+\end{itemize}
+
+Convergence
+\begin{itemize}
+\item If not linearly separable, don't even get an approximate solution
+\item If linearly separable, then upper bound on number of times weights updated
+\item Solution quality not guaranteed
+\item ``Perceptron of optimal stability'' now known as SVM
+\end{itemize}
+
+\end{document}
