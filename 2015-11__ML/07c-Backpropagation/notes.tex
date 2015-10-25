@@ -1,0 +1,32 @@
+\input ../notes-header.tex
+
+\begin{document}
+
+\notetitle{07c}{Backpropagation}
+
+
+Rétropropagation du gradient
+
+Chain rule:
+\begin{itemize}
+\item théorème de dérivation des fonctions composées
+\item règle de dérivation en chaîne
+\item règle de la chaîne
+\end{itemize}
+
+Problem
+\begin{itemize}
+\item We know we can make non-linear decision boundaries with deep networks
+\item Different features at different levels
+\end{itemize}
+
+Algorithm
+\begin{itemize}
+\item Consider 1, 2, then $n$ neurons.  Note that it's an optimisation problem.
+\item Naive (what everyone thinks of first): hill climbing feed-forward.
+\item Solution: hill climbing with errors going backwards
+\item Explain about black boxing successive layers and computing previous hidden layers
+\item Note that we don't compute node values, only weights!
+\end{itemize}
+
+\end{document}
