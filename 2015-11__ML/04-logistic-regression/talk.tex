@@ -151,6 +151,18 @@
 \end{frame}
 
 \begin{frame}
+  \only<1>{\phrase{null hypothesis}}
+  \only<2>{\phrase{true positive, true negative}
+    \vspace{1cm}
+    \phrase{false positive, false negative}}
+  \only<3>{\phrase{type I error}
+    \vspace{1cm}
+    \phrase{type II error}}
+  \only<4>{\phrase{sensitivity}}
+  \only<5>{\phrase{specificity}}
+\end{frame}
+
+\begin{frame}
   \frametitle{Precision}
   \begin{mphrase}
     P = \frac{TP}{TP + FP}
@@ -161,6 +173,13 @@
   \frametitle{Recall}
   \begin{mphrase}
     R = \frac{TP}{TP + FN}
+  \end{mphrase}
+\end{frame}
+
+\begin{frame}
+  \frametitle{F1 score}
+  \begin{mphrase}
+    F1 = \frac{\text{precision}\cdot\text{recall}}{\text{precision} + \text{recall}}
   \end{mphrase}
 \end{frame}
 

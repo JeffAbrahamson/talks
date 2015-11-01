@@ -30,3 +30,6 @@ plt.scatter(25, pizza_model.predict(25), color='red')
 plt.plot(Diametre, pizza_model.predict(Diametre), color='blue')
 plt.show()
 
+a = pizza_model.intercept_[0]
+b = pizza.coef_[0][0]
+[a + b * x[0] for x in Diametre]

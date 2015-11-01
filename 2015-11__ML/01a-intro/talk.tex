@@ -1,7 +1,7 @@
 \input ../talk-header.tex
 \title
 {ML Week}
-\subtitle{0x01 \hspace{2mm}  Introduction}
+\subtitle{0x01a \hspace{2mm}  Introduction}
 
 % If you wish to uncover everything in a step-wise fashion, uncomment
 % the following command: 
@@ -72,26 +72,25 @@
   \end{mphrase}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{What is Statistics}
   
   \begin{enumerate}
-  \item<1-> Identify a question or problem.
-  \item<1-> Collect relevant data on the topic.
-  \item<1-> Analyze the data.
-  \item<1-> Form a conclusion.
+  \item<1-3> Identify a question or problem.
+  \item<1-3> Collect relevant data on the topic.
+  \item<1-3> Analyze the data.
+  \item<1-3> Form a conclusion.
   \end{enumerate}
   \only<2>{Sadly, sometimes people forget 1.}
-  \only<3->{Statistics is about making 2--4 efficient, rigorous, and meaningful.}
-  \only<3->{\vfill\prevwork{\textit{OpenIntro Statistics},
+  \only<3>{Statistics is about making 2--4 efficient, rigorous, and meaningful.}
+  \only<3>{\vfill\prevwork{\textit{OpenIntro Statistics},
       2nd edition, D.~Diez, C.~Barr, M.~Çetinkaya-Rundel, 2013.}}
-
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{What is data science?}
 
-  (Exercise: Is this the same question as the last slide?)
+  \only<1-4>{(Exercise: Is this the same question as the last slide?)}
 
   \only<1>{
     \begin{enumerate}
@@ -104,7 +103,6 @@
     \item Make your analysis reproducible
     \end{enumerate}
   }
-
   \only<2>{
     \begin{enumerate}
     \item Define the question of interest
@@ -118,7 +116,6 @@
 
     \blue{What the public thinks.}
   }
-
   \only<3>{
     \begin{enumerate}
     \item Define the question of interest
@@ -132,7 +129,6 @@
 
     \blue{Where we spend most of our time.}
   }
-
   \only<4>{
     \begin{enumerate}
     \item \purple{Define the question of interest}
@@ -146,8 +142,9 @@
 
     \blue{The easiest part to forget.}
   }
-
   \only<5>{\vfill\prevwork{\url{http://simplystatistics.org/2015/03/17/data-science-done-well-looks-easy-and-that-is-a-big-problem-for-data-scientists/}}}
+
+  \only<6>{\vfill\cimgg{model-in-one-day.jpg}\vfill}
 \end{frame}
 
 \begin{frame}
@@ -318,7 +315,7 @@
 \end{frame}
 
 \begin{frame}
-  \cimgh{boxplot-vs-pdf.png}
+  \cimghh{boxplot-vs-pdf.png}
 \end{frame}
 
 \begin{frame}
