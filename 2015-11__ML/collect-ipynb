@@ -1,0 +1,10 @@
+#!/bin/bash
+
+notebook_dir=/tmp/ml-week-ipynb
+if [ ! -d $notebook_dir ]; then
+    mkdir $notebook_dir;
+fi
+for f in $(find . -name '*ipynb' | grep -v venv | grep -v .ipynb_checkpoints); do
+    cp $f $notebook_dir/$(dirname $f)_$(basename $f)
+done
+cp 01b-pandas/*csv $notebook_dir/
