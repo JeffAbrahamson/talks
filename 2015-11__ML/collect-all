@@ -4,7 +4,8 @@ notebook_dir=/tmp/ml-week
 if [ ! -d $notebook_dir ]; then
     mkdir $notebook_dir;
 fi
-for f in $(find . -name '*ipynb' | grep -v venv | grep -v .ipynb_checkpoints); do
+for f in $(find . -name talk.pdf); do
     cp $f $notebook_dir/$(dirname $f)_$(basename $f)
 done
-cp 01b-pandas/*csv $notebook_dir/
+
+./collect-ipynb
