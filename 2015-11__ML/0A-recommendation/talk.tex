@@ -107,7 +107,8 @@
 
 \begin{frame}[t]
   \frametitle{Content-based filtering}
-  \textit{\purple{More things similar to what I like}}
+  \textit{\purple{More things similar to what I like}}\\
+  \textit{\red{Plus de ce qui ressemle à ce que j'aime}}
 
   Pro
   \begin{itemize}
@@ -126,7 +127,8 @@
 
 \begin{frame}[t]
   \frametitle{Collaborative filtering}
-  \textit{\purple{More of what other people who like what I like like}}
+  \textit{\purple{More of what other people who like what I like like}}\\
+  \textit{\red{Plus de ce que d'autres qui aiment ce que j'aime aiment}}
 
   Pro
   \begin{itemize}
@@ -146,7 +148,8 @@
 
 \begin{frame}[t]
   \frametitle{Knowledge-based filtering}
-  \textit{\purple{More of what I need}}
+  \textit{\purple{More of what I need}}\\
+  \textit{\red{Plus de ce qu'il faut}}
 
   Pro
   \begin{itemize}
@@ -321,7 +324,7 @@
   }
 
   \only<4>{
-    \blue{We only consider non-empty components.}
+    \gray{We only consider non-empty components in the vector.}
   }
 \end{frame}
 
@@ -392,7 +395,9 @@
     \end{tabular}}
 
   \vspace{1cm}
-  \centerline{More things similar to what I like}
+  \centerline{\purple{More things similar to what I like}}
+  
+  \centerline{\textit{\red{Plus de ce qui ressemle à ce que j'aime}}}
 
   \only<2>{
     \vspace{1cm} \gray{Then, we can cluster (\textit{regroupement},
@@ -431,7 +436,9 @@
     \end{tabular}}
 
   \vspace{1cm}
-  \centerline{More of what other people who like what I like like}
+  \centerline{\purple{More of what other people who like what I like like}}
+
+  \centerline{\textit{\red{Plus de ce que d'autres qui aiment ce que j'aime aiment}}}
 \end{frame}
 
 \begin{frame}
@@ -773,6 +780,13 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}
+  \frametitle{The Codelab that Isn't}
+
+  \phrase{crab is a candidate for inclusion in scikit-learn}
+
+  \prevwork{\url{https://muricoca.github.io/crab/index.html}}
+\end{frame}
 
 % ======================================================================
 % End

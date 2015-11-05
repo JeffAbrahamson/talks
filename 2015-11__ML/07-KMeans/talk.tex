@@ -14,6 +14,29 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{The Problem}
+  Have points $d = \{d_1, \dotsc, d_n\}$.
+
+  Have number of clusters $k$.
+
+  \vspace{5mm}
+  \textbf{Want:} an assignment of points to clusters
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Algorithm}
+  \begin{enumerate}
+  \item Assign points to clusters at random
+  \item Repeat until stable:
+  \begin{enumerate}
+  \item Compute centroids of each cluster
+  \item Assign points to nearest centroid
+  \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
   \frametitle{Cost function}
   \begin{mphrase}
     \textrm{cost} = \sum_i \sum_j \left| x_j - \mu_i \right|
