@@ -70,22 +70,73 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{C'est top !}
+  \frametitle{Services monolithiques}
 
-  ``0MQ is unbelievably cool---if you haven't got a project that needs it, \red{make one up}''
+  Ce qui est bon :
+  \begin{itemize}
+  \item Parfois mieux intégrer, donc plus vite
+  \item Souvent facile à déployer
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Services monolithiques}
+
+  Ce qui est moins bon :
+  \begin{itemize}
+  \item Couplage étroit
+  \item Passer à l'échelle souvent difficile
+  \item Échec == échec total
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Microservices}
+
+  Ce qui est bon :
+  \begin{itemize}
+  \item Compréhensible, facile à développer (par service)
+  \item Déploiement indépendant
+  \item Passer à l'échelle
+  \item Fiabilité (en principe)
+  \item Diversité technologique
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Microservices}
+
+  Ce qui est moins bon :
+  \begin{itemize}
+  \item Plus de devops
+  \item Parfois plus lent
+  \item Une complexité différente
+  \item Eventual consistency
+  \item Distribution
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{ØMQ --- C'est top !}
+
+  ``ØMQ is unbelievably cool---if you haven't got a project that needs it, \red{make one up}''
 
   Jon Gifford
 \end{frame}
 
 \begin{frame}
-  \frametitle{How It Began}
+  \frametitle{Le début}
 
   We took a normal TCP socket, injected it with a mix of radioactive
   isotopes stolen from a secret Soviet atomic research project,
   bombarded it with 1950-era cosmic rays, and put it into the hands of a
   drug-addled comic book author with a badly-disguised fetish for
   bulging muscles clad in spandex. Yes, ZeroMQ sockets are the
-  world-saving superheroes of the networking bord.
+  world-saving superheroes of the networking world.
 \end{frame}
 
 \begin{frame}
