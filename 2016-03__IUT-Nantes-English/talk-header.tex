@@ -1,0 +1,31 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{default}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{footline}[frame number]
+  \setbeamertemplate{items}[circle]
+  \usecolortheme{seahorse}
+}
+
+\author[Abrahamson] {Jeff Abrahamson}
+\date{2 March 2016}
+%\setbeamertemplate{footline}[text line]{%
+%  \parbox{\linewidth}{\vspace*{-8pt}some text\hfill\insertshortauthor\hfill\insertpagenumber}}
+\setbeamertemplate{footline}[text line]{%
+  \parbox{0.8\linewidth}{
+    %\vspace*{-8pt}\insertshorttitle~(\insertshortauthor)
+    \vspace*{-8pt}Copyright 2016 Jeff Abrahamson, for private use by course students only
+  }
+  \hfill%
+  \parbox{0.15\linewidth}{
+    \vspace*{-8pt}\raggedleft\insertpagenumber
+  }
+}
+
+\newcommand\cnote[1]{}
+
+\parskip=8 pt
+
+\input macros.tex
