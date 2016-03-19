@@ -1,0 +1,27 @@
+#!/bin/bash
+
+PATH=/usr/bin:/bin
+renice -n 19 $$
+
+rp_pid=$(pidof ratpoison)
+task_file=
+while true; do
+    ## When ratpoison exits, this script should quit as well.  But
+    ## ratpoison's exec seems to do a nice job of leaving us as a
+    ## daemon.  So watch for ratpoison exit and quit when no longer
+    ## needed.
+    if [ ! -e /proc/$rp_pid ]; then
+	exit 0
+    fi
+    if xscreensaver-command -time | grep -q locked; then
+	# If I go away, then start a new task file.
+	task_file=
+    else
+	if [ "X$task_file" = X ]; then
+	    task_file=$HOME/data/gtd/$(hostname)__$(date +%F_%H%M%S)
+	fi
+	task=$(ratpoison -c 'windows %s%t' | egrep '^\*' | perl -pwe 's/^\*//; s/ /_/g;')
+	echo $(date +%s) $task >> $task_file
+    fi
+    sleep 60
+done

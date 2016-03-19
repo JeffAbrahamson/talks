@@ -1,0 +1,250 @@
+\input talk-header.tex
+\usepackage{centernot}
+\usepackage[]{algorithm2e}
+
+\title
+{Mais qu'est-ce que je fous?}
+\subtitle{comment glander et apprendre les maths en même temps}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\talksection{Break}
+
+\begin{frame}
+  \cimg{mass.png}
+\end{frame}
+
+\begin{frame}
+  \phrase{Le problème}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Le code}
+  Avant j'utilisais ratpoison :
+  \vspace{1cm}
+  \lstinputlisting[language=bash, firstline=23, lastline=24]{ratpoison-gtd}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Le code}
+  Maintenant j'utilise i3 :
+  \vspace{1cm}
+  \lstinputlisting[language=bash, firstline=38, lastline=40]{i3-gtd}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Les données}
+  Et ça donne :
+  \vspace{1cm}
+  \begin{Verbatim}[fontsize=\tiny]
+1458399349 emacs@starshine - talk-header.tex : /home/jeff/src/jma/talks/2016-03__breizhcamp-que-je-fous/talk-header.tex
+1458399409 emacs@starshine - talk.tex : /home/jeff/src/jma/talks/2016-03__breizhcamp-que-je-fous/talk.tex
+1458399469 listings - How to put C++ source code into beamer slides - TeX - LaTeX Stack Exchange - Mozilla Firefox
+1458399529 emacs@starshine - talk.tex : /home/jeff/src/jma/talks/2016-03__breizhcamp-que-je-fous/talk.tex
+1458399589 talk.pdf — Mais qu'est-ce que je fous? - comment glander et apprendre les maths en même temps
+1458399649 emacs@starshine - talk.tex : /home/jeff/src/jma/talks/2016-03__breizhcamp-que-je-fous/talk.tex
+1458399709 emacs@starshine - talk.tex : /home/jeff/src/jma/talks/2016-03__breizhcamp-que-je-fous/talk.tex
+1458399769 emacs@starshine - macros.tex : /home/jeff/src/jma/talks/2016-03__breizhcamp-que-je-fous/macros.tex
+1458399829 emacs@starshine - talk.tex : /home/jeff/src/jma/talks/2016-03__breizhcamp-que-je-fous/talk.tex
+1458399890 emacs@starshine - talk.tex : /home/jeff/src/jma/talks/2016-03__breizhcamp-que-je-fous/talk.tex
+1458399950 talk.pdf — Mais qu'est-ce que je fous? - comment glander et apprendre les maths en même temps
+1458400010 jeff@starshine:~/src/jma/talks/2016-03__breizhcamp-que-je-fous
+\end{Verbatim}
+\end{frame}
+
+\begin{frame}
+  \phrase{Quelles questions puis-je poser?}
+\end{frame}
+
+\begin{frame}
+  \phrase{Machine Learning}
+\end{frame}
+
+\begin{frame}
+  \phrase{Data Science}
+\end{frame}
+
+\begin{frame}
+  \phrase{Statistics}
+\end{frame}
+
+\begin{frame}
+  \cimgggg{boxplot-vs-pdf.png}
+\end{frame}
+
+\begin{frame}
+  \cimg{maths.jpg}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Maths}
+  \phrase{Vector Space}
+  \vspace{7mm}
+  \phrase{Features}
+  \vspace{7mm}
+  \phrase{Feature engineering}
+\end{frame}
+
+\begin{frame}
+  Date-time plot
+\end{frame}
+
+\begin{frame}
+  Pauses
+\end{frame}
+
+\begin{frame}
+  pause plot here
+  % And talk about discovering long tea breaks
+\end{frame}
+
+\begin{frame}
+  plot here: longest pause under 30/60/90 min by day
+  
+  same, but not if spans 12:30
+  % Note that I'm not measuring what I do on a tablets
+\end{frame}
+
+\begin{frame}
+  plot: minutes on facebook, on twitter
+  % Comment about what that maybe says about the companies
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bag of Words}
+  \phrase{sac de mots}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Bag of Words}
+  \vspace{1cm}
+  Exemple :
+
+  \begin{quote}
+    Il est nuit. La cabane est pauvre, mais bien close.\\
+    Le logis est plein d'ombre et l'on sent quelque chose\\
+    Qui rayonne à travers ce crépuscule obscur.\\
+    Des filets de pêcheur sont accrochés au mur.\\
+    Au fond, dans l'encoignure où quelque humble vaisselle\\
+    Aux planches d'un bahut vaguement étincelle,\\
+    On distingue un grand lit aux longs rideaux tombants.\\
+    Tout près, un matelas s'étend sur de vieux bancs,\\
+    Et cinq petits enfants, nid d'âmes, y sommeillent\\
+    La haute cheminée où quelques flammes veillent\\
+    Rougit le plafond sombre, et, le front sur le lit,\\
+    Une femme à genoux prie, et songe, et pâlit.\\
+    C'est la mère. Elle est seule. Et dehors, blanc d'écume,\\
+    Au ciel, aux vents, aux rocs, à la nuit, à la brume,\\
+    Le sinistre océan jette son noir sanglot.
+  \end{quote}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Bag of Words}
+  \vspace{1cm}
+  Exemple (plus simple) :
+
+  \begin{quote}
+    Il est nuit. La cabane est pauvre, mais bien close.\\
+    Le logis est plein d'ombre et l'on sent quelque chose\\
+  \end{quote}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Bag of Words}
+  \vspace{1cm}
+  Exemple (plus simple) :
+
+  \begin{quote}
+    Il est nuit. La cabane est pauvre, mais bien close.\\
+    Le logis est plein d'ombre et l'on sent quelque chose\\
+  \end{quote}
+
+  [and here the vectors, showing basis]
+\end{frame}
+
+\begin{frame}
+  Phrase from corpus with top 10 matches
+\end{frame}
+
+\begin{frame}
+  Same phrase from corpus with top 90--100 matches
+\end{frame}
+
+\begin{frame}
+  Same phrase using TfIdf
+\end{frame}
+
+\begin{frame}
+  Same phrase using TfIdf, showing 90--100 matches
+\end{frame}
+
+\begin{frame}
+  \frametitle{TF - IDF}
+  \blue{
+    \begin{displaymath}
+      TF_{td} = \frac{f_{td}}{\max_k f_{kd}} \qquad\qquad
+      IDF_t = \log_2\left( \frac{N}{n_t} \right)
+    \end{displaymath}
+  }
+  \blue{
+    \begin{displaymath}
+      TF\mbox{-}IDF_{td} = TF_{td} \cdot IDF_t
+    \end{displaymath}
+  }
+
+  with
+  \begin{align*}
+    f_{td} &= \mbox{frequency of word (term) $t$ in document $d$} \\
+    N &= \mbox{number of documents}\\
+    n_t &= \mbox{number of documents containing term $t$}
+  \end{align*}
+\end{frame}
+
+\begin{frame}
+  \phrase{$k$-means}
+\end{frame}
+
+\begin{frame}
+  \cimgggg{cluster-1.png}
+\end{frame}
+
+\begin{frame}
+  \cimg{cluster-2.png}
+\end{frame}
+
+\begin{frame}
+  \cimg{cluster-3.png}
+\end{frame}
+
+\begin{frame}
+  \cimgg{cluster-4.png}
+\end{frame}
+
+\begin{frame}
+  Visualize date-time with clusters
+\end{frame}
+
+\begin{frame}
+  $n$-grams
+\end{frame}
+
+\begin{frame}
+  Integer programming
+\end{frame}
+
+
+
+% ======================================================================
+% End
+
+\begin{frame}
+  \phrase{Questions?}
+\end{frame}
+
+\end{document}
