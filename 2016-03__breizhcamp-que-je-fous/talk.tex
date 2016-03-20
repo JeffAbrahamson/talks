@@ -174,7 +174,16 @@
     Le logis est plein d'ombre et l'on sent quelque chose\\
   \end{quote}
 
-  [and here the vectors, showing basis]
+  \only<2>{
+    % vectorizer = CountVectorizer(analyzer='word')
+    % ft = vectorizer.fit_transform(pauvres_gens)
+    % # vectorizer.inverse_transform(ft)
+    % ft.todense()
+
+    \vspace{1cm}
+    \hspace{2cm}\texttt{[1, 1, 0, 1, 2, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0]}\\[2mm]
+    \hspace{2cm}\texttt{[0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1]}
+  }
 \end{frame}
 
 \begin{frame}
