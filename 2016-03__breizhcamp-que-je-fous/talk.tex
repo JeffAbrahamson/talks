@@ -156,33 +156,61 @@
 \begin{frame}[t]
   \frametitle{Bag of Words}
   \vspace{1cm}
-  Exemple (plus simple) :
-
-  \begin{quote}
-    Il est nuit. La cabane est pauvre, mais bien close.\\
-    Le logis est plein d'ombre et l'on sent quelque chose\\
-  \end{quote}
-\end{frame}
-
-\begin{frame}[t]
-  \frametitle{Bag of Words}
-  \vspace{1cm}
-  Exemple (plus simple) :
-
-  \begin{quote}
-    Il est nuit. La cabane est pauvre, mais bien close.\\
-    Le logis est plein d'ombre et l'on sent quelque chose\\
-  \end{quote}
-
+  \only<1-2>{
+    Exemple (plus simple) :
+    
+    \begin{quote}
+      Il est nuit. La cabane est pauvre, mais bien close.\\
+      Le logis est plein d'ombre et l'on sent quelque chose\\
+    \end{quote}
+  }
   \only<2>{
-    % vectorizer = CountVectorizer(analyzer='word')
-    % ft = vectorizer.fit_transform(pauvres_gens)
-    % # vectorizer.inverse_transform(ft)
-    % ft.todense()
+    \lstinputlisting[language=python]{src/pauvres_gens1.py}
+  }
+  \only<3>{
+    \lstinputlisting[language=python, firstline=7]{src/pauvres_gens2.py}
+  }
+  \only<4>{
+   Pluie ou bourrasque, il faut qu'il sorte, il faut qu'il aille,\\
+   Il n'avait pas assez de peine ; il faut que j'aille\\[5mm]
 
-    \vspace{1cm}
-    \hspace{2cm}\texttt{[1, 1, 0, 1, 2, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0]}\\[2mm]
-    \hspace{2cm}\texttt{[0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1]}
+   Pluie ou bourrasque, il faut qu'il sorte, il faut qu'il aille,\\
+   Quand il verra qu'il faut nourrir avec les nôtres\\[5mm]
+
+   l s'en va dans l'abîme et s'en va dans la nuit.\\
+   Or, la nuit, dans l'ondée et la brume, en décembre,\\[5mm]
+
+   Comme il faut calculer la marée et le vent !\\
+   Et l'onde et la marée et le vent en colère.\\[5mm]
+
+   C'est l'heure où, gai danseur, minuit rit et folâtre\\
+   Et c'est l'heure où minuit, brigand mystérieux,\\[5mm]
+
+   Sous sa cape aux longs plis qu'est-ce donc qu'elle emporte ?\\
+   Qu'est-ce donc qu'elle cache avec un air troublé
+  }
+  \only<5>{
+    \lstinputlisting[language=python, firstline=7]{src/pauvres_gens3.py}
+  }
+  \only<6>{
+    \texttt{'Comme il faut calculer la marée et le vent !'}\\[10mm]
+
+    \texttt{ ['comme', 'il', 'faut', 'calculer', 'la', 'marée', 'et',
+        'le', 'vent', 'comme il', 'il faut', 'faut calculer',
+        'calculer la', 'la marée', 'marée et', 'et le', 'le vent']}
+    }
+  \only<7>{
+   Pluie ou bourrasque, il faut qu'il sorte, il faut qu'il aille,\\
+   Quand il verra qu'il faut nourrir avec les nôtres\\[5mm]
+
+   Comme il faut calculer la marée et le vent !\\
+   Et l'onde et la marée et le vent en colère.\\[5mm]
+
+   Qu'est-ce donc que Jeannie a fait chez cette morte ?\\
+   Qu'est-ce donc que Jeannie emporte en s'en allant ?\\[5mm]
+
+   Sous sa cape aux longs plis qu'est-ce donc qu'elle emporte ?\\
+   Qu'est-ce donc qu'elle cache avec un air troublé
   }
 \end{frame}
 
