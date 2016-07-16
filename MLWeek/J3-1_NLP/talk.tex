@@ -1,0 +1,192 @@
+\input ../talk-header.tex
+\title
+{ML Week}
+\subtitle{Natural Language Processing}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Linear Programming}
+
+    \begin{align*}
+      \text{Maximize \ } & c^T x \\
+      \text{subject to \ } & Ax \le b
+    \end{align*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Summarising Text}
+
+  \only<1>{\begin{itemize}
+    \item Abstractive \ \ \gray{(hard)}
+    \item Extractive \ \ \gray{(select sentences)}
+    \end{itemize}
+  }
+  \only<2>{
+    Challenge problem (cf. greedy solutions):
+    \begin{enumerate}
+    \item[] The cat is in the kitchen.
+    \item[] The cat drinks the milk.
+    \item[] The cat drinks the milk in the kitchen.
+    \end{enumerate}
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Summarising Text}
+
+  \only<1>{
+    \begin{itemize}
+    \item Sentence selection
+    \item Use n-grams
+    \item Stemming
+    \item Stop words
+    \item Prune short sentences
+    \end{itemize}
+  }
+  \only<2>{
+    \blue{Outline:}
+  \begin{itemize}
+  \item ILP \ \ \gray{\it(optimisation linéaire en nombres entiers)}
+  \item Maximum coverage model
+  \end{itemize}
+  }
+  \only<3>{
+    \blue{ILP in canonical form:}
+    
+    \begin{align*}
+      \text{Maximize \ } & c^T x \\
+      \text{subject to \ } & Ax \le b \\
+      & x \ge 0 \\
+      & x \in \mathbb{Z}^n
+    \end{align*}
+  }
+  \only<4-6>{
+    \blue{ILP in standard form:}
+    
+    \begin{align*}
+      \text{Maximize \ } & c^T x \\
+      \text{subject to \ } & Ax + s = b \\
+      & s \ge 0 \\
+      & x \in \mathbb{Z}^n
+    \end{align*}
+  }
+  \only<5>{\blue{This is NP hard.}}
+  \only<6>{\blue{Discussion: linear vs integer programming.}}
+  \only<7>{
+    Let
+    \begin{align*}
+      c_i \text{ : } & \text{ presence of concept } i \text{ in summary} \\
+      w_i \text{ : } & \text{ weight associated with } c_i \\
+      l_i \text{ : } & \text{ length of sentence } i \\
+      s_j \text{ : } & \text{ presence of sentence } j \text{ in summary} \\
+      L \text{ : } & \text{ summary length limit } \\
+      {Occ}_{ij} \text{ : } & \text{ occurence of } c_i \text{ in } s_j \\
+    \end{align*}
+  }
+  \only<8>{
+    \blue{Summarisation}
+    
+    \begin{align*}
+      \text{Maximize \ } & \sum_i w_i c_i \\
+      \text{subject to \ } & \sum_j l_j s_j \le L \\
+      & s_j {Occ}_{ij} \le c_i, \qquad \forall i, j \\
+      & \sum_j s_j {Occ}_{ij} \ge c_i \qquad \forall i \\
+      & c_j \in \{0,1\}, \qquad \forall i \\
+      & s_j \in \{0,1\}, \qquad \forall j
+    \end{align*}
+  }
+  \only<9>{
+    Notes:
+    \begin{itemize}
+    \item Selecting a sentence selects all concepts it contains
+    \item Selecting a concept requires it be in at least one sentence
+    \item $ s_j {Occ}_{ij} \le c_i,\ \forall i, j \ \Rightarrow$
+      no concept-less sentences
+    \end{itemize}
+  }
+  
+  \vfill
+  \prevwork{Dan Gillick, Benoit Favre, \textit{A Scalable Global Model
+      for Summarization}, 2009}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Sentiment Analysis}
+  \only<1>{
+    Many variations:
+    \begin{itemize}
+    \item Entire documents using computational linguistics
+    \item Manually crafted lexicons
+    \end{itemize}
+  }
+  \only<2>{
+    Techniques
+    \begin{itemize}
+    \item Template instantiation\ \ \gray{(requires domain knowledge)}
+    \item Passage extraction
+    \end{itemize}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Sentiment Analysis}
+  \only<1-3>{
+    \begin{itemize}
+    \item     Extract ``opinion sentences'' based on the
+      presence of a predetermined list of
+      product features and adjectives.
+      \only<2>{
+        \begin{itemize}
+        \item \blue{``The food is excellent.''}
+        \item \blue{``The food is an excellent example of how not to cook.''}
+        \end{itemize}
+      }
+    \item  Evaluate the sentences based on counts
+      of positive vs negative polarity words (as
+      determined by the Wordnet algorithm)
+    \end{itemize}
+    \only<3>{
+      \blue{The good: fast, no training data, decent prediction.}
+
+      \red{The bad: fails on multiple word sense, non-adjectives; sensitive to context.}
+    }
+    \vfill
+    \prevwork{Hu and Lieu, Mining and Summarizing Customer Reviews, 2004}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Sentiment Analysis}
+  \only<1> {
+    Words aren't enough.
+    \begin{itemize}
+    \item ``unpredictable plot'' vs ``unpredictable performance''
+    \end{itemize} 
+  }
+
+  \prevwork{Turney, \textit{Thumbs Up or Thumbs Down? Semantic Orientation Applied to
+      Unsupervised Classification of Reviews}, 2002}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\talksection{Break}
+
+\begin{frame}
+  \frametitle{Questions?}
+  \centerline{\large\url{purple.com/talk-feedback}}
+\end{frame}
+
+\end{document}

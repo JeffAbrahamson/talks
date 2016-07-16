@@ -1,0 +1,218 @@
+\input ../talk-header.tex
+\title
+{ML Week}
+\subtitle{Clustering and Anomalies}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\talksection{Clustering}
+
+\begin{frame}
+  \frametitle{The Problem}
+  Have points $d = \{d_1, \dotsc, d_n\}$.
+
+  Have number of clusters $k$.
+
+  \vspace{5mm}
+  \textbf{Want:} an assignment of points to clusters
+\end{frame}
+
+\begin{frame}
+  \cimggg{cluster-1.png}
+\end{frame}
+
+\begin{frame}
+  \cimg{cluster-2.png}
+\end{frame}
+
+\begin{frame}
+  \cimg{cluster-3.png}
+\end{frame}
+
+\begin{frame}
+  \cimg{cluster-4.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Algorithm}
+  \begin{enumerate}
+  \item Assign points to clusters at random
+  \item Repeat until stable:
+  \begin{enumerate}
+  \item Compute centroids of each cluster
+  \item Assign points to nearest centroid
+  \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Cost function}
+  \begin{mphrase}
+    \textrm{cost} = \sum_i \sum_j \left| x_j - \mu_i \right|
+  \end{mphrase}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Silhouette coefficient}
+  \only<1-2>{
+    Points $d = \{d_1, \dotsc, d_n\}$
+
+    Clusters $K = \{k_1, \dotsc, d_k\}$.
+
+    Cluster $k_{d_i}$ is the cluster of $d_i$.
+  }
+  
+  \only<2>{
+    \blue{Let $a_i$ be the average dissimilarity of $d_i$ to all
+      points in its cluster.}
+
+    \blue{Let $b_i$ be the least average dissimilarity of $d_i$ to any
+      cluster other than $k_{d_i}$}
+  }
+
+  \only<3-5>{
+    \begin{mphrase}
+      s_i = \frac{b_i - a_i}{\max\{a_i, b_i\}}
+    \end{mphrase}
+  }
+  
+  \only<4-5>{
+    \begin{mphrase}
+      s_i = \left\{
+        \begin{array}{ll}
+          1 - a_i/b_i & \mbox{ if } a_i < b_i \\[2mm]
+          0 & \mbox{ if } a_i = b_i \\[2mm]
+          b_i / a_i - 1 & \mbox{ if } a_i > b_i
+        \end{array}\right.
+    \end{mphrase}
+  }
+  
+  \only<5>{
+    So $s_i \in [-1, 1]$
+  }
+
+  \only<6>{
+    $s_i$ near 1 $\iff$ $d_i$ well clustered
+
+    $s_i$ near 0 $\iff$ $d_i$ on the border between two clusters
+
+    $s_i$ near -1 $\iff$ $d_i$ well clustered
+  }
+
+  \only<7>{
+    \begin{mphrase}
+      \textrm{Consider } \overline{s_i} \,\textrm{ over } i\in k_j \textrm{ for cluster } k_j
+    \end{mphrase}
+  }
+
+  \only<8>{
+    \begin{mphrase}
+      \textrm{Consider } \overline{s_i}
+    \end{mphrase}
+  }
+\end{frame}
+
+\begin{frame}
+  \vphrase{video time}
+\end{frame}
+
+\talksection{Anomaly Detection}
+
+\begin{frame}
+  \frametitle{Introduction to Anomaly Detection}
+  \only<1>{
+    \begin{itemize}
+    \item Supervised
+    \item Unsupervised
+    \end{itemize}
+  }
+  \only<2>{
+    Supervised anomaly detection:
+    \begin{itemize}
+    \item Training data: normal, abnormal
+    \item Train a classifier
+    \end{itemize}
+    
+    So reduced to existing problem of supervised classification.
+  }
+  \only<3>{
+    Unsupervised anomaly detection:
+    \begin{itemize}
+    \item Mostly, this is clustering
+    \item Increasingly, this is neural networks in advanced applications
+    \end{itemize}
+  }
+  \only<4>{
+    Applications:
+    \begin{itemize}
+    \item Intrusion detection (physical or electronic)
+    \item Fraud detection
+    \item Health monitoring (people, animals, machines)
+    \end{itemize}
+  }
+  \only<5>{
+    Techniques:
+    \begin{itemize}
+    \item Density: kNN, local outlier factor
+    \item SVM
+    \item Clustering: $k$-Means
+    \end{itemize}
+  }
+  \only<6>{
+    kNN techniques and variations
+    \begin{itemize}
+    \item Voronoi diagrams
+    \item aNN
+    \end{itemize}
+  }
+  \only<7>{
+    LOF
+    \begin{itemize}
+    \item Measure average density using kNN
+    \item Points with low local density are suspect outliers
+    \item There is no good thresholding technique
+    \end{itemize}
+  }
+  \only<8>{
+    $k$-Means
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples}
+  \only<1>{
+    \vphrase{ping times}
+  }
+  \only<2>{
+    \vphrase{httpd response times}
+  }
+  \only<3>{
+    \vphrase{single/multiple host access abuse (DOS/DDOS)}
+  }
+  \only<4>{
+    \vphrase{bank card fraud}
+  }
+  \only<5>{
+    \vphrase{spam}
+  }
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\talksection{Break}
+
+\begin{frame}
+  \frametitle{Questions?}
+  \centerline{\large\url{purple.com/talk-feedback}}
+\end{frame}
+
+\end{document}

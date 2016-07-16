@@ -5,6 +5,8 @@
 \usepackage{url}
 \usepackage{relsize}
 \usepackage{amsmath,mathtools}  % Mathtools provides dcase.
+%\usepackage{eulervm}            % Euler VM fonts (for math mode) (but makes \hat not work)
+%\usepackage[scaled]{helvet}
 \usepackage{listings}
 \usepackage{mathabx}            % Provides nicer \land.
 \usepackage{xcolor}
@@ -30,14 +32,14 @@
 \newcommand\soloo[2]{\only<#1>{\solo{#2}}}
 \newcommand\solopb[1]{\vfill\centerline{\parbox{.9\textwidth}{#1}}}
 \newcommand\soloopb[2]{\only<#1>{\solopb{#2}}}
-\newcommand\cimgo[1]{\centerline{\includegraphics{#1}}}
-\newcommand\cimgf[1]{\centerline{\includegraphics[width=\textwidth]{#1}}}
-\newcommand\cimg[1]{\centerline{\includegraphics[width=.9\textwidth]{#1}}}
-\newcommand\cimgg[1]{\centerline{\includegraphics[width=.8\textwidth]{#1}}}
-\newcommand\cimggg[1]{\centerline{\includegraphics[width=.7\textwidth]{#1}}}
-\newcommand\cimgsm[1]{\centerline{\includegraphics[width=.4\textwidth]{#1}}}
-\newcommand\cimgh[1]{\centerline{\includegraphics[height=.9\textwidth]{#1}}}
-\newcommand\cimghh[1]{\centerline{\includegraphics[height=.8\textwidth]{#1}}}
+\newcommand\cimgo[1]{\vfill\centerline{\includegraphics{#1}}\vfill}
+\newcommand\cimgf[1]{\vfill\centerline{\includegraphics[width=\textwidth]{#1}}\vfill}
+\newcommand\cimg[1]{\vfill\centerline{\includegraphics[width=.9\textwidth]{#1}}\vfill}
+\newcommand\cimgg[1]{\vfill\centerline{\includegraphics[width=.8\textwidth]{#1}}\vfill}
+\newcommand\cimggg[1]{\vfill\centerline{\includegraphics[width=.7\textwidth]{#1}}\vfill}
+\newcommand\cimgsm[1]{\vfill\centerline{\includegraphics[width=.4\textwidth]{#1}}\vfill}
+\newcommand\cimgh[1]{\vfill\centerline{\includegraphics[height=.9\textwidth]{#1}}\vfill}
+\newcommand\cimghh[1]{\vfill\centerline{\includegraphics[height=.8\textwidth]{#1}}\vfill}
 
 % The differential in an integral.
 % After a function or a fraction, the \, may not be desired, see \DD.
@@ -54,13 +56,16 @@
 % Only useful in beamer.
 \newcommand\talksection[1]{\section{#1}
 \begin{frame}
+  \vfill
   \Huge\bf\blue{\centerline{#1}}
+  \vfill
 \end{frame}
 }
 
 \newcommand\notetitle[2]{\centerline{\large ML Week \hspace{3mm} 0x#1 \hspace{2mm}  #2}\vspace{10mm}}
-\newcommand\phrase[1]{\centerline{\large\bf\blue{#1}}}
-\newcommand\sphrase[1]{\centerline{\large\blue{#1}}}
+\newcommand\phrase[1]{\vspace{1cm}\centerline{\large\bf\blue{#1}}}
+\newcommand\vphrase[1]{\vfill\centerline{\large\bf\blue{#1}}\vfill}
+\newcommand\sphrase[1]{\vspace{1cm}\centerline{\large\blue{#1}}}
 \newenvironment{bphrase}
   {\blue\bgroup}
   {\egroup}

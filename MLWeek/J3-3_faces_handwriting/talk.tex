@@ -1,0 +1,239 @@
+\input ../talk-header.tex
+\title
+{ML Week}
+\subtitle{Face and Handwriting Recognition}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\talksection{PCA}
+
+\begin{frame}
+  \phrase{Principle component analysis}
+
+  \sphrase{Analyse en composantes principales}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Motivation}
+  \phrase{Remember the Curse of Dimensionality?}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Principle}
+
+  \vspace{1cm}
+  \begin{itemize}
+  \item Linear transformations have axes
+  \item Find them (eigenvectors of the covariance matrix)
+  \item Pick the biggest ones
+  \end{itemize}
+
+  \vspace{5mm}
+  \only<2>{\phrase{Fitting an $n$-dimensional ellipsoid to the data}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Uses}
+  \begin{itemize}
+  \item Exploratory data analysis
+  \item Compression
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Also known as}
+  \begin{itemize}
+  \item Discrete Kosambi-Karhunen–Loève transform (KLT) (signal processing)
+  \item Hotelling transform (multivariate quality control)
+  \item Proper orthogonal decomposition (POD) (ME)
+  \item Singular value decomposition (SVD), Eigenvalue decomposition (EVD) (linear algebra)
+  \item Etc.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{History}
+  \begin{itemize}
+  \item Invented by Karl Pearson in 1901
+  \item Invented (again) and named by Harold Hotelling in 1930's
+  \item Also known as\dots
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Also known as}
+
+  \begin{itemize}
+  \item It's a long list, every field uses a different name\dots
+  \end{itemize}
+\end{frame}
+
+
+\talksection{Face Recognition}
+
+\begin{frame}
+  \frametitle{Eigenfaces}
+  \only<1>{
+    \begin{itemize}
+    \item Sirovich and Kirby (1987)
+    \item Turk and Pentland (1991)
+    \end{itemize}
+    \vfill
+    \prevwork{Turk, Matthew A and Pentland, Alex P. Face recognition
+      using eigenfaces. Computer Vision and Pattern Recognition,
+      1991. Proceedings {CVPR'91.}, {IEEE} Computer Society Conference
+      on 1991.}
+  }
+  \only<2>{ Want: a low-dimensional representation of a face
+
+    Plan: cluster simplified faces
+  }
+  \only<3>{
+    Viewed as compression:
+    \begin{itemize}
+    \item Use PCA on face images to form a set of basis features
+    \item Use eigenpictures to reconstruct original faces
+    \end{itemize}
+  }
+  \only<4>{
+    \cimg{eigenface-reconstruction-opencv.png}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Eigenfaces algorithm}
+  
+  \only<1>{
+    Let $X=\{x_1, x_2, \dotsc, x_n\}$ be a random vector with observations $x_i\in\mathbb{R}^d$.
+
+    Compute
+    
+    \begin{displaymath}
+      \mu=\frac{1}{n} \sum_{i=1}^n x_i
+    \end{displaymath}
+
+    \vfill
+    \prevwork{OpenCV}
+  }
+  \only<2>{
+    Compute the covariance matrix $S$:
+    
+    \begin{displaymath}
+      S = \frac{1}{n} \sum_{i=1}^n (x_i-\mu)(x_i-\mu)^T
+    \end{displaymath}
+  }
+  \only<3-4>{
+    Compute the eigenvectors of $S$:
+    
+    \begin{displaymath}
+      Sv_i = \lambda_i v_i \qquad i=1,2,\dotsc, n
+    \end{displaymath}
+
+    Sort the eigenvectors in decreasing order.
+
+    We want the $k$ principal components, so take the first $k$.
+
+    \only<4>{\blue{This is PCA.}}
+  }
+  \only<5>{
+    The $k$ principal components of the observed vector $x$ are then given by
+    
+    \begin{displaymath}
+      y=W^T(x-\mu)
+    \end{displaymath}
+    
+    where
+    \begin{displaymath}
+      W = \begin{bmatrix}
+        \vline & \vline & & \vline \\
+        v_1& v_2 & \cdots & v_k \\
+        \vline & \vline & & \vline
+      \end{bmatrix}
+    \end{displaymath}
+  }
+  \only<6>{
+    The reconstruction from the PCA basis is then
+    
+    \begin{displaymath}
+      x = Wy + \mu
+    \end{displaymath}
+  }
+  \only<7>{
+    So the plan is this:
+    \begin{itemize}
+    \item Project all training samples in the PCA subspace
+    \item Project the query into the PCA subspace
+    \item Find the nearest neighbour to the projected query image among
+      the projected training images
+    \end{itemize}
+  }
+  \only<8>{
+    \cimg{eigenface-reconstruction-opencv.png}
+  }
+  \only<9>{
+    Some advantages:
+    \begin{itemize}
+    \item Easy, relatively inexpensive
+    \item Recognition cheaper than preprocessing
+    \item Reasonably large database possible
+    \end{itemize}
+  }
+  \only<10>{
+    Some problems:
+    \begin{itemize}
+    \item Need controlled environment
+    \item Needs straight-on view
+    \item Sensitive to expression changes
+    \item If lots of variance is external (e.g., lighting)\dots
+    \end{itemize}
+  }
+\end{frame}
+
+
+\talksection{Handwriting Recognition}
+
+\begin{frame}
+  \frametitle{Introduction to Handwriting Recognition}
+  \only<1>{
+    Choices
+    \begin{itemize}
+    \item Online
+    \item Offlne
+    \end{itemize}
+  }
+  \only<2>{
+    Choices
+    \begin{itemize}
+    \item Get path information
+    \item Get time data
+    \item Get pressure information
+    \item Only get image
+    \end{itemize}
+  }
+  \only<3>{
+    Major techniques
+    \begin{itemize}
+    \item Clustering (not great performance)
+    \item SVM (until 2006 or so)
+    \item Convolutional neural networks
+    \end{itemize}
+  }
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\talksection{Break}
+
+\begin{frame}
+  \frametitle{Questions?}
+  \centerline{\large\url{purple.com/talk-feedback}}
+\end{frame}
+
+\end{document}

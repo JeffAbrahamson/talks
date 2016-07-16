@@ -1,0 +1,207 @@
+\input ../talk-header.tex
+\title
+{ML Week}
+\subtitle{Time Series}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Introduction to time series}
+  \only<1>{
+    \purple{This is hard, but it depends on your goals.  And on context.}
+  }
+  \only<2>{
+    Definition (discrete time series):
+
+    \begin{displaymath}
+      \{s_t\mid t\in\mathbb{R}^+\wedge s\in\mathbb{R}\}
+    \end{displaymath}
+
+    \purple{(though $s$ in any vector space is fine)}
+  }
+  \only<3>{
+    Examples domains:
+    \begin{itemize}
+    \item Weather
+    \item Economics
+    \item Industry (e.g., factories)
+    \item Medicine
+    \item Web
+    \item Biological processes
+    \end{itemize}
+  }
+  \only<4>{
+    Why?
+    \begin{itemize}
+    \item Predict
+    \item Control
+    \item Understand
+    \item Describe
+    \end{itemize}
+  }
+  \only<5>{
+    Some strategies:
+    \begin{itemize}
+    \item Clustering
+    \item Hidden Markov Models (HMM)
+    \item Recurrent neural networks (RNN)
+    \item Autoregressive integrated moving average
+    \end{itemize}
+  }
+  \only<6>{
+    One model:
+    \begin{displaymath}
+      s_t = g(t) + \phi_t
+    \end{displaymath}
+
+    where
+    \begin{itemize}
+    \item[] $g(t)$ is deterministic: signal (or trend)
+    \item[] $\phi_t$ is stochastic noise
+    \end{itemize}
+  }
+  \only<7>{
+    Variation types:
+    \begin{itemize}
+    \item Trend ($g$)
+    \item Seasonal effect ($g$)
+    \item Irregular fluctuation (residuals: $\phi$)
+    \end{itemize}
+  }
+  \only<8>{
+    \cimgg{decomposition.png}
+    \vspace{-8mm}
+    \prevwork{\url{http://www.ulb.ac.be/di/map/gbonte/ftp/time_ser.pdf}}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Introduction to time series}
+
+  Some easy things to try
+  
+  \begin{itemize}
+  \item Introduce features to break out seasonality
+  \item Introduce lags as features
+  \item Some domain-specific transformation
+  \end{itemize}
+\end{frame}
+
+
+\talksection{HMM}
+
+\begin{frame}
+  \phrase{``simplest dynamic Bayesian network''}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Markov Chains}
+  \only<1>{
+    A \textbf{Discrete time Markov chain (DTMC)} is a random process that
+    undergoes state transitions.
+  }
+  \only<2>{
+    \begin{displaymath}
+      \begin{bmatrix}
+        x_{11} & x_{12} & \cdots & x_{1n} \\[2mm]
+        x_{21} & x_{22} & \cdots & x_{2n} \\[2mm]
+        \vdots & & \ddots & \vdots \\[2mm]
+        x_{n1} & x_{n2} & \cdots & x{nn}
+      \end{bmatrix}
+      \begin{bmatrix}
+        v^{(i)}_1 \\[2mm]
+        v^{(i)}_2 \\[2mm]
+        \vdots \\[2mm]
+        v^{(i)}_n
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+        v^{(i+1)}_1 \\[2mm]
+        v^{(i+1)}_2 \\[2mm]
+        \vdots \\[2mm]
+        v^{(i+1)}_n
+      \end{bmatrix}
+    \end{displaymath}
+  }
+  \only<3>{
+    \begin{displaymath}
+      Xv_i = v_{i+1}
+    \end{displaymath}
+  }
+  \only<4>{
+    Examples:
+    \begin{itemize}
+    \item Random walks
+    \item Weather (first approximation in many places)
+    \item Thermodynamics
+    \item Queuing theory (so also telecommunications)
+    \item Spam
+    \end{itemize}
+  }
+  \only<5>{
+    Properties:
+    \begin{itemize}
+    \item Stochastic process
+    \item Memoryless (``Markov property'')
+    \end{itemize}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{HMM's}
+  \only<1>{
+    \begin{itemize}
+    \item State is not visible
+    \item Output of state is visible
+    \end{itemize}
+
+    Examples: noisy sensor, medical diagnosis
+  }
+  \only<2>{
+    What we have:
+    \begin{itemize}
+    \item State space $S = \{s_1, \dotsc, s_n \}$
+    \item Observation space $O = \{o_1, \dotsc, o_k \}$
+    \item Transition matrix $A$ of size $n\times n$
+    \item Emission matrix $B$ of size $n\times k$
+    \item Initial state probabilities $\pi = \{\pi_1, \dotsc, \pi_n \}$
+    \item A sequence of observations $X=\{x_1, \dotsc x_T \}$
+    \end{itemize}
+
+    Here
+    \begin{itemize}
+    \item $y_t = i \iff $ observation at time $t$ is $o_i$
+    \item $\Pr(x_1 = s_i) = \pi_i$
+    \end{itemize}
+
+    We want the sequence of states $X=\{x_1, \dotsc, x_T \}$.
+
+  }
+  \only<3>{
+    Some pointers to learn more about HMM:
+    \begin{itemize}
+    \item Forward-Backward Algorith
+    \item Viterbi Decoding
+    \item Baum-Welch Algorithm
+    \end{itemize}
+  }
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\talksection{Break}
+
+\begin{frame}
+  \frametitle{Questions?}
+  \centerline{\large\url{purple.com/talk-feedback}}
+\end{frame}
+
+\end{document}

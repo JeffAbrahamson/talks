@@ -1,0 +1,117 @@
+\input ../talk-header.tex
+\title
+{ML Week}
+\subtitle{Features and Modeling}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \phrase{Vector spaces}
+
+  \vspace{1cm}
+  \only<2>{\centerline{Features are dimensions}}
+\end{frame}
+
+\begin{frame}
+  \phrase{Feature extraction}
+
+  \vspace{1cm}
+  \phrase{Feature engineering}
+
+  \only<2>{\vspace{3mm}\centerline{Synthetic features}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Feature Engineering}
+  \only<1>{
+    \begin{enumerate}
+    \item Brainstorm
+    \item Pick some
+    \item Make them
+    \item Evaluate
+    \item Repeat
+    \end{enumerate}
+  }
+\end{frame}
+
+\begin{frame}
+  \vspace{4mm}
+  
+  \cimg{titanic-titles.png}
+  \vspace{-3mm}
+  \prevwork{Kaggle}
+\end{frame}
+
+\begin{frame}
+  \cimg{reading-time-1.png}
+  \prevwork{Jellybooks}
+\end{frame}
+
+\begin{frame}
+  \cimg{reading-time-2.png}
+  \prevwork{Jellybooks}
+\end{frame}
+
+\begin{frame}
+  \vphrase{One of $K$ = one-hot encoding}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Text features}
+  \blue{Bag of words}
+  \only<1>{
+    \begin{itemize}
+    \item Corpus (documents)
+    \item Vocabulary (set of unique words)
+    \item Words
+    \end{itemize}
+  }
+  \only<2>{
+    \begin{itemize}
+    \item Order doesn't matter
+    \item Stop words
+    \item Stemming {\it(racinisation, désuffixation)}
+    \item Lemmatisation {\it(transformer en lemme)}
+    \end{itemize}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Image features}
+  \only<1>{
+    \begin{itemize}
+    \item Corners, edges (rotation invariant, but scaling can hide)
+    \item More complex: scale space or RNN
+    \item Point matching is easy
+    \end{itemize}
+  }
+  \only<2>{
+    Problems
+    \begin{itemize}
+    \item Illumination
+    \item Scale
+    \item Rotation
+    \item Skew (perspective)
+    \item Data size (matrices not sparse)
+    \end{itemize}
+  }
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\talksection{Break}
+
+\begin{frame}
+  \frametitle{Questions?}
+  \centerline{\large\url{purple.com/talk-feedback}}
+\end{frame}
+
+\end{document}

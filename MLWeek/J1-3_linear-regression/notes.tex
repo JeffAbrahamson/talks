@@ -1,0 +1,120 @@
+\input ../notes-header.tex
+
+\begin{document}
+
+\notetitle{02}{Linear Regression}
+
+\textbf{Linear regression: the problem}
+\begin{enumerate}
+\item \fbox{Problem ($\times 6$)} We have a set of points $\{(x_i, y_i)\}$.
+  Given a new $x$ value, we'd like to predict $\hat y$.
+\item \textbf{Linear model:} We'll assume there exists a linear
+  relationship $y=\theta_0 + \theta_1 x$ that offers a good
+  approximation to the data.
+\item In the real world, there's always noise
+\item Sometimes other effects, too
+\item Talk about meaning of slope
+\item Dangers of extrapolation.  Example: global warming (a few data
+  points in a few places at a few times)
+\end{enumerate}
+
+\fbox{Residuals ($\times 6$)}
+\begin{enumerate}
+\item \textit{résidu}
+\item Goal: small residuals
+\item Cost function: sum of squares of residuals
+\item Residuals are what's left over after accounting for model fit.
+\item A normal distribution of residuals is a good sign.  And
+  conversely.
+\item Not rules: rule of thumb.
+\item Time series (\textit{une série temporelle}) often have important underlying structure.
+  Correlation often doesn't model them well.
+\end{enumerate}
+
+\fbox{Outliers ($\times 8$)}
+\begin{enumerate}
+\item Points that fall farther from the regression line have more
+  effect.  We call them \textit{high leverage} points.
+\item If the effect is noticeable on the regression, we call it an
+  \textit{influential point}.
+\item If a point, omitted, would fall much further from the regression
+  line, it is certainly influential.
+\item If not enough data points, they might be all or mostly
+  influential!
+\item \fbox{Anscombe's quartet} --- summary statistics don't replace visualizing data
+  % http://en.wikipedia.org/wiki/File:Anscombe\%27s_quartet_3.svg
+  \begin{itemize}
+  \item mean $x$ = 9
+  \item variance = 11
+  \item mean $y$ = 7.50
+  \item sample variance $\in (4.122, 4.127)$
+  \item $\corr(x,y) = 0.816$
+  \item linear regression: $y=3 + x/2$
+  \end{itemize}
+\item Correlation does not imply \fbox{causation}---but it's a good hint
+\end{enumerate}
+
+\textbf{Linear regression}
+\begin{enumerate}
+\item Univariate --- 1 input, 1 continuous output
+\item We think there's a linear model
+\item Explanatory or predictor varaible
+\item Response variable
+\item $h_\theta(x) = \theta_0 + \theta_1 x$
+\item \fbox{Cost function} : $J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m (h_\theta(x_i) - y_i)^2$
+\item Cost function = fonction objective?
+\item $y$ vs $\hat{y}$
+\item \fbox{Gradient descent ($\times 3$)} (algorithme du gradient)
+\item Assignment is simultaneous
+\item Outlier = \textit{donnée aberrante}
+\end{enumerate}
+
+\textbf{Linear algebra (review)}
+\begin{enumerate}
+\item Vector, \fbox{matrix}, transpose
+\item addition, multiplication
+\item vector space, basis vectors
+\item linear transformation, $u=Av$, think about basis vectors
+\item $A$, $A_{i,j}$
+\end{enumerate}
+
+\fbox{Notation used in machine learning}
+\begin{enumerate}
+\item $x_j^{(i)}$ --- value of feature $j$ in training sample $i$
+\item $x^{(i)}$ --- training sample $i$
+\item $m$ = number of training samples
+\item $n = \mid x^{(i)} \mid$ = number of features
+\item $x_0 = 1$ (often called bias)
+\end{enumerate}
+
+\textbf{Multiple regression}
+\begin{enumerate}
+\item Multiple explanatory variables, 1 continuous output
+\item Fortunately, there are libraries to do this!
+\end{enumerate}
+
+\textbf{Other notes}
+\begin{itemize}
+\item Overfitting
+\item Regularization (ridge regression, Tikhanov regularization): $-\lambda\sum \mbox{params}$
+\item Polynomial regression
+\item Gradient descent variants
+  \begin{itemize}
+  \item Batch gradient descent (all samples)
+  \item Stochastic gradient descent (single sample each iteration) (faster for very large sets)
+  \item Mini-batch gradient descent (several samples at each iteration)
+  (sometimes smoother convergence than SGD, sometimes faster if software can parallelize)
+  \item Coordinate gradient descent (one component each iteration)
+  \item Note computational approximation if no derivative (and curse of dimensionality)
+  \end{itemize}
+\item When gradient descent doesn't work,
+  \begin{itemize}
+  \item plot the cost function over iterations
+  \item if cost increasing or oscillating, reduce $\alpha$
+  \item if leveled off, not much future gain
+  \end{itemize}
+
+\end{itemize}
+
+
+\end{document}

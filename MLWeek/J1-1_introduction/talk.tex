@@ -1,0 +1,573 @@
+\input ../talk-header.tex
+\title{ML Week}
+\subtitle{Introduction}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\talksection{About Machine Learning}
+
+\begin{frame}
+  \vphrase{The literature is overwhelmingly in English}
+\end{frame}
+
+\begin{frame}
+  \vphrase{Disclaimer: Time is short}
+\end{frame}
+
+\begin{frame}
+  \vphrase{Definition}
+\end{frame}
+
+\begin{frame}
+  \vphrase{Supervised}
+\end{frame}
+
+\begin{frame}
+  \vphrase{Unsupervised}
+\end{frame}
+
+\begin{frame}
+  \vphrase{Reinforcement}
+\end{frame}
+
+\begin{frame}
+  \vphrase{Curse of Dimensionality}
+\end{frame}
+
+\begin{frame}
+  \only<1>{
+    \vphrase{Machine learning is not magic}
+  }
+  \only<2>{
+    \vphrase{Machine learning is mathematics}
+  }
+  \only<3>{
+    \vspace{1cm}
+    \blue{\bf Mostly, it's these maths:}
+    \begin{itemize}
+    \item Probability
+    \item Statistics
+    \item Linear algebra
+    \item Optimisation theory
+    \item Differential calculus
+    \end{itemize}
+  }
+\end{frame}
+
+\talksection{Probability}
+
+\begin{frame}
+  \frametitle{Addition rule: independent events}
+  \phrase{$\Pr(A\cup B) = \Pr(A) + \Pr(B)$}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Addition rule: dependent events}
+  \phrase{$\Pr(A\cup B) = \Pr(A) + \Pr(B) - \Pr(A\cap B)$}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Multiplication rule: independent events}
+  \phrase{\blue{$\Pr(A\cap B) = \Pr(A) \Pr(B)$}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Multiplication rule: dependent events}
+  \phrase{$\Pr(A\cap B) = \Pr(A\mid B) \Pr(B)$}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Conditional probability}
+  \phrase{$\Pr(A\mid B) = \frac{\Pr(A\cap B)}{\Pr(B)}$}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Conditional probability}
+
+  \begin{mphrase}
+    \cup_i A_i = A \quad\land\quad A_i \cap A_j = \emptyset \implies
+  \end{mphrase}
+
+  \begin{mphrase}
+    P(A_1 \mid B) = \frac{\Pr(B\mid A_1) \Pr(A_1)}{\sum_i \Pr(B\mid
+      A_1)\Pr(A_1) + \dots + \Pr(B\mid A_k)\Pr(A_k)}
+  \end{mphrase}
+\end{frame}
+
+\talksection{Statistics}
+
+\begin{frame}[t]
+  \frametitle{What is Statistics}
+  
+  \begin{enumerate}
+  \item<1-3> Identify a question or problem.
+  \item<1-3> Collect relevant data on the topic.
+  \item<1-3> Analyze the data.
+  \item<1-3> Form a conclusion.
+  \end{enumerate}
+  \only<2>{Sadly, sometimes people forget 1.}
+  \only<3>{Statistics is about making 2--4 efficient, rigorous, and meaningful.}
+  \only<3>{\vfill\prevwork{\textit{OpenIntro Statistics},
+      2nd edition, D.~Diez, C.~Barr, M.~Çetinkaya-Rundel, 2013.}}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{What is data science?}
+
+  \only<1-4>{(Exercise: Is this the same question as the last slide?)}
+
+  \only<1>{
+    \begin{enumerate}
+    \item Define the question of interest
+    \item Get the data
+    \item Clean the data
+    \item Explore the data
+    \item Fit statistical models
+    \item Communicate the results
+    \item Make your analysis reproducible
+    \end{enumerate}
+  }
+  \only<2>{
+    \begin{enumerate}
+    \item Define the question of interest
+    \item Get the data
+    \item Clean the data
+    \item \purple{Explore the data}
+    \item \purple{Fit statistical models}
+    \item Communicate the results
+    \item Make your analysis reproducible
+    \end{enumerate}
+
+    \blue{What the public thinks.}
+  }
+  \only<3>{
+    \begin{enumerate}
+    \item Define the question of interest
+    \item \purple{Get the data}
+    \item \purple{Clean the data}
+    \item Explore the data
+    \item Fit statistical models
+    \item \purple{Communicate the results}
+    \item \purple{Make your analysis reproducible}
+    \end{enumerate}
+
+    \blue{Where we spend most of our time.}
+  }
+  \only<4>{
+    \begin{enumerate}
+    \item \purple{Define the question of interest}
+    \item Get the data
+    \item Clean the data
+    \item Explore the data
+    \item Fit statistical models
+    \item Communicate the results
+    \item Make your analysis reproducible
+    \end{enumerate}
+
+    \blue{The easiest part to forget.}
+  }
+  \only<5>{\vfill\prevwork{\url{http://simplystatistics.org/2015/03/17/} \url{data-science-done-well-looks-easy-and-that-is-a-big-} \url{problem-for-data-scientists/}}}
+
+  \only<6>{\vfill\cimgg{model-in-one-day.jpg}\vfill}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Anecdote}
+
+  Some properties of anecdote:
+  
+  \begin{itemize}
+  \item is data
+  \item haphazardly collected
+  \item is generally not representative
+  \item sometimes result of selective retention
+  \item does not accumulate to be representative
+  \item might be true (by chance)
+  \item is ok to use as hypothesis, but be clear that hypothesis is anecdote
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Study Types}
+
+  \begin{itemize}
+  \item Observational
+  \item Experimental
+  \end{itemize}
+  
+  \only<2>{
+    What can go wrong?
+    \begin{itemize}
+    \item Forgetting that association $\ne$ causation
+    \item Not random
+    \item Confounding variables
+    \end{itemize}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Variable types}
+  \cimg{variable-types.png}
+\end{frame}
+
+\begin{frame}
+  \cimggg{bias-variance.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mean}
+
+  \begin{itemize}
+  \item Weighted and unweighted
+  \item Centroid to physicists
+  \end{itemize}
+
+  \only<2-4> {
+    \cimgg{teeter-totter.png}
+  }
+  \only<3>{
+    \begin{displaymath}
+      \mu = E(X) = \sum w_i x_i = \mathbf{w\cdot x}
+    \end{displaymath}
+
+    \vfill
+    \prevwork{\url{http://telescopes.stardate.org/images/research/teeter-totter/TT4.gif}}
+  }
+  \only<4>{
+    \begin{displaymath}
+      \mu = E(X) = \sum \Pr(X=x_i) x_i
+    \end{displaymath}
+
+    \vfill
+    \prevwork{\url{http://telescopes.stardate.org/images/research/teeter-totter/TT4.gif}}
+  }
+  \only<5>{
+    \begin{displaymath}
+      \mu = E(X) = \int xf(x) \D{x}
+    \end{displaymath}
+
+    \vfill
+    \prevwork{\url{http://telescopes.stardate.org/images/research/teeter-totter/TT4.gif}}
+  }
+  \only<6>{
+    \cimgg{centroid-hanging-discrete.png}
+  }
+  \only<7>{
+    \cimgg{centroid-balance-continuous.png}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Population statistics}
+
+  \soloo{1}{\textbf{Deviation} is distance from mean.}
+  \soloo{2}{\textbf{Variance} is mean square of deviations}
+  \soloo{3}{\textbf{Standard deviation} is square root of variance}
+
+  \only<4>{
+    \vfill
+    \begin{displaymath}
+      s^2 = \frac{(\overline x - x_1)^2 + \dotsb (\overline x - x_n)^2}{n-1}
+    \end{displaymath}
+  }
+  \only<5>{
+    \vfill
+    \begin{displaymath}
+      \sigma^2 = \frac{(\overline x - x_1)^2 + \dotsb (\overline x - x_n)^2}{n}
+    \end{displaymath}
+  }
+  \only<6>{
+    \vfill
+    \begin{displaymath}
+      \mbox{Var}(X) = \sigma^2 = (\overline x - x_1)^2 \Pr(X=x_1) + \dotsb
+        (\overline x - x_n)^2 \Pr(X=x_n)
+    \end{displaymath}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Words}
+
+  Given a distribution $X$, the
+
+  \only<1> {
+    \textbf{probability distribution function (pdf)} (continuous) or
+    \textbf{probability mass function (pmf)} is the probability that
+    the variate has value $x$:
+    
+    \begin{displaymath}
+      \Pr(a\le X \le b)
+    \end{displaymath}
+    \centerline{or}
+    \begin{displaymath}
+      \Pr(X=a)
+    \end{displaymath}
+  }
+  
+  \only<2> {
+    \textbf{cumulative probability function (cdf)} is the probability
+    that the variate is less than $x$:
+
+    \begin{displaymath}
+      \Pr(X\le x) = \int_{-\infty}^x \text{pdf}(x) \D{x} \,\text{ or }\, \sum_{i\le x} \Pr(X = x)
+    \end{displaymath}
+  }
+  
+  \only<3> {
+    \textbf{percent point function (ppf)} is the inverse of the cdf.
+    Given a probability, what's $x$?
+    Also called the \textbf{inverse distribution}.
+  }
+  
+  \only<4> {
+    \textbf{survival function (sf)} is the probability that the
+    variate takes a value greater than $x$:
+
+    \begin{displaymath}
+      \text{ss}(x) = \Pr(X > x) = 1-\text{cdf}(x)
+    \end{displaymath}
+  }
+  
+  \only<5> {
+    \textbf{inverse survival function (isf)} is the inverse of the
+    survival function:
+
+    \begin{displaymath}
+      \text{isf}(\alpha) = \text{ppf}(1-\alpha)
+    \end{displaymath}
+  }
+\end{frame}
+
+\begin{frame}
+  \cimghh{boxplot-vs-pdf.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Evaluating Normal Approximations}
+
+  \only<1>{Easy technique 1: visually compare to normal plot.
+
+    \cimg{normal-plot.png}
+  }
+
+  \only<2> {Easy technique 2: normal probability plot.
+
+    \cimggg{normal-quantile.png}
+
+    \vspace{-7mm}
+    Also known as a quantile-quantile plot.
+  }
+\end{frame}
+
+\begin{frame}
+  \vfill
+  \begin{displaymath}
+    \overline{x}\ne\mu
+  \end{displaymath}
+  \vfill
+\end{frame}
+
+\begin{frame}
+  \frametitle{Inference Concepts}
+
+  \only<1->{\textbf{Running mean.}  Sequence of partial sums (divided
+    by number in sum).
+  }
+
+  \only<2>{
+    \bigskip
+    \cimgg{running-mean.png}
+  }
+
+  \only<3->{\textbf{Sampling variation.}  Change of $\overline x$ from
+    one sample to the next.
+  }
+
+  \only<4->{\textbf{Sampling distribution.}  The distribution of
+    possible point samples of a fixed size from a given population.
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Sampling distribution}
+
+  \cimg{sampling-distribution.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Confidence intervals}
+
+  Sample $n$ points, choose an interval around the sample mean.
+
+  A 95\% confidence interval means if we sample repeatedly, about 95\%
+  of the samples will contain the population mean.
+
+  \only<2>{
+    \cimg{confidence-intervals.png}
+  }
+
+  \only<3>{
+    \cimg{confidence-intervals-2.png}
+  }
+\end{frame}
+
+
+\talksection{Linear Algebra}
+
+\begin{frame}
+  \frametitle{Linear algebra: basics}
+  \only<1>{
+    \begin{displaymath}
+      v = 
+      \begin{pmatrix}
+        v_1\\
+        v_2\\
+        \vdots\\
+        v_n
+      \end{pmatrix}
+      \in \mathbb{R}^n
+    \end{displaymath}
+  }
+  \only<2>{
+    \begin{align*}
+      A & = 
+      \begin{bmatrix}
+        a_{1,1} & a_{1,2} & a_{1,3} \\
+        a_{2,1} & a_{2,2} & a_{2,3} \\
+        a_{3,1} & a_{3,2} & a_{3,3}
+      \end{bmatrix} 
+      =
+      \begin{pmatrix}
+        a_{1,1} & a_{1,2} & a_{1,3} \\
+        a_{2,1} & a_{2,2} & a_{2,3} \\
+        a_{3,1} & a_{3,2} & a_{3,3}
+      \end{pmatrix} \\[4mm]
+      & =
+      \begin{Bmatrix}
+        a_{1,1} & a_{1,2} & a_{1,3} \\
+        a_{2,1} & a_{2,2} & a_{2,3} \\
+        a_{3,1} & a_{3,2} & a_{3,3}
+      \end{Bmatrix}
+      \in \mathbb{R}^{n\times n}
+    \end{align*}
+  }
+  \only<3>{
+    \begin{displaymath}
+        u + v = 
+      \begin{pmatrix}
+        u_1 + v_1\\
+        u_2 + v_2\\
+        \vdots\\
+        u_n + v_n
+      \end{pmatrix}
+    \end{displaymath}
+  }
+  \only<4>{
+    \begin{displaymath}
+      \alpha v =
+      \begin{pmatrix}
+        \alpha v_1\\
+        \alpha  v_2\\
+        \vdots\\
+        \alpha v_n
+      \end{pmatrix}
+       \qquad (\alpha\in\mathbb{R})
+    \end{displaymath}
+  }
+  \only<5>{
+    \begin{displaymath}
+      \parallel v\parallel = \sqrt{v_1^2 + \cdots + v_n^2}
+    \end{displaymath}
+  }
+  \only<6>{
+    \begin{align*}
+      u\cdot v & = u_1\cdot v_1 + \dotsb + u_n \cdot v_n \\[4mm]
+      & = \parallel u\parallel \parallel v\parallel \cos\theta
+    \end{align*}
+  }
+  \only<7>{
+    \begin{align*}
+      C = A + B & \iff c_{ij} = a_{ij} + b_{ij} \\[5mm]
+      %
+      C = AB & \iff c_{ij} = \sum_k a_{ik}b_{kj} \\[5mm]
+      %
+      A = B^T & \iff a_{ij} = b_{ji}
+    \end{align*}
+    
+    \begin{displaymath}
+      AA^{-1} = A^{-1}A = \mathrm{diag}(1)      
+    \end{displaymath}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Linear algebra: transformations}
+  \only<1>{
+    \begin{align*}
+      Ax = y & \hspace{1cm} f = T_A \,:\, \mathbb{R}^n\rightarrow \mathbb{R}^n \\[5mm]
+      %
+      x = A^{-1}Ax = A^{-1}y & \hspace{1cm} f^{-1} = T_{A^{-1}}
+      \,:\, \mathbb{R}^n\rightarrow \mathbb{R}^n \\[5mm]
+    \end{align*}
+  }
+  \only<2-3>{
+    $B$ is a basis for $V$ iff any of these conditions are met:
+    \begin{itemize}
+    \item $B$ is a minimal generating set of $V$
+    \item $B$ is a maximal set of linearly independent vectors
+    \item Every vector $v\in V$ can be expressed in a unique way as a sum of $b_i\in B$
+    \end{itemize}
+
+    \purple{(The conditions are equivalent.)}
+
+    \only<3>{\red{Bases are not unique.}}
+  }
+  \only<4-6>{Eigenvectors, eigenvalues:
+    \begin{displaymath}
+      Av = \lambda v
+    \end{displaymath}
+
+    \only<5>{
+      \begin{displaymath}
+        Av = \lambda 1 v \;\iff\; (A-\lambda 1)v = 0
+      \end{displaymath}
+    }
+    \only<6>{
+      Some matrices are diagonalisable.  Then
+      \begin{align*}
+        A = Q\Lambda Q^{-1} \hspace{1cm} \mbox{ with } \Lambda & =
+        \begin{bmatrix}
+          \lambda_1 & \cdots & 0 \\
+          \vdots & \ddots & 0 \\
+          0 & 0 & \lambda_n
+        \end{bmatrix} \\[5mm]
+        %
+        \mbox{and } Q & =
+        \begin{bmatrix}
+          \mid && \mid \\
+          v_1 & \cdots & v_n \\
+          \mid && \mid
+        \end{bmatrix}
+      \end{align*}
+    }
+  }
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\talksection{Break}
+
+\begin{frame}
+  \frametitle{Questions?}
+  \centerline{\large\url{purple.com/talk-feedback}}
+\end{frame}
+
+\end{document}

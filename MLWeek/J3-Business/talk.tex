@@ -1,0 +1,104 @@
+\input ../talk-header.tex
+\title
+{ML Week}
+\subtitle{Business}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Perspectives}
+
+  \vspace{1cm}
+  \begin{itemize}
+  \item Data science is iterative
+  \item Start simple, get better
+  \end{itemize}
+
+  \only<2>{\blue{Sometimes no business case to do more.}}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Risks}
+
+  \vspace{1cm}
+  \begin{itemize}
+  \item Nothing is guaranteed\gray{, but competitors are innovating and experimenting}
+  \item Examples from past projects can help, but often leads to ``this is different''
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Success}
+  \vspace{2cm}
+  \centerline{\blue{Think early about how to measure success.}}
+  \vspace{1cm}
+  \only<2>{The definition of success will evolve.}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Stakeholders}
+
+  \vspace{1cm}
+  Different stakeholders have different priorities:
+
+  \vspace{5mm}
+  \only<1>{
+    Data analyst:
+    \begin{itemize}
+    \item Explore data
+    \item Statistical analyses
+    \item Experiments
+    \end{itemize}}
+  \only<2>{
+    Software engineer
+    \begin{itemize}
+    \item Systems that repeatedly deliver, analyse, and predict on future data
+    \end{itemize}}
+  \only<3>{Business leader
+    \begin{itemize}
+    \item Strategic organisation
+    \item Operational projects
+    \item Creating new revenue streams
+    \item Meeting compliance goals
+    \item Reducing risk and costs
+    \end{itemize}}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Process}
+  \begin{itemize}
+  \item {\only<1>{Strategy}}\only<2-6>{\gray{Strategy}}
+  \item \only<2>{Planning}\only<1,3-6>{\gray{Planning}}
+  \item \only<3>{Data engineering}\only<1-2,4-6>{\gray{Data engineering}}
+  \item \only<4>{Analysis and modeling}\only<1-3,5-6>{\gray{Analysis and modeling}}
+  \item \only<5>{Communication and change}\only<1-4,6>{\gray{Communication and change}}
+  \item \only<6>{Systems development}\only<1-5>{\gray{Systems development}}
+  \end{itemize}
+  \only<1>{\blue{Business case, benefits, impacts}}
+  \only<2>{\blue{Sourcing, ownership, security, privacy, storage, technologies}}
+  \only<3>{\blue{Acquisition, sampling, feature engineering, item engineering, quality control}}
+  \only<4>{\blue{descriptive analysis, hypothesis testing, predictive modeling, model evaluation}}
+  \only<5>{\blue{Insights, reporting, recommendations, change management}}
+  \only<6>{\blue{Implementation, integration, maintenance}}
+
+  \vfill
+  \prevwork{http://blog.applied.ai/delivering-value-throughout-the-analytical-process/}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\talksection{Break}
+
+\begin{frame}
+  \frametitle{Questions?}
+  \centerline{\large\url{purple.com/talk-feedback}}
+\end{frame}
+
+\end{document}

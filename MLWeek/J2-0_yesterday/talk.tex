@@ -1,0 +1,69 @@
+\input ../talk-header.tex
+\title
+{ML Week}
+\subtitle{Notes from yesterday}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{One vs Rest, One vs One}
+  \only<1>{
+    What I described yesterday:
+    \begin{itemize}
+    \item OvR (OvA): compute $k$ classifiers
+    \item OvO: compute $k(k-1)/2$ classifiers
+    \end{itemize}
+
+    The missing point: the classifiers give scores, not just in/out answers.
+  }
+  \only<2>{
+    One vs Rest:
+
+    Accept the judgement of the classifier with the highest score.
+  }
+  \only<3>{
+    One vs One:
+
+    Classifiers vote.  Accept the class that gets the most votes.
+  }
+  \only<3>{
+    Advantage:  Reduces multi-class classification to single-class classification.
+
+    Disadvantage:  Classifier scores aren't necessarily comparable.  For example, classes
+    may have very different numbers of members.
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hyperparameters}
+  \only<1>{
+    \begin{itemize}
+    \item The word hyperparameter is not well-defined.
+    \item In most contexts, it is the parameters of the underlying distribution
+    \item In training, we learn the parameters of the model
+    \item We choose the hyperparameters to govern the training
+    \item So we may want to experiment to learn the distribution
+      parameters that best optimise our learned model's performance
+    \end{itemize}
+  }
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\talksection{Break}
+
+\begin{frame}
+  \frametitle{Questions?}
+  \centerline{\large\url{purple.com/talk-feedback}}
+\end{frame}
+
+\end{document}
