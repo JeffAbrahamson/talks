@@ -1,0 +1,30 @@
+Solutions at end of codelabs
+
+Introduce data sets
+
+Drop probability section, it's not used
+
+Summary at beginning and end
+
+Survey participants ahead of time on py/math/stat/ML background
+
+Better prepare the exercises.  Some don't like the code exploration.
+Be more focused on the techniques
+
+Format:
+  - review previous day
+  - repeat
+    - theory
+    - codelab
+  - review
+
+Ask more questions / be more interactive during the theory sections
+
+In notebooks, ask questions after code, not before
+
+k-means to day 4
+Add kNN
+
+Some of the discussion in the codelab could be pushed to slides
+introducing the codelab.
+
