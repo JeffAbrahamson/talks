@@ -1,0 +1,402 @@
+\input talk-header.tex
+\usepackage{centernot}
+\usepackage[]{algorithm2e}
+
+\title
+{Mais qu'est-ce que je fous?}
+\subtitle{comment glander et apprendre les maths en même temps}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\talksection{Break}
+
+\begin{frame}
+  \phrase{Le problème}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Le code}
+  Avant j'utilisais ratpoison :
+  \vspace{1cm}
+  \lstinputlisting[language=bash, firstline=23, lastline=24]{ratpoison-gtd}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Le code}
+  Maintenant j'utilise i3 :
+  \vspace{1cm}
+  \lstinputlisting[language=bash, firstline=38, lastline=40]{i3-gtd}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Les données}
+  Et ça donne :
+  \vspace{1cm}
+  \begin{Verbatim}[fontsize=\tiny]
+1458399349 emacs@starshine - talk-header.tex : /home/jeff/src/jma/talks/2016-03__breizhcamp-que-je-fous/talk-header.tex
+1458399409 emacs@starshine - talk.tex : /home/jeff/src/jma/talks/2016-03__breizhcamp-que-je-fous/talk.tex
+1458399469 listings - How to put C++ source code into beamer slides - TeX - LaTeX Stack Exchange - Mozilla Firefox
+1458399529 emacs@starshine - talk.tex : /home/jeff/src/jma/talks/2016-03__breizhcamp-que-je-fous/talk.tex
+1458399589 talk.pdf — Mais qu'est-ce que je fous? - comment glander et apprendre les maths en même temps
+1458399649 emacs@starshine - talk.tex : /home/jeff/src/jma/talks/2016-03__breizhcamp-que-je-fous/talk.tex
+1458399709 emacs@starshine - talk.tex : /home/jeff/src/jma/talks/2016-03__breizhcamp-que-je-fous/talk.tex
+1458399769 emacs@starshine - macros.tex : /home/jeff/src/jma/talks/2016-03__breizhcamp-que-je-fous/macros.tex
+1458399829 emacs@starshine - talk.tex : /home/jeff/src/jma/talks/2016-03__breizhcamp-que-je-fous/talk.tex
+1458399890 emacs@starshine - talk.tex : /home/jeff/src/jma/talks/2016-03__breizhcamp-que-je-fous/talk.tex
+1458399950 talk.pdf — Mais qu'est-ce que je fous? - comment glander et apprendre les maths en même temps
+1458400010 jeff@starshine:~/src/jma/talks/2016-03__breizhcamp-que-je-fous
+\end{Verbatim}
+\end{frame}
+
+\begin{frame}
+  \phrase{Quelles questions puis-je poser?}
+\end{frame}
+
+\begin{frame}
+  \phrase{Machine Learning}
+\end{frame}
+
+\begin{frame}
+  \phrase{Data Science}
+\end{frame}
+
+\begin{frame}
+  \phrase{Statistics}
+\end{frame}
+
+\begin{frame}
+  \cimgggg{boxplot-vs-pdf.png}
+\end{frame}
+
+\begin{frame}
+  \cimg{maths.jpg}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Maths}
+  \phrase{Vector Space}
+  \vspace{7mm}
+  \phrase{Features}
+  \vspace{7mm}
+  \phrase{Feature engineering}
+\end{frame}
+
+\begin{frame}
+  % ./plot_history.py --color-host
+  % cp /tmp/gtd-activity.png gtd-history-by-host.png
+  \cimg{gtd-history-by-host.png}
+\end{frame}
+
+\begin{frame}
+  % ./plot_history.py --color-host-class
+  % cp /tmp/gtd-activity.png gtd-history-by-host-class.png
+  \cimg{gtd-history-by-host-class.png}
+\end{frame}
+
+\begin{frame}
+  % ./plot_recent_days.py
+  % cp /tmp/gtd-activity.png gtd-recent-days-10.png
+  % ./plot_recent_days.py --num-days 20
+  % cp /tmp/gtd-activity.png gtd-recent-days-20.png
+  \only<1>{\cimg{gtd-recent-days-10.png}}
+  \only<2>{\cimg{gtd-recent-days-20.png}}
+  % Note that does not include tablet use.
+  % Talk about seeing weekends.
+  % And talk about discovering long tea breaks
+\end{frame}
+
+\begin{frame}
+  \cimg{gtd-pauses-30.png}
+  % Note that I'm not measuring what I do on a tablets.
+  % These pause plots are a bit old, but they stay sadly uninformative.
+\end{frame}
+
+\begin{frame}
+  \cimg{gtd-pauses-60.png}
+  % Note that I'm not measuring what I do on a tablets
+\end{frame}
+
+\begin{frame}
+  \cimg{gtd-pauses-90.png}
+  % Note that I'm not measuring what I do on a tablets
+\end{frame}
+
+\begin{frame}
+  \cimg{gtd-pauses-120.png}
+  % Note that I'm not measuring what I do on a tablets
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bag of Words}
+  \phrase{sac de mots}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Bag of Words}
+  \vspace{1cm}
+  Exemple :
+
+  \begin{quote}
+    Il est nuit. La cabane est pauvre, mais bien close.\\
+    Le logis est plein d'ombre et l'on sent quelque chose\\
+    Qui rayonne à travers ce crépuscule obscur.\\
+    Des filets de pêcheur sont accrochés au mur.\\
+    Au fond, dans l'encoignure où quelque humble vaisselle\\
+    Aux planches d'un bahut vaguement étincelle,\\
+    On distingue un grand lit aux longs rideaux tombants.\\
+    Tout près, un matelas s'étend sur de vieux bancs,\\
+    Et cinq petits enfants, nid d'âmes, y sommeillent\\
+    La haute cheminée où quelques flammes veillent\\
+    Rougit le plafond sombre, et, le front sur le lit,\\
+    Une femme à genoux prie, et songe, et pâlit.\\
+    C'est la mère. Elle est seule. Et dehors, blanc d'écume,\\
+    Au ciel, aux vents, aux rocs, à la nuit, à la brume,\\
+    Le sinistre océan jette son noir sanglot.
+  \end{quote}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Bag of Words}
+  \vspace{1cm}
+  \only<1-2>{
+    Exemple (plus simple) :
+    
+    \begin{quote}
+      Il est nuit. La cabane est pauvre, mais bien close.\\
+      Le logis est plein d'ombre et l'on sent quelque chose\\
+    \end{quote}
+  }
+  \only<2>{
+    \lstinputlisting[language=python]{src/pauvres_gens1.py}
+  }
+  \only<3>{
+    \lstinputlisting[language=python, firstline=7]{src/pauvres_gens2.py}
+  }
+  \only<4>{
+   Pluie ou bourrasque, il faut qu'il sorte, il faut qu'il aille,\\
+   Il n'avait pas assez de peine ; il faut que j'aille\\[5mm]
+
+   Pluie ou bourrasque, il faut qu'il sorte, il faut qu'il aille,\\
+   Quand il verra qu'il faut nourrir avec les nôtres\\[5mm]
+
+   l s'en va dans l'abîme et s'en va dans la nuit.\\
+   Or, la nuit, dans l'ondée et la brume, en décembre,\\[5mm]
+
+   Comme il faut calculer la marée et le vent !\\
+   Et l'onde et la marée et le vent en colère.\\[5mm]
+
+   C'est l'heure où, gai danseur, minuit rit et folâtre\\
+   Et c'est l'heure où minuit, brigand mystérieux,\\[5mm]
+
+   Sous sa cape aux longs plis qu'est-ce donc qu'elle emporte ?\\
+   Qu'est-ce donc qu'elle cache avec un air troublé
+  }
+  \only<5>{
+    \lstinputlisting[language=python, firstline=7]{src/pauvres_gens3.py}
+  }
+  \only<6>{
+    \texttt{'Comme il faut calculer la marée et le vent !'}\\[10mm]
+
+    \texttt{ ['comme', 'il', 'faut', 'calculer', 'la', 'marée', 'et',
+        'le', 'vent', 'comme il', 'il faut', 'faut calculer',
+        'calculer la', 'la marée', 'marée et', 'et le', 'le vent']}
+    }
+  \only<7>{
+   Pluie ou bourrasque, il faut qu'il sorte, il faut qu'il aille,\\
+   Quand il verra qu'il faut nourrir avec les nôtres\\[5mm]
+
+   Comme il faut calculer la marée et le vent !\\
+   Et l'onde et la marée et le vent en colère.\\[5mm]
+
+   Qu'est-ce donc que Jeannie a fait chez cette morte ?\\
+   Qu'est-ce donc que Jeannie emporte en s'en allant ?\\[5mm]
+
+   Sous sa cape aux longs plis qu'est-ce donc qu'elle emporte ?\\
+   Qu'est-ce donc qu'elle cache avec un air troublé
+  }
+\end{frame}
+
+\begin{frame}
+\frametitle{Matches 0--10}
+\tt\tiny
+\blue{emacs@siegfried - analytics.py : /home/jeff/src/jellybooks/analytics/visualisation/jellybooks/analytics.py}\\[2mm]
+\hspace{2mm}0.02 emacs@siegfried - analytics.py : /home/jeff/src/jellybooks/analytics/jellybooks/analytics.py\\
+\hspace{2mm}0.04 emacs@siegfried - analytics.py : /home/jeff/src/jellybooks/analytics\_backtrack/visualisation/jellybooks/analytics.py\\
+\hspace{2mm}0.06 emacs@lorax - analytics.py : /home/jeff/src/jellybooks/analytics/jellybooks/analytics.py\\
+\hspace{2mm}0.06 emacs@nantes - analytics.py : /home/jeff/src/jellybooks/analytics/jellybooks/analytics.py\\
+\hspace{2mm}0.06 emacs@birdsong - analytics.py : /home/jeff/src/jellybooks/analytics/jellybooks/analytics.py\\
+\hspace{2mm}0.14 emacs@siegfried\_-\_analytics.py\_:\_/home/jeff/src/jellybooks/analytics/visualisation/jellybooks/analytics.py\\
+\hspace{2mm}0.17 emacs@siegfried\_-\_analytics.py\_:\_/home/jeff/src/jellybooks/analytics/jellybooks/analytics.py\\
+\hspace{2mm}0.19 emacs@siegfried - baldur.py : /home/jeff/src/jellybooks/analytics/visualisation/jellybooks/baldur.py\\
+\hspace{2mm}0.19 emacs@siegfried - plot\_local.py : /home/jeff/src/jellybooks/analytics/visualisation/jellybooks/plot\_local.py\\
+\hspace{2mm}0.19 emacs@siegfried - actions.py : /home/jeff/src/jellybooks/analytics/visualisation/jellybooks/actions.py
+\end{frame}
+
+\begin{frame}
+\frametitle{Matches 90--100}
+\tt\tiny
+\blue{emacs@siegfried - analytics.py : /home/jeff/src/jellybooks/analytics/visualisation/jellybooks/analytics.py}\\[2mm]
+\hspace{2mm}0.28 emacs@siegfried - Makefile<analytics> : /home/jeff/src/jellybooks/analytics/Makefile\\
+\hspace{2mm}0.28 emacs@siegfried\_-\_demo.py\_:\_/home/jeff/src/jellybooks/analytics/visualisation/demo.py\\
+\hspace{2mm}0.28 emacs@siegfried\_-\_demo\_baldur.py\_:\_/home/jeff/src/jellybooks/analytics/visualisation/demo\_baldur.py\\
+\hspace{2mm}0.28 emacs@birdsong - registration\_progress\_pb2.py : /home/jeff/src/jellybooks/analytics/mongo\_links/jellybooks/registration\_progress\_pb2.py\\
+\hspace{2mm}0.29 jeff@siegfried:~/src/jellybooks/analytics/visualisation/d3\\
+\hspace{2mm}0.3 emacs@birdsong - fetch\_sync\_reminders.py : /home/jeff/src/jellybooks/analytics/fetch\_sync\_reminders.py\\
+\hspace{2mm}0.3 emacs@nantes - demographic\_decay\_plots.py : /home/jeff/src/jellybooks/analytics/demographic\_decay\_plots.py\\
+\hspace{2mm}0.3 emacs@birdsong - reading\_speed.py : /home/jeff/src/jellybooks/analytics/reading\_speed.py\\
+\hspace{2mm}0.3 emacs@birdsong - manual\_decay\_plots.py : /home/jeff/src/jellybooks/analytics/manual\_decay\_plots.py\\
+\hspace{2mm}0.3 emacs@birdsong - demographic\_decay\_plots.py : /home/jeff/src/jellybooks/analytics/demographic\_decay\_plots.py
+\end{frame}
+
+\begin{frame}
+  \frametitle{Matches 0--10, bigram(1, 2)}
+  \tt\tiny
+\blue{emacs@siegfried - analytics.py : /home/jeff/src/jellybooks/analytics/visualisation/jellybooks/analytics.py}\\[2mm]
+\hspace{2mm}0.052 emacs@siegfried - analytics.py : /home/jeff/src/jellybooks/analytics/jellybooks/analytics.py\\
+\hspace{2mm}0.08 emacs@siegfried - analytics.py : /home/jeff/src/jellybooks/analytics\_backtrack/visualisation/jellybooks/analytics.py\\
+\hspace{2mm}0.13 emacs@lorax - analytics.py : /home/jeff/src/jellybooks/analytics/jellybooks/analytics.py\\
+\hspace{2mm}0.13 emacs@nantes - analytics.py : /home/jeff/src/jellybooks/analytics/jellybooks/analytics.py\\
+\hspace{2mm}0.13 emacs@birdsong - analytics.py : /home/jeff/src/jellybooks/analytics/jellybooks/analytics.py\\
+\hspace{2mm}0.19 emacs@siegfried\_-\_analytics.py\_:\_/home/jeff/src/jellybooks/analytics/visualisation/jellybooks/analytics.py\\
+\hspace{2mm}0.26 emacs@siegfried\_-\_analytics.py\_:\_/home/jeff/src/jellybooks/analytics/jellybooks/analytics.py\\
+\hspace{2mm}0.28 emacs@siegfried - baldur.py : /home/jeff/src/jellybooks/analytics/visualisation/jellybooks/baldur.py\\
+\hspace{2mm}0.28 emacs@siegfried - plot\_local.py : /home/jeff/src/jellybooks/analytics/visualisation/jellybooks/plot\_local.py\\
+\hspace{2mm}0.28 emacs@siegfried - actions.py : /home/jeff/src/jellybooks/analytics/visualisation/jellybooks/actions.py
+\end{frame}
+
+\begin{frame}
+\frametitle{Matches 90--100, bigram(1, 2)}
+  \tt\tiny
+\blue{emacs@siegfried - analytics.py : /home/jeff/src/jellybooks/analytics/visualisation/jellybooks/analytics.py}\\[2mm]
+\hspace{2mm}0.41 emacs@siegfried - .gitignore : /home/jeff/src/jellybooks/analytics/.gitignore\\
+\hspace{2mm}0.41 emacs@siegfried - Makefile : /home/jeff/src/jellybooks/analytics/Makefile\\
+\hspace{2mm}0.41 jeff@siegfried:~/src/jellybooks/analytics\\
+\hspace{2mm}0.41 emacs@birdsong - fetch\_sync\_reminders.py : /home/jeff/src/jellybooks/analytics/fetch\_sync\_reminders.py\\
+\hspace{2mm}0.41 emacs@nantes - demographic\_decay\_plots.py : /home/jeff/src/jellybooks/analytics/demographic\_decay\_plots.py\\
+\hspace{2mm}0.41 emacs@birdsong - reading\_speed.py : /home/jeff/src/jellybooks/analytics/reading\_speed.py\\
+\hspace{2mm}0.41 emacs@birdsong - manual\_decay\_plots.py : /home/jeff/src/jellybooks/analytics/manual\_decay\_plots.py\\
+\hspace{2mm}0.41 emacs@birdsong - demographic\_decay\_plots.py : /home/jeff/src/jellybooks/analytics/demographic\_decay\_plots.py\\
+\hspace{2mm}0.41 emacs@birdsong - fetch\_email\_events.py : /home/jeff/src/jellybooks/analytics/fetch\_email\_events.py\\
+\hspace{2mm}0.41 emacs@nantes - manual\_decay\_plots.py : /home/jeff/src/jellybooks/analytics/manual\_decay\_plots.py
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Matches 0--10, Tf-Idf}
+  \tt\tiny
+\blue{emacs@siegfried - analytics.py : /home/jeff/src/jellybooks/analytics/visualisation/jellybooks/analytics.py}\\[2mm]
+\hspace{2mm}0.057 emacs@siegfried - analytics.py : /home/jeff/src/jellybooks/analytics/jellybooks/analytics.py\\
+\hspace{2mm}0.097 emacs@nantes - analytics.py : /home/jeff/src/jellybooks/analytics/jellybooks/analytics.py\\
+\hspace{2mm}0.1 emacs@birdsong - analytics.py : /home/jeff/src/jellybooks/analytics/jellybooks/analytics.py\\
+\hspace{2mm}0.1 emacs@siegfried - analytics.py : /home/jeff/src/jellybooks/analytics\_backtrack/visualisation/jellybooks/analytics.py\\
+\hspace{2mm}0.11 emacs@lorax - analytics.py : /home/jeff/src/jellybooks/analytics/jellybooks/analytics.py\\
+\hspace{2mm}0.21 analytics.py\\
+\hspace{2mm}0.23 emacs@siegfried - html.py : /home/jeff/src/jellybooks/analytics/visualisation/jellybooks/html.py\\
+\hspace{2mm}0.26 jeff@siegfried:~/src/jellybooks/analytics/visualisation\\
+\hspace{2mm}0.27 jeff@siegfried:~/src/jellybooks/analytics/visualisation/jellybooks\\
+\hspace{2mm}0.27 emacs@nantes - html.py : /home/jeff/src/jellybooks/analytics/visualisation/jellybooks/html.py
+\end{frame}
+
+\begin{frame}
+  \frametitle{Matches 90--100, Tf-Idf}
+  \tt\tiny
+emacs@siegfried - analytics.py : /home/jeff/src/jellybooks/analytics/visualisation/jellybooks/analytics.py\\[2mm]
+\hspace{2mm}0.48 emacs@siegfried - baldur.py : /home/jeff/src/jellybooks/analytics\_backtrack/visualisation/jellybooks/baldur.py\\
+\hspace{2mm}0.48 jeff@candy:~/src/jellybooks/analytics\\
+\hspace{2mm}0.48 jeff@siegfried:~/src/jellybooks/analytics/visualisation/nvd3-examples\\
+\hspace{2mm}0.49 emacs@nantes - plot\_d3.py : /home/jeff/src/jellybooks/analytics/jellybooks/plot\_d3.py\\
+\hspace{2mm}0.49 emacs@siegfried - demo.py<2> : /home/jeff/src/jellybooks/analytics\_backtrack/visualisation/jellybooks/demo.py\\
+\hspace{2mm}0.49 emacs@birdsong - plot\_d3.py : /home/jeff/src/jellybooks/analytics/jellybooks/plot\_d3.py\\
+\hspace{2mm}0.49 emacs@siegfried - rex.py : /home/jeff/src/jellybooks/analytics/src/rex.py\\
+\hspace{2mm}0.49 emacs@siegfried - sessions\_pb2.py : /home/jeff/src/jellybooks/analytics/jellybooks/sessions\_pb2.py\\
+\hspace{2mm}0.49 emacs@siegfried - png\_test.py : /home/jeff/src/jellybooks/analytics/jellybooks/png\_test.py\\
+\hspace{2mm}0.49 emacs@siegfried - im\_png\_test.py : /home/jeff/src/jellybooks/analytics/jellybooks/im\_png\_test.py 
+\end{frame}
+
+\begin{frame}
+  \frametitle{TF - IDF}
+  \blue{
+    \begin{displaymath}
+      TF_{td} = \frac{f_{td}}{\max_k f_{kd}} \qquad\qquad
+      IDF_t = \log_2\left( \frac{N}{n_t} \right)
+    \end{displaymath}
+  }
+  \blue{
+    \begin{displaymath}
+      TF\mbox{-}IDF_{td} = TF_{td} \cdot IDF_t
+    \end{displaymath}
+  }
+
+  with
+  \begin{align*}
+    f_{td} &= \mbox{frequency of word (term) $t$ in document $d$} \\
+    N &= \mbox{number of documents}\\
+    n_t &= \mbox{number of documents containing term $t$}
+  \end{align*}
+\end{frame}
+
+\begin{frame}
+  \phrase{$k$-means}
+\end{frame}
+
+\begin{frame}
+  \cimgggg{cluster-1.png}
+\end{frame}
+
+\begin{frame}
+  \cimg{cluster-2.png}
+\end{frame}
+
+\begin{frame}
+  \cimg{cluster-3.png}
+\end{frame}
+
+\begin{frame}
+  \cimgg{cluster-4.png}
+\end{frame}
+
+\begin{frame}
+  \cimg{plot-similar-1.png}
+\end{frame}
+
+\begin{frame}
+  \cimg{plot-similar-2.png}
+\end{frame}
+
+\begin{frame}
+  \cimg{plot-similar-3.png}
+\end{frame}
+
+\begin{frame}
+  \cimg{plot-similar-4.png}
+\end{frame}
+
+% ======================================================================
+% End
+
+\begin{frame}
+  \frametitle{Resources}
+  \cimggg{nmlm.png}
+
+  \vspace{5mm}
+  \centerline{\url{http://www.meetup.com/Nantes-Machine-Learning-Meetup/}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Resources}
+  \cimggg{ml-week.png}
+
+  \vspace{5mm}
+  \centerline{\url{http://www.ml-week.com/}}
+\end{frame}
+
+\begin{frame}
+  \phrase{Questions?}
+\end{frame}
+
+\end{document}
