@@ -463,15 +463,72 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Goals}
+  \only<1>{\phrase{point $\mapsto$ label}}
+  \only<2>{\phrase{labels so far $\mapsto$ next labels}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Predicting the Future}
+  \only<1>{
+    Formulation:
+    \begin{displaymath}
+      \left(x_1, \ldots, x_{100}\right) \leadsto \left(x_{101}, \ldots, x_{110}\right)
+    \end{displaymath}
+    }
   
 \end{frame}
 
 \begin{frame}
-  
+  \frametitle{Artificial Neural Networks}
+  \only<1>{\phrase{A (too) quick example}}
 \end{frame}
 
 \begin{frame}
-  
+  \frametitle{Linear neuron}
+  \begin{displaymath}
+    y = b + \sum_i x_i w_i
+  \end{displaymath}
+  \only<2>{where
+    \begin{align*}
+      y & = \text{output} \\
+      b & = \text{bias} \\
+      x_i & = \text{$i^\mathrm{\,th}$ input} \\
+      w_i & = \text{weight on $i^\mathrm{\,th}$ input}
+    \end{align*}
+  }
+  \includegraphics<3>[width=.7\textwidth]{linear-neuron.pdf}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: handwriting recognition of digits}
+  \begin{itemize}
+  \item<1-> Input neurons: pixels
+  \item<1-> Output neurons: classes (digits)
+  \item<1-> Connect them all! \textit{(bipartite)}
+  \item<2-> Initialize input weights to random
+  \end{itemize}
+  \includegraphics<3>[width=.4\textwidth]{input-weights.jpg}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: handwriting recognition of digits}
+  \cimg{digit-recognizer.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: handwriting recognition of digits}
+  To train this ANN:
+  \begin{itemize}
+  \item<1-> Increment weights from active pixels going to correct class
+  \item<1-> Decrement weights from active pixels going to predicted class
+  \end{itemize}
+  \only<2->{When it's right, nothing happens.  This is good.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Remember about lying?}
+  \phrase{Do this, but a bit more complicated}
 \end{frame}
 
 % ======================================================================
