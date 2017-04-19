@@ -1,0 +1,363 @@
+\input talk-header.tex
+\usepackage{centernot}
+\usepackage[]{algorithm2e}
+
+\title
+{\Huge\bf Je vois avec mes yeux}
+
+\begin{document}
+
+\begin{frame}
+  \huge
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\talksection{Break}
+
+
+\begin{frame}
+  % https://www.pexels.com/photo/alone-anime-art-artistic-262272/
+  % https://static.pexels.com/photos/262272/pexels-photo-262272.jpeg
+  % CC0 license
+  \cimgw{problem.jpg}
+  \vspace{-.6\textheight}
+  \phrase{Le problème\hspace{6cm}}
+  \vspace{.2\textheight}
+  \only<1>{\sphrase{Comprendre ce que je fais\hspace{6cm}}}
+  \only<2>{\sphrase{Prédire\hspace{6cm}}}    % Même une probabilité.
+  \only<3>{\sphrase{Seul : temps libre\hspace{6cm}}}
+  \vspace{.2\textheight}
+\end{frame}
+
+\begin{frame}
+  \cimgw{matrix.png}
+  \vspace{-.8\textheight}
+  \phrase{\orange{Quelles données ?}\hspace{4cm}}
+  \vspace{.2\textheight}
+  \only<2>{\sphrase{\bf\orange{Mon ordinateur\hspace{8cm}}}}
+  \only<3>{\sphrase{\bf\orange{Titre de fenêtre\hspace{8cm}}}}
+  \only<4>{\sphrase{\bf\orange{Miniature d'image de fenêtre\hspace{5cm}}}}
+  \vspace{.6\textheight}
+\end{frame}
+
+\begin{frame}
+  % https://www.pexels.com/photo/party-glass-architecture-windows-34092/
+  % https://static.pexels.com/photos/34092/pexels-photo.jpg
+  % CC0
+  \cimghf{window1light.jpg}
+  \vspace{-.85\textwidth}
+  \Huge\blue{\bf\url{1492626991 emacs@birdsong - talk.tex<2017-04__breizhcamp-je-vois-avec-mes-yeux> : /home/jeff/src/jma/talks/2017-04__breizhcamp-je-vois-avec-mes-yeux/talk.tex}}
+  \vspace{.7\textwidth}
+\end{frame}
+
+\begin{frame}
+  \cimgh{gtd-img-1.png}
+\end{frame}
+
+\begin{frame}
+  \cimg{gtd-img-2.png}
+\end{frame}
+
+\begin{frame}
+  \cimgh{gtd-img-3.png}
+\end{frame}
+
+\begin{frame}
+  \cimgh{gtd-img-4.png}
+\end{frame}
+
+\begin{frame}
+  \cimgw{gtd-history-by-host-class.png}
+\end{frame}
+
+\begin{frame}
+  \cimgw{gtd-recent-days-10.png}
+\end{frame}
+
+\begin{frame}
+  \cimgw{gtd-recent-days-20.png}
+\end{frame}
+
+\begin{frame}
+  % https://www.pexels.com/photo/sea-beach-sand-ocean-2687/
+  % https://static.pexels.com/photos/2687/sea-beach-sand-ocean.jpg
+  \cimgw{sea-beach-sand-ocean.jpg}
+  \vspace{-.2\textheight}
+  \only<1>{\phrase{supervisé}}
+  \only<2>{\phrase{non-supervisé}}
+  \vspace{.1\textheight}
+\end{frame}
+
+\begin{frame}
+  % https://www.pexels.com/photo/woman-in-black-tank-top-holding-an-umbrella-in-front-of-yellow-concrete-wall-57851/
+  % https://static.pexels.com/photos/57851/pexels-photo-57851.jpeg
+  \cimgw{umbrella.jpg}
+  \vspace{-.4\textheight}
+  \only<1>{\phrase{model\hspace{8cm}}}
+  \only<2>{\phrase{$y,\,\hat{y}$\hspace{8cm}}}
+  \vspace{.3\textheight}
+\end{frame}
+
+\begin{frame}
+  % https://www.pexels.com/photo/clouds-girl-mountain-dog-36372/
+  % https://static.pexels.com/photos/36372/pexels-photo.jpg
+  \cimgw{mtn-dog.jpg}
+  \vspace{-.8\textheight}
+  \only<1>{\phrase{\hspace{7cm}strategie générale : critères}}
+  \only<2>{\phrase{\hspace{7cm}strategie générale : étiqueter}}
+  \only<3>{\phrase{\hspace{6cm}strategie générale : auto-étiqueter}}
+  \only<4>{\phrase{\hspace{7cm}strategie générale : séquences}}
+  \only<5>{\phrase{\hspace{7cm}strategie générale : prédire}}
+  \vspace{.7\textheight}
+\end{frame}
+
+%%%% vector representation %%%%
+%%%% basis vector %%%%
+\begin{frame}
+  % https://www.pexels.com/photo/3-tan-short-coated-puppy-on-gray-dirt-during-daytime-26128/
+  % https://static.pexels.com/photos/26128/pexels-photo-26128.jpg
+  \cimgw{puppies.jpg}
+  \vspace{-.85\textheight}
+  \only<1>{\phrase{stratégie 1 : sac de mot\hspace{0cm}}}
+  \only<2>{\phrase{stratégie 1 : tf-idf\hspace{0cm}}}
+  \only<3>{\phrase{stratégie 2 : word2vec\hspace{0cm}}}
+  \only<4>{\phrase{deux stratégies : trouver une séquence\hspace{0cm}}}
+  \vspace{.75\textheight}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Bag of Words}
+  \vspace{1cm}\Huge
+  \only<1>{
+    \tt
+    {\ }\\
+    Le chat est orange. \\
+    Le chien court vite. \\
+    {\ }
+  }
+  \only<2>{
+    \tt
+    6\ \ \ 1\ \ \ \ 7\ \ \ \  2\\
+    Le chat est orange. \\
+    Le chien court vite. \\
+    6\ \ \ \ 3\ \ \ \ \ 4\ \ \ \  5
+  }
+  \only<3>{
+    \tt
+    6\ \ \ 1\ \ \ \ 7\ \ \ \  2\\
+    \gray{Le chat est orange.} \\
+    \gray{Le chien court vite.} \\
+    6\ \ \ \ 3\ \ \ \ \ 4\ \ \ \  5
+  }
+  \only<4>{
+    \tt
+       [[6, 1, 7, 2], \\
+         {\ }\\
+         {\ }\\
+       {}\ [6, 3, 4, 5]]
+  }
+  \only<5>{
+    \tt
+       \gray{[[6, 1, 7, 2]} \\
+       {\ }[1, 1, 0, 0, 0, 1, 1] \\
+       {\ }[0, 0, 1, 1, 1, 1, 0] \\
+       \gray{{}\ [6, 3, 4, 5]]}
+  }
+  \only<6>{
+    \tt
+       {\ }\\
+       {\ }[1, 1, 0, 0, 0, 1, 1] \\
+       {\ }[0, 0, 1, 1, 1, 1, 0] \\
+       {\ }
+  }
+  \only<7>{
+    \tt
+       \gray{Le chat est orange.}\\
+       {\ }[1, 1, 0, 0, 0, 1, 1] \\
+       {\ }[0, 0, 1, 1, 1, 1, 0] \\
+       \gray{Le chien court vite.}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cosine Similarity}
+  \Huge
+  \only<1-2>{
+  \begin{minipage}{.4\textwidth}
+  \input{dotproduct.pdf_t}
+  \end{minipage}%
+  \begin{minipage}{.6\textwidth}
+    \only<1>{
+    \begin{displaymath}
+      \cos\,\theta = \frac{u\cdot v}{\parallel u\parallel \parallel v\parallel}
+    \end{displaymath}
+    }
+    \only<2>{
+    \begin{displaymath}
+      \cos\,\theta = u\cdot v
+    \end{displaymath}
+
+    \bigskip
+    \centerline{(if $u$ and $v$ have norm 1)}
+    }
+  \end{minipage}
+  }
+  \only<3>{
+    \tt
+       \gray{Le chat est orange.}\\
+       {\ }[1, 1, 0, 0, 0, 1, 1] \\
+       {\ }[0, 0, 1, 1, 1, 1, 0] \\
+       \gray{Le chien court vite.}
+  }
+  \only<4>{
+    \tt
+    {\ }\\
+    $u =$[1, 1, 0, 0, 0, 1, 1] \\
+    $v =$[0, 0, 1, 1, 1, 1, 0] \\
+    $u\cdot v = 0 + 0 + 0 + 0 + 0 + 1 + 0 = 1$
+
+    \begin{displaymath}
+      \cos\theta = \frac{u\cdot v}{\parallel u\parallel \parallel v\parallel}
+      = \frac{1}{\sqrt{4}\cdot \sqrt{4}}
+      = \frac{1}{4}
+    \end{displaymath}
+  }
+\end{frame}
+
+\begin{frame}
+  \cimg{mnist.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Réseaux de neuronnes}
+  \only<1>{\phrase{Un exemple (trop) vite}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Linear neuron}
+  \Huge
+  \begin{displaymath}
+    y = b + \sum_i x_i w_i
+  \end{displaymath}
+  \only<2>{where
+    \begin{align*}
+      y & = \text{output} \\
+      b & = \text{bias} \\
+      x_i & = \text{$i^\mathrm{\,th}$ input} \\
+      w_i & = \text{weight on $i^\mathrm{\,th}$ input}
+    \end{align*}
+  }
+  \includegraphics<3>[width=.7\textwidth]{linear-neuron.pdf}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: handwriting recognition of digits}
+  \Huge
+  \begin{itemize}
+  \item<1-> Input neurons: pixels
+  \item<1-> Output neurons: classes (digits)
+  \item<1-> Connect them all! \textit{(bipartite)}
+  \item<2-> Initialize input weights to random
+  \end{itemize}
+  \centerline{\includegraphics<3>[width=.3\textwidth]{input-weights.jpg}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: handwriting recognition of digits}
+  \cimg{digit-recognizer.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example: handwriting recognition of digits}
+  \Huge
+  To train this ANN:
+  \begin{itemize}
+  \item<1-> \green{Increment weights from active pixels going to correct class}
+  \item<1-> \red{Decrement weights from active pixels going to predicted class}
+  \end{itemize}
+  \only<2->{\purple{When it's right, nothing happens.  This is good.}}
+\end{frame}
+
+\begin{frame}
+  % https://www.pexels.com/photo/3-tan-short-coated-puppy-on-gray-dirt-during-daytime-26128/
+  % https://static.pexels.com/photos/26128/pexels-photo-26128.jpg
+  \cimgw{puppies.jpg}
+  \vspace{-.85\textheight}
+  \only<1>{\phrase{stratégie 1 : sac de mot\hspace{0cm}}}
+  \only<2>{\phrase{stratégie 1 : tf-idf\hspace{0cm}}}
+  \only<3>{\phrase{stratégie 2 : word2vec\hspace{0cm}}}
+  \only<4>{\phrase{deux stratégies : trouver une séquence\hspace{0cm}}}
+  \vspace{.75\textheight}
+\end{frame}
+
+\begin{frame}
+  \cimgh{DNN.jpg}
+\end{frame}
+
+\begin{frame}
+  % https://www.pexels.com/photo/3-tan-short-coated-puppy-on-gray-dirt-during-daytime-26128/
+  % https://static.pexels.com/photos/26128/pexels-photo-26128.jpg
+  \cimgw{puppies.jpg}
+  \vspace{-.85\textheight}
+  \only<1>{\phrase{stratégie 1 : sac de mot\hspace{0cm}}}
+  \only<2>{\phrase{stratégie 1 : tf-idf\hspace{0cm}}}
+  \only<3>{\phrase{stratégie 2 : word2vec\hspace{0cm}}}
+  \only<4>{\phrase{deux stratégies : trouver une séquence\hspace{0cm}}}
+  \vspace{.75\textheight}
+\end{frame}
+
+\begin{frame}
+  \cimgh{word2vec-1.png}
+\end{frame}
+
+\begin{frame}
+  \cimg{word2vec-2.png}
+\end{frame}
+
+\begin{frame}
+  % https://www.pexels.com/photo/3-tan-short-coated-puppy-on-gray-dirt-during-daytime-26128/
+  % https://static.pexels.com/photos/26128/pexels-photo-26128.jpg
+  \cimgw{puppies.jpg}
+\end{frame}
+
+\begin{frame}
+  % https://www.pexels.com/photo/kitten-cat-kitty-pet-22346/
+  % https://static.pexels.com/photos/22346/pexels-photo.jpg
+  \cimgw{cat.jpg}
+\end{frame}
+
+
+
+% ======================================================================
+% End
+
+\begin{frame}
+  \frametitle{Resources}
+  \cimggg{rmlm.png}
+
+  \vspace{5mm}
+  \centerline{\url{https://www.meetup.com/Meetup-Machine-Learning-Rennes/}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Resources}
+  \cimggg{nmlm.png}
+
+  \vspace{5mm}
+  \centerline{\url{http://www.meetup.com/Nantes-Machine-Learning-Meetup/}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Resources}
+  \cimggg{ml-week.png}
+
+  \vspace{5mm}
+  \centerline{\url{http://www.ml-week.com/}}
+\end{frame}
+
+\begin{frame}
+  \phrase{Questions?}
+\end{frame}
+
+\end{document}
