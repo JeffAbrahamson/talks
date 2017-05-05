@@ -32,7 +32,7 @@
 
 \begin{frame}
   \cimgw{matrix.png}
-  \vspace{-.9\textheight}
+  \vspace{-1\textheight}
   \phrase{\orange{Where's the data?}\hspace{4cm}}
   \vspace{.2\textheight}
   \only<2>{\sphrase{\bf\orange{My computer\hspace{8cm}}}}
@@ -47,7 +47,7 @@
   % CC0
   \cimghf{window1light.jpg}
   \vspace{-.7\textwidth}
-  \Huge\blue{\tt\bf{1493904959 emacs@birdsong - talk.tex : /home/jeff/src/jma/talks/2017-05\_\_PyDataLondon/talk.tex}}
+  \huge\blue{\tt\bf{1493904959 emacs@birdsong - talk.tex : /home/jeff/src/jma/talks/2017-05\_\_PyDataLondon/talk.tex}}
   \vspace{.6\textwidth}
 \end{frame}
 
@@ -83,7 +83,7 @@
   % https://www.pexels.com/photo/sea-beach-sand-ocean-2687/
   % https://static.pexels.com/photos/2687/sea-beach-sand-ocean.jpg
   \cimgw{sea-beach-sand-ocean.jpg}
-  \vspace{-.2\textheight}
+  \vspace{-.3\textheight}
   \only<1>{\phrase{supervised}}
   \only<2>{\phrase{unsupervised}}
   \vspace{.1\textheight}
@@ -92,23 +92,24 @@
 \begin{frame}
   % https://www.pexels.com/photo/woman-in-black-tank-top-holding-an-umbrella-in-front-of-yellow-concrete-wall-57851/
   % https://static.pexels.com/photos/57851/pexels-photo-57851.jpeg
+  \vspace{-.2\textheight}
   \cimgw{umbrella.jpg}
-  \vspace{-.4\textheight}
+  \vspace{-.3\textheight}
   \only<1>{\phrase{model\hspace{8cm}}}
   \only<2>{\phrase{$y,\,\hat{y}$\hspace{8cm}}}
-  \vspace{.3\textheight}
+  \vspace{.6\textheight}
 \end{frame}
 
 \begin{frame}
   % https://www.pexels.com/photo/clouds-girl-mountain-dog-36372/
   % https://static.pexels.com/photos/36372/pexels-photo.jpg
   \cimgw{mtn-dog.jpg}
-  \vspace{-.8\textheight}
-  \only<1>{\phrase{\hspace{7cm}strategie générale : critères}}
-  \only<2>{\phrase{\hspace{7cm}strategie générale : étiqueter}}
-  \only<3>{\phrase{\hspace{6cm}strategie générale : auto-étiqueter}}
-  \only<4>{\phrase{\hspace{7cm}strategie générale : séquences}}
-  \only<5>{\phrase{\hspace{7cm}strategie générale : prédire}}
+  \vspace{-1\textheight}
+  \only<1>{\phrase{\hspace{5cm}General strategy: features}}
+  \only<2>{\phrase{\hspace{5cm}General strategy: labeling}}
+  \only<3>{\phrase{\hspace{4cm}General strategy: auto-labeling}}
+  \only<4>{\phrase{\hspace{5cm}General strategy: sequences}}
+  \only<5>{\phrase{\hspace{5cm}General strategy: prediction}}
   \vspace{.7\textheight}
 \end{frame}
 
@@ -118,36 +119,36 @@
   % https://www.pexels.com/photo/3-tan-short-coated-puppy-on-gray-dirt-during-daytime-26128/
   % https://static.pexels.com/photos/26128/pexels-photo-26128.jpg
   \cimgw{puppies.jpg}
-  \vspace{-.85\textheight}
-  \only<1>{\phrase{stratégie 1 : sac de mot\hspace{0cm}}}
-  \only<2>{\phrase{stratégie 1 : tf-idf\hspace{0cm}}}
-  \only<3>{\phrase{stratégie 2 : word2vec\hspace{0cm}}}
-  \only<4>{\phrase{deux stratégies : trouver une séquence\hspace{0cm}}}
-  \vspace{.75\textheight}
+  \vspace{-1.03\textheight}
+  \only<1>{\phrase{stategy 1 : bag of words\hspace{0cm}}}
+  \only<2>{\phrase{stategy 1 : tf-idf\hspace{0cm}}}
+  \only<3>{\phrase{stategy 2 : word2vec\hspace{0cm}}}
+  \only<4>{\phrase{two strategies: find a sequence\hspace{0cm}}}
+  \vspace{.95\textheight}
 \end{frame}
 
 \begin{frame}[t]
   \frametitle{Bag of Words}
-  \vspace{1cm}\Huge
+  \vspace{1cm}\huge
   \only<1>{
     \tt
     {\ }\\
-    Le chat est orange. \\
-    Le chien court vite. \\
+    The cat is orange. \\
+    The dog runs fast. \\
     {\ }
   }
   \only<2>{
     \tt
     6\ \ \ 1\ \ \ \ 7\ \ \ \  2\\
-    Le chat est orange. \\
-    Le chien court vite. \\
+    The cat is orange. \\
+    The dog runs fast. \\
     6\ \ \ \ 3\ \ \ \ \ 4\ \ \ \  5
   }
   \only<3>{
     \tt
     6\ \ \ 1\ \ \ \ 7\ \ \ \  2\\
-    \gray{Le chat est orange.} \\
-    \gray{Le chien court vite.} \\
+    \gray{The cat is orange.} \\
+    \gray{The dog runs fast.} \\
     6\ \ \ \ 3\ \ \ \ \ 4\ \ \ \  5
   }
   \only<4>{
@@ -173,16 +174,16 @@
   }
   \only<7>{
     \tt
-       \gray{Le chat est orange.}\\
+       \gray{The cat is orange.}\\
        {\ }[1, 1, 0, 0, 0, 1, 1] \\
        {\ }[0, 0, 1, 1, 1, 1, 0] \\
-       \gray{Le chien court vite.}
+       \gray{The dog runs fast.}
   }
 \end{frame}
 
 \begin{frame}
   \frametitle{Cosine Similarity}
-  \Huge
+  \huge
   \only<1-2>{
   \begin{minipage}{.4\textwidth}
   \input{dotproduct.pdf_t}
@@ -205,14 +206,13 @@
   }
   \only<3>{
     \tt
-       \gray{Le chat est orange.}\\
+       \gray{The cat is orange.}\\
        {\ }[1, 1, 0, 0, 0, 1, 1] \\
        {\ }[0, 0, 1, 1, 1, 1, 0] \\
-       \gray{Le chien court vite.}
+       \gray{The dog runs fast.}
   }
   \only<4>{
     \tt
-    {\ }\\
     $u =$[1, 1, 0, 0, 0, 1, 1] \\
     $v =$[0, 0, 1, 1, 1, 1, 0] \\
     $u\cdot v = 0 + 0 + 0 + 0 + 0 + 1 + 0 = 1$
@@ -226,17 +226,16 @@
 \end{frame}
 
 \begin{frame}
-  \cimg{mnist.png}
+  \cimgh{mnist.png}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Réseaux de neuronnes}
-  \only<1>{\phrase{Un exemple (trop) vite}}
+  \frametitle{Neural networks}
+  \only<1>{\phrase{A far too short example}}
 \end{frame}
 
 \begin{frame}
   \frametitle{Linear neuron}
-  \Huge
   \begin{displaymath}
     y = b + \sum_i x_i w_i
   \end{displaymath}
@@ -253,7 +252,7 @@
 
 \begin{frame}
   \frametitle{Example: handwriting recognition of digits}
-  \Huge
+  \Large
   \begin{itemize}
   \item<1-> Input neurons: pixels
   \item<1-> Output neurons: classes (digits)
@@ -270,7 +269,7 @@
 
 \begin{frame}
   \frametitle{Example: handwriting recognition of digits}
-  \Huge
+  \huge
   To train this ANN:
   \begin{itemize}
   \item<1-> \green{Increment weights from active pixels going to correct class}
@@ -283,12 +282,12 @@
   % https://www.pexels.com/photo/3-tan-short-coated-puppy-on-gray-dirt-during-daytime-26128/
   % https://static.pexels.com/photos/26128/pexels-photo-26128.jpg
   \cimgw{puppies.jpg}
-  \vspace{-.85\textheight}
-  \only<1>{\phrase{stratégie 1 : sac de mot\hspace{0cm}}}
-  \only<2>{\phrase{stratégie 1 : tf-idf\hspace{0cm}}}
-  \only<3>{\phrase{stratégie 2 : word2vec\hspace{0cm}}}
-  \only<4>{\phrase{deux stratégies : trouver une séquence\hspace{0cm}}}
-  \vspace{.75\textheight}
+  \vspace{-1.03\textheight}
+  \only<1>{\phrase{stategy 1 : bag of words\hspace{0cm}}}
+  \only<2>{\phrase{stategy 1 : tf-idf\hspace{0cm}}}
+  \only<3>{\phrase{stategy 2 : word2vec\hspace{0cm}}}
+  \only<4>{\phrase{two strategies: find a sequence\hspace{0cm}}}
+  \vspace{.95\textheight}
 \end{frame}
 
 \begin{frame}
@@ -299,12 +298,12 @@
   % https://www.pexels.com/photo/3-tan-short-coated-puppy-on-gray-dirt-during-daytime-26128/
   % https://static.pexels.com/photos/26128/pexels-photo-26128.jpg
   \cimgw{puppies.jpg}
-  \vspace{-.85\textheight}
-  \only<1>{\phrase{stratégie 1 : sac de mot\hspace{0cm}}}
-  \only<2>{\phrase{stratégie 1 : tf-idf\hspace{0cm}}}
-  \only<3>{\phrase{stratégie 2 : word2vec\hspace{0cm}}}
-  \only<4>{\phrase{deux stratégies : trouver une séquence\hspace{0cm}}}
-  \vspace{.75\textheight}
+  \vspace{-1.03\textheight}
+  \only<1>{\phrase{stategy 1 : bag of words\hspace{0cm}}}
+  \only<2>{\phrase{stategy 1 : tf-idf\hspace{0cm}}}
+  \only<3>{\phrase{stategy 2 : word2vec\hspace{0cm}}}
+  \only<4>{\phrase{two strategies: find a sequence\hspace{0cm}}}
+  \vspace{.95\textheight}
 \end{frame}
 
 \begin{frame}
@@ -312,11 +311,13 @@
 \end{frame}
 
 \begin{frame}
-  \cimgh{word2vec-1.png}
+  \cimghh{word2vec-1.png}
+  \prevwork{Google}
 \end{frame}
 
 \begin{frame}
   \cimg{word2vec-2.png}
+  \prevwork{Lyst, courtesy Eddie Bell}
 \end{frame}
 
 \begin{frame}
@@ -329,12 +330,12 @@
   % https://www.pexels.com/photo/clouds-girl-mountain-dog-36372/
   % https://static.pexels.com/photos/36372/pexels-photo.jpg
   \cimgw{mtn-dog.jpg}
-  \vspace{-.8\textheight}
-  \only<1>{\phrase{\hspace{7cm}strategie générale : critères}}
-  \only<2>{\phrase{\hspace{7cm}strategie générale : étiqueter}}
-  \only<3>{\phrase{\hspace{6cm}strategie générale : auto-étiqueter}}
-  \only<4>{\phrase{\hspace{7cm}strategie générale : séquences}}
-  \only<5>{\phrase{\hspace{7cm}strategie générale : prédire}}
+  \vspace{-1\textheight}
+  \only<1>{\phrase{\hspace{5cm}General strategy: features}}
+  \only<2>{\phrase{\hspace{5cm}General strategy: labeling}}
+  \only<3>{\phrase{\hspace{4cm}General strategy: auto-labeling}}
+  \only<4>{\phrase{\hspace{5cm}General strategy: sequences}}
+  \only<5>{\phrase{\hspace{5cm}General strategy: prediction}}
   \vspace{.7\textheight}
 \end{frame}
 
@@ -343,9 +344,9 @@
   % https://static.pexels.com/photos/22346/pexels-photo.jpg
   \cimgw{cat.jpg}
   \vspace{-8cm}
-  \only<1>{\phrase{stratégie : étiqueter}}
-  \only<2>{\phrase{stratégie : auto-étiqueter}}
-  \only<3>{\phrase{stratégie : séquence}}
+  \only<1>{\phrase{\hspace{6cm}stategy : labeling}}
+  \only<2>{\phrase{\hspace{6cm}stategy : auto-labeling}}
+  \only<3>{\phrase{\hspace{6cm}stategy : sequences}}
   \vspace{7cm}
 \end{frame}
 
@@ -358,11 +359,11 @@
 \end{frame}
 
 \begin{frame}
-  \cimgw{le2012-person.png}
+  \cimg{le2012-person.png}
 \end{frame}
 
 \begin{frame}
-  \cimgw{cat-detection.jpg}
+  \cimg{cat-detection.jpg}
 \end{frame}
 
 \begin{frame}
@@ -370,9 +371,9 @@
   % https://static.pexels.com/photos/22346/pexels-photo.jpg
   \cimgw{cat.jpg}
   \vspace{-8cm}
-  \only<1>{\phrase{stratégie : ImageNet}}
-  \only<2>{\phrase{stratégie : DGG-19, resnet}}
-  \only<3>{\phrase{stratégie : séquence}}
+  \only<1>{\phrase{\hspace{6cm}stategy : ImageNet}}
+  \only<2>{\phrase{\hspace{6cm}stategy : VGG-19, resnet}}
+  \only<3>{\phrase{\hspace{6cm}stategy : sequences}}
   \vspace{7cm}
 \end{frame}
 
@@ -382,30 +383,6 @@
 
 % ======================================================================
 % End
-
-\begin{frame}
-  \frametitle{Resources}
-  \cimggg{rmlm.png}
-
-  \vspace{5mm}
-  \centerline{\url{https://www.meetup.com/Meetup-Machine-Learning-Rennes/}}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Resources}
-  \cimggg{nmlm.png}
-
-  \vspace{5mm}
-  \centerline{\url{http://www.meetup.com/Nantes-Machine-Learning-Meetup/}}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Resources}
-  \cimggg{ml-week.png}
-
-  \vspace{5mm}
-  \centerline{\url{http://www.ml-week.com/}}
-\end{frame}
 
 \begin{frame}
   % https://www.pexels.com/photo/food-healthy-people-woman-41219/
